@@ -3057,6 +3057,14 @@ static  int     rgiState[2+55];
  
 void init_mm( )
 {
+    int i;
+    
+    /* Initialize the free list to NULL */
+    for (i = 0; i < MAX_MEM_LIST; i++)
+    {
+        rgFreeList[i] = NULL;
+    }
+    
 #if defined (OLD_RAND)
     int *piState;
     int iState;
