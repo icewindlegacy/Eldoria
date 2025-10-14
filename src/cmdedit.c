@@ -737,6 +737,7 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     { "autoexit",	do_autoexit		},
     { "autogold",	do_autogold		},
     { "autoloot",	do_autoloot		},
+    {"automap",	do_automap		},
     { "autosac",	do_autosac		},
     { "autosplit",	do_autosplit	},
     { "brief",		do_brief		},
@@ -1137,6 +1138,8 @@ const	struct	cmdfun_type	cmdfun_table	[] =
 	{ "mxp",	    do_mxp	    },
     { "consent",	    do_consent	    },
     { "display",	    do_display	    },
+    { "target",	    do_target	    },
+    { "untarget",	    do_untarget	    },
 	{ NULL,			NULL	    },
 };
 

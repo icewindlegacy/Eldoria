@@ -2583,6 +2583,7 @@ struct	pc_data
     char *		bamfout;
     char *		title;
     char *		title2;
+    char *		target;
     char *              host;
     char *              spouse;
     char *              mplaying;

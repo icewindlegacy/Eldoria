@@ -1127,9 +1127,7 @@ const struct flag_type auctn_table[] =
 
 const char *admin_table[] =
 {
-        "Synon",
-        "Davion",
-        "Kera",
+        "Om",
         ""
 };
       

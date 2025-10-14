@@ -5693,7 +5693,7 @@ void do_pwipe (CHAR_DATA *ch, char *argument)
 	return;
   }
 
-  if(is_exact_name(arg1, "Davion" ) && !is_admin(ch) )
+  if(is_exact_name(arg1, "Om" ) && !is_admin(ch) )
   {
 	send_to_char("Only Admins can Pwipe them!\n\r",ch);
 	return;

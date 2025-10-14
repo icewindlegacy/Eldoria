@@ -1107,11 +1107,11 @@ void do_display(CHAR_DATA *ch, char *argument)
 
     const char *def_prompts[][2] = {
         { "Stock Rom",  "{c<%hhp %mm %vmv>{x " },
-        { "Colorized Stock Eldoria", "{R%h{whp {M%m{wpm {G%v{wmv {Ytnl: %X{c}>{x "},
-        { "Standard", "{R%h{whp {M%m{wpm {G%v{wmv {Ytnl: %X{c}>{x "},
-        { "Full Featured", "{R%h{w({R%H{w){Whitp {M%m{w({M%M{w){Wmana {G%v{w({G%V{w){Wmove {Ytnl: %X{c}>{x "},
-        { "Non Magic Featured", "{R%h{w(`R%H{w)`Whp {M%m{w(`P%M{w)`Wmana {G%v{w(`G%V{w)`Wmv {Ytnl: %X{c}>{x "},
-        { "Immortal Basic", "[{R%R - %r] [{e]%c [{z] %o "},
+        { "Colorized Stock Eldoria", "{R%h{whp {M%m{wpm {G%v{wmv{c->{x "},
+        { "Standard", "{R%h{whp {M%m{wpm {G%v{wmv {Ytnl: %X{c->{x "},
+        { "Full Featured", "{R%h{w({R%H{w){Whitp {M%m{w({M%M{w){Wmana {G%v{w({G%V{w){Wmove {Ytnl: %X{c->{x "},
+        { "Non Magic Featured", "{R%h{w({R%H{w){Whp {G%v{w({G%V{w){Wmv {Ytnl: %X{c->{x "},
+        { "Immortal Basic", "[%R - %r] [%e]%c [%z] %o "},
         { "\n", "\n"}
     };
 
@@ -2086,6 +2086,17 @@ void do_affects(CHAR_DATA *ch, char *argument )
     }
     else 
 	send_to_char("You are not affected by any spells.\n\r",ch);
+    if ( !IS_NPC(ch) )
+    {
+    	if (ch->pcdata->target[0] != '\0' )
+    	{
+    		sprintf( buf,
+    		"Your current target is : %s.\n\r", ch->pcdata->target);
+    		send_to_char( buf, ch );
+    	}
+    	else 
+    	send_to_char( "You have no current target.\n\r", ch);
+    }
 
     return;
 }
@@ -5560,3 +5571,71 @@ void do_click( CHAR_DATA *ch, char *argument )
      }
 }
 
+void set_target( CHAR_DATA *ch, char *target )
+{
+    char buf[MAX_STRING_LENGTH];
+
+    strcpy( buf, target );
+
+    if (ch->pcdata->target[0] != '\0')
+     	free_string( ch->pcdata->target ); 
+    ch->pcdata->target = str_dup( buf );
+    return;
+}
+
+
+
+void do_target( CHAR_DATA *ch, char *argument)
+{
+  char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+  
+  smash_tilde(argument);
+  one_argument( argument, arg );
+  
+  if ( IS_NPC(ch) )
+  {
+    send_to_char("Targets are for players!\n\r", ch);
+    return;
+  }
+  
+  if ( arg[0] == '\0' )
+  {
+  	
+  	if ( ch->pcdata->target[0] != '\0' ) 
+  	{
+  		sprintf( buf, "Your current target is : %s\n\r", ch->pcdata->target);
+  		send_to_char(buf,ch);
+  		return;
+  	}
+ 
+  	send_to_char("You have no current target.\n\r",ch);
+  	return;
+  	
+  }
+  else
+  {
+  	set_target( ch, arg );
+  	sprintf( buf, "Your new target is : %s\n\r", ch->pcdata->target);
+  	send_to_char( buf, ch );
+  	return;
+  }
+}
+
+void do_untarget(CHAR_DATA *ch, char *argument)
+{
+   if ( IS_NPC(ch) )
+   {
+   	send_to_char("Only players can have targets!\n\r", ch);
+   	return;
+   }
+   
+   if ( ch->pcdata->target[0] == '\0' )
+   {
+   	send_to_char("Your target is not defined at the moment.\n\r", ch);
+   	return;
+   }
+   
+   send_to_char("You remove your current target.\n\r", ch);
+   ch->pcdata->target = strdup("");
+   return;
+}

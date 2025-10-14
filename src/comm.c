@@ -1640,11 +1640,11 @@ void bust_a_prompt( CHAR_DATA *ch )
     switch( ch->desc->editor )
     {
     	case ED_AREA:
-                mxp_to_char( ch, "<SEND href=\"show|done\" hint=\"Show commands|Show|Done\">{DAEDIT>{x</SEND> ", MXP_ALL );
+                mxp_to_char( ch, "<SEND href=\"show|done\" hint=\"Show commands|Show|Done\">{CAEDIT>{x</SEND> ", MXP_ALL );
 //		send_to_char("<AEDIT> ", ch);
 		break;
     	case ED_ROOM:
-                mxp_to_char( ch, "<SEND href=\"show|done|edit room reset|instaroom|purge\" hint=\"Show commands|Show|Finish editing|Reset room|Instaroom|Purge\">{D(REDIT){x</SEND> ", MXP_ALL);
+                mxp_to_char( ch, "<SEND href=\"show|done|edit room reset|instaroom|purge\" hint=\"Show commands|Show|Finish editing|Reset room|Instaroom|Purge\">{C(REDIT){x</SEND> ", MXP_ALL);
 //		send_to_char("<REDIT>", ch);
 		break;
     	case ED_OBJECT:
@@ -1677,18 +1677,19 @@ void bust_a_prompt( CHAR_DATA *ch )
 
     if ( IS_MXP( ch ) )
     {
-        mxp_to_char( ch, "<SEND>{Dlook{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Dinv{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Deq{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Dsc{x</SEND>", MXP_ALL );    
-        mxp_to_char( ch, " <SEND>{Dwho{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Dmap{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Dwizlist{x</SEND>", MXP_ALL );
-        mxp_to_char( ch, " <SEND>{Dscan{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, "<SEND>{Clook{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Cinv{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Ceq{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Csc{x</SEND>", MXP_ALL );    
+        mxp_to_char( ch, " <SEND>{Cwho{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Cmap{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Cwizlist{x</SEND>", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Cscan{x</SEND>", MXP_ALL );
+		mxp_to_char( ch, " <SEND>{Ccommands{x</SEND>", MXP_ALL );
         if ( ch->level < 152 )
-        mxp_to_char( ch, " <SEND>{Dskill{x</SEND>\n\r", MXP_ALL );
+        mxp_to_char( ch, " <SEND>{Cskill{x</SEND>\n\r", MXP_ALL );
         else
-        mxp_to_char( ch, " <SEND>{Dredit{x</SEND>\n\r", MXP_ALL );
+	    mxp_to_char( ch, " <SEND>{Cwizhelp{x</SEND>\n\r", MXP_ALL );
     }       
 
     point = buf;

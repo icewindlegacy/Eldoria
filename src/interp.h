@@ -64,6 +64,7 @@ DECLARE_DO_FUN( do_autoexit	);
 DECLARE_DO_FUN( do_autogold	);
 DECLARE_DO_FUN( do_autolist	);
 DECLARE_DO_FUN( do_autoloot	);
+DECLARE_DO_FUN( do_automap	);
 DECLARE_DO_FUN( do_autosac	);
 DECLARE_DO_FUN( do_autosplit	);
 DECLARE_DO_FUN(	do_backstab	);
@@ -542,4 +543,6 @@ DECLARE_DO_FUN( do_consent      );
 DECLARE_DO_FUN( do_spgate       );
 DECLARE_DO_FUN( do_trade        );
 DECLARE_DO_FUN( do_mxp		);
+DECLARE_DO_FUN( do_target );
+DECLARE_DO_FUN( do_untarget );
 

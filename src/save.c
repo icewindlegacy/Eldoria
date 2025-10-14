@@ -226,6 +226,8 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
     fprintf( fp, "Title2 %s~\n", ch->pcdata->title2);  
     if (ch->pcdata->immtitle != NULL)
     fprintf( fp, "Immtitle %s~\n",  ch->pcdata->immtitle);
+    if ( ch->pcdata->target[0] != '\0' )
+    	fprintf( fp, "Targ %s~\n",	ch->pcdata->target	);
     fprintf( fp, "Hmtown %d\n", ch->hometown            );
     fprintf( fp, "Levl %d\n",	ch->level		);
     if (ch->trust != 0)
@@ -977,6 +979,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->title			= str_dup( "" );
     ch->pcdata->title2                  = str_dup( "" );
     ch->pcdata->immtitle                = str_dup( "" );
+	ch->pcdata->target			= str_dup( "" );
     for (stat =0; stat < MAX_STATS; stat++)
 	ch->perm_stat[stat]		= 13;
     ch->pcdata->condition[COND_THIRST]	= 48; 
@@ -1960,6 +1963,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    break;
 
 	case 'T':
+	        KEY( "Targ",	ch->pcdata->target,	fread_string( fp ) );
             KEY( "Tmout",       ch->pcdata->timeout,    fread_number( fp ) );
             KEY ("TotalTPnts",  ch->pcdata->totaltpoints, fread_number( fp ) );
             KEY( "TrueSex",     ch->pcdata->true_sex,  	fread_number( fp ) );

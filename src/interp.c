@@ -67,6 +67,58 @@ bool				fLogAll		= FALSE;
 
 
 
+/*  Targetting by Whiskey of Myth!, with help from
+     *  Blade of -E-
+     *  $$ converts into ch->pcdata->target
+     */
+
+     char  * parse_target( CHAR_DATA *ch, char *oldstring )
+     {  
+             const 	char 	*str;
+             int		count = 0;
+             char 		*i = NULL; 
+             char 		*point;
+             char 		buf[ MAX_INPUT_LENGTH   ];
+             
+             buf[0]  = '\0';
+             str     = oldstring;
+             point   = buf;
+             while( *str != '\0' )
+             {
+                 if( *str != '$' )
+                 {
+                     count++;
+                     *point++ = *str++;
+                     continue;
+                 }
+     
+             ++str;
+                 if ( *str == '$' && ch->pcdata->target[0] != '\0' )
+                 {
+                    i = strdup(ch->pcdata->target); 
+                     ++str;
+                     while ( ( *point = *i ) != '\0' )
+                         {
+                            ++point, ++i;
+                            count++;
+                            if (count > MAX_INPUT_LENGTH)
+                        {
+                     send_to_char("Target substitution too long; not processed.\r\n",ch);
+                     return oldstring;
+                        }
+                 }
+                 }
+                 else 
+                 {
+                     *point++ = '$'; 
+                  count++;
+                 }
+              }
+         buf[count] = '\0';
+         oldstring = strdup( buf );
+         return oldstring;
+     }
+     
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
@@ -105,7 +157,8 @@ void interpret( CHAR_DATA *ch, char *argument )
 	send_to_char( "You're totally frozen!\n\r", ch );
 	return;
     }
-
+    if ( !IS_NPC(ch) && ch->pcdata->target[0] != '\0')
+    argument = parse_target(ch, argument);
     /*
      * Grab the command word.
      * Special parsing so ' can be a command,
