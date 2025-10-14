@@ -2687,7 +2687,7 @@ void free_mem( void *pMem, int sMem )
     }
     else
     {
-        bug( "Free_mem: invalid pointer %p, not adding to free list", pMem );
+            bugf( "Free_mem: invalid pointer %p, not adding to free list", pMem );
     }
 
     return;
@@ -2711,7 +2711,7 @@ void validate_free_lists( void )
             /* Basic sanity check for the head of the list */
             if ((size_t)rgFreeList[i] < 0x1000)
             {
-                bug("Free list %d has invalid head pointer %p, resetting", i, rgFreeList[i]);
+                bugf("Free list %d has invalid head pointer %p, resetting", i, rgFreeList[i]);
                 rgFreeList[i] = NULL;
                 corrupted_lists++;
                 continue;
@@ -2723,7 +2723,7 @@ void validate_free_lists( void )
             {
                 if ((size_t)*current < 0x1000)
                 {
-                    bug("Free list %d has invalid pointer %p, truncating list", i, *current);
+                    bugf("Free list %d has invalid pointer %p, truncating list", i, *current);
                     *current = NULL;
                     corrupted_lists++;
                     break;
@@ -2735,7 +2735,7 @@ void validate_free_lists( void )
     
     if (corrupted_lists > 0)
     {
-        bug("Validated free lists: %d corrupted lists were repaired", corrupted_lists);
+        bugf("Validated free lists: %d corrupted lists were repaired", corrupted_lists);
     }
 }
 
