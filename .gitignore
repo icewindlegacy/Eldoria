@@ -1,0 +1,30 @@
+# Compiled binaries
+shadow
+
+# Object files
+src/o/*.o
+
+# Backup files
+*.bak
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Player data (excluded for privacy)
+player/
+gods/
