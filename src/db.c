@@ -2622,7 +2622,18 @@ void *alloc_mem( int sMem )
     else
     {
         pMem              = rgFreeList[iList];
-        rgFreeList[iList] = * ((void **) rgFreeList[iList]);
+        /* Safety check: verify the pointer is valid before dereferencing */
+        if ( pMem != NULL && (size_t)pMem >= 0x1000 ) /* Basic sanity check for valid pointer */
+        {
+            rgFreeList[iList] = * ((void **) rgFreeList[iList]);
+        }
+        else
+        {
+            /* Free list is corrupted, allocate new memory and reset the list */
+            bug( "Alloc_mem: corrupted free list for size %d, allocating new memory", rgSizeList[iList] );
+            rgFreeList[iList] = NULL;
+            pMem = alloc_perm( rgSizeList[iList] );
+        }
     }
 
     magic = (int *) pMem;
@@ -2668,10 +2679,64 @@ void free_mem( void *pMem, int sMem )
         exit( 1 );
     }
 
-    * ((void **) pMem) = rgFreeList[iList];
-    rgFreeList[iList]  = pMem;
+    /* Safety check: verify the pointer is valid before using it */
+    if ( pMem != NULL && (size_t)pMem >= 0x1000 ) /* Basic sanity check for valid pointer */
+    {
+        * ((void **) pMem) = rgFreeList[iList];
+        rgFreeList[iList]  = pMem;
+    }
+    else
+    {
+        bug( "Free_mem: invalid pointer %p, not adding to free list", pMem );
+    }
 
     return;
+}
+
+
+/*
+ * Validate and repair free lists if corruption is detected.
+ * This function can be called during initialization or when corruption is suspected.
+ */
+void validate_free_lists( void )
+{
+    int i;
+    void **current;
+    int corrupted_lists = 0;
+    
+    for (i = 0; i < MAX_MEM_LIST; i++)
+    {
+        if (rgFreeList[i] != NULL)
+        {
+            /* Basic sanity check for the head of the list */
+            if ((size_t)rgFreeList[i] < 0x1000)
+            {
+                bug("Free list %d has invalid head pointer %p, resetting", i, rgFreeList[i]);
+                rgFreeList[i] = NULL;
+                corrupted_lists++;
+                continue;
+            }
+            
+            /* Walk through the list and validate each pointer */
+            current = (void **)rgFreeList[i];
+            while (*current != NULL)
+            {
+                if ((size_t)*current < 0x1000)
+                {
+                    bug("Free list %d has invalid pointer %p, truncating list", i, *current);
+                    *current = NULL;
+                    corrupted_lists++;
+                    break;
+                }
+                current = (void **)*current;
+            }
+        }
+    }
+    
+    if (corrupted_lists > 0)
+    {
+        bug("Validated free lists: %d corrupted lists were repaired", corrupted_lists);
+    }
 }
 
 
@@ -3064,6 +3129,9 @@ void init_mm( )
     {
         rgFreeList[i] = NULL;
     }
+    
+    /* Validate free lists to catch any corruption early */
+    validate_free_lists();
     
 #if defined (OLD_RAND)
     int *piState;
