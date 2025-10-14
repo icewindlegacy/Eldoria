@@ -4312,7 +4312,7 @@ void sound_to_room args ( ( const char *fname, CHAR_DATA *ch, bool to_world ) );
 # if defined ( SLCAT )
 #  undef SLCAT
 # endif
-# define SLCAT(str,append)  strlcat ( (str), (append), sizeof ( str ) )
+# define SLCAT(str,append)  strncat ( (str), (append), sizeof ( str ) - strlen ( str ) - 1 )
 
 /* mccp.c */
 #ifdef MCCP_ENABLED

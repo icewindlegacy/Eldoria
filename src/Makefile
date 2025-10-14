@@ -2,7 +2,7 @@ CC      = g++
 PROF    = -ggdb
 NOCRYPT =
 
-C_FLAGS =  -Wall $(PROF) $(NOCRYPT) -Wno-write-strings -Wno-format-truncation -Wno-format-overflow -Wno-array-compare -Wno-address -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-register -Wno-sequence-point -Wno-format-security
+C_FLAGS =  -Wall $(PROF) $(NOCRYPT) -Wno-write-strings -Wno-format-truncation -Wno-format-overflow -Wno-array-compare -Wno-address -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-register -Wno-sequence-point -Wno-format-security -Wno-restrict
 L_FLAGS =  $(PROF)
 LIBS	= -lcrypt -lz
 TARGET	= shadow

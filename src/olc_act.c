@@ -803,8 +803,9 @@ AEDIT( aedit_file )
 
         if (!str_cmp(test->file_name, buf))
         {
-            sprintf(buf,"%s: filename is already taken.", buf);
-            send_to_char(buf,ch);
+            char temp_buf[MSL];
+            sprintf(temp_buf,"%s: filename is already taken.", buf);
+            send_to_char(temp_buf,ch);
             return FALSE;
         }
     }
