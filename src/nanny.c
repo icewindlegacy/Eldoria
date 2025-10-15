@@ -787,7 +787,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 			else
 				iClass = class_lookup(argument);
 			if ( iClass <= -1 || iClass >= MAX_CLASS)
-			{	send_to_char( "\n\r{CThat is not a klass on Eldoria, please choose one that exists.{x\n\r\n\r", ch);
+			{	send_to_char( "\n\r{CThat is not a class on Eldoria, please choose one that exists.{x\n\r\n\r", ch);
 				counter = 1;
 				wrap = 0;
 				send_to_char( "{CThese are your choices{r:{x\n\r",ch);
@@ -811,7 +811,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 				send_to_char("\n\r\n\r{CPlease choose one listed. You can use the name or the corresponding number.\n\rEnter class{W->{x ",ch);
 				return;
 			}
-		    /* check to see if person is already a klass */
+		    /* check to see if person is already a class */
 			if(!IS_SET(ch->act, PLR_REMORT))
 			{	if(ch->pcdata->creation[CHOSE_CLASS] )
 				{	send_to_char("\n\r{r*{CYou've already chosen a class! No Multiclassing till later!{r*\n\r{x\n\r",ch);

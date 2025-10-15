@@ -86,7 +86,7 @@ void do_reclass(CHAR_DATA * ch, char *argument)
 	    sprintf(buf, "You have chosen to reclass.  You will be allowed to pick a new %s\n\r", !ch->pcdata->stay_race ? "RACE" : "CLASS");
 	    send_to_char(buf, ch);
 	    send_to_char("selection section of character creation, and will be allowed recreate\n\r", ch);
-	    send_to_char("your character with an additional klass and bonuses.\n\r\n\r", ch);
+	    send_to_char("your character with an additional class and bonuses.\n\r\n\r", ch);
 	    send_to_char("In the unlikely event that you are disconnected or the MUD\n\r", ch);
 	    send_to_char("crashes while you are creating your character, log back on and write a\n\r", ch);
 	    send_to_char("note to 'immortal' who will retrieve your backup.\n\r", ch);
@@ -166,7 +166,7 @@ void do_reclass(CHAR_DATA * ch, char *argument)
     }
     send_to_char("Typing reclass with an argument will undo reclass status.\n\r", ch);
     send_to_char("Reclassing is not reversable, make sure you read help RECLASS\n\r", ch);
-    send_to_char("and have an idea of what klass you want to reclass into.\n\r", ch);
+    send_to_char("and have an idea of what class you want to reclass into.\n\r", ch);
     send_to_char("Type reclass again to confirm this command.\n\r", ch);
     ch->pcdata->confirm_remort = TRUE;
 	if (!ch->pcdata->stay_race)

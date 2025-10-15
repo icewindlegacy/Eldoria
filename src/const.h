@@ -89,6 +89,7 @@ extern int OBJ_VNUM_BOW;
 extern int OBJ_VNUM_ORE;
 extern int OBJ_VNUM_WHISTLE;
 extern int OBJ_VNUM_TOKEN;
+extern int OBJ_VNUM_PIT;
 extern int OBJ_VNUM_NORMAL;
 extern int OBJ_VNUM_EXPERIENCE;
 extern int OBJ_VNUM_PRACTICE;

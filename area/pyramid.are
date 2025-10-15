@@ -3352,12 +3352,12 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-0
+2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8753
+8755
 0
 Exit
 1
@@ -3368,12 +3368,12 @@ You see only a wall of whirling, blowing, dry sand.
 8754
 0
 Exit
-2
+0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8755
+8753
 0
 Exit
 3
@@ -3401,12 +3401,12 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-1
+0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8755
+8754
 0
 Exit
 2
@@ -3417,7 +3417,7 @@ You see only a wall of whirling, blowing, dry sand.
 8756
 0
 Exit
-3
+1
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
@@ -3425,12 +3425,12 @@ You see only a wall of whirling, blowing, dry sand.
 8755
 0
 Exit
-0
+3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8754
+8755
 0
 EndRoom
 
@@ -3450,22 +3450,6 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-2
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8757
-0
-Exit
-0
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8755
-0
-Exit
 1
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -3480,6 +3464,22 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 -1
 8756
+0
+Exit
+2
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8757
+0
+Exit
+0
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8755
 0
 EndRoom
 
@@ -3507,6 +3507,14 @@ You see only a wall of whirling, blowing, dry sand.
 8757
 0
 Exit
+1
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8757
+0
+Exit
 2
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -3521,14 +3529,6 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 -1
 8756
-0
-Exit
-1
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8757
 0
 EndRoom
 

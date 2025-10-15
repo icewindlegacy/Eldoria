@@ -1444,7 +1444,7 @@ void do_ostat( CHAR_DATA *ch, char *argument )
 
     	case ITEM_ARMOR:
 	    sprintf( buf, 
-	    "Armor klass is %d pierce, %d bash, %d slash, and %d vs. magic\n\r",
+	    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic\n\r",
 	        obj->value[0], obj->value[1], obj->value[2], obj->value[3] );
 	    send_to_char( buf, ch );
 	break;
@@ -3662,7 +3662,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	send_to_char("Syntax:\n\r",ch);
 	send_to_char("  set char <name> <field> <value>\n\r",ch); 
 	send_to_char( "  Field being one of:\n\r",			ch );
-	send_to_char( "    str int wis dex con sex klass level\n\r",	ch );
+	send_to_char( "    str int wis dex con sex class level\n\r",	ch );
 	send_to_char( "    race group gold silver hp mana move prac\n\r",ch);
 	send_to_char( "    align train thirst hunger drunk full\n\r", ch );
         send_to_char( "    questpoints trivia pckill pcdeath mobkill\n\r", ch );
@@ -3835,7 +3835,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
         || (slot == 7 && value == -1 && victim->klass[7] != -1)
         || (slot == 8 && value == -1 && victim->klass[8] != -1) )
 	{
-	    send_to_char("You must turn off next to last klass first.\n\r", ch);
+	    send_to_char("You must turn off next to last class first.\n\r", ch);
 	    return;
 	}
 	if ((slot == 3 && victim->klass[1] == -1) || (slot == 4 && victim->klass[2] == -1) ) 
@@ -6394,7 +6394,7 @@ void do_slist(CHAR_DATA *ch,char *argument)
    }
         if (((skill = skill_lookup(arg1)) == -1) && (cl = class_lookup(arg1)) == -1) 
         {
-        printf_to_char(ch,"That is not a valid klass or skill.\n\r");
+        printf_to_char(ch,"That is not a valid class or skill.\n\r");
         return;
     }
 
@@ -6404,7 +6404,7 @@ void do_slist(CHAR_DATA *ch,char *argument)
             break;
       }
       if (class_name == MAX_CLASS) {
-        send_to_char( "Please spell out the full klass name.\n\r",ch);
+        send_to_char( "Please spell out the full class name.\n\r",ch);
         return;
       } else {
           printf_to_char(ch,"{CAviable skill/spells for the class{c: {W%s{x\n\r", class_table[cl].name);

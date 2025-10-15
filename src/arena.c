@@ -86,7 +86,7 @@ bool start_war(CHAR_DATA * ch, char *argument)
     {
 	send_to_char("Syntax: war start <min_level> <max_level> <type>\n\r"
 	       "where <type> is either:\n\r"
-	       "1 - race war,\n\r2 - klass war,\n\r3 - genocide war,\n\r4 - clan war\n\r",
+	       "1 - race war,\n\r2 - class war,\n\r3 - genocide war,\n\r4 - clan war\n\r",
 	       ch);
 	return FALSE;
     }

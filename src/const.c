@@ -78,6 +78,7 @@ const struct item_type		item_table	[]	=
     {   ITEM_SKELETON,  "skeleton",     },
     {   ITEM_ORE,	"ore",		},
     {   ITEM_SOCKETS,   "sockets",      },
+    {   ITEM_PIT,       "pit",          },
     {   0,		NULL		}
 };
 

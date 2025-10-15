@@ -1099,11 +1099,10 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-sign~
-Written in a spidery script is the following message: This portal will
-take you to the skies near Shalindar's reflection in this world.  A sense of
-the gods of Soren remains there, suitable for exploration by the less
-experienced adventurer.  
+portal~
+An oval of shadow standing a little over 6 feet tall.  A flickering
+silver edges it, the only thing defining the shape.  Near the base of the
+oval, leaning against the shadow-shape itself, is a small sign.  
 ~
 ExtraDesc
 oval~
@@ -1112,10 +1111,11 @@ silver edges it, the only thing defining the shape.  Near the base of the
 oval, leaning against the shadow-shape itself, is a small sign.  
 ~
 ExtraDesc
-portal~
-An oval of shadow standing a little over 6 feet tall.  A flickering
-silver edges it, the only thing defining the shape.  Near the base of the
-oval, leaning against the shadow-shape itself, is a small sign.  
+sign~
+Written in a spidery script is the following message: This portal will
+take you to the skies near Shalindar's reflection in this world.  A sense of
+the gods of Soren remains there, suitable for exploration by the less
+experienced adventurer.  
 ~
 EndObj
 
@@ -1381,13 +1381,13 @@ EndObj
 
 #OBJ
 Vnum 43
-Name {gCloak of {cI{wn{cv{wi{cs{wi{cb{wi{cl{wi{ct{wy~
+Name cloak of invisibilty~
 Short {gCloak of {cI{wn{cv{wi{cs{wi{cb{wi{cl{wi{ct{wy~
 Desc {gA Cloak of {cI{wn{cv{wi{cs{wi{cb{wi{cl{wi{ct{wy {gis lying on the floor here.~
 Material Death~
 Item_type armor
 Extra AXY
-Extra2 0
+Extra2 D
 Wear AS
 Values EIJKN EIJKN EIJKN EIJKN 0
 Level 10
@@ -1395,30 +1395,30 @@ Weight 1
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 0
+Xp_tolevel 1000
 Condition P
 AffectObj
-4 1
+25 0
 AffectObj
-14 50
+25 0
 AffectObj
-12 50
-AffectObj
-13 50
-AffectObj
-5 1
-AffectObj
-3 1
-AffectObj
-1 1
+25 0
 AffectObj
 2 1
 AffectObj
-25 0
+1 1
 AffectObj
-25 0
+3 1
 AffectObj
-25 0
+5 1
+AffectObj
+13 50
+AffectObj
+12 50
+AffectObj
+14 50
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -1429,7 +1429,7 @@ Desc Boots with such intense heat are melting right through the floor here.~
 Material Fire~
 Item_type armor
 Extra GXY
-Extra2 0
+Extra2 D
 Wear AG
 Values A 0 0 0 0
 Level 0
@@ -1437,22 +1437,22 @@ Weight 5
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 0
+Xp_tolevel 1000
 Condition P
 AffectObj
-19 10
-AffectObj
-1 1
-AffectObj
-5 3
-AffectObj
-2 3
-AffectObj
-14 50
+13 50
 AffectObj
 12 50
 AffectObj
-13 50
+14 50
+AffectObj
+2 3
+AffectObj
+5 3
+AffectObj
+1 1
+AffectObj
+19 10
 EndObj
 
 #OBJ
@@ -1465,7 +1465,7 @@ Item_type drink
 Extra XY
 Extra2 0
 Wear AO
-Values -1 -1 'water' 0 0
+Values 999999 999999 'water' 0 0
 Level 152
 Weight 5
 Cost 0
@@ -1483,7 +1483,7 @@ Desc Pads with some shiny tiped spikes are lying here brand spanking new.~
 Material Pure Diamond~
 Item_type armor
 Extra IXY
-Extra2 C
+Extra2 CD
 Wear AI
 Values CEFGHI CEFGHI CEFGHI CEFGHI 0
 Level 0
@@ -1494,17 +1494,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 10
-AffectObj
-18 10
-AffectObj
-1 5
-AffectObj
-13 50
+14 50
 AffectObj
 12 50
 AffectObj
-14 50
+13 50
+AffectObj
+1 5
+AffectObj
+18 10
+AffectObj
+19 10
 EndObj
 
 #OBJ
@@ -1546,7 +1546,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-gold~
+ring~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 ExtraDesc
@@ -1554,7 +1554,7 @@ wedding~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 ExtraDesc
-ring~
+gold~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 EndObj
@@ -1578,15 +1578,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 100
-AffectObj
-13 50
-AffectObj
-12 50
+5 2
 AffectObj
 2 5
 AffectObj
-5 2
+12 50
+AffectObj
+13 50
+AffectObj
+14 100
 EndObj
 
 #OBJ
@@ -1628,43 +1628,43 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 27136
-AffectObj
-18 24253
-AffectObj
-2 62
-AffectObj
-4 60
-AffectObj
-3 59
-AffectObj
-5 60
-AffectObj
-1 60
-AffectObj
-12 31000
-AffectObj
-13 31000
-AffectObj
-20 31000
-AffectObj
-14 31000
-AffectObj
-23 31000
-AffectObj
-24 31000
-AffectObj
-20 31000
-AffectObj
-22 31000
-AffectObj
-21 31000
-AffectObj
-10 10
+27 31000
 AffectObj
 26 31000
 AffectObj
-27 31000
+10 10
+AffectObj
+21 31000
+AffectObj
+22 31000
+AffectObj
+20 31000
+AffectObj
+24 31000
+AffectObj
+23 31000
+AffectObj
+14 31000
+AffectObj
+20 31000
+AffectObj
+13 31000
+AffectObj
+12 31000
+AffectObj
+1 60
+AffectObj
+5 60
+AffectObj
+3 59
+AffectObj
+4 60
+AffectObj
+2 62
+AffectObj
+18 24253
+AffectObj
+19 27136
 EndObj
 
 #OBJ
@@ -1675,7 +1675,7 @@ Desc Some soft looking wings from the sky above are here.~
 Material Feather~
 Item_type armor
 Extra XY
-Extra2 0
+Extra2 D
 Wear AW
 Values BCDFGHJ BCDFGHJ BCDFGHJ BCDFGHJ 0
 Level 0
@@ -1683,16 +1683,16 @@ Weight 5
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 0
+Xp_tolevel 1000
 Condition P
 AffectObj
-4 1
-AffectObj
-5 3
+12 1500
 AffectObj
 13 1500
 AffectObj
-12 1500
+5 3
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -1714,7 +1714,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-wedding~
+ring~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
@@ -1722,7 +1722,7 @@ diamond~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
-ring~
+wedding~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 EndObj
@@ -1746,17 +1746,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 15
-AffectObj
-2 5
-AffectObj
-13 25
-AffectObj
-12 25
+19 20
 AffectObj
 18 20
 AffectObj
-19 20
+12 25
+AffectObj
+13 25
+AffectObj
+2 5
+AffectObj
+1 15
 EndObj
 
 #OBJ
@@ -1778,25 +1778,25 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 50
-AffectObj
-13 50
-AffectObj
-12 50
-AffectObj
-19 10
-AffectObj
-18 10
-AffectObj
-4 1
-AffectObj
-3 1
-AffectObj
-5 1
+1 1
 AffectObj
 2 1
 AffectObj
-1 1
+5 1
+AffectObj
+3 1
+AffectObj
+4 1
+AffectObj
+18 10
+AffectObj
+19 10
+AffectObj
+12 50
+AffectObj
+13 50
+AffectObj
+14 50
 EndObj
 
 #OBJ
@@ -1847,7 +1847,7 @@ Desc A shield of thought is hovering here.~
 Material none~
 Item_type armor
 Extra XY
-Extra2 0
+Extra2 D
 Wear AJ
 Values 0 0 0 0 0
 Level 0
@@ -1855,24 +1855,24 @@ Weight 10
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 0
+Xp_tolevel 1000
 Condition P
 AffectObj
-19 18
-AffectObj
-18 18
-AffectObj
-1 1
-AffectObj
-2 -1
-AffectObj
-5 3
-AffectObj
-14 50
+13 50
 AffectObj
 12 50
 AffectObj
-13 50
+14 50
+AffectObj
+5 3
+AffectObj
+2 -1
+AffectObj
+1 1
+AffectObj
+18 18
+AffectObj
+19 18
 EndObj
 
 #OBJ
@@ -1894,17 +1894,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 3
-AffectObj
-1 2
-AffectObj
-3 2
-AffectObj
-12 50
+14 50
 AffectObj
 13 100
 AffectObj
-14 50
+12 50
+AffectObj
+3 2
+AffectObj
+1 2
+AffectObj
+5 3
 EndObj
 
 #OBJ
@@ -1926,15 +1926,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 10
-AffectObj
-5 10
-AffectObj
-2 20
+12 25000
 AffectObj
 13 25000
 AffectObj
-12 25000
+2 20
+AffectObj
+5 10
+AffectObj
+1 10
 EndObj
 
 #OBJ
@@ -2016,17 +2016,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 17861
-AffectObj
-12 18691
-AffectObj
-20 10000
-AffectObj
-14 20000
+27 30000
 AffectObj
 26 30000
 AffectObj
-27 30000
+14 20000
+AffectObj
+20 10000
+AffectObj
+12 18691
+AffectObj
+13 17861
 EndObj
 
 #OBJ
@@ -2128,13 +2128,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2200
-AffectObj
-18 3500
+13 32500
 AffectObj
 12 25000
 AffectObj
-13 32500
+18 3500
+AffectObj
+19 2200
 EndObj
 
 #OBJ
@@ -2176,13 +2176,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 30000
-AffectObj
-12 30000
+1 5
 AffectObj
 13 30000
 AffectObj
-1 5
+12 30000
+AffectObj
+14 30000
 EndObj
 
 #OBJ
@@ -2286,17 +2286,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 100
-AffectObj
-13 50
-AffectObj
-14 50
-AffectObj
-4 2
+5 1
 AffectObj
 3 2
 AffectObj
-5 1
+4 2
+AffectObj
+14 50
+AffectObj
+13 50
+AffectObj
+12 100
 EndObj
 
 #OBJ
@@ -2367,7 +2367,7 @@ Desc A blue blade dripping with acid is melting the floor here.~
 Material acid~
 Item_type weapon
 Extra XY
-Extra2 0
+Extra2 D
 Wear AN
 Values dagger 19 19 flame HI
 Level 0
@@ -2375,18 +2375,18 @@ Weight 15
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 0
+Xp_tolevel 1000
 Condition P
 AffectObj
-1 5
-AffectObj
-13 50
-AffectObj
-12 50
+19 15
 AffectObj
 18 20
 AffectObj
-19 15
+12 50
+AffectObj
+13 50
+AffectObj
+1 5
 EndObj
 
 #END

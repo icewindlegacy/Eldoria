@@ -102,6 +102,8 @@ void	fread_obj	args( ( CHAR_DATA *ch,  FILE *fp ) );
 void    fread_bobj      args( ( CHAR_DATA *ch,  FILE *fp ) );
 void    fwrite_bobj     args( ( CHAR_DATA *ch, OBJ_DATA *obj, 
                             FILE *fp, int iNest ) ); 
+void    fwrite_obj_donation args( ( OBJ_DATA *obj, FILE *fp, int iNest ) );
+OBJ_DATA *fread_obj_donation args( ( FILE *fp ) );
 
 
 /*
@@ -3352,6 +3354,415 @@ void fread_bobj( CHAR_DATA *ch, FILE *fp )
 	if ( !fMatch )
 	{
 	    bug( "Fread_bobj: no match.", 0 );
+	    fread_to_eol( fp );
+	}
+    }
+}
+
+/*
+ * Donation-specific object save/load functions
+ * These are simplified versions that don't require a character context
+ */
+
+void fwrite_obj_donation(OBJ_DATA *obj, FILE *fp, int iNest)
+{
+    EXTRA_DESCR_DATA *ed;
+    AFFECT_DATA *paf;
+
+    /*
+     * Slick recursion to write lists backwards,
+     *   so loading them will load in forwards order.
+     */
+    if ( obj->next_content != NULL )
+	fwrite_obj_donation( obj->next_content, fp, iNest );
+
+    fprintf( fp, "#O\n" );
+    fprintf( fp, "Vnum %d\n",   obj->pIndexData->vnum        );
+    if (!obj->pIndexData->new_format)
+	fprintf( fp, "Oldstyle\n");
+    if (obj->enchanted)
+	fprintf( fp,"Enchanted\n");
+    if(obj->in_room)
+        fprintf(fp, "Inrm %d\n", obj->in_room->vnum );
+    fprintf( fp, "Nest %d\n",	iNest	  	     );
+    fprintf( fp, "Size   %d\n", obj->size                           ); 
+
+    /* these data are only used if they do not match the defaults */
+    if ( obj->name != obj->pIndexData->name)
+    	fprintf( fp, "Name %s~\n",	obj->name		     );
+    if ( obj->short_descr != obj->pIndexData->short_descr)
+        fprintf( fp, "ShD  %s~\n",	obj->short_descr	     );
+    if ( obj->description != obj->pIndexData->description)
+        fprintf( fp, "Desc %s~\n",	obj->description	     );
+    if ( obj->extra_flags != obj->pIndexData->extra_flags)
+        fprintf( fp, "ExtF %d\n",	obj->extra_flags	     );
+    if ( obj->extra2_flags != obj->pIndexData->extra2_flags)
+        fprintf( fp, "ExtF2 %d\n",       obj->extra2_flags            );
+    if ( obj->wear_flags != obj->pIndexData->wear_flags)
+        fprintf( fp, "WeaF %d\n",	obj->wear_flags		     );
+    if ( obj->item_type != obj->pIndexData->item_type)
+        fprintf( fp, "Ityp %d\n",	obj->item_type		     );
+    if ( obj->weight != obj->pIndexData->weight)
+        fprintf( fp, "Wt   %d\n",	obj->weight		     );
+    if ( obj->condition != obj->pIndexData->condition)
+	fprintf( fp, "Cond %d\n",	obj->condition		     );
+	fprintf( fp, "strap %d\n",	obj->strap_loc		    );
+	if ( obj->belted_vnum > 0 )
+		fprintf( fp, "Belt %d\n", obj->belted_vnum );
+
+    /* variable data */
+    fprintf( fp, "Wear %d\n",   obj->wear_loc                );
+    if (obj->level != obj->pIndexData->level)
+        fprintf( fp, "Lev  %d\n",	obj->level		     );
+    if ( obj->plevel > 0 )
+        fprintf( fp, "Plev %d\n", obj->plevel );
+    if ( obj->exp > 0 )
+        fprintf( fp, "Exp %d\n", obj->exp );
+    if ( obj->xp_tolevel > 0 )
+        fprintf( fp, "Xptolevel %d\n", obj->xp_tolevel );
+    if (obj->timer != 0)
+        fprintf( fp, "Time %d\n",	obj->timer	     );
+    fprintf( fp, "Cost %d\n",	obj->cost		     );
+    if (obj->value[0] != obj->pIndexData->value[0]
+    ||  obj->value[1] != obj->pIndexData->value[1]
+    ||  obj->value[2] != obj->pIndexData->value[2]
+    ||  obj->value[3] != obj->pIndexData->value[3]
+    ||  obj->value[4] != obj->pIndexData->value[4]) 
+    	fprintf( fp, "Val  %d %d %d %d %d\n",
+	    obj->value[0], obj->value[1], obj->value[2], obj->value[3],
+	    obj->value[4]	     );
+   
+    if (obj->valueorig[0] != obj->pIndexData->value[0]
+    ||  obj->valueorig[1] != obj->pIndexData->value[1]
+    ||  obj->valueorig[2] != obj->pIndexData->value[2]
+    ||  obj->valueorig[3] != obj->pIndexData->value[3]
+    ||  obj->valueorig[4] != obj->pIndexData->value[4])       
+     fprintf( fp, "ValOrig  %d %d %d %d %d\n",
+            obj->valueorig[0], obj->valueorig[1], obj->valueorig[2],
+                obj->valueorig[3], obj->valueorig[4]         );
+
+    /* extra descriptions */
+    for ( ed = obj->extra_descr; ed; ed = ed->next )
+    {
+	fprintf( fp, "ExDe %s~\n%s~\n", ed->keyword, ed->description );
+    }
+
+    /* affects */
+    for ( paf = obj->affected; paf; paf = paf->next )
+    {
+	fprintf( fp, "Affc %d %d %d %d %d\n",
+	    paf->type, paf->level, paf->duration, paf->modifier, paf->bitvector );
+    }
+
+    fprintf( fp, "End\n\n" );
+
+    if ( obj->contains != NULL )
+	fwrite_obj_donation( obj->contains, fp, iNest + 1 );
+
+    return;
+}
+
+OBJ_DATA *fread_obj_donation(FILE *fp)
+{
+    OBJ_DATA *obj;
+    OBJ_INDEX_DATA *pObjIndex;
+    EXTRA_DESCR_DATA *ed;
+    AFFECT_DATA *paf;
+    char letter;
+    char *word;
+    bool fMatch;
+    int vnum;
+    int iNest;
+    int in_room_vnum = 0;
+
+    letter = fread_letter( fp );
+    if ( letter != '#' )
+    {
+	bug( "Fread_obj_donation: # not found.", 0 );
+	return NULL;
+    }
+
+    word = fread_word( fp );
+    if ( str_cmp( word, "O" ) )
+    {
+	bug( "Fread_obj_donation: #O not found.", 0 );
+	return NULL;
+    }
+
+    vnum = fread_number( fp );
+    if ( ( pObjIndex = get_obj_index( vnum ) ) == NULL )
+    {
+	bug( "Fread_obj_donation: bad vnum %d.", vnum );
+	return NULL;
+    }
+
+    obj = create_object( pObjIndex, 0 );
+    iNest = 0;
+
+    for ( ; ; )
+    {
+	letter = fread_letter( fp );
+	if ( letter == '*' )
+	{
+	    fread_to_eol( fp );
+	    continue;
+	}
+
+	if ( letter != '#' )
+	{
+	    bug( "Fread_obj_donation: # not found.", 0 );
+	    return NULL;
+	}
+
+	word = fread_word( fp );
+	fMatch = FALSE;
+
+	switch ( word[0] )
+	{
+	case 'A':
+	    if ( !str_cmp( word, "Affc" ) )
+	    {
+		paf = (AFFECT_DATA *)alloc_perm( sizeof(*paf) );
+		paf->type		= fread_number( fp );
+		paf->level		= fread_number( fp );
+		paf->duration		= fread_number( fp );
+		paf->modifier		= fread_number( fp );
+		paf->bitvector		= fread_number( fp );
+		paf->next		= obj->affected;
+		obj->affected		= paf;
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'B':
+	    if ( !str_cmp( word, "Belt" ) )
+	    {
+		obj->belted_vnum = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'C':
+	    if ( !str_cmp( word, "Cond" ) )
+	    {
+		obj->condition = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Cost" ) )
+	    {
+		obj->cost = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'D':
+	    if ( !str_cmp( word, "Desc" ) )
+	    {
+		free_string( obj->description );
+		obj->description = fread_string( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'E':
+	    if ( !str_cmp( word, "End" ) )
+	    {
+		if ( obj->contains != NULL )
+		{
+		    OBJ_DATA *tobj;
+		    tobj = fread_obj_donation( fp );
+		    if ( tobj != NULL )
+			obj_to_obj( tobj, obj );
+		}
+		return obj;
+	    }
+	    if ( !str_cmp( word, "ExDe" ) )
+	    {
+		ed = (EXTRA_DESCR_DATA *)alloc_perm( sizeof(*ed) );
+		ed->keyword		= fread_string( fp );
+		ed->description		= fread_string( fp );
+		ed->next		= obj->extra_descr;
+		obj->extra_descr	= ed;
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "ExtF" ) )
+	    {
+		obj->extra_flags = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "ExtF2" ) )
+	    {
+		obj->extra2_flags = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Exp" ) )
+	    {
+		obj->exp = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Enchanted" ) )
+	    {
+		obj->enchanted = TRUE;
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'I':
+	    if ( !str_cmp( word, "Inrm" ) )
+	    {
+		in_room_vnum = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Ityp" ) )
+	    {
+		obj->item_type = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'L':
+	    if ( !str_cmp( word, "Lev" ) )
+	    {
+		obj->level = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'N':
+	    if ( !str_cmp( word, "Name" ) )
+	    {
+		free_string( obj->name );
+		obj->name = fread_string( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Nest" ) )
+	    {
+		iNest = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'O':
+	    if ( !str_cmp( word, "Oldstyle" ) )
+	    {
+		/* Legacy flag, ignore */
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'P':
+	    if ( !str_cmp( word, "Plev" ) )
+	    {
+		obj->plevel = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'S':
+	    if ( !str_cmp( word, "ShD" ) )
+	    {
+		free_string( obj->short_descr );
+		obj->short_descr = fread_string( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Size" ) )
+	    {
+		obj->size = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "strap" ) )
+	    {
+		obj->strap_loc = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'T':
+	    if ( !str_cmp( word, "Time" ) )
+	    {
+		obj->timer = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'V':
+	    if ( !str_cmp( word, "Val" ) )
+	    {
+		obj->value[0] = fread_number( fp );
+		obj->value[1] = fread_number( fp );
+		obj->value[2] = fread_number( fp );
+		obj->value[3] = fread_number( fp );
+		obj->value[4] = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "ValOrig" ) )
+	    {
+		obj->valueorig[0] = fread_number( fp );
+		obj->valueorig[1] = fread_number( fp );
+		obj->valueorig[2] = fread_number( fp );
+		obj->valueorig[3] = fread_number( fp );
+		obj->valueorig[4] = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'W':
+	    if ( !str_cmp( word, "Wear" ) )
+	    {
+		obj->wear_loc = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "WeaF" ) )
+	    {
+		obj->wear_flags = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    if ( !str_cmp( word, "Wt" ) )
+	    {
+		obj->weight = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+
+	case 'X':
+	    if ( !str_cmp( word, "Xptolevel" ) )
+	    {
+		obj->xp_tolevel = fread_number( fp );
+		fMatch = TRUE;
+		break;
+	    }
+	    break;
+	}
+
+	if ( !fMatch )
+	{
+	    bug( "Fread_obj_donation: no match.", 0 );
 	    fread_to_eol( fp );
 	}
     }

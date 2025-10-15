@@ -55,7 +55,7 @@ struct quest_type
 #define QUEST_ARMS 46
 #define QUEST_AURA 234
 #define QUEST_LEGGINGS 233
-#define QUEST_SWORD 213
+#define QUEST_SWORD 235
 #define QUEST_BPLATE 212
 #define QUEST_BOOTS 44
 #define QUEST_MASK 211
@@ -92,7 +92,7 @@ const struct quest_type quest_table[] = {
     {"shield", "{YShield{W of {RThought{x", QUEST_SHIELD, 1500},
     {"regeneration", "{YRing{W of {RRegeneration{x", QUEST_REGEN, 700},
     {"invisibility", "{YCloak{W of {RInvisibility{x", QUEST_INVIS, 500},
-    {"dagger", "{GDagger of Acidx", QUEST_DAGGER, 1500},
+    {"dagger", "{GDagger of Acid{x", QUEST_DAGGER, 1500},
     {"deed", "{WAn {YOfficial {RDeed{x", QUEST_DEED, 500},
     {"decanter", "{CDecanter of Endless Water{x", QUEST_DECANT, 500},
     {"shoulder", "{CPads with diamond spiked tips{x", QUEST_ARMS, 2000},

@@ -1702,6 +1702,7 @@ struct wearloc_type
 #define ITEM_SKELETON                43
 #define ITEM_ORE		     44
 #define ITEM_SOCKETS                 45
+#define ITEM_PIT                     46
 
 /*
  * Material types

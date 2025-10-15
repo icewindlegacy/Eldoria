@@ -73,9 +73,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 2
-AffectObj
 4 2
+AffectObj
+5 2
 EndObj
 
 #OBJ
@@ -117,9 +117,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 15
-AffectObj
 19 15
+AffectObj
+18 15
 EndObj
 
 #OBJ
@@ -141,11 +141,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 2
+3 2
 AffectObj
 4 2
 AffectObj
-3 2
+1 2
 EndObj
 
 #OBJ
@@ -167,9 +167,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 18 2
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -191,9 +191,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 100
-AffectObj
 4 -2
+AffectObj
+14 100
 EndObj
 
 #OBJ
@@ -235,7 +235,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-stone~
+opal~
+Brilliant light eminates from this opal enfused with the great powers of
+good that Synon controls.  
+afk
+~
+ExtraDesc
+charm~
 Enfused with the goodness of {WSynon{0, this beautifully radiant {Wopal{0
 shines with a bright clear light.  
 ~
@@ -245,22 +251,16 @@ Enfused with the goodness of {WSynon{0, this beautifully radiant {Wopal{0
 shines with a bright clear light.  
 ~
 ExtraDesc
-charm~
+stone~
 Enfused with the goodness of {WSynon{0, this beautifully radiant {Wopal{0
 shines with a bright clear light.  
 ~
-ExtraDesc
-opal~
-Brilliant light eminates from this opal enfused with the great powers of
-good that Synon controls.  
-afk
-~
 AffectObj
-3 2
+18 5
 AffectObj
 19 5
 AffectObj
-18 5
+3 2
 EndObj
 
 #OBJ
@@ -282,12 +282,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-stone~
-{8Darkness{0 flows over the shiny {8black onyx{0 surface, a strange dark
-light seeping from it's middle to reveal the paths of {8Davion{0.  
-~
-ExtraDesc
-symbol~
+onyx~
 {8Darkness{0 flows over the shiny {8black onyx{0 surface, a strange dark
 light seeping from it's middle to reveal the paths of {8Davion{0.  
 ~
@@ -297,16 +292,21 @@ charm~
 light seeping from it's middle to reveal the paths of {8Davion{0.  
 ~
 ExtraDesc
-onyx~
+symbol~
+{8Darkness{0 flows over the shiny {8black onyx{0 surface, a strange dark
+light seeping from it's middle to reveal the paths of {8Davion{0.  
+~
+ExtraDesc
+stone~
 {8Darkness{0 flows over the shiny {8black onyx{0 surface, a strange dark
 light seeping from it's middle to reveal the paths of {8Davion{0.  
 ~
 AffectObj
-18 5
+3 2
 AffectObj
 19 5
 AffectObj
-3 2
+18 5
 EndObj
 
 #OBJ
@@ -328,14 +328,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-jet~
+charm~
 A polished {8jet {0stone, strangely burning brightly with a {rdeep red{0
 flame.  With the strength and power of {RSh{rad{bow{rFi{Rre{0.
-~
-ExtraDesc
-stone~
-A polished {8jet {0stone, strangely burning brightly with a {rdeep red{0
-flame.  With the strength and power of {RSh{rad{bow{rFi{Rre{0.  
 ~
 ExtraDesc
 symbol~
@@ -343,16 +338,21 @@ A polished {8jet {0stone, strangely burning brightly with a {rdeep red{0
 flame.  With the strength and power of {RSh{rad{bow{rFi{Rre{0.  
 ~
 ExtraDesc
-charm~
+stone~
+A polished {8jet {0stone, strangely burning brightly with a {rdeep red{0
+flame.  With the strength and power of {RSh{rad{bow{rFi{Rre{0.  
+~
+ExtraDesc
+jet~
 A polished {8jet {0stone, strangely burning brightly with a {rdeep red{0
 flame.  With the strength and power of {RSh{rad{bow{rFi{Rre{0.
 ~
 AffectObj
-3 2
+18 5
 AffectObj
 19 5
 AffectObj
-18 5
+3 2
 EndObj
 
 #OBJ
@@ -374,12 +374,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-stone~
-Glowing with a dim light, this crystal gives no more protection than an
-empty waterskin.  
-~
-ExtraDesc
-symbol~
+crystal~
 Glowing with a dim light, this crystal gives no more protection than an
 empty waterskin.  
 ~
@@ -389,16 +384,21 @@ Glowing with a dim light, this crystal gives no more protection than an
 empty waterskin.  
 ~
 ExtraDesc
-crystal~
+symbol~
+Glowing with a dim light, this crystal gives no more protection than an
+empty waterskin.  
+~
+ExtraDesc
+stone~
 Glowing with a dim light, this crystal gives no more protection than an
 empty waterskin.  
 ~
 AffectObj
-19 5
+3 2
 AffectObj
 18 5
 AffectObj
-3 2
+19 5
 EndObj
 
 #OBJ
@@ -420,7 +420,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-stone~
+charm~
 to be added
 ~
 ExtraDesc
@@ -428,15 +428,15 @@ symbol~
 to be added
 ~
 ExtraDesc
-charm~
+stone~
 to be added
 ~
 AffectObj
-3 2
+18 5
 AffectObj
 19 5
 AffectObj
-18 5
+3 2
 EndObj
 
 #OBJ
@@ -458,9 +458,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 4
-AffectObj
 18 4
+AffectObj
+19 4
 EndObj
 
 #OBJ
@@ -482,9 +482,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 4
-AffectObj
 18 4
+AffectObj
+19 4
 EndObj
 
 #OBJ
@@ -506,9 +506,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -530,9 +530,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -554,9 +554,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -578,9 +578,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -602,9 +602,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -626,9 +626,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 19 4
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -650,9 +650,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 10
-AffectObj
 19 3
+AffectObj
+13 10
 EndObj
 
 #OBJ
@@ -694,9 +694,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 10
-AffectObj
 13 5
+AffectObj
+12 10
 EndObj
 
 #OBJ
@@ -718,9 +718,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 5
-AffectObj
 18 5
+AffectObj
+12 5
 EndObj
 
 #OBJ
@@ -742,9 +742,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 15
-AffectObj
 19 3
+AffectObj
+13 15
 EndObj
 
 #OBJ
@@ -766,9 +766,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 2
-AffectObj
 20 -5
+AffectObj
+2 2
 EndObj
 
 #OBJ
@@ -790,11 +790,71 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 10
+4 2
 AffectObj
 1 5
 AffectObj
-4 2
+13 10
+EndObj
+
+#OBJ
+Vnum 233
+Name leggins of the gods aquest~
+Short {YThe{W leggings of the {RGods{x~
+Desc {YThe{W leggings of the {RGods{x are lying here~
+Material ether~
+Item_type armor
+Extra ABGSXY
+Extra2 D
+Wear AF
+Values 0 0 0 0 0
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 1000
+Condition P
+EndObj
+
+#OBJ
+Vnum 234
+Name aura~
+Short {YAura{W of {RSanctuary{x~
+Desc The {YAura{W of {RSanctuary{x is lying here~
+Material ether~
+Item_type armor
+Extra X
+Extra2 D
+Wear AQ
+Values 0 0 0 0 0
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
+Vnum 235
+Name sword of the ancients~
+Short {YSword{W of the {RAncients{x~
+Desc {YSword{W of the {RAncients{x~
+Material ether~
+Item_type weapon
+Extra ABGSXY
+Extra2 D
+Wear AN
+Values sword 0 0 divine AEI
+Level 0
+Weight 3
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 1000
+Condition P
 EndObj
 
 #END

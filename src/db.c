@@ -225,6 +225,7 @@ int OBJ_VNUM_BOW;
 int OBJ_VNUM_ORE;
 int OBJ_VNUM_WHISTLE;
 int OBJ_VNUM_TOKEN;
+int OBJ_VNUM_PIT;
 int OBJ_VNUM_NORMAL;
 int OBJ_VNUM_EXPERIENCE;
 int OBJ_VNUM_PRACTICE;
@@ -299,6 +300,10 @@ void    fix_roomprogs   args( ( void ) );
 void    load_guilds     args( ( void ) ); /* guilds.c */
 void	reset_area	args( ( AREA_DATA * pArea ) );
 void    load_pets       args( ( void ) );
+void    save_donation_pits args( ( void ) );
+void    load_donation_pits args( ( void ) );
+void    save_tokens     args( ( void ) );
+void    load_tokens     args( ( void ) );
 
 /*
  * Big mama top level function.
@@ -502,6 +507,11 @@ void boot_db()
 	trivia->reward = 0;;
 	trivia->qnumber = 0;     
     }
+
+    /* Load donation system */
+    log_string( "Loading donation system." );
+    load_donation_pits();
+    load_tokens();
 
     return;
 }

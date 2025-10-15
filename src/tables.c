@@ -543,6 +543,7 @@ const struct flag_type type_flags[] =
     {   "skeleton",             ITEM_SKELETON,          TRUE    },
     {   "ore",			ITEM_ORE,		TRUE    },
     {   "sockets",              ITEM_SOCKETS,           TRUE    },
+    {   "pit",                  ITEM_PIT,               TRUE    },
     { 	NULL, 			0, 			0 	}
 };
 
@@ -1199,6 +1200,7 @@ const struct vnum_type vnum_table[] =
 	{	&OBJ_VNUM_BOW,				VNUM_OBJ },
 	{	&OBJ_VNUM_WHISTLE,			VNUM_OBJ },
 	{	&OBJ_VNUM_TOKEN,				VNUM_OBJ },
+	{	&OBJ_VNUM_PIT,				VNUM_OBJ },
 	{	&OBJ_VNUM_NORMAL,			VNUM_OBJ },
 	{	&OBJ_VNUM_EXPERIENCE,		VNUM_OBJ },
 	{	&OBJ_VNUM_PRACTICE,			VNUM_OBJ },

@@ -3627,7 +3627,7 @@ void do_lore( CHAR_DATA *ch, char *argument )
 
         case ITEM_ARMOR:
             sprintf( buf,
-            "Armor klass is %d pierce, %d bash, %d slash, and %d vs.magic\n\r",
+            "Armor class is %d pierce, %d bash, %d slash, and %d vs.magic\n\r",
                 obj->value[0], obj->value[1], obj->value[2], obj->value[3] );
             send_to_char( buf, ch );
         break;

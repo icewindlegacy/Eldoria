@@ -1139,6 +1139,107 @@ Exit
 0
 EndRoom
 
+#ROOM
+Vnum 10655
+Name Om's Home~
+Desc ~
+Room_flags 0
+Sector_type 0
+X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+0
+~
+~
+0
+10657
+0
+Exit
+1
+~
+~
+0
+10658
+0
+Exit
+2
+~
+~
+0
+10659
+0
+Exit
+3
+~
+~
+0
+10656
+0
+EndRoom
+
+#ROOM
+Vnum 10656
+Name Om's Home~
+Desc ~
+Room_flags 0
+Sector_type 0
+X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+1
+~
+~
+0
+10655
+0
+EndRoom
+
+#ROOM
+Vnum 10657
+Name Om's Home~
+Desc ~
+Room_flags 0
+Sector_type 0
+X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+2
+~
+~
+0
+10655
+0
+EndRoom
+
+#ROOM
+Vnum 10658
+Name Om's Home~
+Desc ~
+Room_flags 0
+Sector_type 0
+X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+3
+~
+~
+0
+10655
+0
+EndRoom
+
+#ROOM
+Vnum 10659
+Name Om's Home~
+Desc ~
+Room_flags 0
+Sector_type 0
+X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+0
+~
+~
+0
+10655
+0
+EndRoom
+
 #END
 
 
