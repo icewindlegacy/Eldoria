@@ -2625,12 +2625,21 @@ void *alloc_mem( int sMem )
         /* Safety check: verify the pointer is valid before dereferencing */
         if ( pMem != NULL && (size_t)pMem >= 0x1000 ) /* Basic sanity check for valid pointer */
         {
-            rgFreeList[iList] = * ((void **) rgFreeList[iList]);
+            /* Additional safety: validate the memory region is readable */
+            /* Check if the pointer is aligned and within reasonable bounds */
+            if ( ((size_t)pMem & 0x7) == 0 && (size_t)pMem < 0x7fffffffffff ) {
+                rgFreeList[iList] = * ((void **) rgFreeList[iList]);
+            } else {
+                /* Pointer appears corrupted, reset the free list */
+                bugf( "Alloc_mem: invalid pointer alignment or bounds %p in free list %d, resetting", pMem, iList );
+                rgFreeList[iList] = NULL;
+                pMem = alloc_perm( rgSizeList[iList] );
+            }
         }
         else
         {
             /* Free list is corrupted, allocate new memory and reset the list */
-            bug( "Alloc_mem: corrupted free list for size %d, allocating new memory", rgSizeList[iList] );
+            bugf( "Alloc_mem: corrupted free list for size %d, allocating new memory", rgSizeList[iList] );
             rgFreeList[iList] = NULL;
             pMem = alloc_perm( rgSizeList[iList] );
         }
@@ -2786,6 +2795,9 @@ char *str_dup( const char *str )
 {
     char *str_new;
 
+    if ( str == NULL )
+	return &str_empty[0];
+
     if ( str[0] == '\0' )
 	return &str_empty[0];
 
@@ -2793,6 +2805,11 @@ char *str_dup( const char *str )
 	return (char *) str;
 
     str_new = (char *)alloc_mem( strlen(str) + 1 );
+    if ( str_new == NULL )
+    {
+        bugf( "str_dup: alloc_mem failed for string '%s'", str );
+        return &str_empty[0];
+    }
     strcpy( str_new, str );
     return str_new;
 }
