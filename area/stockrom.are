@@ -1395,7 +1395,7 @@ Weight 1
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 AffectObj
 25 0
@@ -1437,7 +1437,7 @@ Weight 5
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 AffectObj
 13 50
@@ -1683,7 +1683,7 @@ Weight 5
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 AffectObj
 12 1500
@@ -1855,7 +1855,7 @@ Weight 10
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 AffectObj
 13 50
@@ -2375,7 +2375,7 @@ Weight 15
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 AffectObj
 19 15

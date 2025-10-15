@@ -813,7 +813,7 @@ Weight 0
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 EndObj
 
@@ -853,7 +853,7 @@ Weight 3
 Cost 0
 Plevel 0
 Exp 0
-Xp_tolevel 1000
+Xp_tolevel 0
 Condition P
 EndObj
 

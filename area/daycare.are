@@ -930,13 +930,6 @@ Room_flags 9
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-~
-~
--1
-6614
-0
-Exit
 2
 ~
 ~
@@ -950,6 +943,13 @@ Exit
 -1
 6612
 0
+Exit
+1
+~
+~
+-1
+6614
+0
 EndRoom
 
 #ROOM
@@ -961,18 +961,18 @@ Room_flags 9
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-~
-~
--1
-6616
-0
-Exit
 3
 ~
 ~
 -1
 6613
+0
+Exit
+2
+~
+~
+-1
+6616
 0
 EndRoom
 
@@ -1009,18 +1009,18 @@ Room_flags 9
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-~
-~
--1
-6614
-0
-Exit
 2
 ~
 ~
 -1
 6624
+0
+Exit
+0
+~
+~
+-1
+6614
 0
 Exit
 3

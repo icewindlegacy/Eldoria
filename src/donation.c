@@ -80,7 +80,7 @@ void save_donation_pits(void)
 {
     FILE *fp;
     ROOM_INDEX_DATA *room;
-    OBJ_DATA *obj;
+    OBJ_DATA *obj, *pit;
     int vnum;
 
     if ((fp = fopen(DONATION_FILE, "w")) == NULL)

@@ -61,6 +61,8 @@ void    olcautosave     args( ( void ) );
 void    who_html_update args( ( void ) );
 void    save_area       args( ( AREA_DATA *pArea ) );      
 void    save_area_list  args( ( void ) );
+void    save_donation_pits args( ( void ) );
+void    save_tokens     args( ( void ) );
 void    gain_self_exp   args( ( CHAR_DATA *ch, int gain ) );
 void    gain_bloodthirst args( ( CHAR_DATA *ch, int value ) );
 void    check_werewolf  args( ( ) );
@@ -1497,6 +1499,8 @@ void olcautosave( void )
 	save_email();
 	save_skills_table();
 	save_religion();
+	save_donation_pits();
+	save_tokens();
 
         for ( d = descriptor_list; d != NULL; d = d->next )
         {
