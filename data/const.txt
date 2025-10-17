@@ -94,5 +94,6 @@ VNUM_START                     10600
 VNUM_STOP                      12600
 OBJ_VNUM_DIAMOND_RING          53
 OBJ_VNUM_WEDDING_BAND          48
+OBJ_VNUM_PIT                   3008
 MIN_LEVEL_MARRY                20
 End

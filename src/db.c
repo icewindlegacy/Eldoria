@@ -302,6 +302,8 @@ void	reset_area	args( ( AREA_DATA * pArea ) );
 void    load_pets       args( ( void ) );
 void    save_donation_pits args( ( void ) );
 void    load_donation_pits args( ( void ) );
+void    save_pits       args( ( void ) );
+void    load_pits       args( ( void ) );
 void    save_tokens     args( ( void ) );
 void    load_tokens     args( ( void ) );
 
@@ -508,10 +510,8 @@ void boot_db()
 	trivia->qnumber = 0;     
     }
 
-    /* Load donation system */
-    log_string( "Loading donation system." );
-    load_donation_pits();
-    load_tokens();
+    /* Load donation system - only during copyover recovery (see comm.c)
+     * During normal boot, donation rooms/pits start empty */
 
     return;
 }

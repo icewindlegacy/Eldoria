@@ -1668,6 +1668,7 @@ const struct const_type const_table[] =
 	{   "VNUM_STOP",			        &VNUM_STOP	},
         {   "OBJ_VNUM_DIAMOND_RING",                    &OBJ_VNUM_DIAMOND_RING },
         {   "OBJ_VNUM_WEDDING_BAND",                    &OBJ_VNUM_WEDDING_BAND	},
+        {   "OBJ_VNUM_PIT",                             &OBJ_VNUM_PIT },
         {   "MIN_LEVEL_MARRY",				&MIN_LEVEL_MARRY },
 	{	NULL,							0							}
 };

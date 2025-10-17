@@ -3474,8 +3474,12 @@ OBJ_DATA *fread_obj_donation(FILE *fp)
     int vnum;
     int iNest;
     int in_room_vnum = 0;
+    char buf[256];
 
     letter = fread_letter( fp );
+    sprintf(buf, "DEBUG fread_obj_donation: Read letter '%c' (0x%02x)", letter, (unsigned char)letter);
+    log_string(buf);
+    
     if ( letter != '#' )
     {
 	bug( "Fread_obj_donation: # not found.", 0 );
@@ -3483,13 +3487,39 @@ OBJ_DATA *fread_obj_donation(FILE *fp)
     }
 
     word = fread_word( fp );
+    sprintf(buf, "DEBUG fread_obj_donation: After #, read word '%s'", word);
+    log_string(buf);
+    
     if ( str_cmp( word, "O" ) )
     {
-	bug( "Fread_obj_donation: #O not found.", 0 );
+	/* Could be #END marker */
+	if ( !str_cmp( word, "END" ) )
+	{
+	    log_string("DEBUG fread_obj_donation: Found #END, returning NULL");
+	    return NULL;  /* Normal end of file */
+	}
+	sprintf(buf, "Fread_obj_donation: #O not found, got %s", word);
+	bug( buf, 0 );
 	return NULL;
     }
 
+    log_string("DEBUG fread_obj_donation: Found #O, reading Vnum keyword");
+    
+    /* Read "Vnum" keyword */
+    word = fread_word( fp );
+    sprintf(buf, "DEBUG fread_obj_donation: Read Vnum keyword: '%s'", word);
+    log_string(buf);
+    
+    if ( str_cmp( word, "Vnum" ) )
+    {
+	sprintf(buf, "Fread_obj_donation: Vnum keyword not found, got %s", word);
+	bug( buf, 0 );
+	return NULL;
+    }
+    
     vnum = fread_number( fp );
+    sprintf(buf, "DEBUG fread_obj_donation: Read vnum %d", vnum);
+    log_string(buf);
     if ( ( pObjIndex = get_obj_index( vnum ) ) == NULL )
     {
 	bug( "Fread_obj_donation: bad vnum %d.", vnum );
@@ -3508,12 +3538,9 @@ OBJ_DATA *fread_obj_donation(FILE *fp)
 	    continue;
 	}
 
-	if ( letter != '#' )
-	{
-	    bug( "Fread_obj_donation: # not found.", 0 );
-	    return NULL;
-	}
-
+	/* Put the letter back - it's part of the keyword */
+	ungetc( letter, fp );
+	
 	word = fread_word( fp );
 	fMatch = FALSE;
 
@@ -3572,14 +3599,22 @@ OBJ_DATA *fread_obj_donation(FILE *fp)
 	case 'E':
 	    if ( !str_cmp( word, "End" ) )
 	    {
-		if ( obj->contains != NULL )
+		/* Set the room if Inrm was specified */
+		if ( in_room_vnum > 0 )
 		{
-		    OBJ_DATA *tobj;
-		    tobj = fread_obj_donation( fp );
-		    if ( tobj != NULL )
-			obj_to_obj( tobj, obj );
+		    obj->in_room = get_room_index( in_room_vnum );
+		    if ( obj->in_room == NULL )
+			bug( "Fread_obj_donation: invalid room vnum %d", in_room_vnum );
 		}
-		return obj;
+		
+		/* Handle nesting - link to parent if iNest > 0 */
+		if ( iNest > 0 && rgObjNest[iNest-1] != NULL )
+		{
+		    obj_to_obj( obj, rgObjNest[iNest-1] );
+		    return NULL; /* Nested object, don't return to caller */
+		}
+		
+		return obj; /* Top-level object */
 	    }
 	    if ( !str_cmp( word, "ExDe" ) )
 	    {
@@ -3652,6 +3687,14 @@ OBJ_DATA *fread_obj_donation(FILE *fp)
 	    if ( !str_cmp( word, "Nest" ) )
 	    {
 		iNest = fread_number( fp );
+		if ( iNest < 0 || iNest >= MAX_NEST )
+		{
+		    bug( "Fread_obj_donation: bad nest %d.", iNest );
+		}
+		else
+		{
+		    rgObjNest[iNest] = obj;
+		}
 		fMatch = TRUE;
 		break;
 	    }

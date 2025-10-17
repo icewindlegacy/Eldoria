@@ -60,148 +60,327 @@
 #include <time.h>
 #include <malloc.h>
 #include "merc.h"
+#include "const.h"
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
 
-#define DONATION_FILE "donation.dat"
-#define TOKENS_FILE "tokens.dat"
+#define DONATION_FILE "../area/donation.dat"
+#define PITS_FILE "../area/pits.dat"
+#define TOKENS_FILE "../area/tokens.dat"
 
 void save_donation_pits(void);
 void load_donation_pits(void);
+void save_pits(void);
+void load_pits(void);
 void save_tokens(void);
 void load_tokens(void);
-/* from save.c */
-void     fwrite_obj_donation(OBJ_DATA *obj, FILE *fp, int iNest);
-OBJ_DATA *fread_obj_donation(FILE *fp);
+/* from save.c and handler.c - use the standard working functions */
+void    fwrite_obj  args( ( CHAR_DATA *ch,  OBJ_DATA  *obj, FILE *fp, int iNest ) );
+void    fread_obj   args( ( CHAR_DATA *ch,  FILE *fp ) );
+void    obj_from_room args( ( OBJ_DATA *obj ) );
+void    obj_to_obj  args( ( OBJ_DATA *obj, OBJ_DATA *obj_to ) );
 
 
 void save_donation_pits(void)
 {
     FILE *fp;
-    ROOM_INDEX_DATA *room;
-    OBJ_DATA *obj, *pit;
-    int vnum;
+    OBJ_DATA *obj;
+    int obj_count = 0;
+    char buf[MAX_STRING_LENGTH];
 
     if ((fp = fopen(DONATION_FILE, "w")) == NULL)
     { bug("save_donation_pits: fopen", 0); return; }
 
-    for (vnum = 0; vnum <= top_vnum_room; vnum++)
+    log_string("save_donation_pits: Saving donation room objects");
+
+    /* Use object_list approach like pits and tokens */
+    for (obj = object_list; obj != NULL; obj = obj->next)
     {
-        room = get_room_index(vnum);
-        if (!room) continue;
-
-#ifdef ROOM_DONATION
-        if (IS_SET(room->room_flags, ROOM_DONATION))
+        /* Save objects in donation rooms, but NOT tokens (saved separately) */
+        if (obj->in_room != NULL && 
+            IS_SET(obj->in_room->room_flags, ROOM_DONATION) &&
+            obj->item_type != ITEM_TOKEN)
         {
-            for (obj = room->contents; obj; obj = obj->next_content)
-                fwrite_obj_donation(obj, fp, 0);
+            sprintf(buf, "save_donation_pits: Saving object vnum %d from donation room %d", 
+                    obj->pIndexData->vnum, obj->in_room->vnum);
+            log_string(buf);
+            
+            /* Temporarily break next_content to prevent recursion */
+            OBJ_DATA *saved_next = obj->next_content;
+            obj->next_content = NULL;
+            
+            fwrite_obj(NULL, obj, fp, 0);
+            
+            /* Restore */
+            obj->next_content = saved_next;
+            
+            obj_count++;
         }
-#endif
-
-#ifdef OBJ_VNUM_PIT
-        for (pit = room->contents; pit; pit = pit->next_content)
-            if (pit->pIndexData->vnum == OBJ_VNUM_PIT)
-                for (obj = pit->contains; obj; obj = obj->next_content)
-                    fwrite_obj_donation(obj, fp, 0);
-#endif
     }
 
     fprintf(fp, "#END\n");
     fclose(fp);
+    
+    sprintf(buf, "save_donation_pits: Saved %d objects from donation rooms", obj_count);
+    log_string(buf);
+}
+
+void save_pits(void)
+{
+    FILE *fp;
+    OBJ_DATA *pit;
+    int pit_count = 0;
+    int obj_count = 0;
+    char buf[MAX_STRING_LENGTH];
+
+    if (OBJ_VNUM_PIT <= 0)
+        return; /* Pits not configured */
+
+    if ((fp = fopen(PITS_FILE, "w")) == NULL)
+    { bug("save_pits: fopen", 0); return; }
+
+    log_string("save_pits: Saving pit contents");
+
+    /* Iterate through global object list to find pits */
+    for (pit = object_list; pit != NULL; pit = pit->next)
+    {
+        /* Only save contents of pits that are in rooms */
+        if (pit->pIndexData->vnum != OBJ_VNUM_PIT)
+            continue;
+        if (pit->in_room == NULL)
+            continue;
+        
+        /* Save each object IN the pit, with room info */
+        OBJ_DATA *obj;
+        for (obj = pit->contains; obj; obj = obj->next_content)
+        {
+            OBJ_DATA *obj_next;
+            pit_count++;
+            sprintf(buf, "save_pits: Saving object vnum %d from pit in room %d", 
+                    obj->pIndexData->vnum, pit->in_room->vnum);
+            log_string(buf);
+            
+            /* Temporarily set in_room so fread_obj can place it */
+            obj_next = obj->next_content;
+            obj->next_content = NULL; /* Don't recurse - we're looping ourselves */
+            
+            /* Save which room's pit this came from */
+            fprintf(fp, "PitRoom %d\n", pit->in_room->vnum);
+            
+            /* Temporarily set in_room for save */
+            ROOM_INDEX_DATA *saved_in_room = obj->in_room;
+            OBJ_DATA *saved_in_obj = obj->in_obj;
+            obj->in_room = pit->in_room; /* Set room so fread_obj can load it */
+            obj->in_obj = NULL;
+            
+            fwrite_obj(NULL, obj, fp, 0);
+            
+            /* Restore */
+            obj->in_room = saved_in_room;
+            obj->in_obj = saved_in_obj;
+            obj->next_content = obj_next;
+            
+            obj_count++;
+        }
+    }
+
+    fprintf(fp, "#END\n");
+    fclose(fp);
+    
+    sprintf(buf, "save_pits: Saved %d objects from pits",
+            obj_count);
+    log_string(buf);
 }
 
 void load_donation_pits(void)
 {
     FILE *fp;
-    if ((fp = fopen(DONATION_FILE, "r")) == NULL) return;
+    char *word;
+    char letter;
+    char buf[MAX_STRING_LENGTH];
+    
+    if ((fp = fopen(DONATION_FILE, "r")) == NULL) 
+    {
+        log_string("load_donation_pits: No donation.dat file found");
+        return;
+    }
+
+    log_string("load_donation_pits: Loading donation room objects");
+
+    /* Use exact same logic as load_copyover_obj */
+    for (;;)
+    {
+        letter = fread_letter(fp);
+        if (letter == '*')
+        {
+            fread_to_eol(fp);
+            continue;
+        }
+        if (letter != '#')
+        {
+            bug("load_donation_pits: # not found.", 0);
+            break;
+        }
+        
+        word = fread_word(fp);
+        if (!str_cmp(word, "OBJECT")) 
+            fread_obj(NULL, fp);
+        else if (!str_cmp(word, "O"))
+            fread_obj(NULL, fp);
+        else if (!str_cmp(word, "END"))
+            break;
+        else
+        {
+            bug("load_donation_pits: bad section.", 0);
+            break;
+        }
+    }
+    fclose(fp);
+    
+    log_string("load_donation_pits: Load complete");
+}
+
+void load_pits(void)
+{
+    FILE *fp;
+    char *word;
+    char letter;
+    int room_vnum = 0;
+    int obj_count = 0;
+    char buf[MAX_STRING_LENGTH];
+    
+    if (OBJ_VNUM_PIT <= 0)
+        return; /* Pits not configured */
+    
+    if ((fp = fopen(PITS_FILE, "r")) == NULL) 
+    {
+        log_string("load_pits: No pits.dat file found");
+        return;
+    }
+
+    log_string("load_pits: Loading pit contents");
 
     for (;;)
     {
-        char letter = fread_letter(fp);
-        if (letter == '*') { fread_to_eol(fp); continue; }
-        if (letter != '#') break;
-
-        char *word = fread_word(fp);
-        if (!str_cmp(word, "O"))
-{
-    OBJ_DATA *obj = fread_obj_donation(fp);
-    if (obj == NULL)
-        continue; /* child already linked to parent */
-
-    /* make sure the object is in the global list */
-    obj->next = object_list;
-    object_list = obj;
-
-#ifdef OBJ_VNUM_PIT
-    /* Place only top-level objs into the first pit/room you choose */
-    {
-        int vnum;
-        for (vnum = 0; vnum <= top_vnum_room; vnum++)
+        letter = fread_letter(fp);
+        if (letter == '*')
         {
-            ROOM_INDEX_DATA *room = get_room_index(vnum);
-            if (!room) continue;
-            OBJ_DATA *pit;
-            for (pit = room->contents; pit; pit = pit->next_content)
-                if (pit->pIndexData->vnum == OBJ_VNUM_PIT)
-                { obj_to_obj(obj, pit); goto placed; }
+            fread_to_eol(fp);
+            continue;
         }
-    }
-placed: ;
-#endif
-
-
-#ifdef ROOM_DONATION
-            if (obj->in_obj == NULL) /* if not already nested under a container in the room */
+        
+        /* Handle PitRoom lines (not starting with #) */
+        if (letter != '#')
+        {
+            ungetc(letter, fp);
+            word = fread_word(fp);
+            if (!str_cmp(word, "PitRoom"))
             {
-                int vnum;
-                for (vnum = 0; vnum <= top_vnum_room; vnum++)
+                room_vnum = fread_number(fp);
+                sprintf(buf, "load_pits: Next object goes to pit in room %d", room_vnum);
+                log_string(buf);
+                continue;
+            }
+            break; /* Unknown keyword */
+        }
+        
+        /* Handle #O or #END */
+        word = fread_word(fp);
+        if (!str_cmp(word, "OBJECT") || !str_cmp(word, "O"))
+        {
+            fread_obj(NULL, fp);
+            /* Object was loaded by fread_obj and placed in room_vnum */
+            /* We need to move it from the room INTO the pit */
+            if (room_vnum > 0)
+            {
+                ROOM_INDEX_DATA *room = get_room_index(room_vnum);
+                if (room)
                 {
-                    ROOM_INDEX_DATA *room = get_room_index(vnum);
-                    if (room && IS_SET(room->room_flags, ROOM_DONATION))
-                    { obj_to_room(obj, room); break; }
+                    /* Find the pit in this room */
+                    OBJ_DATA *pit;
+                    for (pit = room->contents; pit; pit = pit->next_content)
+                    {
+                        if (pit->pIndexData->vnum == OBJ_VNUM_PIT)
+                        {
+                            /* Find the loaded object in this room (not the pit itself) */
+                            OBJ_DATA *obj, *obj_next;
+                            for (obj = room->contents; obj; obj = obj_next)
+                            {
+                                obj_next = obj->next_content;
+                                if (obj->pIndexData->vnum != OBJ_VNUM_PIT)
+                                {
+                                    /* This is an item that should be in the pit */
+                                    obj_from_room(obj);
+                                    obj_to_obj(obj, pit);
+                                    obj_count++;
+                                    sprintf(buf, "load_pits: Moved object vnum %d into pit (room %d)", 
+                                            obj->pIndexData->vnum, room_vnum);
+                                    log_string(buf);
+                                    break; /* Only move one object per #O read */
+                                }
+                            }
+                            break;
+                        }
+                    }
                 }
             }
-#endif
         }
-        else if (!str_cmp(word, "END")) break;
+        else if (!str_cmp(word, "END"))
+            break;
+        else
+        {
+            bug("load_pits: bad section.", 0);
+            break;
+        }
     }
     fclose(fp);
+    
+    sprintf(buf, "load_pits: Loaded %d objects into pits", obj_count);
+    log_string(buf);
 }
 
 void save_tokens(void)
 {
     FILE *fp;
-    ROOM_INDEX_DATA *room;
     OBJ_DATA *obj;
-    int vnum;
     int token_count = 0;
+    char buf[MAX_STRING_LENGTH];
 
     if ((fp = fopen(TOKENS_FILE, "w")) == NULL)
     { bug("save_tokens: fopen", 0); return; }
     
     log_string("save_tokens: Starting to save tokens to tokens.dat");
 
-    for (vnum = 0; vnum <= top_vnum_room; vnum++)
+    /* Iterate through global object_list to avoid recursion issues */
+    for (obj = object_list; obj != NULL; obj = obj->next)
     {
-        room = get_room_index(vnum);
-        if (!room) continue;
-
-        for (obj = room->contents; obj; obj = obj->next_content)
+        if (obj->item_type == ITEM_TOKEN && obj->in_room != NULL)
         {
-            if (obj->item_type == ITEM_TOKEN)
-            {
-                fprintf(fp, "Room %d\n", room->vnum);
-                fwrite_obj_donation(obj, fp, 0);
-                token_count++;
-                log_string("save_tokens: Saved token from room");
-            }
+            sprintf(buf, "save_tokens: Found token %p vnum %d in room %d", 
+                    obj, obj->pIndexData->vnum, obj->in_room->vnum);
+            log_string(buf);
+            
+            fprintf(fp, "Room %d\n", obj->in_room->vnum);
+            /* Temporarily break the next_content link to prevent recursion */
+            OBJ_DATA *saved_next = obj->next_content;
+            obj->next_content = NULL;
+            
+            fwrite_obj(NULL, obj, fp, 0);
+            
+            /* Restore the link */
+            obj->next_content = saved_next;
+            
+            token_count++;
+            sprintf(buf, "save_tokens: Saved token from room %d", obj->in_room->vnum);
+            log_string(buf);
         }
     }
 
     fprintf(fp, "#END\n");
     fclose(fp);
-    log_string("save_tokens: Saved tokens total");
+    sprintf(buf, "save_tokens: Saved %d tokens", token_count);
+    log_string(buf);
 }
 
 void load_tokens(void)
@@ -262,13 +441,17 @@ void load_tokens(void)
                 continue;
             }
             
-            obj = fread_obj_donation(fp);
+            fread_obj(NULL, fp);
+            /* fread_obj automatically adds to global list and handles nesting */
+            /* We need to find the object that was just loaded to place it */
+            OBJ_DATA *obj;
+            for (obj = object_list; obj != NULL; obj = obj->next)
+            {
+                if (obj->item_type == ITEM_TOKEN && obj->in_room == NULL && obj->carried_by == NULL)
+                    break; /* Found the newly loaded token */
+            }
             if (obj == NULL)
-                continue; /* child already linked to parent */
-
-            /* make sure the object is in the global list */
-            obj->next = object_list;
-            object_list = obj;
+                continue;
 
             /* Place the token in the room */
             obj_to_room(obj, room);

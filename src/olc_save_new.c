@@ -50,6 +50,10 @@
 #include "olc.h"
 #include "const.h"
 
+
+void    save_donation_pits args( ( void ) );
+void    save_pits args( ( void ) );
+void    save_tokens args( ( void ) );
 int const_lookup args ( (const char *name ) );
 
 #define DIF(a,b) (~((~a)|(b)))
@@ -507,6 +511,17 @@ void fwrite_area( AREA_DATA *pArea )
 
     file_close( fp );
     return;
+}
+
+void do_savepits( CHAR_DATA *ch, char *argument )
+{
+	save_donation_pits();
+	save_pits();
+	save_tokens();
+	if (ch)
+		send_to_char("Donation pits and tokens saved.\n\r", ch);
+	log_string("do_savepits: Manual save complete");
+	return;
 }
 
 void do_saveconst(CHAR_DATA *ch, char *argument )

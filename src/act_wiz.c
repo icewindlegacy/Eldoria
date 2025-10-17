@@ -79,6 +79,9 @@ void    fwrite_obj      args( ( CHAR_DATA *ch,  OBJ_DATA  *obj,
                             FILE *fp, int iNest ) );
 void    fread_obj       args( ( CHAR_DATA *ch,  FILE *fp ) );   
 void load_copyover_obj args ( (void) );
+void save_donation_pits args ( (void) );
+void save_pits args ( (void) );
+void save_tokens args ( (void) );
 sh_int  max_unique;
 bool    unique_set = FALSE;
 bool    isignal = TRUE;
@@ -5108,6 +5111,8 @@ void do_copyover (CHAR_DATA *ch, char * argument)
            reset_auc (auction_list, TRUE);
 
         save_gquest_data();
+        /* NOTE: Don't save donation_pits or tokens here - objects are extracted during copyover
+         * These are saved periodically via olcautosave (update_area) instead */
 
 
         if ( copyover_person == NULL )

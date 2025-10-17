@@ -545,4 +545,5 @@ DECLARE_DO_FUN( do_trade        );
 DECLARE_DO_FUN( do_mxp		);
 DECLARE_DO_FUN( do_target );
 DECLARE_DO_FUN( do_untarget );
+DECLARE_DO_FUN( do_savepits    );
 

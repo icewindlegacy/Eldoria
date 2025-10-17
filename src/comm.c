@@ -366,6 +366,9 @@ void    bust_a_prompt           args( ( CHAR_DATA *ch ) );
 void    init_signals            args( ( void ) ); 
 void    do_auto_shutdown        args( ( void ) );      
 void    load_copyover_obj       args( (void) );
+void    load_donation_pits      args( (void) );
+void    load_pits               args( (void) );
+void    load_tokens             args( (void) );
 void    mxp_in                  args( ( DESCRIPTOR_DATA *d, char *argument ) );
 
 /* Needs to be global because of do_copyover */
@@ -3981,6 +3984,12 @@ void copyover_recover ()
 	}
 
 	load_copyover_obj();
+	
+	/* Load donation system after copyover recovery */
+	log_string( "Loading donation system after copyover." );
+	load_donation_pits();
+	load_pits();
+	load_tokens();
 }
 
 void mxp_in ( DESCRIPTOR_DATA * d, char *argument )

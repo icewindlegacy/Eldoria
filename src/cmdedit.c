@@ -1140,7 +1140,9 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     { "display",	    do_display	    },
     { "target",	    do_target	    },
     { "untarget",	    do_untarget	    },
+    { "savepits",	    do_savepits	    },
 	{ NULL,			NULL	    },
+
 };
 
 const struct size_type cat_table[] =
