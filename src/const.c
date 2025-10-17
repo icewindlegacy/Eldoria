@@ -207,6 +207,34 @@ const 	struct	race_type	race_table	[]		=
     },
 
     {
+        "halfling",		TRUE,
+        0,		AFF_INFRARED,	0,
+        0,		RES_POISON|RES_DISEASE, 0,
+        A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
+        },
+
+    {
+        "gnome",		TRUE,
+        0,		AFF_INFRARED,	0,
+        0,		RES_POISON|RES_DISEASE, 0,
+        A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
+        },
+
+    {
+        "half-elf",		TRUE,
+        0,		AFF_INFRARED,	0,
+        0,		RES_CHARM, VULN_IRON,
+        A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
+        },
+    
+    {
+        "half-orc",		TRUE,
+        0,		AFF_INFRARED,	0,
+        0,		RES_DISEASE, VULN_LIGHT,
+        A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
+        },
+
+        {
 	"giant",		TRUE,
 	0,		0,		0,
 	0,		RES_FIRE|RES_COLD,	VULN_MENTAL|VULN_LIGHTNING,
@@ -214,18 +242,12 @@ const 	struct	race_type	race_table	[]		=
     },
 
     {
-        "drow",                 TRUE,
-        0,              0,              0,
+        "dark-elf",                 TRUE,
+        0,              AFF_INFRARED|AFF_DARK_VISION,              0,
         0,              RES_NEGATIVE|RES_COLD|RES_CHARM,  VULN_HOLY|VULN_LIGHT,
         A|H|M|V,        A|B|C|D|E|F|G|H|I|J|K
     },   
 
-    {
-        "duergar",              TRUE,
-        0,              AFF_INFRARED,      0,
-        0,              RES_PIERCE|RES_NEGATIVE,      VULN_LIGHT|VULN_DROWNING,
-        A|H|M|V,        A|B|C|D|E|F|G|H|I|J|K
-    },
 
     {
         "orc",                  TRUE,
@@ -451,6 +473,35 @@ const	struct	pc_race_type	pc_race_table	[]	=
     },
 
     {
+        "halfling",      "Hflng",     6,     
+        { 100, 100, 100, 100, 100, 100, 100, 100 },
+        { "" },
+        { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
+    },
+
+    {
+        "gnome",      "Gnome",     6,     
+        { 100, 100, 100, 100, 100, 100, 100, 100 },
+        { "" },
+        { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
+    },
+
+    {
+        "half-elf",      "HfElf",     6,     
+        { 100, 100, 100, 100, 100, 100, 100, 100 },
+        { "" },
+        { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
+    },
+
+    {
+        "half-orc",      "HfOrc",     6,     
+        { 100, 100, 100, 100, 100, 100, 100, 100 },
+        { "" },
+        { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
+    },
+
+
+    {
 		"giant",	"Giant",	6,	
         { 200, 150, 150, 105, 200, 150, 150, 105 },
 		{ "bash", "fast healing" },
@@ -458,19 +509,13 @@ const	struct	pc_race_type	pc_race_table	[]	=
     },
 
     {
-        "drow",         "Drow",         6,    
+        "dark-elf",         "DkElf",         6,    
         { 150, 100, 125, 100, 150, 100, 125, 100 },
         { "hide", "sneak" },     
         { 15, 18, 15, 18, 15 }, { 18, 20, 18, 20, 17 }, SIZE_SMALL, ALIGN_EVIL
     },
 
-    {
-        "duergar",      "Duer",      6,      
-        { 150, 100, 125, 100, 150, 100, 125, 100 },
-        { "hide", "sneak" },            
-        { 17, 14, 20, 14, 14 }, { 19, 16, 22, 16, 16 }, SIZE_MEDIUM, ALIGN_EVIL
-    },
-   
+
     {
         "orc",          "Orc",      6,     
         { 200, 150, 150, 105, 200, 150, 150, 105 },
