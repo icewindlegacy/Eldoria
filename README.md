@@ -1,6 +1,7 @@
 # Eldoria MUD
 
-A fantasy Multi-User Dungeon (MUD) server built in C++.
+A fantasy Multi-User Dungeon (MUD) server built in C++ Based on ShadowStorm  
+by Davion and Synon
 
 ## Features
 
@@ -19,6 +20,7 @@ A fantasy Multi-User Dungeon (MUD) server built in C++.
 ## Building
 
 ```bash
+./prebuild.sh
 cd src
 make clean
 make
