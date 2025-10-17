@@ -59,6 +59,7 @@ void    quest_update    args( ( void ) );
 void    gquest_update   args( ( void ) );
 void    olcautosave     args( ( void ) );
 void    who_html_update args( ( void ) );
+void    help_json_update args( ( void ) );
 void    save_area       args( ( AREA_DATA *pArea ) );      
 void    save_area_list  args( ( void ) );
 void    save_donation_pits args( ( void ) );
@@ -1700,6 +1701,7 @@ void update_handler( void )
 	pulse_music	= PULSE_MUSIC;
 	song_update();
         who_html_update();
+        help_json_update();
     }
 
     if (--pulse_trivia <= 0)

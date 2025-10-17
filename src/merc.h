@@ -212,7 +212,7 @@ extern int MAX_SKILL;
 #define MAX_CLASS		    8
 #define MAX_MCLASS                 (MAX_CLASS + 7)
 #define MAX_REMORT                  8
-#define MAX_PC_RACE		    8
+#define MAX_PC_RACE		    11
 #define MAX_CLAN		   17
 #define MAX_RANK                    6 /* guild.c */
 #define MAX_DAMAGE_MESSAGE	   47
@@ -3481,7 +3481,7 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define NEW_AREA_DIR    "../new_area/"          /*new area*/
 #define VERSION_FILE    "../data/version.txt"
 #define COPYOVER_FILE   "copyover.data" /* copyover data */
-#define EXE_FILE        "../src/shadow" /* executable file */
+#define EXE_FILE        "../src/eldoria" /* executable file */
 #define STAT_FILE       "../data/statlist.txt"
 #define PET_FILE        "../data/pet.txt"
 #define BOOT_FILE	"../data/boot.time"
@@ -3489,8 +3489,8 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define TRIVIA_SCORE_FILE  "../data/tscore.txt"
 #define MAIL_FILE       "../data/mail.txt"
 #define POSTAL_FILE     "../data/postal.txt"
-#define TXT_SOUNDURL    "http://shadowstorm.wolfpaw.net/sounds/"
-#define TXT_IMAGEURL    "http://shadowstorm.wolfpaw.net/images/"
+#define TXT_SOUNDURL    "http://reaux.vineyard.haus/sounds/"
+#define TXT_IMAGEURL    "http://reaux.vineyard.haus/images/"
 
 /*
  * Our function prototypes.

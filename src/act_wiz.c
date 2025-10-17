@@ -5280,7 +5280,7 @@ void do_copyover (CHAR_DATA *ch, char * argument)
 	
 	sprintf (buf, "%d", port);
 	sprintf (buf2, "%d", control);
-	execl (EXE_FILE, "shadow", buf, "copyover", buf2, (char *) NULL);
+	execl (EXE_FILE, "eldoria", buf, "copyover", buf2, (char *) NULL);
 
 	/* Failed - sucessful exec will not return */
 	
@@ -8352,7 +8352,7 @@ void do_auto_shutdown()
    fclose (fpReserve);
    sprintf (buf, "%d", port);
    sprintf (buf2, "%d", control);
-   execl (EXE_FILE, "shadow", buf, "copyover", buf2, (char *) NULL);   
+   execl (EXE_FILE, "eldoria", buf, "copyover", buf2, (char *) NULL);   
    exit(1);
 }
 
