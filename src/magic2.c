@@ -573,14 +573,14 @@ void spell_desert_fist( int sn, int level, CHAR_DATA *ch, void *vo,int target )
                 victim,NULL,NULL,TO_CHAR);
     dam = dice( level + 25 , 20 );
     damage(ch,victim,dam,sn,DAM_OTHER,TRUE);
-    sand_effect(victim,level,dam,TARGET_CHAR);
+    sand_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 
     if ( chance > 50 ) 
         return;     
 
     dam = dice( level + 40, 25 );
     damage(ch,victim,dam,sn,DAM_BASH,TRUE);
-    sand_effect(victim,level,dam,TARGET_CHAR);
+    sand_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
     act("A large mound of sand rises up and forms a huge fist pummeling you!\n\r", victim, NULL, NULL,TO_CHAR);
 }
 

@@ -33,6 +33,11 @@
 #include "tables.h"
 #include "olc.h"
 #include "const.h"
+#include "worldmap.h" //worldmap.c
+#include "interp.h" //worldmap.c
+
+void save_wmap_exits(); //worldmap.c forward declaration
+
 #define DIF(a,b) (~((~a)|(b)))
 
 /*

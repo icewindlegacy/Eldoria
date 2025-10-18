@@ -54,7 +54,7 @@ const struct flag_stat_type flag_stat_table[] =
     {   exit_flags,		FALSE	},
     {   door_resets,		TRUE	},
     {   room_flags,		FALSE	},
-    {   sector_flags,		TRUE	},
+    //{   sector_flags,		TRUE	}, //worldmap.c - sector_flags is now sec_type
     {   type_flags,		TRUE	},
     {   extra_flags,		FALSE	},
     {   extra2_flags,           FALSE   },

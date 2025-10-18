@@ -4705,12 +4705,12 @@ void spell_acid_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target)
     
     if (saves_spell(level,victim,DAM_ACID))
     {
-	acid_effect(victim,level/2,dam/4,TARGET_CHAR);
+	acid_effect(ch, victim,level/2,dam/4,TARGET_CHAR); //worldmap.c
 	damage(ch,victim,dam/2,sn,DAM_ACID,TRUE);
     }
     else
     {
-	acid_effect(victim,level,dam,TARGET_CHAR);
+	acid_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 	damage(ch,victim,dam,sn,DAM_ACID,TRUE);
     }
 }
@@ -4733,7 +4733,7 @@ void spell_fire_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
     dice_dam = dice(level,20);
 
     dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
-    fire_effect(victim->in_room,level,dam/2,TARGET_ROOM);
+    fire_effect(ch, victim->in_room,level,dam/2,TARGET_ROOM); //worldmap.c
 
     for (vch = victim->in_room->people; vch != NULL; vch = vch_next)
     {
@@ -4748,12 +4748,12 @@ void spell_fire_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
 	{
 	    if (saves_spell(level,vch,DAM_FIRE))
 	    {
-		fire_effect(vch,level/2,dam/4,TARGET_CHAR);
+		fire_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/2,sn,DAM_FIRE,TRUE);
 	    }
 	    else
 	    {
-		fire_effect(vch,level,dam,TARGET_CHAR);
+		fire_effect(ch, vch,level,dam,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam,sn,DAM_FIRE,TRUE);
 	    }
 	}
@@ -4761,12 +4761,12 @@ void spell_fire_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
 	{
 	    if (saves_spell(level - 2,vch,DAM_FIRE))
 	    {
-		fire_effect(vch,level/4,dam/8,TARGET_CHAR);
+		fire_effect(ch, vch,level/4,dam/8,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/4,sn,DAM_FIRE,TRUE);
 	    }
 	    else
 	    {
-		fire_effect(vch,level/2,dam/4,TARGET_CHAR);
+		fire_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/2,sn,DAM_FIRE,TRUE);
 	    }
 	}
@@ -4789,7 +4789,7 @@ void spell_frost_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
     dice_dam = dice(level,16);
 
     dam = UMAX(hp_dam + dice_dam/10,dice_dam + hp_dam/10);
-    cold_effect(victim->in_room,level,dam/2,TARGET_ROOM); 
+    cold_effect(ch, victim->in_room,level,dam/2,TARGET_ROOM); //worldmap.c 
 
     for (vch = victim->in_room->people; vch != NULL; vch = vch_next)
     {
@@ -4804,12 +4804,12 @@ void spell_frost_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
 	{
 	    if (saves_spell(level,vch,DAM_COLD))
 	    {
-		cold_effect(vch,level/2,dam/4,TARGET_CHAR);
+		cold_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
 	    }
 	    else
 	    {
-		cold_effect(vch,level,dam,TARGET_CHAR);
+		cold_effect(ch, vch,level,dam,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam,sn,DAM_COLD,TRUE);
 	    }
 	}
@@ -4817,12 +4817,12 @@ void spell_frost_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
 	{
 	    if (saves_spell(level - 2,vch,DAM_COLD))
 	    {
-		cold_effect(vch,level/4,dam/8,TARGET_CHAR);
+		cold_effect(ch, vch,level/4,dam/8,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/4,sn,DAM_COLD,TRUE);
 	    }
 	    else
 	    {
-		cold_effect(vch,level/2,dam/4,TARGET_CHAR);
+		cold_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
 		damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
 	    }
 	}
@@ -4844,7 +4844,7 @@ void spell_gas_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
     dice_dam = dice(level,12);
 
     dam = UMAX(hp_dam + dice_dam/10,dice_dam + hp_dam/10);
-    poison_effect(ch->in_room,level,dam,TARGET_ROOM);
+    poison_effect(ch, ch->in_room,level,dam,TARGET_ROOM); //worldmap.c
 
     for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
     {
@@ -4857,12 +4857,12 @@ void spell_gas_breath( int sn, int level, CHAR_DATA *ch, void *vo,int target )
 
 	if (saves_spell(level,vch,DAM_POISON))
 	{
-	    poison_effect(vch,level/2,dam/4,TARGET_CHAR);
+	    poison_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
 	    damage(ch,vch,dam/2,sn,DAM_POISON,TRUE);
 	}
 	else
 	{
-	    poison_effect(vch,level,dam,TARGET_CHAR);
+	    poison_effect(ch, vch,level,dam,TARGET_CHAR); //worldmap.c
 	    damage(ch,vch,dam,sn,DAM_POISON,TRUE);
 	}
     }
@@ -4885,12 +4885,12 @@ void spell_lightning_breath(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 
     if (saves_spell(level,victim,DAM_LIGHTNING))
     {
-	shock_effect(victim,level/2,dam/4,TARGET_CHAR);
+	shock_effect(ch, victim,level/2,dam/4,TARGET_CHAR); //worldmap.c
 	damage(ch,victim,dam/2,sn,DAM_LIGHTNING,TRUE);
     }
     else
     {
-	shock_effect(victim,level,dam,TARGET_CHAR);
+	shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 	damage(ch,victim,dam,sn,DAM_LIGHTNING,TRUE); 
     }
 }
@@ -5787,12 +5787,12 @@ victim,TARGET_CHAR);
 
     dam = dice(70 + 20, 15);
 
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
 
     dam = dice(65 + 20, 15);
 
-  fire_effect(victim,level,dam,TARGET_CHAR);
+  fire_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_FIRE,TRUE );
 
     dam = dice(70 + 20, 15);
@@ -5802,12 +5802,12 @@ victim,TARGET_CHAR);
 
     dam = dice(70 + 20, 15);
 
-  acid_effect(victim,level,dam,TARGET_CHAR);
+  acid_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_ACID,TRUE );
 
     dam = dice(70 + 20, 15);
 
-  shock_effect(victim,level,dam,TARGET_CHAR);
+  shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_LIGHTNING,TRUE );
     return;
 }
@@ -6217,15 +6217,15 @@ void spell_wizards_fury(int sn, int level, CHAR_DATA *ch, void *vo, int target )
   act( "$n calls upon the power of all their magic!", ch, NULL, NULL, TO_ROOM );
 
   dam = dice(200 + 20, 20);
-  fire_effect(victim,level,dam,TARGET_CHAR);
+  fire_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_FIRE,TRUE );
 
   dam = dice(200 + 20, 20);
-  shock_effect(victim,level,dam,TARGET_CHAR);
+  shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_LIGHTNING,TRUE );
 
   dam = dice(200 + 20, 20);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
 
   dam = dice(200 + 20, 20);
@@ -6273,7 +6273,7 @@ void spell_thunderstorm( int sn, int level, CHAR_DATA *ch, void *vo,int target )
   act( "$n calls forth lightning from the heavens!", ch, NULL, NULL, TO_ROOM );
 
   dam = dice(180 + 20, 20);
-  shock_effect( ch->in_room, level, dam, TARGET_ROOM );
+  shock_effect(ch, ch->in_room, level, dam, TARGET_ROOM ); //worldmap.c
 
   for ( vch = char_list; vch != NULL; vch = vch_next )
   {
@@ -6296,13 +6296,13 @@ void spell_thunderstorm( int sn, int level, CHAR_DATA *ch, void *vo,int target )
                if ( saves_spell( level, vch, DAM_LIGHTNING ) )
                {
 
-                   shock_effect( vch, level/2, dam/4, TARGET_CHAR );
+                   shock_effect(ch, vch, level/2, dam/4, TARGET_CHAR ); //worldmap.c
                    damage( ch, vch, dam, sn, DAM_LIGHTNING, TRUE );
                }
 
                else
                {
-                   shock_effect( vch, level, dam, TARGET_CHAR );
+                   shock_effect(ch, vch, level, dam, TARGET_CHAR ); //worldmap.c
                    damage( ch, vch, dam, sn, DAM_LIGHTNING, TRUE );
                }
 
@@ -6422,7 +6422,7 @@ void spell_sandstorm( int sn, int level, CHAR_DATA *ch, void *vo,int target )
     dice_dam = dice(level,20);
 
     dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
-    sand_effect(ch->in_room,level,dam/2,TARGET_ROOM);
+    sand_effect(ch, ch->in_room,level,dam/2,TARGET_ROOM); //worldmap.c
 
     for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
     {
@@ -6438,13 +6438,13 @@ void spell_sandstorm( int sn, int level, CHAR_DATA *ch, void *vo,int target )
                                
         if (saves_spell(level,vch,DAM_COLD))
         {
-                sand_effect(vch,level/2,dam/4,TARGET_CHAR);
+                sand_effect(ch, vch,level/2,dam/4,TARGET_CHAR); //worldmap.c
                 damage(ch,vch,dam/2,sn,DAM_COLD,TRUE);
         }
 
         else
         {
-                sand_effect(vch,level,dam,TARGET_CHAR);
+                sand_effect(ch, vch,level,dam,TARGET_CHAR); //worldmap.c
                 damage(ch,vch,dam,sn,DAM_COLD,TRUE);
         }
     }
@@ -7954,7 +7954,7 @@ void spell_arcane_magic( int sn, int level, CHAR_DATA *ch, void *vo, int target 
 		if ( saves_spell( level, victim, DAM_ACID ) )
 			dam /= 2;
 		damage( ch, victim, dam, sn,DAM_ACID,TRUE);
-		acid_effect(victim,level,dam,TARGET_CHAR);
+		acid_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 		return;
     }
 
@@ -7963,7 +7963,7 @@ void spell_arcane_magic( int sn, int level, CHAR_DATA *ch, void *vo, int target 
 		if ( saves_spell( level, victim, DAM_FIRE ) )
 			dam /= 2;
 		damage( ch, victim, dam, sn,DAM_FIRE,TRUE);
-		fire_effect(victim,level,dam,TARGET_CHAR);
+		fire_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 		return;
     }
 
@@ -7972,7 +7972,7 @@ void spell_arcane_magic( int sn, int level, CHAR_DATA *ch, void *vo, int target 
 		if ( saves_spell( level, victim, DAM_LIGHTNING ) )
 			dam /= 2;
 		damage( ch, victim, dam, sn,DAM_LIGHTNING,TRUE);
-		shock_effect(victim,level,dam,TARGET_CHAR);
+		shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 		return;
     }
 
@@ -7982,7 +7982,7 @@ void spell_arcane_magic( int sn, int level, CHAR_DATA *ch, void *vo, int target 
  	    dam /= 2;
 		
 	damage( ch, victim, dam, sn,DAM_COLD,TRUE);
-	cold_effect(victim,level,dam,TARGET_CHAR);
+	cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 	return;
     }
 
@@ -8032,10 +8032,10 @@ void spell_arcane_magic( int sn, int level, CHAR_DATA *ch, void *vo, int target 
  	     dam /= 2;
         dam /=5;
 	damage( ch, victim, dam, sn,DAM_NEGATIVE,TRUE);
-	acid_effect(victim,level,dam,TARGET_CHAR);
-	fire_effect(victim,level,dam,TARGET_CHAR);
-	cold_effect(victim,level,dam,TARGET_CHAR);
-	shock_effect(victim,level,dam,TARGET_CHAR);
+	acid_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
+	fire_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
+	cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
+	shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
 	return;
     }
 
@@ -8134,18 +8134,18 @@ void spell_silver_fire(int sn, int level, CHAR_DATA *ch, void *vo, int target )
   damage( ch, victim, dam, sn, DAM_FIRE,TRUE );
 
   dam = dice(230 + 20, 20);
-  shock_effect(victim,level,dam,TARGET_CHAR);
+  shock_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_FIRE,TRUE );
 
   dam = dice(230 + 20, 20);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_SILVER,TRUE );
 
   dam = dice(225 + 20, 20);
   damage( ch, victim, dam, sn, DAM_SILVER,TRUE );
 
   dam = dice(230 + 20, 20);
-  fire_effect(victim,level,dam,TARGET_CHAR);
+  fire_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_SILVER, TRUE );
   return;
 }
@@ -8165,14 +8165,14 @@ void spell_soulburn(int sn, int level, CHAR_DATA *ch, void *vo, int target )
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
   
   dam = dice(175 + 20, 20);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_ACID,TRUE );
   
   dam = dice(195 + 20, 20);
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
   
   dam = dice(175 + 20, 20);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_ACID,TRUE );
   
   dam = dice(195 + 20, 20);
@@ -8194,14 +8194,14 @@ void spell_icelance(int sn, int level, CHAR_DATA *ch, void *vo, int target )
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
   
   dam = dice(150 + 17, 18);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_ACID,TRUE );
   
   dam = dice(145 + 18, 17);
   damage( ch, victim, dam, sn, DAM_COLD,TRUE );
   
   dam = dice(175 + 20, 20);
-  cold_effect(victim,level,dam,TARGET_CHAR);
+  cold_effect(ch, victim,level,dam,TARGET_CHAR); //worldmap.c
   damage( ch, victim, dam, sn, DAM_ACID,TRUE );
   sound( "spell5.wav", ch );
   if ( ch != victim )

@@ -874,7 +874,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary )
             dam = number_range(1,wield->level / 5 + 1);
             xact_new("$n is acidified by $p.",victim,wield,NULL,TO_ROOM,POS_RESTING,SUPPRESS_FLAGS);
             xact_new("$p burns your flesh with acid.",victim,wield,NULL,TO_ROOM,POS_RESTING,SUPRESS_FLAGS);
-            acid_effect((void *)victim,wield->level/2,dam,TARGET_CHAR);
+            acid_effect(ch, (void *)victim,wield->level/2,dam,TARGET_CHAR); //worldmap.c
             damage(ch,victim,dam,0,DAM_ACID,FALSE);
         }
         */ /* Commented out pending approval */
@@ -884,7 +884,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary )
 	    dam = number_range(1,wield->level / 4 + 1);
 	    xact_new("$n is burned by $p.",victim,wield,NULL,TO_ROOM,POS_RESTING,SUPPRESS_FLAGS);
 	    xact_new("$p sears your flesh.",victim,wield,NULL,TO_CHAR,POS_RESTING,SUPPRESS_FLAGS);
-	    fire_effect( (void *) victim,wield->level/2,dam,TARGET_CHAR);
+	    fire_effect(ch, (void *) victim,wield->level/2,dam,TARGET_CHAR); //worldmap.c
 	    damage(ch,victim,dam,0,DAM_FIRE,FALSE);
 	}
 
@@ -894,7 +894,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary )
 	    xact_new("$p freezes $n.",victim,wield,NULL,TO_ROOM,POS_RESTING,SUPPRESS_FLAGS);
 	    xact_new("The cold touch of $p surrounds you with ice.",
 		victim,wield,NULL,TO_CHAR,POS_RESTING,SUPPRESS_FLAGS);
-	    cold_effect(victim,wield->level/2,dam,TARGET_CHAR);
+	    cold_effect(ch, victim,wield->level/2,dam,TARGET_CHAR); //worldmap.c
 	    damage(ch,victim,dam,0,DAM_COLD,FALSE);
 	}
 
@@ -903,7 +903,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary )
 	    dam = number_range(1,wield->level/5 + 2);
 	    xact_new("$n is struck by lightning from $p.",victim,wield,NULL,TO_ROOM,POS_RESTING,SUPPRESS_FLAGS);
 	    xact_new("You are shocked by $p.",victim,wield,NULL,TO_CHAR,POS_RESTING,SUPPRESS_FLAGS);
-	    shock_effect(victim,wield->level/2,dam,TARGET_CHAR);
+	    shock_effect(ch, victim,wield->level/2,dam,TARGET_CHAR); //worldmap.c
 	    damage(ch,victim,dam,0,DAM_LIGHTNING,FALSE);
 	}
     }
@@ -5926,7 +5926,7 @@ bool check_flame_shield( CHAR_DATA *ch, CHAR_DATA *victim )
 	
 	if(burn != NULL)
 	{   
-		fire_effect (ch, burn->level, number_fuzzy(10), TARGET_CHAR);
+		fire_effect (victim, ch, burn->level, number_fuzzy(10), TARGET_CHAR); //worldmap.c
 		damage (victim, ch, number_fuzzy(burn->level), sn, DAM_FIRE, TRUE);
 	}
 

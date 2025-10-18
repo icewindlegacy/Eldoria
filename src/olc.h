@@ -472,3 +472,19 @@ void unlink_reset args ((ROOM_INDEX_DATA * pRoom, RESET_DATA * pReset));
 void unlink_room_index args ((ROOM_INDEX_DATA * pRoom));
 void unlink_mob_index args ((MOB_INDEX_DATA * pMob));
 void stop_editing (void *OLC);
+
+//worldmap.c - wedit function declarations
+DECLARE_OLC_FUN( wedit_show );
+DECLARE_OLC_FUN( wedit_tile );
+DECLARE_OLC_FUN( wedit_sector );
+DECLARE_OLC_FUN( wedit_symbol );
+DECLARE_OLC_FUN( wedit_name );
+DECLARE_OLC_FUN( wedit_desc );
+DECLARE_OLC_FUN( wedit_visibility );
+DECLARE_OLC_FUN( wedit_passable );
+DECLARE_OLC_FUN( wedit_exit );
+DECLARE_OLC_FUN( wedit_wlist );
+DECLARE_OLC_FUN( wedit_save );
+DECLARE_OLC_FUN( wedit_reset );
+DECLARE_OLC_FUN( wedit_clear );
+DECLARE_OLC_FUN( wedit_reload );

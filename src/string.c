@@ -755,7 +755,6 @@ size_t strlcat(char *dst, const char *src, size_t siz)
      *d = '\0';
      return(dlen + (s - src));       /* count does not include NUL */
 }
--string.c, add these functions.  These could probably be written better, but they are functional.
 //worldmap.c
 char *fade_color16(const char *string)
 {

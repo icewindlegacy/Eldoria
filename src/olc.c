@@ -30,12 +30,13 @@
 #include "lookup.h"
 #include "worldmap.h" //worldmap.c
 #include "const.h"
+#include "interp.h" //worldmap.c
 
 /*
  * Local functions.
  */
 AREA_DATA *get_area_data	args( ( int vnum ) );
-DECLARE_OLC_FUN( do_asave       );
+//DECLARE_OLC_FUN( do_asave       ); //worldmap.c - already declared in interp.h
 
 
 /* Executed from comm.c.  Minimizes compiling when changes are made. */
@@ -168,7 +169,7 @@ char *olc_ed_vnum( CHAR_DATA *ch )
 	break;
     case ED_WMAP: //worldmap.c
         {
-        WMAPTILE_DATA *tile = find_wmap_tile(wmap_num(ch,NULL),wmap_x(ch,NULL),wmap_y(ch,NULL),wmap_z(ch,NULL));
+        //WMAPTILE_DATA *tile = find_wmap_tile(wmap_num(ch,NULL),wmap_x(ch,NULL),wmap_y(ch,NULL),wmap_z(ch,NULL));
         sprintf (buf, "%s", is_wmap(ch,NULL) ? wmap_name(ch,NULL) : "");
         }
         break;

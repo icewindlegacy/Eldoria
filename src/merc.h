@@ -394,13 +394,15 @@ extern int MAX_SKILL;
 				    ch->pcdata->field[0] = 0;			\
 				}
 
-
+//worldmap.c - CREATE macro moved to worldmap section below
+/*
 #define CREATE(result, type, number)                    \
 do                                        \
 {                                        \
    if (!((result) = (type *) calloc ((number), sizeof(type))))     \
      { perror("malloc failure"); abort(); }               \
 } while(0)
+*/
 
 
 # define MXP_OPEN      "[0z"      /* Open Line, allows "open" category MXP commands */
@@ -4142,7 +4144,8 @@ extern const struct flag_type	sex_flags[];
 extern const struct flag_type	exit_flags[];
 extern const struct flag_type	door_resets[];
 extern const struct flag_type	room_flags[];
-extern const struct flag_type	sector_flags[];
+//worldmap.c - sector_flags is now sec_type struct, declared above
+//extern const struct flag_type	sector_flags[];
 extern const struct flag_type	type_flags[];
 extern const struct flag_type	extra_flags[];
 extern const struct flag_type   extra2_flags[];
@@ -4445,3 +4448,4 @@ int wmax_x args((CHAR_DATA *ch));
 char *wmap_name args((CHAR_DATA *ch, OBJ_DATA *obj));
 void process_wmap_resets args((void));
 int get_sector args((CHAR_DATA *ch, int wmap_index, int x, int y));
+#define PLR_MODERN              (V) //worldmap.c

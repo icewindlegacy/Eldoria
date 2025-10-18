@@ -121,7 +121,8 @@ extern	const	struct	flag_type	room_flags[];
 extern	const	struct	flag_type	exit_flags[];
 extern 	const	struct  flag_type	mprog_flags[];
 extern	const	struct	flag_type	area_flags[];
-extern	const	struct	flag_type	sector_flags[];
+//worldmap.c - sector_flags is now sec_type struct in worldmap.c
+//extern	const	struct	flag_type	sector_flags[];
 extern	const	struct	flag_type	door_resets[];
 extern	const	struct	flag_type	wear_loc_strings[];
 extern	const	struct	flag_type	wear_loc_flags[];

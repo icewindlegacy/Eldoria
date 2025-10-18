@@ -39,7 +39,7 @@
 #include "recycle.h"
 #include "const.h"
 
-void acid_effect(void *vo, int level, int dam, int target)
+void acid_effect(CHAR_DATA *ch, void *vo, int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM) /* nail objects on the floor */
      {
@@ -49,7 +49,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    acid_effect(obj,level,dam,TARGET_OBJ);
+		acid_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -63,7 +63,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    acid_effect(obj,level,dam,TARGET_OBJ);
+		acid_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -188,7 +188,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 		    continue;
 		}
 
-		acid_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+		acid_effect(ch, t_obj,level/2,dam/2,TARGET_OBJ); //worldmap.c
 	    }
  	}
 
@@ -198,7 +198,7 @@ void acid_effect(void *vo, int level, int dam, int target)
 }
 
 
-void cold_effect(void *vo, int level, int dam, int target)
+void cold_effect(CHAR_DATA *ch, void *vo, int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM) /* nail objects on the floor */
     {
@@ -208,7 +208,7 @@ void cold_effect(void *vo, int level, int dam, int target)
         for (obj = room->contents; obj != NULL; obj = obj_next)
         {
             obj_next = obj->next_content;
-            cold_effect(obj,level,dam,TARGET_OBJ);
+            cold_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
         }
         return;
     }
@@ -243,7 +243,7 @@ void cold_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    cold_effect(obj,level,dam,TARGET_OBJ);
+	    cold_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
    }
@@ -302,7 +302,7 @@ void cold_effect(void *vo, int level, int dam, int target)
    
 
 
-void fire_effect(void *vo, int level, int dam, int target)
+void fire_effect(CHAR_DATA *ch, void *vo, int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM)  /* nail objects on the floor */
     {
@@ -312,7 +312,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    fire_effect(obj,level,dam,TARGET_OBJ);
+	fire_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -351,7 +351,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 	{
 	    obj_next = obj->next_content;
 
-	    fire_effect(obj,level,dam,TARGET_OBJ);
+	fire_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
         }
 	return;
     }
@@ -438,7 +438,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 		    extract_obj(t_obj);
 		    continue;
 		}
-		fire_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+		fire_effect(ch, t_obj,level/2,dam/2,TARGET_OBJ); //worldmap.c
             }
         }
  
@@ -447,7 +447,7 @@ void fire_effect(void *vo, int level, int dam, int target)
     }
 }
 
-void poison_effect(void *vo,int level, int dam, int target)
+void poison_effect(CHAR_DATA *ch, void *vo,int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM)  /* nail objects on the floor */
     {
@@ -457,7 +457,7 @@ void poison_effect(void *vo,int level, int dam, int target)
         for (obj = room->contents; obj != NULL; obj = obj_next)
         {
             obj_next = obj->next_content;
-            poison_effect(obj,level,dam,TARGET_OBJ);
+	poison_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
         }
         return;
     }
@@ -490,7 +490,7 @@ void poison_effect(void *vo,int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    poison_effect(obj,level,dam,TARGET_OBJ);
+	poison_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -537,7 +537,7 @@ void poison_effect(void *vo,int level, int dam, int target)
 }
 
 
-void shock_effect(void *vo,int level, int dam, int target)
+void shock_effect(CHAR_DATA *ch, void *vo,int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM)
     {
@@ -547,7 +547,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    shock_effect(obj,level,dam,TARGET_OBJ);
+	shock_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -568,7 +568,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    shock_effect(obj,level,dam,TARGET_OBJ);
+	shock_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -626,7 +626,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 }
 
 
-void sand_effect(void *vo, int level, int dam, int target)
+void sand_effect(CHAR_DATA *ch, void *vo, int level, int dam, int target) //worldmap.c
 {
     if (target == TARGET_ROOM) /* nail objects on the floor */
      {
@@ -636,7 +636,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 	for (obj = room->contents; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    sand_effect(obj,level,dam,TARGET_OBJ);
+	    sand_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -669,7 +669,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 	for (obj = victim->carrying; obj != NULL; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
-	    sand_effect(obj,level,dam,TARGET_OBJ);
+	    sand_effect(ch, obj,level,dam,TARGET_OBJ); //worldmap.c
 	}
 	return;
     }
@@ -799,7 +799,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		    continue;
 		}
 
-		sand_effect(t_obj,level/2,dam/2,TARGET_OBJ);
+            sand_effect(ch, t_obj,level/2,dam/2,TARGET_OBJ); //worldmap.c
 	    }
  	}
 

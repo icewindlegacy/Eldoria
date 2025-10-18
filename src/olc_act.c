@@ -243,6 +243,9 @@ void show_spec_cmds( CHAR_DATA *ch )
  Purpose:	Displays help for many tables used in OLC.
  Called by:	olc interpreters.
  ****************************************************************************/
+ 
+void show_seclist (CHAR_DATA * ch); //worldmap.c forward declaration
+
 bool show_help( CHAR_DATA *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
@@ -326,12 +329,12 @@ bool show_help( CHAR_DATA *ch, char *argument )
 		return FALSE;
 	    }
             //worldmap.c
-            else if (help_table[cnt].structure == sector_flags)
+            else if (help_table[cnt].structure == (void*)sector_flags)
             {
                 show_seclist (ch);
                 return FALSE;
             }
-            else if (help_table[cnt].structure == wmap_table) //worldmap.c
+            else if (help_table[cnt].structure == (void*)wmap_table) //worldmap.c
             {
                 send_to_char("WEdit commands\r\n"
                              " show\r\n"
@@ -5613,7 +5616,7 @@ REDIT( redit_sector )
 
 	EDIT_ROOM(ch, room);
 
-	if ( (value = flag_value( sector_flags, argument )) == NO_FLAG )
+        if ( (value = sector_lookup( argument )) == -1 ) //worldmap.c
 	{
 		send_to_char( "Sintaxis: sector [tipo]\n\r", ch );
 		return FALSE;
@@ -7959,6 +7962,8 @@ AEDIT ( aedit_music )
      return TRUE;
 }
 
+void show_seclist (CHAR_DATA * ch); //worldmap.c forward declaration
+
 //worldmap.c
 void show_seclist (CHAR_DATA * ch)
 {
@@ -8758,7 +8763,7 @@ WEDIT (wedit_reset)
             reset_type = RESET_TYPE_OBJ_ON_MOB;
         }
 
-        WMAP_RESET_DATA *reset = malloc(sizeof(WMAP_RESET_DATA));
+        WMAP_RESET_DATA *reset = (WMAP_RESET_DATA*)malloc(sizeof(WMAP_RESET_DATA)); //worldmap.c
         if (!reset)
         {
             send_to_char("Memory allocation failed!\r\n", ch);

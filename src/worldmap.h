@@ -49,6 +49,7 @@
 
 
 /***********MUD SPECIFIC VALUES***********/
+#define WMAP_DIR                "../maps/"
 #define WMAP_ONE                30000
 #define WMAP_TWO                30001
 #define WMAP_THREE              30002
@@ -158,3 +159,4 @@ char *strip_newlines args((const char *string));
 int wmap_new_x args((CHAR_DATA *ch, int dir));
 int wmap_new_y args((CHAR_DATA *ch, int dir));
 void do_savemap args((CHAR_DATA *ch, char *argument));
+bool has_key args((CHAR_DATA *ch, int key)); //worldmap.c
