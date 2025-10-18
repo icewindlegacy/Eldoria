@@ -2757,18 +2757,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-~
-~
--1
-1549
-0
-Exit
 0
 ~
 ~
 -1
 1547
+0
+Exit
+1
+~
+~
+-1
+1549
 0
 Exit
 3
@@ -2814,18 +2814,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-~
-~
--1
-1549
-0
-Exit
 2
 ~
 ~
 -1
 1555
+0
+Exit
+0
+~
+~
+-1
+1549
 0
 EndRoom
 
@@ -2839,18 +2839,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-~
-~
--1
-1552
-0
-Exit
 1
 ~
 ~
 -1
 1548
+0
+Exit
+2
+~
+~
+-1
+1552
 0
 EndRoom
 
@@ -2864,18 +2864,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-~
-~
--1
-1551
-0
-Exit
 2
 ~
 ~
 -1
 1553
+0
+Exit
+0
+~
+~
+-1
+1551
 0
 EndRoom
 
@@ -2889,18 +2889,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-~
-~
--1
-1554
-0
-Exit
 0
 ~
 ~
 -1
 1552
+0
+Exit
+1
+~
+~
+-1
+1554
 0
 EndRoom
 

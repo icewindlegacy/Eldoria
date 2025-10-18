@@ -2852,6 +2852,26 @@ Condition P
 EndObj
 
 #OBJ
+Vnum 3008
+Name pit~
+Short pit~
+Desc Pit~
+Material unknown~
+Item_type container
+Extra 0
+Extra2 0
+Wear 0
+Values 1000 0 0 99999 5
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
 Vnum 3009
 Name potpie pot pie~
 Short a big pot pie~
@@ -2970,6 +2990,26 @@ Values D BC 0 0 0
 Level 0
 Weight 10
 Cost 5
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
+Vnum 3015
+Name 1000qp token questpoint~
+Short a 1000qp token~
+Desc {M[EPIC]{x a {Y1000{xqp token~
+Material unknown~
+Item_type token
+Extra 0
+Extra2 0
+Wear A
+Values DFGHIJ 0 0 0 0
+Level 0
+Weight 0
+Cost 0
 Plevel 0
 Exp 0
 Xp_tolevel 0
@@ -11927,6 +11967,7 @@ G 0 3050 0
 G 0 3051 0
 M 0 3007 1 3050 1
 M 0 3012 5 3054 1
+O 0 3008 0 3054
 M 0 3055 1 3055 1
 M 0 3070 5 3056 1
 G 0 3080 0

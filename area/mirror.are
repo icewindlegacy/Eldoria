@@ -4417,7 +4417,7 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+1
 You see stars.
 ~
 ~
@@ -4433,7 +4433,7 @@ You see stars.
 5376
 0
 Exit
-1
+3
 You see stars.
 ~
 ~
@@ -4471,23 +4471,7 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-You see stars.
-~
-~
-0
-5377
-0
-Exit
-0
-You see stars.
-~
-~
-0
-5377
-0
-Exit
-4
+5
 You see stars.
 ~
 ~
@@ -4503,12 +4487,20 @@ You see stars.
 5376
 0
 Exit
-5
+0
 You see stars.
 ~
 ~
 0
-5375
+5377
+0
+Exit
+2
+You see stars.
+~
+~
+0
+5377
 0
 Exit
 3
@@ -4517,6 +4509,14 @@ You see stars.
 ~
 0
 5376
+0
+Exit
+4
+You see stars.
+~
+~
+0
+5375
 0
 EndRoom
 
@@ -4533,12 +4533,36 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+5
+You see stars.
+~
+~
+0
+5378
+0
+Exit
 3
 You see stars.
 ~
 ~
 0
 5377
+0
+Exit
+2
+You see stars.
+~
+~
+0
+5376
+0
+Exit
+4
+You see stars.
+~
+~
+0
+5378
 0
 Exit
 0
@@ -4555,30 +4579,6 @@ You see stars.
 ~
 0
 5377
-0
-Exit
-4
-You see stars.
-~
-~
-0
-5378
-0
-Exit
-2
-You see stars.
-~
-~
-0
-5376
-0
-Exit
-5
-You see stars.
-~
-~
-0
-5378
 0
 EndRoom
 
@@ -4596,23 +4596,7 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see stars.
-~
-~
-0
-5377
-0
-Exit
 3
-You see stars.
-~
-~
-0
-5375
-0
-Exit
-1
 You see stars.
 ~
 ~
@@ -4626,6 +4610,22 @@ You see a fuzzy portal of some sort and a little green.
 ~
 0
 8903
+0
+Exit
+4
+You see stars.
+~
+~
+0
+5377
+0
+Exit
+1
+You see stars.
+~
+~
+0
+5375
 0
 Exit
 5

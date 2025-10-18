@@ -5068,4 +5068,14 @@ Cat 0
 Disabled 0
 End
 
+Name savepits~
+Dofun savepits~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
 $

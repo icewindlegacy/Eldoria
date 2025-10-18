@@ -1879,12 +1879,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7713
+7707
 0
 Exit
 1
@@ -1895,14 +1895,6 @@ The astral field leads off into infinity.
 7710
 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7712
-0
-Exit
 5
 The astral field leads off into infinity.
 ~
@@ -1911,12 +1903,20 @@ The astral field leads off into infinity.
 7714
 0
 Exit
-2
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7707
+7713
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7712
 0
 EndRoom
 
@@ -1932,28 +1932,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7714
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7716
-0
-Exit
 4
 The astral field leads off into infinity.
 ~
 ~
 -1
 7710
+0
+Exit
+0
+The astral field leads off into infinity.
+~
+~
+-1
+7714
 0
 Exit
 3
@@ -1970,6 +1962,14 @@ The astral field leads off into infinity.
 ~
 -1
 7711
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7716
 0
 EndRoom
 
@@ -1985,28 +1985,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7709
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7707
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7715
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7708
 0
 Exit
 4
@@ -2017,12 +2009,20 @@ The astral field leads off into infinity.
 7713
 0
 Exit
-3
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7708
+7707
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7709
 0
 EndRoom
 
@@ -2038,12 +2038,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+4
 The astral field leads off into infinity.
 ~
 ~
 -1
-7717
+7709
 0
 Exit
 5
@@ -2054,14 +2054,6 @@ The astral field leads off into infinity.
 7707
 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7712
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
@@ -2070,12 +2062,20 @@ The astral field leads off into infinity.
 7716
 0
 Exit
-4
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7709
+7712
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7717
 0
 EndRoom
 
@@ -2090,14 +2090,6 @@ bearings and sense of direction.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7707
-0
 Exit
 0
 The astral field leads off into infinity.
@@ -2115,20 +2107,28 @@ The astral field leads off into infinity.
 7708
 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7711
-0
-Exit
 5
 The astral field leads off into infinity.
 ~
 ~
 -1
 7715
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7707
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7711
 0
 EndRoom
 
@@ -2152,12 +2152,12 @@ The astral field leads off into infinity.
 7710
 0
 Exit
-1
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7715
+7708
 0
 Exit
 3
@@ -2184,12 +2184,12 @@ The astral field leads off into infinity.
 7718
 0
 Exit
-2
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7708
+7715
 0
 EndRoom
 
@@ -2205,12 +2205,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7708
+7719
 0
 Exit
 3
@@ -2219,14 +2219,6 @@ The astral field leads off into infinity.
 ~
 -1
 7718
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7719
 0
 Exit
 5
@@ -2251,6 +2243,14 @@ The astral field leads off into infinity.
 ~
 -1
 7709
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7708
 0
 EndRoom
 
@@ -2267,14 +2267,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7710
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
@@ -2283,12 +2275,28 @@ The astral field leads off into infinity.
 7720
 0
 Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7710
+0
+Exit
 3
 The astral field leads off into infinity.
 ~
 ~
 -1
 7713
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7716
 0
 Exit
 1
@@ -2306,14 +2314,6 @@ The astral field leads off into infinity.
 -1
 7712
 0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7716
-0
 EndRoom
 
 #ROOM
@@ -2328,30 +2328,6 @@ close to home.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7709
-0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7711
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7715
-0
 Exit
 1
 The astral field leads off into infinity.
@@ -2369,12 +2345,36 @@ The astral field leads off into infinity.
 7717
 0
 Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7715
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7721
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7711
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7709
 0
 EndRoom
 
@@ -2391,14 +2391,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7722
-0
-Exit
 5
 The astral field leads off into infinity.
 ~
@@ -2407,20 +2399,12 @@ The astral field leads off into infinity.
 7721
 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7711
 0
-Exit
-2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7712
+7722
 0
 Exit
 3
@@ -2438,6 +2422,22 @@ The astral field leads off into infinity.
 -1
 7716
 0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7711
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7712
+0
 EndRoom
 
 #ROOM
@@ -2453,20 +2453,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+4
 The astral field leads off into infinity.
 ~
 ~
 -1
-7713
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7714
+7733
 0
 Exit
 0
@@ -2477,6 +2469,14 @@ The astral field leads off into infinity.
 7709
 0
 Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7713
+0
+Exit
 3
 The astral field leads off into infinity.
 ~
@@ -2485,12 +2485,12 @@ The astral field leads off into infinity.
 7719
 0
 Exit
-4
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7733
+7714
 0
 Exit
 5
@@ -2515,12 +2515,36 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7718
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7738
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7710
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7716
 0
 Exit
 2
@@ -2538,30 +2562,6 @@ The astral field leads off into infinity.
 -1
 7734
 0
-Exit
-5
-You see a tangible strand of silvery light.
-~
-~
--1
-7738
-0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7716
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7718
-0
 EndRoom
 
 #ROOM
@@ -2577,14 +2577,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7721
-0
-Exit
 1
 The astral field leads off into infinity.
 ~
@@ -2593,12 +2585,12 @@ The astral field leads off into infinity.
 7713
 0
 Exit
-4
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7735
+7721
 0
 Exit
 0
@@ -2609,12 +2601,12 @@ The astral field leads off into infinity.
 7711
 0
 Exit
-5
-You see a tangible strand of silvery light.
+4
+The astral field leads off into infinity.
 ~
 ~
 -1
-7740
+7735
 0
 Exit
 2
@@ -2623,6 +2615,14 @@ The astral field leads off into infinity.
 ~
 -1
 7715
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7740
 0
 EndRoom
 
@@ -2639,12 +2639,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-You see a tangible strand of silvery light.
+2
+The astral field leads off into infinity.
 ~
 ~
 -1
-7742
+7716
 0
 Exit
 4
@@ -2655,12 +2655,20 @@ The astral field leads off into infinity.
 7717
 0
 Exit
-2
+3
+You see a tangible strand of silvery light.
+~
+~
+-1
+7742
+0
+Exit
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7716
+7733
 0
 Exit
 1
@@ -2678,14 +2686,6 @@ The astral field leads off into infinity.
 -1
 7712
 0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7733
-0
 EndRoom
 
 #ROOM
@@ -2701,6 +2701,14 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7734
+0
+Exit
 3
 The astral field leads off into infinity.
 ~
@@ -2715,14 +2723,6 @@ You see a tangible strand of silvery light.
 ~
 -1
 7744
-0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7734
 0
 Exit
 0
@@ -2755,28 +2755,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The astral field leads off into infinity.
+2
+You see a tangible strand of silvery light.
 ~
 ~
 -1
-7728
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7724
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7732
+7737
 0
 Exit
 3
@@ -2795,12 +2779,28 @@ The astral field leads off into infinity.
 7735
 0
 Exit
-2
-You see a tangible strand of silvery light.
+0
+The astral field leads off into infinity.
 ~
 ~
 -1
-7737
+7724
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7728
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7732
 0
 EndRoom
 
@@ -2817,20 +2817,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
-You see a tangible strand of silvery light.
-~
-~
--1
-7739
-0
-Exit
-4
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7730
+7729
 0
 Exit
 3
@@ -2841,12 +2833,12 @@ The astral field leads off into infinity.
 7733
 0
 Exit
-1
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7729
+7723
 0
 Exit
 0
@@ -2857,12 +2849,20 @@ The astral field leads off into infinity.
 7725
 0
 Exit
-2
+4
 The astral field leads off into infinity.
 ~
 ~
 -1
-7723
+7730
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7739
 0
 EndRoom
 
@@ -2887,28 +2887,20 @@ The astral field leads off into infinity.
 7734
 0
 Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7724
+0
+Exit
 5
 The astral field leads off into infinity.
 ~
 ~
 -1
 7730
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7727
-0
-Exit
-0
-You see a tangible strand of silvery light.
-~
-~
--1
-7741
 0
 Exit
 4
@@ -2919,12 +2911,20 @@ The astral field leads off into infinity.
 7728
 0
 Exit
-2
+0
+You see a tangible strand of silvery light.
+~
+~
+-1
+7741
+0
+Exit
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
+7727
 0
 EndRoom
 
@@ -2941,14 +2941,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7723
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
@@ -2957,20 +2949,20 @@ The astral field leads off into infinity.
 7731
 0
 Exit
-2
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7727
+7723
 0
 Exit
-4
-You see a tangible strand of silvery light.
+3
+The astral field leads off into infinity.
 ~
 ~
 -1
-7743
+7735
 0
 Exit
 5
@@ -2981,12 +2973,20 @@ The astral field leads off into infinity.
 7729
 0
 Exit
-3
+4
+You see a tangible strand of silvery light.
+~
+~
+-1
+7743
+0
+Exit
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7735
+7727
 0
 EndRoom
 
@@ -3003,12 +3003,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
-You see a tangible strand of silvery light.
+2
+The astral field leads off into infinity.
 ~
 ~
 -1
-7744
+7733
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7731
 0
 Exit
 0
@@ -3017,6 +3025,14 @@ The astral field leads off into infinity.
 ~
 -1
 7726
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7744
 0
 Exit
 3
@@ -3034,22 +3050,6 @@ The astral field leads off into infinity.
 -1
 7732
 0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7733
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7731
-0
 EndRoom
 
 #ROOM
@@ -3065,14 +3065,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7709
-0
-Exit
 4
 The astral field leads off into the depths.
 ~
@@ -3081,12 +3073,12 @@ The astral field leads off into the depths.
 7745
 0
 Exit
-1
-The astral field leads off into the depths.
+0
+The astral field leads off into infinity.
 ~
 ~
 -1
-7747
+7709
 0
 Exit
 2
@@ -3095,6 +3087,14 @@ The astral field leads off into infinity.
 ~
 -1
 7734
+0
+Exit
+1
+The astral field leads off into the depths.
+~
+~
+-1
+7747
 0
 Exit
 5
@@ -3127,28 +3127,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7726
-0
-Exit
-1
-The astral field leads off into the depths.
-~
-~
--1
-7749
+7735
 0
 Exit
 0
@@ -3159,12 +3143,12 @@ The astral field leads off into infinity.
 7730
 0
 Exit
-2
-The astral field leads off into infinity.
+1
+The astral field leads off into the depths.
 ~
 ~
 -1
-7735
+7749
 0
 Exit
 5
@@ -3173,6 +3157,22 @@ The astral field leads off into the depths.
 ~
 -1
 7746
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7726
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7724
 0
 EndRoom
 
@@ -3189,6 +3189,14 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7724
+0
+Exit
 2
 The astral field leads off into infinity.
 ~
@@ -3197,12 +3205,12 @@ The astral field leads off into infinity.
 7729
 0
 Exit
-3
-The astral field leads off into the depths.
+1
+The astral field leads off into infinity.
 ~
 ~
 -1
-7745
+7733
 0
 Exit
 4
@@ -3221,20 +3229,12 @@ The astral field leads off into the depths.
 7747
 0
 Exit
-5
-The astral field leads off into infinity.
+3
+The astral field leads off into the depths.
 ~
 ~
 -1
-7724
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7733
+7745
 0
 EndRoom
 
@@ -3250,6 +3250,14 @@ keeping your sense of direction.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7726
+0
 Exit
 0
 The astral field leads off into infinity.
@@ -3267,12 +3275,12 @@ The astral field leads off into the depths.
 7748
 0
 Exit
-2
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7726
+7734
 0
 Exit
 4
@@ -3281,14 +3289,6 @@ The astral field leads off into the depths.
 ~
 -1
 7746
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7734
 0
 Exit
 5
@@ -3313,28 +3313,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7727
-0
-Exit
-4
-The astral field leads off into the depths.
-~
-~
--1
-7748
-0
-Exit
 0
 The astral field leads off into the depths.
 ~
 ~
 -1
 7749
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7727
 0
 Exit
 2
@@ -3360,6 +3352,14 @@ The astral field leads off into infinity.
 -1
 7735
 0
+Exit
+4
+The astral field leads off into the depths.
+~
+~
+-1
+7748
+0
 EndRoom
 
 #ROOM
@@ -3375,6 +3375,14 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7721
+0
+Exit
 3
 The astral field leads off into infinity.
 ~
@@ -3383,12 +3391,12 @@ The astral field leads off into infinity.
 7730
 0
 Exit
-0
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7727
+7724
 0
 Exit
 5
@@ -3399,20 +3407,12 @@ The astral field leads off into infinity.
 7718
 0
 Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7721
 0
-Exit
-1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
+7727
 0
 EndRoom
 
@@ -3437,14 +3437,6 @@ The astral field leads off into infinity.
 7725
 0
 Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7719
-0
-Exit
 4
 The astral field leads off into infinity.
 ~
@@ -3459,6 +3451,14 @@ The astral field leads off into infinity.
 ~
 -1
 7731
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7719
 0
 Exit
 0
@@ -3483,6 +3483,22 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7726
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7723
+0
+Exit
 3
 The astral field leads off into infinity.
 ~
@@ -3497,22 +3513,6 @@ The astral field leads off into infinity.
 ~
 -1
 7720
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7723
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7726
 0
 Exit
 0
@@ -3534,20 +3534,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see the infinite expanse of the astral field.
-~
-~
--1
-7718
-0
-Exit
 0
 The strand of light twists and turns out of sight.
 ~
 ~
 -1
 7737
+0
+Exit
+4
+You see the infinite expanse of the astral field.
+~
+~
+-1
+7718
 0
 EndRoom
 
@@ -3723,20 +3723,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The strand of light twists and turns out of sight.
-~
-~
--1
-7742
-0
-Exit
 5
 You see the infinite expanse of the astral field.
 ~
 ~
 -1
 7726
+0
+Exit
+2
+The strand of light twists and turns out of sight.
+~
+~
+-1
+7742
 0
 EndRoom
 

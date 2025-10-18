@@ -1,0 +1,23 @@
+#O
+Vnum 221
+Inrm 3037
+Nest 0
+Size   1
+strap -1
+Wear -1
+Time 144
+Cost 0
+ValOrig  0 0 0 0 0
+End
+
+#O
+Vnum 221
+Nest 0
+Size   1
+strap -1
+Wear -1
+Cost 2
+ValOrig  0 0 0 0 0
+End
+
+#END
