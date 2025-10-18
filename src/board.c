@@ -169,8 +169,15 @@ void finish_note(BOARD_DATA * board, NOTE_DATA * note)
     sprintf(filename, "%s/%s", NOTE_DIR, board->short_name);
 
     fp = file_open(filename, "a");
-    append_note(fp, note);
-    file_close(fp);
+    if (fp)
+    {
+	append_note(fp, note);
+	file_close(fp);
+    }
+    else
+    {
+	bug("finish_note: could not open file %s for writing", 0);
+    }
 }
 
 /* Find the number of a board */
@@ -241,6 +248,12 @@ static void save_board(BOARD_DATA * board)
     sprintf(filename, "%s/%s", NOTE_DIR, board->short_name);
 
     fp = file_open(filename, "w");
+    
+    if (!fp)
+    {
+	bug("save_board: could not open file %s for writing", 0);
+	return;
+    }
 
     for (note = board->note_first; note; note = note->next)
 	append_note(fp, note);
@@ -283,6 +296,12 @@ static void load_board(BOARD_DATA * board)
 	if(!file_exists(filename) )
 		return;
     fp = file_open(filename, "r");
+    
+    if (!fp)
+    {
+	bug("load_board: could not open file %s for reading", 0);
+	return;
+    }
 
     /* Start note fetching. copy of db.c:load_notes() */
 
@@ -345,8 +364,15 @@ static void load_board(BOARD_DATA * board)
 
 	    sprintf(archive_name, "%s/%s.old", NOTE_DIR, board->short_name);
 	    fp_archive = file_open(archive_name, "a");
-	    append_note(fp_archive, pnote);
-	    file_close(fp_archive);	/* it might be more efficient to close this later */
+	    if (fp_archive)
+	    {
+		append_note(fp_archive, pnote);
+		file_close(fp_archive);	/* it might be more efficient to close this later */
+	    }
+	    else
+	    {
+		bug("load_board: could not open archive file for writing", 0);
+	    }
 
 	    free_note(pnote);
 	    board->changed = true;
@@ -741,10 +767,18 @@ static void do_nexpire(CHAR_DATA * ch, char *argument)
 		boards[board_number(ch->pcdata->board)].short_name);
 	
 	fp_archive = file_open(archive_name, "a");
-	append_note(fp_archive, p);
-	unlink_note(ch->pcdata->board, p);
-	free_note(p);
-	file_close(fp_archive);
+	if (fp_archive)
+	{
+	    append_note(fp_archive, p);
+	    unlink_note(ch->pcdata->board, p);
+	    free_note(p);
+	    file_close(fp_archive);
+	}
+	else
+	{
+	    bug("note expire: could not open archive file for writing", 0);
+	    send_to_char("Error: Could not archive note.\n\r", ch);
+	}
     }
 
     save_board(ch->pcdata->board);
