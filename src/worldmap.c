@@ -64,11 +64,9 @@ WMAP_RESET_DATA     *wmap_reset_list[MAX_WMAP] = {NULL};
 
 WMAP_TYPE wmap_table[MAX_WMAP] = {
 //   MAP NAME       MAP PNG         MAP VNUM        X       Y       SIZE    WRAPPING
-    {"mapone",      "map1.png",     WMAP_ONE,       500,    500,    16,     TRUE     },
-    {"maptwo",      "map2.png",     WMAP_TWO,       500,    500,    16,     TRUE     },
-    {"mapthree",    "map3.png",     WMAP_THREE,     500,    500,    16,     TRUE     },
-    {"mapfour",     "map4.png",     WMAP_FOUR,      500,    500,    16,     TRUE     },
-    {"mapfive",     "map5.png",     WMAP_FIVE,      500,    500,    16,     TRUE     }
+    {"mapone",      "mapone.png",   WMAP_ONE,       500,    500,    16,     FALSE    },
+    {"maptwo",      "maptwo.png",   WMAP_TWO,       500,    500,    16,     TRUE     },
+    {"mapthree",    "mapthree.png", WMAP_THREE,     500,    500,    16,     TRUE     }
 };
 
 const struct sec_type sector_flags[SECT_MAX] = {
@@ -685,7 +683,7 @@ void wmap_movement(CHAR_DATA *ch, int dir, bool follow)
         follow_me(ch,ch->in_room,dir,old_x,old_y);
 
         if(!IS_NPC(ch) && ch->desc && ch->desc->editor == ED_WMAP && ch->pcdata->wmap_sec >= 0)
-            wmap_table[wmap_index].grid[new_x][new_y]->terrain = ch->pcdata->wmap_sec;
+            wmap_table[wmap_index].grid[new_x][new_y] = ch->pcdata->wmap_sec; //worldmap.c fix
     }
 
     if (me != NULL)
@@ -803,7 +801,7 @@ bool can_enter(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, bool wmap, int new_x, in
             {
                 for (iGuild = 0; iGuild < MAX_GUILD; iGuild++)
                 {
-                    if (iClass != ch->class
+                    if (iClass != ch->klass[0] //worldmap.c fix
                         && to_room->vnum == class_table[iClass].guild[iGuild])
                     {
                         send_to_char ("You aren't allowed in there.\r\n", ch);
@@ -1053,9 +1051,9 @@ WMAP_TYPE* get_wmap_ch(CHAR_DATA* ch, int* wmap_index)
 int get_sector(CHAR_DATA *ch, int wmap_index, int x, int y)
 {
     if(ch && is_wmap(ch, NULL))
-        return wmap_table[wmap_num(ch,NULL)].grid[wmap_x(ch,NULL)][wmap_y(ch,NULL)]->terrain;
+        return wmap_table[wmap_num(ch,NULL)].grid[wmap_x(ch,NULL)][wmap_y(ch,NULL)]; //worldmap.c fix
     else if(ch == NULL && wmap_index >= 0 && x >= 0 && y >= 0)
-        return wmap_table[wmap_index].grid[x][y]->terrain;
+        return wmap_table[wmap_index].grid[x][y]; //worldmap.c fix
     else
         return ch->in_room->sector_type;
 }
@@ -1135,12 +1133,13 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
             #if defined (WMAP_SECT_VIS)
             if(!IS_HOLYLIGHT(ch))
             {
-                if((sec = sector_flags[wmap_table[wmap_index].grid[ch->wmap[1]][ch->wmap[2]]->terrain].move) > 2)
+                if((sec = sector_flags[wmap_table[wmap_index].grid[ch->wmap[1]][ch->wmap[2]]].move) > 2)
                     mod += sec * 100 / 150;
             }
             #endif
             #if defined (WMAP_SECT_HIDE)
-            mod = sector_flags[wmap_table[wmap_index].grid[och->wmap[1]][och->wmap[2]]->terrain].move / 2;
+            int och_sector = wmap_table[wmap_index].grid[och->wmap[1]][och->wmap[2]]; //worldmap.c fix
+            mod = sector_flags[och_sector].move / 2;
             dst = wmap_dist(ch->wmap[1],ch->wmap[2],och->wmap[1],och->wmap[2]);
             #endif
             if(dst > depth - mod && !IS_HOLYLIGHT(ch))
@@ -1184,12 +1183,12 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
                 #if defined (WMAP_SECT_VIS)
                 if(!IS_HOLYLIGHT(ch))
                 {
-                    if((sec = sector_flags[wmap_table[wmap_index].grid[ch->wmap[1]][ch->wmap[2]]->terrain].move) > 2)
+                    if((sec = sector_flags[wmap_table[wmap_index].grid[ch->wmap[1]][ch->wmap[2]]].move) > 2)
                         mod += sec * 100 / 150;
                 }
                 #endif
                 #if defined (WMAP_SECT_HIDE)
-                mod = sector_flags[wmap_table[wmap_index].grid[obj->wmap[1]][obj->wmap[2]]->terrain].move / 2;
+                mod = sector_flags[wmap_table[wmap_index].grid[obj->wmap[1]][obj->wmap[2]]].move / 2;
                 dst = wmap_dist(ch->wmap[1],ch->wmap[2],obj->wmap[1],obj->wmap[2]);
                 #endif
                 if(dst > depth - mod && !IS_HOLYLIGHT(ch))
@@ -1216,21 +1215,22 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
 
     char *symb = NULL;
 
-    WMAPTILE_DATA *tile = wmap_table[wmap_index].grid[x][y];
+    //WMAPTILE_DATA *tile = wmap_table[wmap_index].grid[x][y]; //worldmap.c fix - grid is uint8_t not pointer
     WMAPTILE_DATA *tile2 = find_wmap_tile(wmap_index,x,y,0);
 
     if (tile2 && tile2->symb && tile2->symb[0] != '\0')
         symb = tile2->symb;
     else
-        symb = sector_flags[tile->terrain].wmap_symb;
+        symb = sector_flags[wmap_table[wmap_index].grid[x][y]].wmap_symb; //worldmap.c fix
 
-    if (tile->terrain >= 0 && tile->terrain < SECT_MAX && symb)
+    uint8_t terrain = wmap_table[wmap_index].grid[x][y]; //worldmap.c fix
+    if (terrain >= 0 && terrain < SECT_MAX && symb)
     {
         #if defined (WMAP_NIGHT_FADE16)
         if(weather_info.sunlight == SUN_SET || weather_info.sunlight == SUN_DARK)
         {
             #if defined (WMAP_WATER_DEPTH16)
-            if(IS_WATER(tile->terrain) && number_bits(3) < 1)
+            if(IS_WATER(terrain) && number_bits(3) < 1)
                 return symb;
             #endif
             if(!maplight)
@@ -1250,7 +1250,7 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
         #if defined (WMAP_WATER_DEPTH16)
         else
         {
-            if(tile->terrain == SECT_WATER_SWIM && number_bits(3) < 2)
+            if(terrain == SECT_WATER_SWIM && number_bits(3) < 2)
                 return fade_color16(symb);
         }
         #endif
@@ -1260,11 +1260,11 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
         if(weather_info.sunlight == SUN_SET || weather_info.sunlight == SUN_DARK)
         {
             #if defined (WMAP_WATER_DEPTH256)
-            if(IS_WATER(tile->terrain) && number_bits(3) < 1)
+            if(IS_WATER(terrain) && number_bits(3) < 1)
                 return symb;
             #endif
             #if defined (WMAP_SECT_DEPTH256)
-            if(!IS_WATER(tile->terrain) && number_bits(2) == 0)
+            if(!IS_WATER(terrain) && number_bits(2) == 0)
                 return fade_color(symb,3);
             #endif
             if(!maplight)
@@ -1284,31 +1284,31 @@ const char *wmap_symbol (CHAR_DATA *ch, int wmap_index, int x, int y, int dx, in
         #if defined (WMAP_WATER_DEPTH256)
         else
         {
-            if(tile->terrain == SECT_WATER_SWIM && number_bits(3) < 2)
+            if(terrain == SECT_WATER_SWIM && number_bits(3) < 2)
                 return fade_color(symb,3);
         }
         #endif
         #endif
 
         #if defined (WMAP_WATER_DEPTH16)
-        if(tile->terrain == SECT_WATER_NOSWIM)
+        if(terrain == SECT_WATER_NOSWIM)
         {
             if(number_bits(3) < 2)
                 return fade_color16(symb);
             else
                 return symb;
         }
-        if(IS_WATER(tile->terrain) && number_bits(3) < 1)
+        if(IS_WATER(terrain) && number_bits(3) < 1)
             return bright_color16(symb);
         #endif
 
         #if defined (WMAP_WATER_DEPTH256)
-        if(IS_WATER(tile->terrain) && number_bits(3) < 1)
+        if(IS_WATER(terrain) && number_bits(3) < 1)
             return bright_color(symb,2);
         #endif
 
         #if defined (WMAP_SECT_DEPTH256)
-        if(!maplight && !IS_WATER(tile->terrain) && number_bits(2) == 0)
+        if(!maplight && !IS_WATER(terrain) && number_bits(2) == 0)
             return fade_color(symb,number_bits(1) + 1);
         #endif
         return symb;
@@ -2552,7 +2552,7 @@ void load_wmap_resets(int wmap_index)
         int reset_type, vnum, map_index, x, y, z, max, mob_vnum, wear;
         if (sscanf(line, "%d %d %d %d %d %d %d %d %d", &reset_type, &vnum, &map_index, &x, &y, &z, &max, &mob_vnum, &wear) == 9)
         {
-            WMAP_RESET_DATA *reset = malloc(sizeof(WMAP_RESET_DATA));
+            WMAP_RESET_DATA *reset = (WMAP_RESET_DATA *)malloc(sizeof(WMAP_RESET_DATA));
             if (!reset)
             {
                 bug("load_wmap_resets: Memory allocation failed!", 0);
@@ -2794,7 +2794,7 @@ typedef struct
 // Function to initialize a stack
 void init_stack(Stack *stack, int capacity)
 {
-    stack->data = malloc(capacity * sizeof(Point));
+    stack->data = (Point *)malloc(capacity * sizeof(Point));
     stack->size = 0;
     stack->capacity = capacity;
 }
@@ -2805,7 +2805,7 @@ void push(Stack *stack, int x, int y)
     if (stack->size >= stack->capacity)
     {
         stack->capacity *= 2;
-        stack->data = realloc(stack->data, stack->capacity * sizeof(Point));
+        stack->data = (Point *)realloc(stack->data, stack->capacity * sizeof(Point));
     }
     stack->data[stack->size++] = (Point){x, y};
 }
@@ -2854,7 +2854,7 @@ void flood_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int replacement)
         if (px < 0 || py < 0 || px >= width || py >= height || get_sector(NULL,wmap_index,px,py) != target)
             continue;
 
-        wmap_table[wmap_index].grid[px][py]->terrain = replacement;
+        wmap_table[wmap_index].grid[px][py] = replacement;
 
         push(&stack, px + 1, py);
         push(&stack, px - 1, py);
@@ -2882,7 +2882,7 @@ void fractal_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int
     int center_threshold_y = height / 5; // Define the threshold as 20% of the height
 
     // Apply the fractal to the center point
-    wmap_table[wmap_index].grid[x][y]->terrain = sector;
+    wmap_table[wmap_index].grid[x][y] = sector;
 
     // Apply the fractal to neighboring points
     for (int dx = -distance; dx <= distance; dx++)
@@ -2928,7 +2928,7 @@ void fractal_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int
                     // Apply the sector value based on decay factor
                     if (rand() % 100 < decay_factor)
                     {
-                        wmap_table[wmap_index].grid[new_x][new_y]->terrain = sector;
+                        wmap_table[wmap_index].grid[new_x][new_y] = sector;
                     }
                 }
                 else
@@ -2936,7 +2936,7 @@ void fractal_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int
                     // No decay; random application
                     if (rand() % 2 == 0)
                     {
-                        wmap_table[wmap_index].grid[new_x][new_y]->terrain = sector;
+                        wmap_table[wmap_index].grid[new_x][new_y] = sector;
                     }
                 }
             }
@@ -2966,7 +2966,7 @@ void square_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int 
 
             if (new_x >= 0 && new_x < width && new_y >= 0 && new_y < height)
             {
-                wmap_table[wmap_index].grid[new_x][new_y]->terrain = sector;
+                wmap_table[wmap_index].grid[new_x][new_y] = sector;
             }
         }
     }
@@ -2994,7 +2994,7 @@ void circle_fill(CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int 
                 float distance_check = (dx * dx) / (adjusted_distance_x * adjusted_distance_x) + (dy * dy) / (adjusted_distance_y * adjusted_distance_y);
                 if (distance_check <= 1.0f)
                 {
-                    wmap_table[wmap_index].grid[new_x][new_y]->terrain = sector;
+                    wmap_table[wmap_index].grid[new_x][new_y] = sector;
                 }
             }
         }
@@ -3043,7 +3043,7 @@ void load_png(int wmap_index)
     if (wmap_table[wmap_index].grid == NULL)
     {
         // Allocate memory for the grid (2D array of uint8_t)
-        wmap_table[wmap_index].grid = malloc(wmap->max_x * sizeof(uint8_t *));
+        wmap_table[wmap_index].grid = (uint8_t **)malloc(wmap->max_x * sizeof(uint8_t *));
         if (!wmap_table[wmap_index].grid)
         {
             bug("Memory allocation failed for grid rows.\r\n", 0);
@@ -3053,7 +3053,7 @@ void load_png(int wmap_index)
 
         for (int x = 0; x < wmap->max_x; x++)
         {
-            wmap_table[wmap_index].grid[x] = malloc(wmap->max_y * sizeof(uint8_t));  // Now uint8_t
+            wmap_table[wmap_index].grid[x] = (uint8_t *)malloc(wmap->max_y * sizeof(uint8_t));  // Now uint8_t
             if (!wmap_table[wmap_index].grid[x])
             {
                 bug("Memory allocation failed for grid columns.\r\n", 0);
@@ -3214,10 +3214,10 @@ void do_zoomwmap(CHAR_DATA *ch, char *argument)
     int view_diameter = view_radius * 2 + 1;
     int adjusted_height = (view_radius * 1.8) / 2;
 
-    const char ***zoomed_grid = calloc(view_diameter, sizeof(char**));
+    const char ***zoomed_grid = (const char ***)calloc(view_diameter, sizeof(char**));
     for (int i = 0; i < view_diameter; i++)
     {
-        zoomed_grid[i] = calloc(view_diameter, sizeof(char*));
+        zoomed_grid[i] = (const char **)calloc(view_diameter, sizeof(char*));
     }
 
     // Resize the map with zoom
@@ -3341,4 +3341,37 @@ void do_zoomwmap(CHAR_DATA *ch, char *argument)
         free(zoomed_grid[i]);
     }
     free(zoomed_grid);
+}
+
+//worldmap.c - helper function for calculating distance on the worldmap
+double wmap_dist(int x1, int y1, int x2, int y2)
+{
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    return sqrt(dx * dx + dy * dy);
+}
+
+//worldmap.c - Diagonal movement commands
+void do_northeast (CHAR_DATA * ch, char *argument)
+{
+    move_char (ch, DIR_NORTHEAST, FALSE);
+    return;
+}
+
+void do_northwest (CHAR_DATA * ch, char *argument)
+{
+    move_char (ch, DIR_NORTHWEST, FALSE);
+    return;
+}
+
+void do_southeast (CHAR_DATA * ch, char *argument)
+{
+    move_char (ch, DIR_SOUTHEAST, FALSE);
+    return;
+}
+
+void do_southwest (CHAR_DATA * ch, char *argument)
+{
+    move_char (ch, DIR_SOUTHWEST, FALSE);
+    return;
 }

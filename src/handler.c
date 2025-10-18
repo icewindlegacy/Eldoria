@@ -5045,3 +5045,14 @@ void affect_join_obj2 (OBJ_DATA * obj, AFFECT_DATA * paf)
     return;
 }
 
+
+//worldmap.c
+void WAIT_STATE(CHAR_DATA *ch, int npulse)
+{
+    ch->wait = UMAX(ch->wait, npulse);
+}
+
+void DAZE_STATE(CHAR_DATA *ch, int npulse)
+{
+    ch->daze = UMAX(ch->daze, npulse);
+}

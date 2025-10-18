@@ -1397,3 +1397,61 @@ char *fade_color(const char *string, int fade)
     return newstr;
 }
 
+
+//worldmap.c
+char *strip_newlines(const char *string)
+{
+    if (!string)
+        return NULL;
+
+    size_t len = strlen(string);
+    char *result = (char *)malloc(len + 1);
+
+    if (!result)
+        return NULL;
+
+    size_t i, j = 0;
+    for (i = 0; i < len; i++)
+    {
+        if (string[i] == '\n' || string[i] == '\r')
+        {
+            result[j++] = ' ';
+            
+            if (string[i + 1] == '\n' || string[i + 1] == '\r')
+                i++;
+        }
+        else
+            result[j++] = string[i];
+    }
+
+    result[j] = '\0';
+    return result;
+}
+
+char *strip_recolor(const char *string)
+{
+    if (!string)
+        return NULL;
+
+    size_t len = strlen(string);
+    char *result = (char *)malloc(len * 2 + 1);
+
+    if (!result)
+        return NULL;
+
+    size_t i, j = 0;
+    for (i = 0; i < len; i++)
+    {
+        if (string[i] == '{')
+        {
+            i++;
+            if (string[i] == '\0')
+                break;
+            continue;
+        }
+        result[j++] = string[i];
+    }
+
+    result[j] = '\0';
+    return result;
+}
