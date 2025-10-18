@@ -48,7 +48,14 @@
 #include <dirent.h>
 #include <unistd.h>
 #include "include.h"
+#include "worldmap.h" //worldmap.c
 
+extern WMAP_TYPE wmap_table[]; //worldmap.c
+
+/* Web update functions */
+void who_html_update(void);
+void help_json_update(void);
+void skills_json_update(void);
 
 /*
  * Local functions.
@@ -180,6 +187,7 @@ void wiznet(char *string, CHAR_DATA *ch, OBJ_DATA *obj,
     for ( d = descriptor_list; d != NULL; d = d->next )
     {
         if (d->connected == CON_PLAYING
+	&&  d->character != NULL
 	&&  IS_IMMORTAL(d->character) 
 	&&  IS_SET(d->character->wiznet,WIZ_ON) 
 	&&  (!flag || IS_SET(d->character->wiznet,flag))
@@ -850,12 +858,40 @@ void do_transfer( CHAR_DATA *ch, char *argument )
     act( "$n disappears in a mushroom cloud.", victim, NULL, NULL, TO_ROOM );
     char_from_room( victim );
     char_to_room( victim, location );
+    
+    //worldmap.c - initialize coordinates if transferring to a worldmap room
+    if(is_wmap_vnum(location->vnum))
+    {
+        int wmap_index = wmap_vnum_index(location->vnum);
+        if(wmap_index >= 0)
+        {
+            victim->wmap[0] = wmap_index;
+            victim->wmap[1] = wmap_table[wmap_index].max_x / 2;
+            victim->wmap[2] = wmap_table[wmap_index].max_y / 2;
+            victim->wmap[3] = 0;
+        }
+    }
+    
     act( "$n arrives from a puff of smoke.", victim, NULL, NULL, TO_ROOM );
 
     if( MOUNTED(victim) )
     {
         char_from_room( MOUNTED(victim) );
         char_to_room( MOUNTED(victim), location );
+        
+        //worldmap.c - initialize mount coordinates
+        if(is_wmap_vnum(location->vnum))
+        {
+            int wmap_index = wmap_vnum_index(location->vnum);
+            if(wmap_index >= 0)
+            {
+                MOUNTED(victim)->wmap[0] = wmap_index;
+                MOUNTED(victim)->wmap[1] = wmap_table[wmap_index].max_x / 2;
+                MOUNTED(victim)->wmap[2] = wmap_table[wmap_index].max_y / 2;
+                MOUNTED(victim)->wmap[3] = 0;
+            }
+        }
+        
         send_to_char("Your rider is being transferred, and so are you.\n\r", MOUNTED(victim));
     }
 
@@ -978,6 +1014,19 @@ void do_goto( CHAR_DATA *ch, char *argument )
 
     char_from_room( ch );
     char_to_room( ch, location );
+
+    //worldmap.c - initialize coordinates if going to a worldmap room
+    if(is_wmap_vnum(location->vnum))
+    {
+        int wmap_index = wmap_vnum_index(location->vnum);
+        if(wmap_index >= 0)
+        {
+            ch->wmap[0] = wmap_index;
+            ch->wmap[1] = wmap_table[wmap_index].max_x / 2; // Center of map
+            ch->wmap[2] = wmap_table[wmap_index].max_y / 2;
+            ch->wmap[3] = 0; // Ground level
+        }
+    }
 
     if (ch->pet != NULL)
     {
@@ -9522,5 +9571,30 @@ void shutdown( )
 	    save_char_obj(vch);
 	close_socket(d);
     }
+    return;
+}
+
+/* Manual update of web files */
+void do_webupdate( CHAR_DATA *ch, char *argument )
+{
+    if (IS_NPC(ch))
+        return;
+
+    send_to_char("Updating web files...\n\r", ch);
+    
+    /* Update who list */
+    who_html_update();
+    send_to_char("  - online.html updated\n\r", ch);
+    
+    /* Update help system */
+    help_json_update();
+    send_to_char("  - helps.json updated\n\r", ch);
+    
+    /* Update skills/spells */
+    skills_json_update();
+    send_to_char("  - skills.json updated\n\r", ch);
+    
+    send_to_char("Web update complete!\n\r", ch);
+    log_string("Web files manually updated.");
     return;
 }

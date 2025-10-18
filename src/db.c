@@ -40,6 +40,7 @@
 
 #include "include.h"
 #include "music.h"
+#include "worldmap.h" //worldmap.c
 
 #if !defined(macintosh)
 extern	int	_filbuf		args( (FILE *) );
@@ -75,6 +76,8 @@ TRIVIA_DATA *           trivia;
 
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
+QSHOP_DATA *		qshop_first;
+QSHOP_DATA *		qshop_last;
 
 extern NOTE_DATA *		note_free;
 
@@ -151,7 +154,7 @@ int 			total_output = 0;
 void *			rgFreeList	[MAX_MEM_LIST];
 const int		rgSizeList	[MAX_MEM_LIST]	=
 {
-    16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768-64
+    16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288
 };
 
 int			nAllocString;
@@ -286,6 +289,7 @@ void 	load_objects	args( ( FILE *fp ) );
 void	load_resets	args( ( FILE *fp ) );
 void	load_rooms	args( ( FILE *fp ) );
 void	load_shops	args( ( FILE *fp ) );
+void	load_qshops	args( ( FILE *fp ) );
 void	load_specials	args( ( FILE *fp ) );
 void	load_bans	args( ( void ) );
 void    load_bounties   args( ( void ) );
@@ -430,6 +434,7 @@ void boot_db()
 		else if ( !str_cmp( word, "ROOMS"    ) ) load_rooms   (fpArea);
 		else if ( !str_cmp( word, "ROOMSNEW"    ) ) fread_rooms   (fpArea);
 		else if ( !str_cmp( word, "SHOPS"    ) ) load_shops   (fpArea);
+		else if ( !str_cmp( word, "QSHOPS"   ) ) load_qshops  (fpArea);
 		else if ( !str_cmp( word, "SPECIALS" ) ) load_specials(fpArea);
 		else
 		{
@@ -512,6 +517,18 @@ void boot_db()
 
     /* Load donation system - only during copyover recovery (see comm.c)
      * During normal boot, donation rooms/pits start empty */
+
+    //worldmap.c - Load all worldmaps
+    log_string("Loading worldmaps...");
+    for (int i = 0; i < MAX_WMAP; i++)
+    {
+        load_wmap(i);
+        load_wmap_resets(i);
+    }
+    load_wmap_exits();
+    load_wmap_tiles();
+    process_wmap_resets();
+    log_string("Worldmaps loaded.");
 
     return;
 }
@@ -1225,6 +1242,38 @@ void load_shops( FILE *fp )
 	shop_last	= pShop;
 	pShop->next	= NULL;
 	top_shop++;
+    }
+
+    return;
+}
+
+/*
+ * Snarf quest shop section.
+ */
+void load_qshops( FILE *fp )
+{
+    QSHOP_DATA *pQShop;
+
+    for ( ; ; )
+    {
+        MOB_INDEX_DATA *pMobIndex;
+
+        pQShop                  = (QSHOP_DATA *)alloc_perm( sizeof(*pQShop) );
+        pQShop->keeper          = fread_number( fp );
+        if ( pQShop->keeper == 0 )
+            break;
+        pQShop->profit_sell     = fread_number( fp );
+                                  fread_to_eol( fp );
+        pMobIndex               = get_mob_index( pQShop->keeper );
+        pMobIndex->pQShop       = pQShop;
+
+        if ( qshop_first == NULL )
+            qshop_first = pQShop;
+        if ( qshop_last  != NULL )
+            qshop_last->next = pQShop;
+
+        qshop_last      = pQShop;
+        pQShop->next    = NULL;
     }
 
     return;

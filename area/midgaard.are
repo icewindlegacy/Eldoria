@@ -427,7 +427,7 @@ EndMob
 Vnum 3011
 Name Hassan~
 Short Hassan~
-Long Hassan is here, waiting to dispense some justice.
+Long {W({CQuest{W){x Hassan is here, waiting to dispense some justice.
 ~
 Description Big. Very big.
 Stupid. Very stupid.
@@ -438,7 +438,7 @@ in his presence.
 ~
 Race giant~
 Act_flags ABTV
-Aff CDFJVZ
+Aff CDFHJVZ
 Align 1000
 Group 3000
 Level 160
@@ -3017,6 +3017,88 @@ Condition P
 EndObj
 
 #OBJ
+Vnum 3016
+Name a road to the south~
+Short a road to the south~
+Desc A road that leads south to the wilderness~
+Material unknown~
+Item_type portal
+Extra 0
+Extra2 0
+Wear 0
+Values 0 0 0 EFIKMNO 0
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
+Vnum 3017
+Name bedroll comfortable~
+Short (no short description)~
+Desc (no description)~
+Material unknown~
+Item_type trash
+Extra 0
+Extra2 0
+Wear 0
+Values 0 0 0 0 0
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
+Vnum 3018
+Name bag of holding aquest~
+Short a {ybag{x of {wholding{x~
+Desc A small bag lies here~
+Material leather~
+Item_type container
+Extra GSXY
+Extra2 B
+Wear A
+Values 0 A 0 0 10
+Level 0
+Weight 3
+Cost 0
+Qcost 250
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
+Vnum 3019
+Name a-frame a frame tent~
+Short an a-frame tent~
+Desc A warm looking a-frame tent~
+Material canvas~
+Item_type furniture
+Extra GSXY
+Extra2 0
+Wear A
+Values B ABCDEHJKPQ CFILOP EHI EHI
+Level 0
+Weight 2
+Cost 0
+Qcost 500
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
 Vnum 3020
 Name dagger~
 Short a dagger~
@@ -3263,14 +3345,14 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
+letters~
+They say, "Use 'hold lantern' to activate."
+~
+ExtraDesc
 lantern~
 It is a large and robust but somewhat battered oil lantern made from brass,
 equipped with a handle to make it handy and a hood to protect its flame.
 Some letters have been scratched on its bottom.
-~
-ExtraDesc
-letters~
-They say, "Use 'hold lantern' to activate."
 ~
 EndObj
 
@@ -3439,9 +3521,9 @@ ring~
 It's a silver ring set with a gleaming moonstone.
 ~
 AffectObj
-17 -2
-AffectObj
 20 -1
+AffectObj
+17 -2
 EndObj
 
 #OBJ
@@ -4711,12 +4793,12 @@ Exp 0
 Xp_tolevel 0
 Condition G
 ExtraDesc
-desk~
-The desk looks very sparse, there is a drawer on the left side.
-~
-ExtraDesc
 drawer~
 You notice a keyhole in the drawer.
+~
+ExtraDesc
+desk~
+The desk looks very sparse, there is a drawer on the left side.
 ~
 EndObj
 
@@ -5947,6 +6029,50 @@ Condition P
 EndObj
 
 #OBJ
+Vnum 3300
+Name bracers of dexterity~
+Short {ybracers{x of {Gdexterity{x~
+Desc A leather bracer~
+Material leather~
+Item_type armor
+Extra GSXY
+Extra2 D
+Wear AM
+Values 0 0 0 0 0
+Level 0
+Weight 1
+Cost 0
+Qcost 500
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+AffectObj
+2 2
+EndObj
+
+#OBJ
+Vnum 3301
+Name everburning torch~
+Short an {rev{Re{yr{Yb{Wu{Yr{yn{Ri{rng{x torch~
+Desc A torch that is {rev{Re{yr{Yb{Wu{Yr{yn{Ri{rng{x~
+Material wood~
+Item_type light
+Extra AGSXY
+Extra2 0
+Wear A
+Values 0 0 ABCDEHJKPQ 0 0
+Level 0
+Weight 0
+Cost 0
+Qcost 250
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
+#OBJ
 Vnum 3349
 Name long sword~
 Short a glowing long sword~
@@ -5969,9 +6095,9 @@ long sword~
 It looks exceptionally sharp and well-balanced. Maybe you should keep it.
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -5998,9 +6124,9 @@ You see a sword of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -6027,9 +6153,9 @@ You see a dagger of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -6056,9 +6182,9 @@ You see a mace of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
 AffectObj
-18 1
-AffectObj
 19 2
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -6355,9 +6481,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -4
-AffectObj
 20 -1
+AffectObj
+17 -4
 EndObj
 
 #OBJ
@@ -6383,9 +6509,9 @@ banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
 AffectObj
-20 -1
-AffectObj
 17 -2
+AffectObj
+20 -1
 EndObj
 
 #OBJ
@@ -6407,7 +6533,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-ring~
+wedding~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
@@ -6415,7 +6541,7 @@ diamond~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
-wedding~
+ring~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 EndObj
@@ -6574,26 +6700,27 @@ Desc A powerful sword lies here on the ground waiting to be used to defend Shado
 Material Silver~
 Item_type weapon
 Extra HIXa
-Extra2 0
+Extra2 D
 Wear ANO
 Values sword 0 0 slash 0
 Level 150
 Weight 0
 Cost 0
+Qcost 1000
 Plevel 0
 Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 25
-AffectObj
-19 25
-AffectObj
-13 100
+1 5
 AffectObj
 12 100
 AffectObj
-1 5
+13 100
+AffectObj
+19 25
+AffectObj
+18 25
 EndObj
 
 #END
@@ -7276,6 +7403,11 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+chain~
+The the chain reaches the clouds high above you.  It must take some really
+powerful magic to hold such a chain in place.
+~
+ExtraDesc
 sign~
 The sign points in all directions:
 
@@ -7287,11 +7419,6 @@ The sign points in all directions:
 Someone has added the following with red paint:
 
    Up    - Redferne's Flying Citadel.
-~
-ExtraDesc
-chain~
-The the chain reaches the clouds high above you.  It must take some really
-powerful magic to hold such a chain in place.
 ~
 Exit
 0
@@ -7424,8 +7551,8 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-grate grating~
-Looks heavy.  A small sign is hanging on it.
+elm tree~
+The fresh young leaves of the elm tree wave gently in the wind.
 ~
 ExtraDesc
 sign~
@@ -7437,8 +7564,8 @@ The sign says :-
           Please show respect and do not desecrate their tombs.
 ~
 ExtraDesc
-elm tree~
-The fresh young leaves of the elm tree wave gently in the wind.
+grate grating~
+Looks heavy.  A small sign is hanging on it.
 ~
 Exit
 0
@@ -8080,13 +8207,13 @@ Room_flags 67371014
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+window~
+You peer out the window and see a cityguard beating up an old lady.
+~
+ExtraDesc
 bookcase~
 You see many cartographer journals and topographical studies.  You also see
 quite a few tomes written by someone named "Anson MacDonald".
-~
-ExtraDesc
-window~
-You peer out the window and see a cityguard beating up an old lady.
 ~
 Exit
 0
@@ -9268,13 +9395,13 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+tapestries walls~
+You think about peeking behind the tapestries, but think better of it.
+~
+ExtraDesc
 sign~
 Give me your coins, and I shall change them for you, taking but 1 in 20 for
 my fee.  --- Otho the Changer
-~
-ExtraDesc
-tapestries walls~
-You think about peeking behind the tapestries, but think better of it.
 ~
 Exit
 0
@@ -9300,12 +9427,12 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-table tables~
-You find a table that's relatively vomit-free.
-~
-ExtraDesc
 wall walls~
 Bare, except for the holes.
+~
+ExtraDesc
+table tables~
+You find a table that's relatively vomit-free.
 ~
 Exit
 2
@@ -9747,6 +9874,11 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+writing carving carvings symbols symbol~
+Although it is very hard to understand, you think it looks a lot like beer,
+poems about beer, and small beer-mugs.
+~
+ExtraDesc
 sign~
 The sign reads:
 Free instructions provided by the Grunting Boar Inn.
@@ -9754,11 +9886,6 @@ Free instructions provided by the Grunting Boar Inn.
    Buy  - Buy something (drinkable) from the bartender.
    List - The bartender will show you all the different drinks and
           specialties, and tell the price of each.
-~
-ExtraDesc
-writing carving carvings symbols symbol~
-Although it is very hard to understand, you think it looks a lot like beer,
-poems about beer, and small beer-mugs.
 ~
 Exit
 3
@@ -9801,6 +9928,14 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+sign~
+Free instructions provided by the store:
+
+   Buy  - Will buy you some bread or pastry.
+   List - The baker will kindly tell you the price and sort of the bread in
+          his bakery.
+~
+ExtraDesc
 danish pastry~
 You see that this is truly delicious pastry.  Must be made by a Dane from
 Denmark (which surely is not the capital of Sweden!).  Former ruler of
@@ -9809,14 +9944,6 @@ Iceland, Estonia etc. etc.
    The sight of those large, wholesome chokoladeboller makes your mouth water
 and your soul sing.
 
-~
-ExtraDesc
-sign~
-Free instructions provided by the store:
-
-   Buy  - Will buy you some bread or pastry.
-   List - The baker will kindly tell you the price and sort of the bread in
-          his bakery.
 ~
 Exit
 2
@@ -10656,17 +10783,17 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-jars bottles~
-Some of them are transparent enabling you to see that some contain colored
-powders while others contain body parts of various animals.
+scrolls~
+Each scroll is stored in a leather tube that protects it from moist.
 ~
 ExtraDesc
 books~
 Most of them appear to be very old and dusty.
 ~
 ExtraDesc
-scrolls~
-Each scroll is stored in a leather tube that protects it from moist.
+jars bottles~
+Some of them are transparent enabling you to see that some contain colored
+powders while others contain body parts of various animals.
 ~
 Exit
 2
@@ -10690,15 +10817,6 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-oil lamps~
-They are made from polished gold and looks as if they are securely fastened
-to the smooth stone walls.
-~
-ExtraDesc
-desk~
-Your face is reflected in its surface.
-~
-ExtraDesc
 sign~
 The golden letters say :-
 
@@ -10706,6 +10824,15 @@ The golden letters say :-
         'buy <item>' to buy an item,
         'sell <item>' to sell an item and
         'value <item>' to make the jeweller evaluate an item.
+~
+ExtraDesc
+desk~
+Your face is reflected in its surface.
+~
+ExtraDesc
+oil lamps~
+They are made from polished gold and looks as if they are securely fastened
+to the smooth stone walls.
 ~
 Exit
 0
@@ -10730,8 +10857,17 @@ Room_flags 67371016
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-fireplace~
-It is a rather large fireplace made from heavy granite rocks.
+sign~
+The wooden sign says :-
+
+    Use 'list' to see what is in store,
+        'buy <item>' to buy an item,
+        'sell <item>' to sell an item and
+        'value <item>' to make the leather worker evaluate an item.
+~
+ExtraDesc
+pot~
+Several large pieces of leather hide are boiling in the iron pot.
 ~
 ExtraDesc
 table~
@@ -10740,17 +10876,8 @@ covered in marks and scratches.  A large burning candle stands directly on
 the table surface, tallow flowing down its sides.
 ~
 ExtraDesc
-pot~
-Several large pieces of leather hide are boiling in the iron pot.
-~
-ExtraDesc
-sign~
-The wooden sign says :-
-
-    Use 'list' to see what is in store,
-        'buy <item>' to buy an item,
-        'sell <item>' to sell an item and
-        'value <item>' to make the leather worker evaluate an item.
+fireplace~
+It is a rather large fireplace made from heavy granite rocks.
 ~
 Exit
 2
@@ -10837,9 +10964,14 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -10848,14 +10980,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 0
@@ -10904,9 +11031,14 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -10915,14 +11047,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 0
@@ -11000,13 +11127,13 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-letters~
-It says 'Who watches the watchmen?'
-~
-ExtraDesc
 wall~
 It is built from large grey rocks that have been fastened to each other with
 some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+letters~
+It says 'Who watches the watchmen?'
 ~
 Exit
 0
@@ -11293,18 +11420,18 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge~
+wall~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar, just like the wall.
+some kind of mortar.  It is far too high to climb.
 ~
 ExtraDesc
 opening~
 You cannot really see it from here as it is somewhere beneath your feet.
 ~
 ExtraDesc
-wall~
+bridge~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+some kind of mortar, just like the wall.
 ~
 Exit
 0
@@ -11336,9 +11463,14 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -11347,14 +11479,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 0
@@ -11394,9 +11521,14 @@ Room_flags 67371008
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -11405,14 +11537,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 0
@@ -11452,15 +11579,15 @@ Room_flags 201589768
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
-~
-ExtraDesc
 statue Mota king god~
 The statue represents the Great God Mota, holding a staff.  He has long, grey
 hair and beard and a kindly look on his face.  His staff is topped by a painted
 cube, the 6 faces of which represent the 6 aspects of his power.
+~
+ExtraDesc
+altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
 ~
 Exit
 0
@@ -11765,6 +11892,11 @@ O 0 3200 0 3355
 O 0 3200 0 3356
 M 0 3011 1 3001 1
 E 0 3005 0 16
+G 0 3380 0
+G 0 3018 0
+G 0 3019 0
+G 0 3300 0
+G 0 3301 0
 M 0 3021 1 3002 1
 M 0 3043 1 3003 1
 G 0 3002 0
@@ -11966,6 +12098,7 @@ M 0 3006 1 3049 1
 G 0 3050 0
 G 0 3051 0
 M 0 3007 1 3050 1
+O 0 3016 0 3053
 M 0 3012 5 3054 1
 O 0 3008 0 3054
 M 0 3055 1 3055 1
@@ -12007,6 +12140,12 @@ S
 3045 0 0 0 0 0 150 100 0 23
 3046 0 0 0 0 0 100 90 0 23
 3070 10 0 0 0 0 1000 100 0 23
+0
+
+
+
+#QSHOPS
+3011 75
 0
 
 

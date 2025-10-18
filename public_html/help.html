@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldoria Help Files</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #00ff00;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(45deg, #000080, #4B0082);
+            border: 3px solid #00ffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        .header h1 {
+            color: #ffff00;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 0px #ff00ff, 0 0 10px #ffff00;
+        }
+        
+        .search-box {
+            background: rgba(0, 50, 100, 0.5);
+            border: 2px solid #00ff00;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            background: #000;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #ffff00;
+            box-shadow: 0 0 15px #ffff00;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+        }
+        
+        .help-list {
+            background: rgba(0, 20, 40, 0.8);
+            border: 2px solid #ff00ff;
+            padding: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+        
+        .help-list h2 {
+            color: #ff00ff;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0px #00ffff;
+        }
+        
+        .help-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff00;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .help-item:hover {
+            background: rgba(0, 255, 0, 0.2);
+            border-color: #ffff00;
+            box-shadow: 0 0 10px #00ff00;
+            transform: translateX(5px);
+        }
+        
+        .help-item.selected {
+            background: rgba(255, 0, 255, 0.3);
+            border-color: #ff00ff;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+        
+        .help-display {
+            background: rgba(0, 30, 60, 0.8);
+            border: 3px solid #00ffff;
+            padding: 20px;
+            min-height: 600px;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        .help-display h2 {
+            color: #ffff00;
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px #ff00ff;
+        }
+        
+        .help-text {
+            color: #00ffff;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            font-size: 1.05em;
+        }
+        
+        .help-text a {
+            color: #ff00ff;
+            text-decoration: none;
+            border-bottom: 1px dotted #ff00ff;
+            cursor: pointer;
+        }
+        
+        .help-text a:hover {
+            color: #ffff00;
+            border-bottom-color: #ffff00;
+            text-shadow: 0 0 5px #ffff00;
+        }
+        
+        .welcome {
+            text-align: center;
+            color: #00ff00;
+            padding: 50px;
+        }
+        
+        .welcome h3 {
+            color: #ffff00;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff00;
+            text-align: center;
+            color: #888;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #ffff00;
+            font-size: 1.5em;
+            padding: 50px;
+        }
+        
+        .error {
+            text-align: center;
+            color: #ff0000;
+            font-size: 1.2em;
+            padding: 50px;
+            border: 2px solid #ff0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #000;
+            border: 1px solid #00ff00;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00ff00, #00aa00);
+            border: 1px solid #00ff00;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .help-list {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Eldoria Help Files 📚</h1>
+            <p style="color: #00ffff;">Browse all available help topics</p>
+            <p style="margin-top: 15px;">
+                <a href="index.html" style="color: #ff00ff; text-decoration: none; padding: 8px 16px; border: 2px solid #ff00ff; border-radius: 5px; display: inline-block; background: rgba(255, 0, 255, 0.1); transition: all 0.3s;" 
+                   onmouseover="this.style.background='rgba(255, 0, 255, 0.3)'; this.style.boxShadow='0 0 10px #ff00ff';" 
+                   onmouseout="this.style.background='rgba(255, 0, 255, 0.1)'; this.style.boxShadow='none';">
+                   ⬅️ Back to Main Site
+                </a>
+            </p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search help topics..." />
+        </div>
+        
+        <div class="content">
+            <div class="help-list">
+                <h2>Help Topics (<span id="helpCount">0</span>)</h2>
+                <div id="helpListContainer">
+                    <div class="loading">Loading help files...</div>
+                </div>
+            </div>
+            
+            <div class="help-display">
+                <div class="welcome">
+                    <h3>Welcome to the Eldoria Help System!</h3>
+                    <p>Select a help topic from the list on the left, or use the search box above.</p>
+                    <p style="margin-top: 20px; color: #888;">
+                        Tip: Click on highlighted help references to jump to related topics!
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <span id="updateTime"></span>
+        </div>
+    </div>
+    
+    <script>
+        let helpsData = null;
+        let currentHelp = null;
+        
+        // Load help data
+        async function loadHelps() {
+            try {
+                const response = await fetch('helps.json?t=' + new Date().getTime());
+                const data = await response.json();
+                helpsData = data.helps;
+                
+                // Update stats
+                const updateDate = new Date(data.updated * 1000);
+                document.getElementById('updateTime').textContent = 
+                    `Last updated: ${updateDate.toLocaleString()} | ${data.total} help topics available`;
+                document.getElementById('helpCount').textContent = data.total;
+                
+                displayHelpList(helpsData);
+            } catch (error) {
+                document.getElementById('helpListContainer').innerHTML = 
+                    '<div class="error">Error loading help files. Make sure the MUD has generated helps.json</div>';
+                console.error('Error loading helps:', error);
+            }
+        }
+        
+        // Display the help list
+        function displayHelpList(helps) {
+            const container = document.getElementById('helpListContainer');
+            container.innerHTML = '';
+            
+            helps.forEach(help => {
+                const div = document.createElement('div');
+                div.className = 'help-item';
+                div.textContent = help.keyword;
+                div.dataset.helpId = help.id;
+                div.onclick = () => showHelp(help);
+                container.appendChild(div);
+            });
+        }
+        
+        // Show a specific help file
+        function showHelp(help) {
+            currentHelp = help;
+            
+            // Highlight selected
+            document.querySelectorAll('.help-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.dataset.helpId == help.id) {
+                    item.classList.add('selected');
+                }
+            });
+            
+            // Process text to auto-link help references
+            let processedText = help.text;
+            
+            // Find patterns like "HELP XXXXX" or "help xxxxx" and make them clickable
+            processedText = processedText.replace(/\b(HELP|help)\s+([A-Z0-9_'-]+)/gi, (match, helpWord, topic) => {
+                return `<a onclick="searchAndShow('${topic}')">${match}</a>`;
+            });
+            
+            // Also find patterns like "See 'XXXXX'" and make them clickable
+            processedText = processedText.replace(/See\s+'([A-Z0-9_\s'-]+)'/gi, (match, topic) => {
+                return `See '<a onclick="searchAndShow('${topic.trim()}')">${topic}</a>'`;
+            });
+            
+            // Display the help
+            const displayDiv = document.querySelector('.help-display');
+            displayDiv.innerHTML = `
+                <h2>${help.keyword}</h2>
+                <div class="help-text">${processedText}</div>
+                <div class="stats" style="margin-top: 20px;">
+                    Level: ${help.level} | 
+                    <a onclick="copyHelpLink()" style="color: #00ff00; cursor: pointer;">📋 Copy Link</a>
+                </div>
+            `;
+        }
+        
+        // Search and show a help topic
+        function searchAndShow(keyword) {
+            const normalized = keyword.trim().toUpperCase();
+            const help = helpsData.find(h => 
+                h.keyword.toUpperCase().includes(normalized) ||
+                h.keyword.toUpperCase().split(' ').includes(normalized)
+            );
+            
+            if (help) {
+                showHelp(help);
+                // Scroll to it in the list
+                const listItem = document.querySelector(`[data-help-id="${help.id}"]`);
+                if (listItem) {
+                    listItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } else {
+                alert(`Help topic "${keyword}" not found!`);
+            }
+        }
+        
+        // Copy link to current help
+        function copyHelpLink() {
+            if (currentHelp) {
+                const url = `${window.location.href.split('?')[0]}?help=${encodeURIComponent(currentHelp.keyword.split(' ')[0])}`;
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            if (query === '') {
+                displayHelpList(helpsData);
+                return;
+            }
+            
+            const filtered = helpsData.filter(help => 
+                help.keyword.toLowerCase().includes(query) ||
+                help.text.toLowerCase().includes(query)
+            );
+            
+            displayHelpList(filtered);
+            document.getElementById('helpCount').textContent = filtered.length;
+        });
+        
+        // Check for help parameter in URL
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const helpParam = params.get('help');
+            
+            if (helpParam && helpsData) {
+                searchAndShow(helpParam);
+            }
+        });
+        
+        // Load helps on page load
+        loadHelps();
+        
+        // Auto-refresh every 5 minutes
+        setInterval(loadHelps, 300000);
+    </script>
+</body>
+</html>
+

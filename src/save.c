@@ -2521,6 +2521,7 @@ void fread_obj( CHAR_DATA *ch, FILE *fp )
         case 'P':
             KEY("Plev",       obj->plevel,            fread_number( fp ) );
             break; 
+     
 
 	case 'S':
 	    KEY( "ShortDescr",	obj->short_descr,	fread_string( fp ) );
@@ -3251,6 +3252,7 @@ void fread_bobj( CHAR_DATA *ch, FILE *fp )
         case 'P':
             KEY("Plevel",       obj->plevel,            fread_number( fp ) );
             break;
+         
 
 	case 'S':
 	    KEY( "ShortDescr",	obj->short_descr,	fread_string( fp ) );

@@ -388,16 +388,6 @@ Cat 4
 Disabled 0
 End
 
-Name newaff~
-Dofun affects2~
-Position 0
-Level 0
-Log 0
-Show 1
-Cat 4
-Disabled 0
-End
-
 Name areas~
 Dofun areas~
 Position 0
@@ -5070,6 +5060,216 @@ Disabled 0
 
 Name savepits~
 Dofun savepits~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name southeast~
+Dofun southeast~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name southwest~
+Dofun southwest~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name northeast~
+Dofun northeast~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name northwwest~
+Dofun east~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name sw~
+Dofun southwest~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name se~
+Dofun southeast~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name ne~
+Dofun northeast~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name nw~
+Dofun northwest~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name wedit~
+Dofun wedit~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name wmap~
+Dofun east~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name wmapshow~
+Dofun wmapshow~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name showsectors~
+Dofun showsectors~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name northwest~
+Dofun northwest~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name zoomwmap~
+Dofun zoomwmap~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name explored~
+Dofun explored~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name webupdate~
+Dofun webupdate~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name remort~
+Dofun reclass~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name remor~
+Dofun recl~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name levelflux~
+Dofun levelflux~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name automap~
+Dofun automap~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name qlist~
+Dofun qlist~
 Position 0
 Level 0
 Log 0

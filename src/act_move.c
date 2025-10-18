@@ -613,7 +613,10 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 	    REMOVE_BIT( pexit_rev->exit_info, EX_CLOSED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
+	    {
+	        if(!same_room(ch, rch, NULL)) continue;
 		act( "The $d opens.", rch, NULL, pexit_rev->keyword, TO_CHAR );
+	    }
 	}
     }
 
@@ -701,7 +704,10 @@ void do_close( CHAR_DATA *ch, char *argument )
 
 	    SET_BIT( pexit_rev->exit_info, EX_CLOSED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
+	    {
+	        if(!same_room(ch, rch, NULL)) continue;
 		act( "The $d closes.", rch, NULL, pexit_rev->keyword, TO_CHAR );
+	    }
 	}
     }
 
@@ -980,6 +986,7 @@ void do_pick( CHAR_DATA *ch, char *argument )
     /* look for guards */
     for ( gch = ch->in_room->people; gch; gch = gch->next_in_room )
     {
+        if(!same_room(ch, gch, NULL)) continue;
 	if ( IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level )
 	{
 	    act( "$N is standing too close to the lock.",
@@ -1224,10 +1231,13 @@ void do_rest( CHAR_DATA *ch, char *argument )
     /* okay, now that we know we can rest, find an object to rest on */
     if (argument[0] != '\0')
     {
-	obj = get_obj_list(ch,argument,ch->in_room->contents);
+	/* First check inventory, then room */
+	obj = get_obj_list(ch,argument,ch->carrying);
+	if (obj == NULL)
+	    obj = get_obj_list(ch,argument,ch->in_room->contents);
 	if (obj == NULL)
 	{
-	    send_to_char("You don't see that here.\n\r",ch);
+	    send_to_char("You can't find it.\n\r",ch);
 	    return;
 	}
     }
@@ -1375,10 +1385,13 @@ void do_sit (CHAR_DATA *ch, char *argument )
     /* okay, now that we know we can sit, find an object to sit on */
     if (argument[0] != '\0')
     {
-	obj = get_obj_list(ch,argument,ch->in_room->contents);
+	/* First check inventory, then room */
+	obj = get_obj_list(ch,argument,ch->carrying);
+	if (obj == NULL)
+	    obj = get_obj_list(ch,argument,ch->in_room->contents);
 	if (obj == NULL)
 	{
-	    send_to_char("You don't see that here.\n\r",ch);
+	    send_to_char("You can't find it.\n\r",ch);
 	    return;
 	}
     }
@@ -1524,11 +1537,16 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 	    if (argument[0] == '\0')
 		obj = ch->on;
 	    else
-	    	obj = get_obj_list( ch, argument,  ch->in_room->contents );
+	    {
+	    	/* First check inventory, then room */
+	    	obj = get_obj_list( ch, argument,  ch->carrying );
+	    	if (obj == NULL)
+	    	    obj = get_obj_list( ch, argument,  ch->in_room->contents );
+	    }
 
 	    if (obj == NULL)
 	    {
-		send_to_char("You don't see that here.\n\r",ch);
+		send_to_char("You can't find it.\n\r",ch);
 		return;
 	    }
 	    if (obj->item_type != ITEM_FURNITURE
@@ -1820,6 +1838,7 @@ void do_train( CHAR_DATA *ch, char *argument )
      */
     for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
     {
+        if(!same_room(ch, mob, NULL)) continue;
 	if ( IS_NPC(mob) && IS_SET(mob->act, ACT_TRAIN) )
 	    break;
     }

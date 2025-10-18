@@ -24,7 +24,7 @@ willingly follows his masters orders.  It stands about 5'7" with no hair,
 red glowing eyes, and a darkened helm that which bears the symbol of
 Gathrinburg's knights.  
 ~
-Race drow~
+Race unused~
 Act_flags ABORT
 Aff HVXa
 Align -1000
@@ -52,7 +52,6 @@ Size medium
 Material unknown
 Xp_tolevel 2500
 Aggression 0
-Ffor M
 EndMob
 
 #MOB
@@ -66,7 +65,7 @@ tear you limb from limb if you are not careful, so be wary these lil'
 rascals aren't any thing to sneeze at.  It is about 3' tall with bat-like
 wings on it's back, and eyes of hatred which pierce your soul.  
 ~
-Race duergar~
+Race unused~
 Act_flags AR
 Aff HJOTVXac
 Align -800
@@ -1943,6 +1942,11 @@ S
 
 
 #SHOPS
+0
+
+
+
+#QSHOPS
 0
 
 

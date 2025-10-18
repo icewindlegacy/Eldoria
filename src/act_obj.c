@@ -139,6 +139,7 @@ void get_obj( CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container )
 	for (gch = obj->in_room->people; gch != NULL; gch = gch->next_in_room)
 	    if (gch->on == obj)
 	    {
+	    if(!same_room(ch, gch, NULL)) continue;
 		act("$N appears to be using $p.",
 		    ch,obj,gch,TO_CHAR);
 		return;
@@ -180,6 +181,7 @@ void get_obj( CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container )
     	  members = 0;
     	  for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     	  {
+    	      if(!same_room(ch, gch, NULL)) continue;
             if (!IS_AFFECTED(gch,AFF_CHARM) && is_same_group( gch, ch ) )
               members++;
     	  }
@@ -1077,6 +1079,7 @@ void do_fill( CHAR_DATA *ch, char *argument )
     act(buf,ch,obj,fountain,TO_ROOM);
     obj->value[2] = fountain->value[2];
     obj->value[1] = obj->value[0];
+    obj->value[4] = 0; /* Potion filling security fix - clear any stored potion vnum */
     return;
 }
 
@@ -1085,7 +1088,8 @@ void do_pour (CHAR_DATA *ch, char *argument)
     char arg[MAX_STRING_LENGTH],buf[MAX_STRING_LENGTH];
     OBJ_DATA *out, *in;
     CHAR_DATA *vch = NULL;
-    int amount;
+    int amount,dose=0;
+    bool potion = FALSE;
 
     argument = one_argument(argument,arg);
     
@@ -1102,9 +1106,11 @@ void do_pour (CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (out->item_type != ITEM_DRINK_CON)
+    if ( out->item_type == ITEM_POTION ) potion = TRUE;
+
+    if ( (out->item_type != ITEM_DRINK_CON) && (!potion) )
     {
-	send_to_char("That's not a drink container.\n\r",ch);
+	send_to_char("That's not a drink container or a potion.\n\r",ch);
 	return;
     }
 
@@ -1118,13 +1124,26 @@ void do_pour (CHAR_DATA *ch, char *argument)
 
 	out->value[1] = 0;
 	out->value[3] = 0;
-	sprintf(buf,"You invert $p, spilling %s all over the ground.",
+        if(  out->value[4] != 0 )potion = TRUE;
+        out->value[4] = 0;
+
+        if( !potion )
+        {
+	    sprintf(buf,"You invert $p, spilling %s all over the ground.",
 		liq_table[out->value[2]].liq_name);
-	act(buf,ch,out,NULL,TO_CHAR);
+	    act(buf,ch,out,NULL,TO_CHAR);
 	
-	sprintf(buf,"$n inverts $p, spilling %s all over the ground.",
+	    sprintf(buf,"$n inverts $p, spilling %s all over the ground.",
 		liq_table[out->value[2]].liq_name);
-	act(buf,ch,out,NULL,TO_ROOM);
+	    act(buf,ch,out,NULL,TO_ROOM);
+        }
+        else
+        {
+         act("You invert $p, spilling the magical liquid all over the ground.",
+           ch,out,NULL,TO_CHAR);
+         act("$n inverts $p, spilling the magical liquid all over the ground.",
+           ch,out,NULL,TO_ROOM);
+        }
 	return;
     }
 
@@ -1149,7 +1168,7 @@ void do_pour (CHAR_DATA *ch, char *argument)
 
     if (in->item_type != ITEM_DRINK_CON)
     {
-	send_to_char("You can only pour into other drink containers.\n\r",ch);
+	send_to_char("You can only pour into drink containers.\n\r",ch);
 	return;
     }
     
@@ -1159,13 +1178,18 @@ void do_pour (CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    if (in->value[1] != 0 && in->value[2] != out->value[2])
+    if (   ( (!potion) && (in->value[1] != 0) 
+                       && (in->value[2] != out->value[2]) )
+         ||(  (potion) && (  ( (in->value[4] != 0 )  
+                             &&(in->value[4] != out->pIndexData->vnum) ) 
+                           ||( (in->value[1] != 0) 
+                             &&(in->value[4] == 0) ) ) ) ) 
     {
 	send_to_char("They don't hold the same liquid.\n\r",ch);
 	return;
     }
 
-    if (out->value[1] == 0)
+    if ( (!potion) && (out->value[1] == 0) )
     {
 	act("There's nothing in $p to pour.",ch,out,NULL,TO_CHAR);
 	return;
@@ -1176,24 +1200,47 @@ void do_pour (CHAR_DATA *ch, char *argument)
 	act("$p is already filled to the top.",ch,in,NULL,TO_CHAR);
 	return;
     }
+  
+    if( potion )
+    {
+      dose = liq_table[ in->value[2] ].liq_affect[4];
+      amount = UMIN( dose , in->value[0]  - dose );
+      in->value[1] += amount;
+      if( (in->value[4] != 0) && (in->value[4] != out->pIndexData->vnum ) )
+        bug("Error potion mixing in pour command with potion %d",in->value[4]);
+      in->value[4] = out->pIndexData->vnum;
+      extract_obj( out );
+    }
+    else
+    {
+      amount = UMIN(out->value[1],in->value[0] - in->value[1]);
+      in->value[1] += amount;
+      out->value[1] -= amount;
+      in->value[2] = out->value[2];
+    } 
 
-    amount = UMIN(out->value[1],in->value[0] - in->value[1]);
-
-    in->value[1] += amount;
-    out->value[1] -= amount;
-    in->value[2] = out->value[2];
-    
     if (vch == NULL)
     {
+      if( !potion)
+      {
     	sprintf(buf,"You pour %s from $p into $P.",
 	    liq_table[out->value[2]].liq_name);
     	act(buf,ch,out,in,TO_CHAR);
     	sprintf(buf,"$n pours %s from $p into $P.",
 	    liq_table[out->value[2]].liq_name);
     	act(buf,ch,out,in,TO_ROOM);
+      }
+      else
+      {
+        act("You pour $p into $P.",ch,out,in,TO_CHAR);
+        act("$n pours $p into $P.",ch,out,in,TO_ROOM);
+      }
+
     }
     else
     {
+      if(!potion)
+       {
         sprintf(buf,"You pour some %s for $N.",
             liq_table[out->value[2]].liq_name);
         act(buf,ch,NULL,vch,TO_CHAR);
@@ -1203,6 +1250,13 @@ void do_pour (CHAR_DATA *ch, char *argument)
         sprintf(buf,"$n pours some %s for $N.",
             liq_table[out->value[2]].liq_name);
         act(buf,ch,NULL,vch,TO_NOTVICT);
+       }
+       else
+       {
+        act("You pour some potion for $N.",ch,NULL,vch,TO_CHAR);
+        act("$n pours you some potion.",ch,NULL,vch,TO_VICT);
+        act("$n pours some potion for $N.",ch,NULL,vch,TO_NOTVICT);
+       }
 	
     }
 }
@@ -1210,9 +1264,10 @@ void do_pour (CHAR_DATA *ch, char *argument)
 void do_drink( CHAR_DATA *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    OBJ_DATA *obj;
+    OBJ_DATA *obj,*potion;
     int amount;
     int liquid;
+    bool split = FALSE;
 
     one_argument( argument, arg );
 
@@ -1220,6 +1275,7 @@ void do_drink( CHAR_DATA *ch, char *argument )
     {
 	for ( obj = ch->in_room->contents; obj; obj = obj->next_content )
 	{
+	    if(!same_room(ch, NULL, obj)) continue;
 	    if ( obj->item_type == ITEM_FOUNTAIN )
 		break;
 	}
@@ -1288,33 +1344,45 @@ void do_drink( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( !str_cmp ( liq_table[liquid].liq_name, "magic potion" ) )
-    {
-        spell_random(0, ch->level, ch, ch, TAR_IGNORE);
-        WAIT_STATE(ch, 5);
+    if( obj->value[4] != 0 )
+    { /* we are drinking some potion stored in the container */
+         potion = create_object( get_obj_index( obj->value[4]) , 0 );
+         if( !auto_quaff(ch,potion) )
+          {
+            extract_obj(potion);
+            split = TRUE;
+          }
     }
+    else
+    {
+      if ( !str_cmp ( liq_table[liquid].liq_name, "magic potion" ) )
+      {
+          spell_random(0, ch->level, ch, ch, TAR_IGNORE);
+          WAIT_STATE(ch, 5);
+      }
 
-    act( "$n drinks $T from $p.",
+      act( "$n drinks $T from $p.",
 	ch, obj, liq_table[liquid].liq_name, TO_ROOM );
-    act( "You drink $T from $p.",
+      act( "You drink $T from $p.",
 	ch, obj, liq_table[liquid].liq_name, TO_CHAR );
-    sound( "drink.wav", ch );
+      sound( "drink.wav", ch );
 
-    gain_condition( ch, COND_DRUNK,
+      gain_condition( ch, COND_DRUNK,
 	amount * liq_table[liquid].liq_affect[COND_DRUNK] / 36 );
-    gain_condition( ch, COND_FULL,
+      gain_condition( ch, COND_FULL,
 	amount * liq_table[liquid].liq_affect[COND_FULL] / 4 );
-    gain_condition( ch, COND_THIRST,
+      gain_condition( ch, COND_THIRST,
 	amount * liq_table[liquid].liq_affect[COND_THIRST] / 10 );
-    gain_condition(ch, COND_HUNGER,
+      gain_condition(ch, COND_HUNGER,
 	amount * liq_table[liquid].liq_affect[COND_HUNGER] / 2 );
 
-    if ( !IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10 )
+      if ( !IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10 )
 	send_to_char( "You feel drunk.\n\r", ch );
-    if ( !IS_NPC(ch) && ch->pcdata->condition[COND_FULL]   > 40 )
+      if ( !IS_NPC(ch) && ch->pcdata->condition[COND_FULL]   > 40 )
 	send_to_char( "You are full.\n\r", ch );
-    if ( !IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 40 )
+      if ( !IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 40 )
 	send_to_char( "Your thirst is quenched.\n\r", ch );
+    }
 	
     if ( obj->value[3] != 0 )
     {
@@ -1333,8 +1401,12 @@ void do_drink( CHAR_DATA *ch, char *argument )
 	affect_join( ch, &af );
     }
 	
-    if (obj->value[0] > 0)
+    if ( (!split) && (obj->value[0] > 0) )
         obj->value[1] -= amount;
+
+    if( obj->value[1] <= 0 )obj->value[4] = 0;
+
+    WAIT_STATE( ch, PULSE_VIOLENCE );
 
     return;
 }
@@ -2159,6 +2231,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 
                  if (members > 1 && silver > 1)
                       { 
+                     if(!same_room(ch, gch, NULL)) continue;
                           sprintf(buf,"%d",silver);
                           do_function( ch, &do_split, buf); 
                       }
@@ -2201,6 +2274,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 	for (gch = obj->in_room->people; gch != NULL; gch = gch->next_in_room)
 	    if (gch->on == obj)
 	    {
+	    if(!same_room(ch, gch, NULL)) continue;
 		act("$N appears to be using $p.",
 		    ch,obj,gch,TO_CHAR);
 		return;
@@ -2233,6 +2307,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
     	members = 0;
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     	{
+	    if(!same_room(ch, gch, NULL)) continue;
     	    if ( is_same_group( gch, ch ) )
             members++;
     	}
@@ -2789,6 +2864,7 @@ CHAR_DATA *find_keeper( CHAR_DATA *ch )
     pShop = NULL;
     for ( keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room )
     {
+        if(!same_room(ch, keeper, NULL)) continue;
 	if ( IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != NULL )
 	    break;
     }
@@ -3298,6 +3374,7 @@ void do_list( CHAR_DATA *ch, char *argument )
 	found = FALSE;
 	for ( pet = pRoomIndexNext->people; pet; pet = pet->next_in_room )
 	{
+	    if(!same_room(ch, pet, NULL)) continue;
 	    if ( IS_SET(pet->act, ACT_PET) 
 		|| IS_SET(pet->act, ACT_MOUNT) )
 	    {
@@ -4691,6 +4768,7 @@ void do_search( CHAR_DATA *ch, char *argument )
 
     for(obj = ch->in_room->contents; obj != NULL; obj = obj->next_content)
     {
+        if(!same_room(ch, NULL, obj)) continue;
     if(IS_SET(obj->extra_flags,ITEM_HIDDEN) )
     {
     printf_to_char(ch,"You reveal %s\n\r",obj->short_descr);

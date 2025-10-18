@@ -40,7 +40,7 @@ mcco0055@algonquinc.on.ca
 ~
 
 -1 REMORT MULTICLASS~
-When you reach HERO level on ShadowStorm, you can continue to 
+When you reach HERO level on Eldoria, you can continue to 
 gain hp, mana, trains, pracs, moves. Alternatively, you can choose
 to be 'reborn' into another class. What basically happens is that 
 you add another class to your existing set of skills and spells and
@@ -81,7 +81,7 @@ of note are:
 
 To remort follow the following steps:
 
-1. Make sure your a HERO (Level 150 ).
+1. Make sure you're a HERO (Level 150 ).
 
 2. Remove any eq and either donate/sac/auction it all or put some in a locker.
 
@@ -708,7 +708,7 @@ as bonks Alander by everyone else).
 POSE produces a random message depending on your class and level.
 ~
 
-1 SEDIT~
+152 SEDIT~
 Syntax:
 
 sedit delete         <social>
@@ -849,7 +849,7 @@ Online social editting - (c) 1996,97 Erwin S. Andreasen
 {co-------------------------------------------------------------------------o{x
 ~
 
-52 SMOTE~
+152 SMOTE~
 Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
@@ -1141,7 +1141,7 @@ Of course, it's only a rough estimate.
 |                                                                          |    o==========================================================================o{x
 ~
 
-0 ISTAT~
+151 ISTAT~
 Usage: istat
 
   This handy little command will show you your character's stats.
@@ -1251,7 +1251,7 @@ In the long run, your character will be most powerful if you train
 WIS and CON both to 18 before practising or training anything else.
 ~
 
-60 ADVANCE~
+159 ADVANCE~
 Syntax: advance <character> <level>
 
 ADVANCE sets a character's level to the specified value.  It is the
@@ -1259,7 +1259,7 @@ only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
 ~
 
-60 TRUST~
+159 TRUST~
 Syntax: trust <character> <level>
 
 TRUST sets a character's trust to the specified level.  This is similar to
@@ -1272,7 +1272,7 @@ natural level.
 A trust of 0 means to use the character's natural level again.
 ~
 
-58 ALLOW BAN PERMBAN~
+158 ALLOW BAN PERMBAN~
 Syntax: allow   <site>
 	ban     <site> <newbies|all|permit>
 	ban
@@ -1288,7 +1288,7 @@ content (*andrews*), but be careful not to accidently lock out too many
 sites with a wildcard.  Bans do not save unless the permban command is used.
 ~
 
-59 REBOOT SHUTDOWN~
+159 REBOOT SHUTDOWN~
 Syntax: reboot
 	shutdown
 
@@ -1300,7 +1300,7 @@ Shutdown shuts down the server and prevents the normal 'startup' script
 from restarting it.
 ~
 
-56 WIZLOCK~
+156 WIZLOCK~
 Syntax: wizlock
 	newlock
 
@@ -1313,7 +1313,7 @@ and newlocking should be accompanied by mail or a note to the imps.
 A god must be at least Supreme level to wizlock the game.
 ~
 
-59 DENY~
+159 DENY~
 Syntax: deny <name>
 
 Deny locks a character out of a game permanently, rendering their character
@@ -1321,7 +1321,7 @@ name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
 
-57 DISCONNECT~
+157 DISCONNECT~
 Syntax: disconnect <name>
 
 Disconnect breaks a player's link to the game, dumping them back to the telnet
@@ -1329,7 +1329,7 @@ prompt.  This is a non-lethal way of getting rid of spammers and annoying
 players.
 ~
 
-57 FREEZE~
+157 FREEZE~
 Syntax: freeze <name>
 
 FREEZE <character> is a toggle which prevents a character from issuing any
@@ -1337,20 +1337,20 @@ commands at all. It can be removed from within the game, so freezing a
 troublemaker is usually a better option than they deny command.
 ~
 
-53 FORCE~
+153 FORCE~
 Syntax: force <character> <command>
 Syntax: force all <command>
 
 FORCE forces one character to execute a command, except of course delete.
 
-Below level 57 (Deity) force can only be used on mobiles, and force all is
+Below level 157 (Deity) force can only be used on mobiles, and force all is
 unavailable.  You also cannot 'force orc murder hugo', for example. 
 
 FORCE 'all' forces all player characters to execute a command.
 This is typically used for 'force all save'.
 ~
 
-56 SOCKETS~
+156 SOCKETS~
 Syntax: sockets
 	sockets <name> 
 
@@ -1364,7 +1364,7 @@ to identify switched gods (i.e. socket orc shows the name of anyone switched
 into an orc).
 ~
 
-56 LOAD~
+156 LOAD~
 Syntax: load mob <vnum>
 	load obj <vnum> <level>
 
@@ -1379,7 +1379,7 @@ format objects have a preset level that cannot be changed without set.
 (see also clone, vnum, stat)
 ~
 
-58 SET~
+158 SET~
 Syntax: set mob   <mobile> <field> <value>
 	set obj   <object> <field> <value>
 	set room  <number> <field> <value>
@@ -1393,7 +1393,7 @@ given.  Use string to change the strings on an object or mobile.
 (see also string, stat)
 ~
 
-55 STRING~
+155 STRING~
 Syntax: string obj <field> <string>
 	string mob <field> <string>
 
@@ -1402,7 +1402,7 @@ mobile.  A full list of fields can be viewed by typing string obj or string
 mob.  Sorry, multi-line strings are not yet supported.
 ~
 
-55 NOCHANNEL NOEMOTE NOSHOUT NOTELL~
+155 NOCHANNEL NOEMOTE NOSHOUT NOTELL~
 Syntax: nochannel <character>
 	noemote   <character>
 	noshout   <character>
@@ -1418,7 +1418,7 @@ from using any of the channels (gossip, cgossip, Q/A, music) on the game.
 Nochannels usually result from swearing or spamming on public channels.
 ~
 
-57 PARDON~
+157 PARDON~
 Syntax: pardon <character> killer
 	pardon <character> thief
 
@@ -1427,7 +1427,7 @@ are sure they deserve it.  Being killed by Hassan acts as an automatic
 pardon.
 ~
 
-56 PURGE~
+156 PURGE~
 Syntax: purge
 	purge <character>
 
@@ -1440,7 +1440,7 @@ set (i.e. the pit, the fountain, shopkeepers, Hassan).  Mobiles may be
 purged if they are called directly by name.
 ~
 
-56 RESTORE~
+156 RESTORE~
 Syntax: restore <character>
 	restore room
 	restore all
@@ -1454,14 +1454,14 @@ is only usable by creators and implementors.  Restore should be used sparingly
 or not at all.
 ~
 
-57 SLAY~
+157 SLAY~
 Syntax: slay <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
 command on players if you enjoy being a god.
 ~
 
-55 TRANSFER TELEPORT~
+155 TRANSFER TELEPORT~
 Syntax: transfer <character>
 	transfer all
 	transfer <character> <location>
@@ -1473,7 +1473,7 @@ should almost never be used, as 100 players popping into one room can have
 horrible effects on slow links. Teleport is a synonym for transfer. 
 ~
 
-54 AT~
+154 AT~
 Syntax: at <location> <command>
 
 At executes the given command (which may have arguments) at the given
@@ -1485,7 +1485,7 @@ command, and then moving you back (if the command didn't change your
 location).
 ~
 
-54 ECHO GECHO PECHO~
+154 ECHO GECHO PECHO~
 Syntax: echo  <message>
 	gecho <message>
 	pecho <character> <message>
@@ -1498,7 +1498,7 @@ god will see a prompt in front of your message, informing him or her that it
 is an echo.
 ~
 
-52 GOTO~
+152 GOTO~
 Syntax: goto <location>
 
 Goto takes you to a location.  The location may be specified as a vnum,
@@ -1512,7 +1512,7 @@ god level.
 Implementors can use the violate command to get into private rooms.
 ~
 
-52 HOLYLIGHT INVIS WIZINVIS~
+152 HOLYLIGHT INVIS WIZINVIS~
 Syntax: holylight
 	wiznvis <level>
 
@@ -1522,18 +1522,18 @@ easily.  Without holy light, you can see what mortal players see.
 
 Wizinvis takes a level argument, and will mke you invisible to all players of
 a lower level than your invisibility level.  It defaults to the maximum
-(your level) if no argument is given.  Wizi 60 characters are totally 
+(your level) if no argument is given.  Wizi 159 characters are totally 
 invisible.
 ~
 
-52 INCOGNITO~
+152 INCOGNITO~
 Toggling your incognito status will hide your presence from people outside the
 room you are in, but leave you visible to those who are with you.  It takes
 a level argument similar to wizinvis, people at that level or higher can see
 you regarless of location.
 ~
 
-52 MEMORY~
+152 MEMORY~
 Syntax: memory
 
 Memory reports the size of your mud.
@@ -1548,7 +1548,7 @@ The 'Perms' line shows permanently allocated memory blocks.  There is no limit
 on the number and size of these blocks.
 ~
 
-56 VNUM~
+156 VNUM~
 Syntax: vnum <name>
 	vnum <obj or mob> <name>
 	vnum skill <name>
@@ -1560,7 +1560,7 @@ the slot number (for making new zones) of a skill name.
 (see also load)
 ~
 
-53 STAT~
+153 STAT~
 Syntax: stat <name>
 	stat mob  <name>
 	stat obj  <name>
@@ -1574,20 +1574,20 @@ standing in.  Stat can be used to find room vnums for goto.
 (see also goto, transfer)
 ~
 
-53 MWHERE~
+153 MWHERE~
 Syntax: mwhere <name>
 
 Mwhere shows you the locations of all mobiles with a particular name.
 ~
 
-55 PEACE~
+155 PEACE~
 Syntax: peace
 
 Peace causes all characters in a room to stop fighting. It also strips the
 AGGRESSIVE bit from mobiles.
 ~
 
-52 POOFIN POOFOUT~
+152 POOFIN POOFOUT~
 Syntax: poofin  <message>
 Syntax: pooffout <message>
 
@@ -1600,14 +1600,14 @@ Poofin and poofout only show to characters who can see you.
 (see also goto)
 ~
 
-59 PROTECT~
+159 PROTECT~
 Syntax: protect <character>
 
 Protect is used to protect a character from unwanted snooping.  Removing 
 protected status from a character WILL be seen by that character.
 ~
 
-55 LOG SNOOP~
+155 LOG SNOOP~
 Syntax: log   <character>
 	log   all
 	snoop <character>
@@ -1630,7 +1630,7 @@ character at a time. Try to respect privacy.
 Snoop yourself to cancel all outstanding snoops.
 ~
 
-54 SWITCH RETURN~
+154 SWITCH RETURN~
 Syntax: switch <character>
 	return
 
@@ -1641,7 +1641,7 @@ switch into link-dead PCs.
 Return returns you to your original body.
 ~
 
-51 IMMTALK :~
+151 IMMTALK :~
 Syntax: immtalk <message>
 	immtalk
 
@@ -1650,7 +1650,7 @@ Using this command with no argument turns off the immortal channel (or
 turns it back on).
 ~
 
-52 WIZNET~
+152 WIZNET~
 Syntax: wiznet 
 	wiznet show
 	wiznet status
@@ -1664,7 +1664,7 @@ a field on and off.  The events should be self-explanatory, if they are not,
 fiddle with them a while.  More events are available at higher levels.
 ~
 
-51 WIZHELP~
+151 WIZHELP~
 Syntax: wizhelp
 
 Wizhelp provides a list of all the immortal commands.
@@ -1694,6 +1694,8 @@ This spell renders the target character blind.
 ~
 
 0 'ACID BLAST' 'BURNING HANDS' 'COLOUR SPRAY' FIREBALL 'LIGHTNING BOLT'
+
+
 
 
 
@@ -1730,7 +1732,7 @@ These spells inflict damage on the victim.  The higher-level spells do
 more damage.
 ~
 
-53 'CHANGE SEX'~
+153 'CHANGE SEX'~
 Syntax: cast 'change sex' <victim>
 
 This spell changes the sex of the victim (temporarily).
@@ -2077,7 +2079,7 @@ frost can break objects, and acid can damage armor.
 High level mages may learn and cast these spells as well.
 ~
 
--1 OLC EDIT~
+152 OLC EDIT~
 Syntax: EDIT AREA [create/reset] [vnum]		- Area Creation and Repoping.
 Syntax: EDIT ROOM ( [create] [vnum] )		- Room Creation and Editing.
 Syntax: EDIT OBJ  [create] <vnum>		- Object Creation and Editing.
@@ -2101,7 +2103,7 @@ resets the current room.  Most commands with no arguments display syntax.
 See also help: AEDIT REDIT MEDIT OEDIT
 ~
 
-0 ALIST~
+152 ALIST~
 {Co==========================================================================o
 |                                                                          |
 | {cSyntax: {BALIST {C[{Bname {C| {Blvnum {C| {Bfilename {C| {Bbuilders{C]                       |
@@ -2119,7 +2121,7 @@ See also help: AEDIT REDIT MEDIT OEDIT
 o==========================================================================o{x
 ~
 
-0 AEDIT~
+152 AEDIT~
 Syntax: edit area	 -Enters the editor for the current area.
 Syntax: edit area <vnum> -Enters the editor for the selected area.
 
@@ -2141,7 +2143,7 @@ uvnum <upper>       - set the upper vnum
 <flags>             - area flags, type ? AREA for a list
 ~
 
-0 REDIT~
+152 REDIT~
 Syntax: edit room		-Enters the editor for the current room.
 
 The following commands are available from within the REDITOR:
@@ -2182,7 +2184,7 @@ a player closing the door and not due to the door being set to be closed.
 -South to [ 3744] Key: [   -1] Exit flags: [door CLOSED bashed pickproof]
 ~
 
-0 OEDIT~
+152 OEDIT~
 Syntax: edit object <vnum>	-Enters the editor for the selected object.
 
 The following commands are available from within the OEDITOR:
@@ -2210,7 +2212,7 @@ wear                - where object is worn, type ? WEAR for a list
 material            - material the object is made from
 ~
 
-0 MEDIT~
+152 MEDIT~
 Syntax: medit <vnum>		-Enters the editor for the selected mobile.
 
 The following commands are available from within the MEDITOR:
@@ -2247,7 +2249,7 @@ type 'help HITDICE', 'help MANADICE', 'help DAMDICE' for lists of reasonable dic
 combinations on different levels.
 ~
 
-0 HITDICE~
+152 HITDICE~
 A high number of dice makes for less variance in mobiles hitpoints.
 Suggested values are:
 
@@ -2265,14 +2267,14 @@ Diff = max - min.  Mean is the arithmetic mean.
 The values in parenthesis are the the standard merc values.
 ~
 
-0 MANADICE~
+152 MANADICE~
 A high number of dice makes for less variance in mobiles mana.
 The values the server generates for merc-type mobs is
 level d 10 + 100 
 where level is the level of the mobile.
 ~
 
-0 DAMDICE~
+152 DAMDICE~
 A high number of dice makes for less variance in mobiles hitpoints.
 Suggested values are:
 
@@ -2292,7 +2294,7 @@ standard merc values.  (Will be put in when there's time to calculate
 them...)
 ~
 
-0 RESETS~
+152 RESETS~
 Syntax: RESET <number> OBJ <vnum> <location on body>    - equips last mobile
         RESET <number> OBJ <vnum> inside <obj vnum>     - store in container
         RESET <number> OBJ <vnum> room                  - store in room
@@ -2312,7 +2314,7 @@ likely that resets will backfire if they are not carefully entered.
 If you wish to reset the room then use EDIT ROOM RESET.  
 ~
 
-0 MOB_AC~
+152 MOB_AC~
 The values ROM generates for a merc format mob is:
 
    level      pierce    bash    slash   exotic
@@ -2337,7 +2339,7 @@ These values are 10 times what you would put in an area file. This
 is because the server multiplies what it reads from file with 10.
 ~
 
-0 ITEM_LIGHT~
+152 ITEM_LIGHT~
 .   value 0    unused
    value 1    unused
    value 2    hours of light available, 0 is dead, -1 or 999 is infinite            
@@ -2345,7 +2347,7 @@ is because the server multiplies what it reads from file with 10.
    value 4    unused
 ~
 
-0 ITEM_STAFF_WAND~
+152 ITEM_STAFF_WAND~
 .   value 0    level
    value 1    max charges
    value 2    current charges
@@ -2368,7 +2370,7 @@ An up-to-date list of spells can be obtained by typing:
 ? SPELLS [ignore/attack/defend/self/object/all]
 ~
 
-0 ITEM_ARMOR~
+152 ITEM_ARMOR~
 .   value 0    ac pierce
    value 1    ac bash
    value 2    ac slash
@@ -2376,7 +2378,7 @@ An up-to-date list of spells can be obtained by typing:
    value 4    unused
 ~
 
-0 ITEM_WEAPON~
+152 ITEM_WEAPON~
 .   value 0    weapon class.
    value 1    number of dice to roll.
    value 2    type of dice to roll.
@@ -2390,7 +2392,7 @@ help WEAPON_DICE
 ? WTYPE
 ~
 
-0 WEAPON_DICE~
+152 WEAPON_DICE~
 These are the values the server generates automatically when
 converting a merc-format mobile to ROM format.  A higher
 number of dice gives less variance in damage.  There is no
@@ -2407,7 +2409,7 @@ dice-bonus on weapon dice.
        50:     5d11
 ~
 
-0 ITEM_CONTAINER~
+152 ITEM_CONTAINER~
 .   value 0    weight capacity
    value 1    flags: closeable, pickproof, closed, locked            
    value 2    key vnum
@@ -2418,7 +2420,7 @@ An up-to-date list of flags can be obtained by typing
 ? CONTAINTER
 ~
 
-0 ITEM_DRINK~
+152 ITEM_DRINK~
 .   value0    capacity
    value 1    current quantity
    value 2    liquid type
@@ -2429,7 +2431,7 @@ An up-to-date list of liquid types can be obtained by typing
 ? LIQUID
 ~
 
-0 ITEM_FOOD~
+152 ITEM_FOOD~
 .   value 0    hours of food value
    value 1    unused
    value 2    unused
@@ -2437,12 +2439,86 @@ An up-to-date list of liquid types can be obtained by typing
    value 4    unused
 ~
 
-0 ITEM_MONEY~
+152 ITEM_MONEY~
 .   value 0    value in gold pieces
    value 1    unused
    value 2    unused
    value 3    unused
    value 4    unused
+~
+
+157 WEDIT~
+Syntax: wedit
+        show | reload | done
+        tile <create|delete|save>
+        sector <type> | sector fill <type> | sector walk <type>
+        sector circle/square/fractal <type> <distance> <true|false>
+        symbol <X>
+        name <text>
+        desc (enters into append mode)
+        visibility <#>
+        passable <yes/true | no/false>
+        exit <vnum|save|delete>
+        wlist tiles [all] | wlist exits
+        reset [all|wmap#] | reset [modify|mob|obj|delete]>
+        save <wmap|tile|exits>
+ 
+WEDIT is a command and editor for altering the worldmap system, and behaves as
+much like the other OLC editing commands as possible.
+ 
+SHOW, or hitting return on a blank line, will display the details of the "tile"
+including coords, visibility distance, passable status, custom symbol, name,
+and description.  RELOAD will refresh the map from whatever state the PNG is
+saved.  DONE will exit WEdit.
+ 
+TILE handles the creation, deletion, or saving of custom tile values.  Note
+that a symbol, name, or description must be present for a tile to save.
+ 
+SECTOR handles the terrain of the tile.  Any valid sector may be supplied as an
+argument and it will modify the in-memory map and (if saved) the PNG from which
+the map loads.  SECTOR WALK will make every movement automatically apply the
+specified sector type.  FILL will perform a flood fill, which will apply the
+sector to all tiles within a given boundary.  CIRCLE, SQUARE, and FRACTAL will
+create an area of sector, sized based on the distance value.  The optional true
+or false value will adjust for font height with circle/square, and will use a
+decay algorithm with fractal that makes the outer edges more sparse.
+ 
+SYMBOL sets a custom symbol to replace the sector based symbol.  Only use a
+single character (along with whatever desired color code).
+ 
+NAME and DESC work like any other OLC editor.  Sets the tile's name and desc
+as though you were editing a room.
+ 
+VISIBILITY sets how far away the tile will appear on the scan command.
+ 
+PASSABLE determines whether a character may pass onto or out of the tile.
+ 
+EXIT handles creating and designating a tile as the entry point to a normal
+area.  To create the corresponding exit from an area to the map, simply create
+a one way exit from the area to the vnum of the map.  The exit from the map to
+the area must be present, otherwise you'll need to fake it with an mprog.
+ 
+WLIST TILES will show all of the tiles on the current wmap.  The optional ALL
+parameter will show the tiles for every map.  WLIST EXITS will show the exits
+for the current wmap.
+ 
+RESET handles the addition, deletion, and display of tile based resets.  The
+command with no argument will display the resets in the room.  ALL will show
+the resets for the current wmap, while supplying a specific map number will
+list those.  MODIFY will swap a mob or obj reset for another vnum.  DELETE will
+delete the reset, and if it is a mob that has objs reset on it, it will clear
+those as well.  The other commands mirrors normal OLC resets as much as
+possible, using this pattern of syntax:
+  reset <mob|obj> <vnum> [max] [x][y][z]
+  reset obj <vnum> on <mob_vnum> <wear|hold> [max]
+The max and coordinate values are optional, and default to "1" and the current
+coordinates, respectively.  In this context, max represents how many of the
+reset will load over the course of the map repopping/resetting.
+ 
+SAVE WMAP saves the PNG file of the current wmap, SAVE TILE will save the
+custom tile data of the current wmap, and SAVE EXITS will save the exits file
+for all wmaps.  ASAVE WMAP may also be used to save all wmap data for the
+current wmap and all wmap exits.
 ~
 
 -1 NEWBIE INFO~
@@ -2486,43 +2562,43 @@ And the man pages, outdate.
       /+_+_+_+_+_\          ** The Gods of ROM **         /+_+_+_+_+_\
       \__________/          *********************         \__________/
         |::XXXX|                                            |::XXXX|
-        |X::XXX|              Implementors [60]             |X::XXX|
+        |X::XXX|              Implementors [160]             |X::XXX|
         |XX::XX|              *****************             |XX::XX|
         |XXX::X|     				            |XXX::X|
         |XXXX::|                                            |XXXX::|
         |::XXXX|                                            |::XXXX|
-        |X::XXX|                Creators [59]               |X::XXX|
+        |X::XXX|                Creators [159]               |X::XXX|
         |XX::XX|                *************               |XX::XX|
         |XXXX::|         			            |XXXX::|
         |::XXXX|                                            |::XXXX|
 /<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\
-\<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [58]      \<<>>/\<<>>/\<<>>/\<<>>/
+\<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [158]      \<<>>/\<<>>/\<<>>/\<<>>/
        |.  /  . |             ****************             |.  /  . |
        | .//\.  |            		                   | .//\.  |
        |.  /  . |            		                   |.  /  . |
        | .//\.  |                                          | .//\.  |
-       |.  /  . |               Deities [57]               |.  /  . |
+       |.  /  . |               Deities [157]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
        |.  /  . |           		      	           |.  /  . |
        | .//\.  |                                          | .//\.  |
-       | .//\.  |                Gods [56]                 | .//\.  |
+       | .//\.  |                Gods [156]                 | .//\.  |
        |.  /  . |                *********                 |.  /  . |
        | .//\.  |              	                           | .//\.  |
        | .//\.  |                                          | .//\.  |
-       |.  /\ . |              Immortals [55]              |.  /  . |
+       |.  /\ . |              Immortals [155]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
        |.  /  . |              		                   |.  /  . |
        | .//\.  |                                          | .//\.  |
-       |.  /  . |               DemiGods [54]              |.  /  . |
+       |.  /  . |               DemiGods [154]              |.  /  . |
        | .//\.  |               *************              | .//\.  |
        |.  /\ . |                  	  	           |.  /  . |
        |.  /  . |                                          |.  /  . |
-       | .//\.  |               Angels [53]                | .//\.  |
+       | .//\.  |               Angels [153]                | .//\.  |
        |.  /  . |               ***********                |.  /  . |
        |.  /  . |             	   	                   |.  /  . |
        | .//\.  |             		                   | .//\.  |
        | .//\.  |                                          | .//\.  |
-       |.  /  . |               Avatars [52]               |.  /  . |
+       |.  /  . |               Avatars [152]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
        |.  /  . |                 	                   |.  /  . |
        |.  /  . |                  	                   |.  /  . |
@@ -2601,7 +2677,7 @@ hair-pulling. Hope you enjoy it.
 
 -1 IMMORTAL IMMORT GOD WIZARD WIZ~
 'Immortal' (often, simply, 'immort') refers to players who have reached
-the highest attainable levels in the game.  Here, anyone of level 52
+the highest attainable levels in the game.  Here, anyone of level 152
 or higher is an 'immortal.'  Immortals are capable of exceeding the
 usual game rules, in more drastic and pervasive ways as levels increase;
 examples range from teleportation and invisibility to mortal sight to
@@ -2921,12 +2997,12 @@ be found by typing 'help laws' or 'help commandments'.
 This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
 
-Angels:(52-54)
+Angels:(152-154)
 Angels and higher level gods may not assist mortals directly in any way.  
 An Angel's main job is to help with quests (via switch), or possibly run
 small quest of their own -- but the rewards should be minimal.
 
-Deities:(55-56)
+Deities:(155-156)
 Deities have two main roles: reimbursement and quest running.  Be skeptical
 on reimburses, don't just hand out every piece of gear.  I suggest limiting
 reimbursements to 10 items at a time, and make sure that you do not load things
@@ -2937,7 +3013,7 @@ main point should be to have fun.  Deities have no business trying to enforce
 rules -- the most you should do to a player is a NOCHANNEL or similar light
 punishment.
 
-Gods:(57-59)
+Gods:(157-159)
 Gods can run quests just like Deities, and it's nice to do reimbursements too.
 However, the main role of a God is keeping the peace.  Gods can enforce (but
 not create rules), using the various NOTELL-class commands, as well as deny,
@@ -3732,6 +3808,13 @@ Last altered by Gretago 29/5/04
 
 0 bridgewater~
 Bridgewater is a starting town 
+~
+
+0 SHADOWSTORM DAVION SYNON~
+This MUD is based on ShadowStorm by Synon and Davion
+There have been many changes and improvements behind
+the scenes, but the base code is theirs and I wanted
+to give credit where its due.
 ~
 
 -1 $~

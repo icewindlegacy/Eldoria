@@ -9,144 +9,99 @@ Continent 0
 End
 
 
-#MOBILES
-#0
+
+#MOBILESNEW
+#END
 
 
-#OBJECTS
-#0
+
+#OBJECTSNEW
+#END
 
 
-#ROOMS
-#30000
-Eldoria - World Map One~
-You are standing on the world map.  The terrain stretches out in all directions.
-~
-0 0 1
-D0
-~
-~
-0 0 0
-D1
-~
-~
-0 0 0
-D2
-~
-~
-0 0 0
-D3
-~
-~
-0 0 0
-S
 
-#30001
-Eldoria - World Map Two~
-You are standing on the second world map.  The terrain stretches out in all directions.
+#ROOMSNEW
+#ROOM
+Vnum 30000
+Name Eldoria - World Map One~
+Desc You are standing on the world map.  The terrain stretches out in all directions.
 ~
-0 0 1
-D0
-~
-~
-0 0 0
-D1
-~
-~
-0 0 0
-D2
-~
-~
-0 0 0
-D3
-~
-~
-0 0 0
-S
+Room_flags 67108868
+Sector_type 1
+X 0 0 0 0 0 0 0 0 0 0 0
+EndRoom
 
-#30002
-Eldoria - World Map Three~
-You are standing on the third world map.  The terrain stretches out in all directions.
+#ROOM
+Vnum 30001
+Name Eldoria - World Map Two~
+Desc You are standing on the second world map.  The terrain stretches out in all directions.
 ~
-0 0 1
-D0
-~
-~
-0 0 0
-D1
-~
-~
-0 0 0
-D2
-~
-~
-0 0 0
-D3
-~
-~
-0 0 0
-S
+Room_flags 4
+Sector_type 1
+X 0 0 0 0 0 0 0 0 0 0 0
+EndRoom
 
-#30003
-Eldoria - World Map Four~
-You are standing on the fourth world map.  The terrain stretches out in all directions.
+#ROOM
+Vnum 30002
+Name Eldoria - World Map Three~
+Desc You are standing on the third world map.  The terrain stretches out in all directions.
 ~
-0 0 1
-D0
-~
-~
-0 0 0
-D1
-~
-~
-0 0 0
-D2
-~
-~
-0 0 0
-D3
-~
-~
-0 0 0
-S
+Room_flags 4
+Sector_type 1
+X 0 0 0 0 0 0 0 0 0 0 0
+EndRoom
 
-#30004
-Eldoria - World Map Five~
-You are standing on the fifth world map.  The terrain stretches out in all directions.
+#ROOM
+Vnum 30003
+Name Eldoria - World Map Four~
+Desc You are standing on the fourth world map.  The terrain stretches out in all directions.
 ~
-0 0 1
-D0
-~
-~
-0 0 0
-D1
-~
-~
-0 0 0
-D2
-~
-~
-0 0 0
-D3
-~
-~
-0 0 0
-S
+Room_flags 4
+Sector_type 1
+X 0 0 0 0 0 0 0 0 0 0 0
+EndRoom
 
-#0
+#ROOM
+Vnum 30004
+Name Eldoria - World Map Five~
+Desc You are standing on the fifth world map.  The terrain stretches out in all directions.
+~
+Room_flags 4
+Sector_type 1
+X 0 0 0 0 0 0 0 0 0 0 0
+EndRoom
 
+#END
 
-#RESETS
-S
-
-
-#SHOPS
-0
 
 
 #SPECIALS
 S
 
 
-#$
 
+#RESETS
+S
+
+
+
+#SHOPS
+0
+
+
+
+#QSHOPS
+0
+
+
+
+#MOBPROGS
+#0
+
+#OBJPROGS
+#0
+
+#ROOMPROGS
+#0
+
+#$

@@ -36,6 +36,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "include.h"
+#include "worldmap.h"
 
 /* random room generation procedure */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
@@ -136,6 +137,19 @@ void do_enter( CHAR_DATA *ch, char *argument)
 
 	char_from_room(ch);
 	char_to_room(ch, location);
+	
+	//worldmap.c - initialize coordinates if entering a worldmap room
+	if(is_wmap_vnum(location->vnum))
+	{
+	    int wmap_index = wmap_vnum_index(location->vnum);
+	    if(wmap_index >= 0)
+	    {
+	        ch->wmap[0] = wmap_index;
+	        ch->wmap[1] = wmap_table[wmap_index].max_x / 2;
+	        ch->wmap[2] = wmap_table[wmap_index].max_y / 2;
+	        ch->wmap[3] = 0;
+	    }
+	}
 
 	if (IS_SET(portal->value[2],GATE_GOWITH)) /* take the gate along */
 	{

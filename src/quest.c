@@ -36,6 +36,10 @@
 #include "const.h"
 DECLARE_DO_FUN( do_restore );
 DECLARE_DO_FUN( do_transfer );
+DECLARE_DO_FUN( do_qlist );
+DECLARE_DO_FUN( do_qbuy );
+DECLARE_DO_FUN( do_qsell );
+DECLARE_DO_FUN( do_qidentify );
 DECLARE_SPELL_FUN( spell_identify );
 
 
@@ -492,6 +496,47 @@ void do_quest(CHAR_DATA * ch, char *argument)
 	return;
     }
 
+    /* Check for quest shop commands first (they don't require spec_questmaster) */
+    if (!strcmp(arg1, "list") || !strcmp(arg1, "buy") || !strcmp(arg1, "sell") || !strcmp(arg1, "identify"))
+    {
+        CHAR_DATA *qshop_keeper = NULL;
+        
+        /* Look for a mobile with a quest shop */
+        for (qshop_keeper = ch->in_room->people; qshop_keeper != NULL; qshop_keeper = qshop_keeper->next_in_room)
+        {
+            if (!IS_NPC(qshop_keeper))
+                continue;
+            if (qshop_keeper->pIndexData->pQShop != NULL)
+                break;
+        }
+        
+        /* If we found a quest shop keeper, use quest shop commands */
+        if (qshop_keeper != NULL)
+        {
+            if (!strcmp(arg1, "list"))
+            {
+                do_qlist(ch, "");
+                return;
+            }
+            else if (!strcmp(arg1, "buy"))
+            {
+                do_qbuy(ch, arg2);
+                return;
+            }
+            else if (!strcmp(arg1, "sell"))
+            {
+                do_qsell(ch, arg2);
+                return;
+            }
+            else if (!strcmp(arg1, "identify"))
+            {
+                do_qidentify(ch, arg2);
+                return;
+            }
+        }
+    }
+    
+    /* For traditional quest commands, look for spec_questmaster */
     for (questman = ch->in_room->people; questman != NULL; questman = questman->next_in_room)
     {
 	if (!IS_NPC(questman))
@@ -514,170 +559,111 @@ void do_quest(CHAR_DATA * ch, char *argument)
 
     if (!strcmp(arg1, "list"))
     {
-	act("$n asks $N for a list of quest items.", ch, NULL, questman, TO_ROOM);
-	send_to_char("\t{YCurrent Quest Items available for Purchase:{x\n\r", ch);
-        for (i = 0; quest_table[i].who_name != NULL; i++)
-        {
-	    sprintf(buf, "\t%-5dqp ........ %s{x\n\r", quest_table[i].cost, quest_table[i].who_name);
-   		send_to_char(buf, ch);
-    }
-	send_to_char("\tTo buy an item, type 'QUEST BUY <item>'.\n\r", ch);
-	send_to_char("\tFor more info on quest items type 'help questitems'\n\r", ch);
+	act("$n asks $N for a list of special services.", ch, NULL, questman, TO_ROOM);
+	
+	/* Show special non-item purchases only */
+	send_to_char("{Y[QP Cost] {GSpecial Purchases{x\n\r", ch);
+	send_to_char("{Y------------------------------------------------{x\n\r", ch);
+	
+	for (i = 0; quest_table[i].name != NULL; i++)
+	{
+	    if (quest_table[i].vnum >= 0 && quest_table[i].vnum <= 5)
+	    {
+		sprintf(buf, "{Y[{C%6d{Y]{x {G%s{x\n\r", quest_table[i].cost, quest_table[i].name);
+		send_to_char(buf, ch);
+	    }
+	}
+	
+	sprintf(buf, "\n\r{YYou have {C%d{Y quest points.{x\n\r", ch->pcdata->questpoints);
+	send_to_char(buf, ch);
+	send_to_char("\tTo buy a service, type 'QUEST BUY <service>'.\n\r", ch);
 	return;
-        }
+    }
 
     else if (!strcmp(arg1, "buy"))
     {
-
 	if (arg2[0] == '\0')
 	{
-	    send_to_char("To buy an item, type 'QUEST BUY <item>'.\n\r", ch);
+	    send_to_char("To buy a service, type 'QUEST BUY <service>'.\n\r", ch);
 	    return;
 	}
 
+	/* Handle special purchases only (vnums 0-5) */
 	for (i = 0; quest_table[i].name != NULL; i++)
 	{
-	    if (is_name(arg2, quest_table[i].name))
+	    if (is_name(arg2, quest_table[i].name) && quest_table[i].vnum >= 0 && quest_table[i].vnum <= 5)
 	    {
-		if (ch->pcdata->questpoints >= quest_table[i].cost)
-		{
-		    if (quest_table[i].vnum == 0)
-		    {
-			ch->pcdata->questpoints -= quest_table[i].cost;
-			ch->pcdata->condition[COND_FULL] = -1;
-			ch->pcdata->condition[COND_THIRST] = -1;
-			act("$N calls upon the power of the gods to relieve your mortal burdens.", ch, NULL, questman, TO_CHAR);
-			act("$N calls upon the power of the gods to relieve $n's mortal burdens.", ch, NULL, questman, TO_ROOM);
-			return;
-		    }
-
-                    if (quest_table[i].vnum == 1)
-                    {
-                        ch->pcdata->questpoints -= quest_table[i].cost;
-                        SET_BIT( ch->act, PLR_FREQUENT );
-                        send_to_char( "You are now a considered a frequent questor, you will have to wait less time between quests.\n\r", ch ); 
-                        act("$N now recognizes $n as a frequent questor!", ch, NULL, questman, TO_ROOM );
-                        return;
-                    }
-
-                    if ( ch->levelflux < 6 )
-                    {
-                        if (quest_table[i].vnum == 2 )
-                        {
-                            ch->pcdata->questpoints -= quest_table[i].cost;
-                            ch->levelflux++;
-                            printf_to_char( ch, "Your level flux has been raised to %d!\n\r", ch->levelflux );
-                            return;
-                        }
-
-                   }
-              
-                   if (quest_table[i].vnum == 3 )
-                   {
-                       ch->pcdata->questpoints -= quest_table[i].cost;
-                       ch->train += 100;
-                       send_to_char( "The questmaster gives you 100 trains.\n\r", ch );
-                       return;
-                   }
-
-                   if (quest_table[i].vnum == 4)
-                   {
-                       ch->pcdata->questpoints -= quest_table[i].cost;
-                       ch->practice += 1000;
-                       send_to_char( "The questmaster gives you 1000 practices.\n\r", ch );
-                       return;
-                   }
-
-                   if (quest_table[i].vnum == 5)
-                   {
-                       ch->pcdata->questpoints -= quest_table[i].cost;
-                       ch->pcdata->dblq = 1;
-                       send_to_char( "The questmaster promises to give you double questpoints for every quest you complete from now on.\n\r", ch );
-                       return;
-                   }
-
-                   else if ((obj = create_object(get_obj_index(quest_table[i].vnum), ch->level)) == NULL)
-	           {
-		       send_to_char("That object could not be found, contact an immortal.\n\r", ch);
-		       return;
-		   }
-
-                   else
- 	           {
-			ch->pcdata->questpoints -= quest_table[i].cost;
-			if (!IS_IMMORTAL(ch))
-			{
-			    sprintf(buf, "Bought a %s (%d) for %d questpoints.", quest_table[i].name, quest_table[i].vnum, quest_table[i].cost);
-			    append_file(ch, QUEST_FILE, buf);
-			}
-		   }
-
-		    if (!IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST))
-		    {
-			SET_BIT(obj->pIndexData->extra_flags, ITEM_QUEST);
-			SET_BIT(obj->extra_flags, ITEM_QUEST);
-			SET_BIT(obj->pIndexData->area->area_flags, AREA_CHANGED);
-		    }
-		    act("$N gives $p to $n.", ch, obj, questman, TO_ROOM);
-		    act("$N gives you $p.", ch, obj, questman, TO_CHAR);
-		    obj_to_char(obj, ch);
-		    save_char_obj(ch);
-		    return;
-		}
- 
-                else
+		if (ch->pcdata->questpoints < quest_table[i].cost)
 		{
 		    sprintf(buf, "Sorry, %s, but you need %d quest points for that.", ch->name, quest_table[i].cost);
 		    do_mob_tell(ch, questman, buf);
 		    return;
 		}
+
+		/* Process the special purchase */
+		if (quest_table[i].vnum == 0)
+		{
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    ch->pcdata->condition[COND_FULL] = -1;
+		    ch->pcdata->condition[COND_THIRST] = -1;
+		    act("$N calls upon the power of the gods to relieve your mortal burdens.", ch, NULL, questman, TO_CHAR);
+		    act("$N calls upon the power of the gods to relieve $n's mortal burdens.", ch, NULL, questman, TO_ROOM);
+		    return;
+		}
+		else if (quest_table[i].vnum == 1)
+		{
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    SET_BIT(ch->act, PLR_FREQUENT);
+		    send_to_char("You are now a considered a frequent questor, you will have to wait less time between quests.\n\r", ch);
+		    act("$N now recognizes $n as a frequent questor!", ch, NULL, questman, TO_ROOM);
+		    return;
+		}
+		else if (quest_table[i].vnum == 2)
+		{
+		    if (ch->levelflux >= 6)
+		    {
+			send_to_char("Your level flux is already at maximum.\n\r", ch);
+			return;
+		    }
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    ch->levelflux++;
+		    printf_to_char(ch, "Your level flux has been raised to %d!\n\r", ch->levelflux);
+		    return;
+		}
+		else if (quest_table[i].vnum == 3)
+		{
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    ch->train += 100;
+		    send_to_char("The questmaster gives you 100 trains.\n\r", ch);
+		    return;
+		}
+		else if (quest_table[i].vnum == 4)
+		{
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    ch->practice += 1000;
+		    send_to_char("The questmaster gives you 1000 practices.\n\r", ch);
+		    return;
+		}
+		else if (quest_table[i].vnum == 5)
+		{
+		    ch->pcdata->questpoints -= quest_table[i].cost;
+		    ch->pcdata->dblq = 1;
+		    send_to_char("The questmaster promises to give you double questpoints for every quest you complete from now on.\n\r", ch);
+		    return;
+		}
 	    }
 	}
 
-	sprintf(buf, "I don't have that item, %s.", ch->name);
+	sprintf(buf, "I don't offer that service, %s.", ch->name);
 	do_mob_tell(ch, questman, buf);
 	return;
     }
 
     else if (!strcmp(arg1, "sell"))
     {
-	if (arg2[0] == '\0')
-	{
-	    send_to_char("To sell an item, type 'QUEST SELL <item>'.\n\r", ch);
-	    return;
-	}
-	if ((obj = get_obj_carry(ch, arg2, ch)) == NULL)
-	{
-	    send_to_char("Which item is that?\n\r", ch);
-	    return;
-	}
-
-	if (!IS_OBJ_STAT(obj, ITEM_QUEST))
-	{
-	    sprintf(buf, "That is not a quest item, %s.", ch->name);
-	    do_mob_tell(ch, questman, buf);
-	    return;
-	}
-
-	for (i = 0; quest_table[i].name != NULL; i++)
-	{
-	    if (quest_table[i].vnum <= 0)
-		continue;
-	    if (quest_table[i].vnum == obj->pIndexData->vnum)
-	    {
-		ch->pcdata->questpoints += quest_table[i].cost / 3;
-		act("$N takes $p from $n.", ch, obj, questman, TO_ROOM);
-		sprintf(buf, "$N takes $p from you for %d quest points.", quest_table[i].cost / 3);
-		act(buf, ch, obj, questman, TO_CHAR);
-		extract_obj(obj);
-		save_char_obj(ch);
-		return;
-	    }
-	}
-	sprintf(buf, "I only take items I sell, %s.", ch->name);
-	do_mob_tell(ch, questman, buf);
+	send_to_char("This questmaster does not buy quest items.\n\r", ch);
 	return;
-	}
+    }
 	else if (!strcmp(arg1, "reset"))
 	{
 		CHAR_DATA *victim;
@@ -715,97 +701,13 @@ void do_quest(CHAR_DATA * ch, char *argument)
 		return;
     } else if (!strcmp(arg1, "replace"))
     {
-	if (arg2[0] == '\0')
-	{
-	    send_to_char("To replace an item, type 'QUEST REPLACE <item>'.\n\r", ch);
-	    return;
-	}
-	if ((obj = get_obj_carry(ch, arg2, ch)) == NULL)
-	{
-	    send_to_char("Which item is that?\n\r", ch);
-	    return;
-	}
-
-	if (!IS_OBJ_STAT(obj, ITEM_QUEST))
-	{
-	    sprintf(buf, "That is not a quest item, %s.", ch->name);
-	    do_mob_tell(ch, questman, buf);
-	    return;
-	}
-	if (ch->pcdata->questpoints < 75)
-	{
-	    do_mob_tell(ch, questman, "It costs 75 questpoints to replace an item.");
-	    return;
-	}
-	for (i = 0; quest_table[i].name != NULL; i++)
-	{
-	    if (quest_table[i].vnum <= 0)
-		continue;
-	    if (quest_table[i].vnum == obj->pIndexData->vnum)
-	    {
-		OBJ_DATA *newobj;
-
-		if ((newobj = create_object(get_obj_index(quest_table[i].vnum), ch->level)) == NULL)
-		{
-		    sprintf(buf, "I could not find a new quest item for you %s.", ch->name);
-		    do_mob_tell(ch, questman, buf);
-		} else
-		{
-		    obj_to_char(newobj, ch);
-            extract_obj(obj);
-            ch->pcdata->questpoints -= 75;
-            act("$N takes $p from $n and gives $m a new one.", ch, obj, questman, TO_ROOM);
-            act("$N replaces $p with a new one for 75 quest points.", ch, obj, questman, TO_CHAR);
-            save_char_obj(ch);
-		}
-		return;
-	    }
-	}
-	sprintf(buf, "I only replace items I sell, %s.", ch->name);
-	do_mob_tell(ch, questman, buf);
+	send_to_char("This questmaster does not replace quest items.\n\r", ch);
 	return;
     }
 
     else if (!strcmp(arg1, "identify"))
     {
-
-	if (IS_NULLSTR(arg2))
-	{
-	    printf_to_char(ch,"To identify an item, type 'QUEST IDENTIFY <item>'.\n\r");
-	    return;
-	}
-
-	for (i = 0; quest_table[i].name != NULL; i++)
-	{
-	    if (is_name(arg2, quest_table[i].name))
-	    {
-		if (quest_table[i].vnum == 0)
-		{
-		    send_to_char("That isn't a quest item.\n\r", ch);
-		    return;
-		} else if ((obj = create_object(get_obj_index(quest_table[i].vnum), ch->level)) == NULL)
-		{
-		    send_to_char("That object could not be found, contact an immortal.\n\r", ch);
-		    return;
-		} else
-		{
-		    if (!IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST))
-		    {
-			SET_BIT(obj->pIndexData->extra_flags, ITEM_QUEST);
-			SET_BIT(obj->extra_flags, ITEM_QUEST);
-			SET_BIT(obj->pIndexData->area->area_flags, AREA_CHANGED);
-		    }
-		    obj_to_char(obj, ch);
-		    sprintf(buf, "%s costs %d questpoints.", obj->short_descr, quest_table[i].cost);
-			send_to_char(buf, ch);
-		    spell_identify(0, ch->level, ch, obj, TAR_OBJ_INV);
-		    extract_obj(obj);
-		    return;
-		}
-	    }
-	}
-	sprintf(buf, "I don't have that item, %s.", ch->name);
-	do_mob_tell(ch, questman, buf);
+	send_to_char("This questmaster does not identify quest items.\n\r", ch);
 	return;
     }
 
@@ -1938,4 +1840,506 @@ void do_levelflux( CHAR_DATA *ch, char *argument )
     printf_to_char( ch, "The questmaster relieves you of %d questpoints.\n\r", cost );
     return;
 } 
+
+/* Quest Shop Functions - for questmasters with quest shops */
+
+CHAR_DATA *find_questkeeper( CHAR_DATA *ch )
+{
+    CHAR_DATA *keeper;
+    QSHOP_DATA *pQShop;
+
+    pQShop = NULL;
+    for ( keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room )
+    {
+        if(!same_room(ch, keeper, NULL)) continue;
+        if ( IS_NPC(keeper) && (pQShop = keeper->pIndexData->pQShop) != NULL )
+            break;
+    }
+
+    if ( pQShop == NULL )
+    {
+        send_to_char( "You can't do that here.\n\r", ch );
+        return NULL;
+    }
+
+    if ( keeper->fighting != NULL )
+    {
+        send_to_char( "Wait until the fighting stops.\n\r", ch );
+        return NULL;
+    }
+
+    return keeper;
+}
+
+OBJ_DATA *get_obj_questkeeper( CHAR_DATA *ch, CHAR_DATA *keeper, char *argument )
+{
+    char arg[MAX_INPUT_LENGTH];
+    OBJ_DATA *obj;
+    int number;
+    int count;
+
+    number = mult_argument( argument, arg );
+    count  = 0;
+    for ( obj = keeper->carrying; obj != NULL; obj = obj->next_content )
+    {
+        if ( obj->wear_loc == WEAR_NONE
+        &&   can_see_obj( ch, obj )
+        &&   IS_OBJ_STAT(obj, ITEM_QUEST)  /* Only quest items in quest shops */
+        &&   is_name( arg, obj->name ) )
+        {
+            if ( ++count == number )
+                return obj;
+        }
+    }
+
+    return NULL;
+}
+
+void do_qlist( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+    char buf2[MAX_STRING_LENGTH];
+    OBJ_DATA *obj;
+    CHAR_DATA *keeper;
+    int count;
+    OBJ_DATA *quest_items[200];  /* Array to hold quest items for sorting */
+    int num_items = 0;
+    int i, j;
+
+    if ( IS_NPC(ch) )
+        return;
+
+    if ( ( keeper = find_questkeeper( ch ) ) == NULL )
+        return;
+
+    buf[0] = '\0';
+    count = 0;
+
+    /* Debug output for immortals to diagnose issues */
+    if ( IS_IMMORTAL(ch) )
+    {
+        int total = 0;
+        send_to_char("{D[QLIST DEBUG - Keeper Inventory]{x\n\r", ch);
+        for ( obj = keeper->carrying; obj; obj = obj->next_content )
+        {
+            total++;
+            sprintf(buf2, "{D  %d. %s (vnum %d){x\n\r"
+                         "{D     wear_loc=%d, QUEST_FLAG=%s, qcost=%d{x\n\r",
+                total, obj->short_descr, obj->pIndexData->vnum,
+                obj->wear_loc,
+                IS_OBJ_STAT(obj, ITEM_QUEST) ? "YES" : "NO",
+                obj->pIndexData->qcost);
+            send_to_char(buf2, ch);
+        }
+        sprintf(buf2, "{D  Total: %d items in keeper inventory{x\n\r\n\r", total);
+        send_to_char(buf2, ch);
+    }
+
+    /* Collect all quest items into an array */
+    for ( obj = keeper->carrying; obj; obj = obj->next_content )
+    {
+        if ( obj->wear_loc == WEAR_NONE
+        &&   can_see_obj( ch, obj )
+        &&   IS_OBJ_STAT(obj, ITEM_QUEST)
+        &&   obj->pIndexData->qcost > 0 
+        &&   num_items < 200 )
+        {
+            quest_items[num_items++] = obj;
+        }
+    }
+
+    /* Simple bubble sort by qcost (lowest to highest) */
+    for ( i = 0; i < num_items - 1; i++ )
+    {
+        for ( j = 0; j < num_items - i - 1; j++ )
+        {
+            if ( quest_items[j]->pIndexData->qcost > quest_items[j+1]->pIndexData->qcost )
+            {
+                /* Swap */
+                OBJ_DATA *temp = quest_items[j];
+                quest_items[j] = quest_items[j+1];
+                quest_items[j+1] = temp;
+            }
+        }
+    }
+
+    /* Display sorted items */
+    if ( num_items > 0 )
+    {
+        strcat( buf, "{Y[QP Cost] [{WLvl{Y] {GItem{x\n\r" );
+        strcat( buf, "{Y------------------------------------------------{x\n\r" );
+    }
+
+    for ( i = 0; i < num_items; i++ )
+    {
+        obj = quest_items[i];
+        sprintf( buf2, "{Y[{C%6d{Y]{x [{W%3d{x] {G%s{x\n\r",
+            obj->pIndexData->qcost,
+            obj->level,
+            obj->short_descr );
+        strcat( buf, buf2 );
+        count++;
+    }
+
+    /* Add special non-item purchases */
+    if ( count == 0 )
+    {
+        strcat( buf, "{Y[QP Cost] {GSpecial Purchases{x\n\r" );
+        strcat( buf, "{Y------------------------------------------------{x\n\r" );
+    }
+    else
+    {
+        strcat( buf, "\n\r{Y[QP Cost] {GSpecial Purchases{x\n\r" );
+        strcat( buf, "{Y------------------------------------------------{x\n\r" );
+    }
+
+    /* Show special purchases from quest_table (vnums 0-5 are special) */
+    for ( int i = 0; quest_table[i].name != NULL; i++ )
+    {
+        if ( quest_table[i].vnum >= 0 && quest_table[i].vnum <= 5 )
+        {
+            sprintf( buf2, "{Y[{C%6d{Y]{x {G%s{x\n\r",
+                quest_table[i].cost,
+                quest_table[i].name );
+            strcat( buf, buf2 );
+            count++;
+        }
+    }
+
+    sprintf( buf2, "\n\r{YYou have {C%d{Y quest points.{x\n\r", ch->pcdata->questpoints );
+    strcat( buf, buf2 );
+    page_to_char( buf, ch );
+    return;
+}
+
+void do_qbuy( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH];
+    CHAR_DATA *keeper;
+    OBJ_DATA *obj;
+    int cost;
+    int number, count = 1;
+    int i;
+
+    if ( IS_NPC(ch) )
+        return;
+
+    if ( ( keeper = find_questkeeper( ch ) ) == NULL )
+        return;
+
+    number = mult_argument(argument,arg);
+
+    /* Check if buying a special non-item purchase first */
+    for ( i = 0; quest_table[i].name != NULL; i++ )
+    {
+        if ( quest_table[i].vnum >= 0 && quest_table[i].vnum <= 5 
+        &&   is_name(arg, quest_table[i].name) )
+        {
+            /* Handle special purchases */
+            if ( ch->pcdata->questpoints < quest_table[i].cost )
+            {
+                act( "$n tells you 'You don't have enough quest points for that.'",
+                    keeper, NULL, ch, TO_VICT );
+                ch->reply = keeper;
+                return;
+            }
+
+            ch->pcdata->questpoints -= quest_table[i].cost;
+
+            /* Process each special purchase type */
+            if ( quest_table[i].vnum == 0 ) /* nohunger */
+            {
+                ch->pcdata->condition[COND_FULL] = -1;
+                ch->pcdata->condition[COND_THIRST] = -1;
+                act("$N calls upon the power of the gods to relieve your mortal burdens.", 
+                    ch, NULL, keeper, TO_CHAR);
+                act("$N calls upon the power of the gods to relieve $n's mortal burdens.", 
+                    ch, NULL, keeper, TO_ROOM);
+                return;
+            }
+            else if ( quest_table[i].vnum == 1 ) /* frequent */
+            {
+                SET_BIT( ch->act, PLR_FREQUENT );
+                send_to_char( "You are now considered a frequent questor, you will have to wait less time between quests.\n\r", ch ); 
+                act("$N now recognizes $n as a frequent questor!", ch, NULL, keeper, TO_ROOM );
+                return;
+            }
+            else if ( quest_table[i].vnum == 2 ) /* levelflux */
+            {
+                if ( ch->levelflux >= 6 )
+                {
+                    send_to_char( "Your level flux is already at maximum.\n\r", ch );
+                    ch->pcdata->questpoints += quest_table[i].cost; /* refund */
+                    return;
+                }
+                ch->levelflux++;
+                printf_to_char( ch, "Your level flux has been raised to %d!\n\r", ch->levelflux );
+                return;
+            }
+            else if ( quest_table[i].vnum == 3 ) /* train */
+            {
+                ch->train += 100;
+                send_to_char( "The questmaster gives you 100 trains.\n\r", ch );
+                return;
+            }
+            else if ( quest_table[i].vnum == 4 ) /* practice */
+            {
+                ch->practice += 1000;
+                send_to_char( "The questmaster gives you 1000 practices.\n\r", ch );
+                return;
+            }
+            else if ( quest_table[i].vnum == 5 ) /* dblquest */
+            {
+                ch->pcdata->dblq = 1;
+                send_to_char( "The questmaster promises to give you double questpoints for every quest you complete from now on.\n\r", ch );
+                return;
+            }
+        }
+    }
+
+    /* Not a special purchase, try to buy as regular item */
+    obj = get_obj_questkeeper( ch, keeper, arg );
+    
+    if ( obj == NULL )
+    {
+        act( "$n tells you 'I don't sell that -- try 'qlist''.",
+            keeper, NULL, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    cost = obj->pIndexData->qcost;
+
+    if ( cost <= 0 )
+    {
+        act( "$n tells you 'That item is not for sale.'",
+            keeper, NULL, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( number < 1 || number > 99 )
+    {
+        act("$n tells you 'Get real!",keeper,NULL,ch,TO_VICT);
+        return;
+    }
+
+    /* Quest shops don't use ITEM_INVENTORY - check stock manually */
+    if (!IS_OBJ_STAT(obj,ITEM_INVENTORY))
+    {
+        OBJ_DATA *t_obj;
+        for (t_obj = obj->next_content;
+             count < number && t_obj != NULL; 
+             t_obj = t_obj->next_content) 
+        {
+            if (t_obj->pIndexData == obj->pIndexData
+            &&  !str_cmp(t_obj->short_descr,obj->short_descr)
+            &&  IS_OBJ_STAT(t_obj, ITEM_QUEST))
+                count++;
+            else
+                break;
+        }
+
+        if (count < number)
+        {
+            act("$n tells you 'I don't have that many in stock.",
+                keeper,NULL,ch,TO_VICT);
+            ch->reply = keeper;
+            return;
+        }
+    }
+
+    if ( ch->pcdata->questpoints < cost * number )
+    {
+        if (number > 1)
+            act("$n tells you 'You don't have enough quest points to buy that many.",
+                keeper,obj,ch,TO_VICT);
+        else
+            act( "$n tells you 'You don't have enough quest points to buy $p'.",
+                keeper, obj, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( ch->level < obj->level )
+    {
+        act( "$n tells you 'You can't use $p yet'.",
+            keeper, obj, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( ch->carry_number +  number * get_obj_number(obj) > can_carry_n(ch))
+    {
+        send_to_char( "You can't carry that many items.\n\r", ch );
+        return;
+    }
+
+    if ( ch->carry_weight + number * get_obj_weight(obj) > can_carry_w(ch))
+    {
+        send_to_char( "You can't carry that much weight.\n\r", ch );
+        return;
+    }
+
+    /* Quest shops are immune to haggling - price is price */
+
+    if (number > 1)
+    {
+        sprintf(buf,"$n buys $p[%d] for %d quest points.",number, cost * number);
+        act(buf,ch,obj,NULL,TO_ROOM);
+        sprintf(buf,"You buy $p[%d] for %d quest points.",number,cost * number);
+        act(buf,ch,obj,NULL,TO_CHAR);
+    }
+    else
+    {
+        act( "$n buys $p.", ch, obj, NULL, TO_ROOM );
+        sprintf(buf,"You buy $p for %d quest points.",cost);
+        act( buf, ch, obj, NULL, TO_CHAR );
+    }
+
+    ch->pcdata->questpoints -= cost * number;
+
+    for (count = 0; count < number; count++)
+    {
+        OBJ_DATA *t_obj;
+        
+        /* Quest shops always create new instances, never move the template */
+        t_obj = create_object( obj->pIndexData, obj->level );
+        obj_to_char( t_obj, ch );
+    }
+
+    /* Log quest purchases for security */
+    if (!IS_IMMORTAL(ch))
+    {
+        sprintf(buf, "Bought %s (%d) for %d questpoints from qshop.",
+            obj->pIndexData->short_descr, obj->pIndexData->vnum, cost * number);
+        append_file(ch, QUEST_FILE, buf);
+    }
+
+    return;
+}
+
+void do_qsell( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH];
+    CHAR_DATA *keeper;
+    OBJ_DATA *obj;
+    int cost;
+
+    if ( IS_NPC(ch) )
+        return;
+
+    one_argument( argument, arg );
+
+    if ( arg[0] == '\0' )
+    {
+        send_to_char( "Sell what?\n\r", ch );
+        return;
+    }
+
+    if ( ( keeper = find_questkeeper( ch ) ) == NULL )
+        return;
+
+    if ( ( obj = get_obj_carry( ch, arg, ch ) ) == NULL )
+    {
+        act( "$n tells you 'You don't have that item'.",
+            keeper, NULL, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( !IS_OBJ_STAT(obj, ITEM_QUEST) )
+    {
+        act( "$n tells you 'I only buy quest items.'", keeper, obj, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( obj->pIndexData->qcost <= 0 )
+    {
+        act( "$n looks uninterested in $p.", keeper, obj, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    if ( !can_drop_obj( ch, obj ) )
+    {
+        send_to_char( "You can't let go of it.\n\r", ch );
+        return;
+    }
+
+    /* Calculate sell-back price using questmaster's profit_sell percentage */
+    cost = obj->pIndexData->qcost * keeper->pIndexData->pQShop->profit_sell / 100;
+
+    if ( cost <= 0 )
+        cost = 1;  /* Minimum 1 QP */
+
+    act( "$n sells $p.", ch, obj, NULL, TO_ROOM );
+    sprintf( buf, "You sell $p for %d quest point%s.\n\r", cost, cost == 1 ? "" : "s" );
+    act( buf, ch, obj, NULL, TO_CHAR );
+    ch->pcdata->questpoints  += cost;
+    
+    /* Quest items are destroyed when sold back, not kept for resale */
+    obj_from_char( obj );
+    extract_obj( obj );
+
+    return;
+}
+
+void do_qidentify( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH];
+    CHAR_DATA *keeper;
+    OBJ_DATA *obj;
+    OBJ_DATA *temp_obj;
+
+    if ( IS_NPC(ch) )
+        return;
+
+    one_argument( argument, arg );
+
+    if ( arg[0] == '\0' )
+    {
+        send_to_char( "Identify what?\n\r", ch );
+        return;
+    }
+
+    if ( ( keeper = find_questkeeper( ch ) ) == NULL )
+        return;
+
+    /* Find the object in the keeper's inventory */
+    if ( ( obj = get_obj_questkeeper( ch, keeper, arg ) ) == NULL )
+    {
+        act( "$n tells you 'I don't have that item.'",
+            keeper, NULL, ch, TO_VICT );
+        ch->reply = keeper;
+        return;
+    }
+
+    /* Create a temporary copy to identify */
+    temp_obj = create_object( obj->pIndexData, obj->level );
+    if ( temp_obj == NULL )
+    {
+        send_to_char( "That item could not be identified.\n\r", ch );
+        return;
+    }
+
+    /* Show the cost */
+    sprintf( buf, "$n tells you '%s costs %d quest point%s.'",
+        obj->short_descr,
+        obj->pIndexData->qcost,
+        obj->pIndexData->qcost == 1 ? "" : "s" );
+    act( buf, keeper, NULL, ch, TO_VICT );
+
+    /* Identify the item */
+    obj_to_char( temp_obj, ch );
+    spell_identify( 0, ch->level, ch, temp_obj, TAR_OBJ_INV );
+    obj_from_char( temp_obj );
+    extract_obj( temp_obj );
+
+    return;
+}
 

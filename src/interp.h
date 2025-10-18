@@ -351,6 +351,9 @@ DECLARE_DO_FUN( do_change	);
 DECLARE_DO_FUN( do_exchange     );
 DECLARE_DO_FUN( do_quest        );
 DECLARE_DO_FUN( do_qpgive       );
+DECLARE_DO_FUN( do_qlist        );
+DECLARE_DO_FUN( do_qbuy         );
+DECLARE_DO_FUN( do_qsell        );
 DECLARE_DO_FUN( do_tpspend      );
 DECLARE_DO_FUN( do_tpgive       );
 DECLARE_DO_FUN( do_restring     );
@@ -558,4 +561,6 @@ DECLARE_DO_FUN( do_wmaptable    );
 DECLARE_DO_FUN( do_wedit        );
 DECLARE_DO_FUN( do_wmap_show    );
 DECLARE_DO_FUN( do_zoomwmap     );
+DECLARE_DO_FUN( do_explored     );
+DECLARE_DO_FUN( do_webupdate );
 

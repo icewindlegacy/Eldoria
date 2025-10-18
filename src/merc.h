@@ -106,6 +106,7 @@ typedef struct  gen_data			GEN_DATA;
 typedef struct	reset_data			RESET_DATA;
 typedef struct	room_index_data		ROOM_INDEX_DATA;
 typedef struct	shop_data	    SHOP_DATA;
+typedef struct	qshop_data	    QSHOP_DATA;
 typedef struct	time_info_data	    TIME_INFO_DATA;
 typedef struct	weather_data	    WEATHER_DATA;
 typedef struct  bounty_data         BOUNTY_DATA;
@@ -156,7 +157,7 @@ typedef void ROOM_FUN	args( ( ROOM_INDEX_DATA *room, char *argument ) );
 #define MAX_STRING_LENGTH	20000
 #define MAX_INPUT_LENGTH	 5000
 #define PAGELEN			   22
-#define MAX_MEM_LIST            11
+#define MAX_MEM_LIST            15  /* Increased for worldmap large output buffers */
 #define MXP_SAFE                1
 #define MXP_ALL                 2
 #define MXP_NONE                3
@@ -179,7 +180,7 @@ typedef void ROOM_FUN	args( ( ROOM_INDEX_DATA *room, char *argument ) );
 #define MAX_STORAGE             15
 #define MAX_QUOTES              10
 #define MAX_WAYPOINT            10
-#define MAX_ADMIN               3
+#define MAX_ADMIN               2
 #define LI3                     MAX_LEVEL/6
 #define LI2                     MAX_LEVEL/3
 #define LI1                     MAX_LEVEL 
@@ -964,6 +965,14 @@ struct	shop_data
     sh_int	profit_sell;		/* Cost multiplier for selling	*/
     sh_int	open_hour;		/* First opening hour		*/
     sh_int	close_hour;		/* First closing hour		*/
+};
+
+/* Quest shop data - for questmasters selling quest items for quest points */
+struct	qshop_data
+{
+    QSHOP_DATA *	next;		/* Next quest shop in list	*/
+    sh_int	keeper;			/* Vnum of questmaster mob	*/
+    sh_int	profit_sell;		/* Percentage of qcost for selling back */
 };
 
 
@@ -2366,6 +2375,7 @@ struct	mob_index_data
     MOB_INDEX_DATA *    in_room;
     SPEC_FUN *		spec_fun;
     SHOP_DATA *		pShop;
+    QSHOP_DATA *	pQShop;		/* Quest shop data */
     sh_int		vnum;
     sh_int		group;
     bool		new_format;
@@ -2803,6 +2813,7 @@ struct	obj_index_data
     sh_int		weight;
     sh_int              size;
     int			cost;
+    int			qcost;		/* Quest point cost for quest shops */
     int			value[7]; //worldmap.c
     int                 valueorig[5];
     PROG_LIST *		oprogs;
@@ -3388,6 +3399,8 @@ extern 		int			last_crash_time;
 extern		RELIGION	  *     religion_list;
 extern		HELP_DATA	  *	help_first;
 extern		SHOP_DATA	  *	shop_first;
+extern		QSHOP_DATA	  *	qshop_first;
+extern		QSHOP_DATA	  *	qshop_last;
 
 extern		CHAR_DATA	  *	char_list;
 extern		DESCRIPTOR_DATA   *	descriptor_list;
@@ -3793,6 +3806,7 @@ void	check_killer	args( ( CHAR_DATA *ch, CHAR_DATA *victim) );
 /* handler.c */
 void    WAIT_STATE            args( ( CHAR_DATA *ch, int npulse ) ); //worldmap.c
 void    DAZE_STATE            args( ( CHAR_DATA *ch, int npulse ) ); //worldmap.c
+bool    auto_quaff            args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 int prime_class		args( (CHAR_DATA * ch) );
 char *  material_name   args( ( sh_int num ) ); /* OLC */
 AD  	*affect_find args( (AFFECT_DATA *paf, int sn));

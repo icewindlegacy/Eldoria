@@ -2279,9 +2279,9 @@ REDIT( redit_oreset )
 	}
 
 	/*
-	 * Can't load into same position.
+	 * Can't load into same equipment position (but inventory can hold multiple items).
 	 */
-	if ( get_eq_char( to_mob, wear_loc ) )
+	if ( wear_loc != WEAR_NONE && get_eq_char( to_mob, wear_loc ) )
 	{
 	    send_to_char( "REdit:  Object already equipped.\n\r", ch );
 	    return FALSE;
@@ -3278,8 +3278,8 @@ OEDIT( oedit_show )
     sprintf( buf, "Size:        [%5s]\n\r", (pObj->size >=0 && pObj->size <= 5) ? osize_table[pObj->size] : "unknown"); 
     send_to_char( buf, ch );
 
-    sprintf( buf, "Weight:      [%5d]\n\rCost:        [%5d]\n\r",
-	pObj->weight, pObj->cost );
+    sprintf( buf, "Weight:      [%5d]\n\rCost:        [%5d]\n\rQP Cost:     [%5d]\n\r",
+	pObj->weight, pObj->cost, pObj->qcost );
     send_to_char( buf, ch );
 
     if ( pObj->extra_descr )
@@ -3711,6 +3711,28 @@ OEDIT( oedit_cost )
     pObj->cost = atoi( argument );
 
     send_to_char( "Cost set.\n\r", ch);
+    return TRUE;
+}
+
+OEDIT( oedit_qcost )
+{
+    OBJ_INDEX_DATA *pObj;
+    char buf[MAX_STRING_LENGTH];
+
+    EDIT_OBJ(ch, pObj);
+
+    if ( argument[0] == '\0' || !is_number( argument ) )
+    {
+        send_to_char( "Syntax:  qcost [number]\n\r", ch );
+        send_to_char( "Sets the quest point cost for quest shops.\n\r", ch );
+        return FALSE;
+    }
+
+    pObj->qcost = atoi( argument );
+
+    sprintf(buf, "Quest point cost set to %d on object vnum %d.\n\r", pObj->qcost, pObj->vnum);
+    send_to_char( buf, ch);
+    send_to_char( "Remember to 'asave changed' to save this area!\n\r", ch);
     return TRUE;
 }
 
@@ -4279,6 +4301,20 @@ MEDIT( medit_show )
 	}
     }
 
+    if ( pMob->pQShop )
+    {
+        QSHOP_DATA *pQShop;
+
+        pQShop = pMob->pQShop;
+
+        sprintf( buf,
+          "Quest Shop data for [%5d]:\n\r"
+          "  Sell-back percentage: %d%%\n\r"
+          "  (Quest items with qcost > 0 and ITEM_QUEST flag will be sold)\n\r",
+            pQShop->keeper, pQShop->profit_sell );
+        send_to_char( buf, ch );
+    }
+
     if ( pMob->mprogs )
     {
 	int cnt;
@@ -4728,6 +4764,115 @@ MEDIT( medit_shop )
     }
 
     medit_shop( ch, "" );
+    return FALSE;
+}
+
+MEDIT( medit_qshop )
+{
+    MOB_INDEX_DATA *pMob;
+    char command[MAX_INPUT_LENGTH];
+    char arg1[MAX_INPUT_LENGTH];
+
+    argument = one_argument( argument, command );
+    argument = one_argument( argument, arg1 );
+
+    EDIT_MOB(ch, pMob);
+
+    if ( command[0] == '\0' )
+    {
+        send_to_char( "Syntax:  qshop profit [#xselling%]\n\r", ch );
+        send_to_char( "         qshop assign\n\r", ch );
+        send_to_char( "         qshop remove\n\r", ch );
+        return FALSE;
+    }
+
+    if ( !str_cmp( command, "profit" ) )
+    {
+        if ( arg1[0] == '\0' || !is_number( arg1 ) )
+        {
+            send_to_char( "Syntax:  qshop profit [#xselling%]\n\r", ch );
+            return FALSE;
+        }
+
+        if ( !pMob->pQShop )
+        {
+            send_to_char( "MEdit:  You must create a quest shop first (qshop assign).\n\r", ch );
+            return FALSE;
+        }
+
+        pMob->pQShop->profit_sell    = atoi( arg1 );
+
+        send_to_char( "Quest shop profit set.\n\r", ch);
+        return TRUE;
+    }
+
+    /* qshop assign && qshop remove */
+
+    if ( !str_prefix(command, "assign") )
+    {
+        if ( pMob->pQShop )
+        {
+            send_to_char("Mob already has a quest shop assigned to it.\n\r", ch);
+            return FALSE;
+        }
+
+        pMob->pQShop           = new_qshop();
+        if ( !qshop_first )
+            qshop_first    = pMob->pQShop;
+        if ( qshop_last )
+            qshop_last->next    = pMob->pQShop;
+        qshop_last             = pMob->pQShop;
+
+        pMob->pQShop->keeper   = pMob->vnum;
+
+        send_to_char("New quest shop assigned to mobile.\n\r", ch);
+        send_to_char("Reset quest items into this mob's inventory and set their qcost in oedit.\n\r", ch);
+        return TRUE;
+    }
+
+    if ( !str_prefix(command, "remove") )
+    {
+        QSHOP_DATA *pQShop;
+
+        pQShop          = pMob->pQShop;
+        pMob->pQShop    = NULL;
+
+        if ( pQShop == qshop_first )
+        {
+            if ( !pQShop->next )
+            {
+                qshop_first = NULL;
+                qshop_last = NULL;
+            }
+            else
+                qshop_first = pQShop->next;
+        }
+        else
+        {
+            QSHOP_DATA *ipQShop;
+
+            for ( ipQShop = qshop_first; ipQShop; ipQShop = ipQShop->next )
+            {
+                if ( ipQShop->next == pQShop )
+                {
+                    if ( !pQShop->next )
+                    {
+                        qshop_last = ipQShop;
+                        qshop_last->next = NULL;
+                    }
+                    else
+                        ipQShop->next = pQShop->next;
+                }
+            }
+        }
+
+        free_qshop(pQShop);
+
+        send_to_char("Mobile is no longer a quest shop keeper.\n\r", ch);
+        return TRUE;
+    }
+
+    medit_qshop( ch, "" );
     return FALSE;
 }
 
@@ -8229,7 +8374,16 @@ WEDIT (wedit_sector)
         return FALSE;
     }
 
-    wmap_table[wmap_num(ch,NULL)].grid[wmap_x(ch, NULL)][wmap_y(ch, NULL)] = value;
+    //worldmap.c - safety check
+    int wmap_index = wmap_num(ch,NULL);
+    if(wmap_index < 0 || wmap_table[wmap_index].grid == NULL)
+    {
+        send_to_char("ERROR: Worldmap grid not loaded! Try 'reload' or contact admin.\r\n", ch);
+        bug("wedit_sector: grid is NULL for wmap index %d", wmap_index);
+        return FALSE;
+    }
+
+    wmap_table[wmap_index].grid[wmap_x(ch, NULL)][wmap_y(ch, NULL)] = value;
     send_to_char("Map tile terrain set.\r\n", ch);
     return TRUE;
 }

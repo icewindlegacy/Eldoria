@@ -1,0 +1,5844 @@
+{
+  "updated": "1760819194",
+  "skills": [
+    {
+      "id": 0,
+      "name": "reserved",
+      "type": "skill",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 0,
+      "slot": 0
+    },
+    {
+      "id": 1,
+      "name": "acid blast",
+      "type": "spell",
+      "levels": {
+        "mage": 28,
+        "cleric": 53,
+        "thief": 35,
+        "warrior": 32,
+        "wizard": 20,
+        "druid": 50,
+        "assassin": 30,
+        "barbarian": 28
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "acid blast",
+      "wear_off": "!Acid Blast!",
+      "slot": 0
+    },
+    {
+      "id": 2,
+      "name": "wizards fire",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 12,
+      "damage_noun": "wizards fire",
+      "wear_off": "!Wizards Fire!",
+      "slot": 0
+    },
+    {
+      "id": 3,
+      "name": "meteor swarm",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "meteor swarm",
+      "wear_off": "!Meteor Swarm!",
+      "slot": 0
+    },
+    {
+      "id": 4,
+      "name": "tsunami",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "wizard": 25
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "tsunami",
+      "wear_off": "!Tsunami!",
+      "slot": 0
+    },
+    {
+      "id": 5,
+      "name": "prismatic spray",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "wizard": 30
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "prismatic spray",
+      "wear_off": "!Prismatic Spray!",
+      "slot": 0
+    },
+    {
+      "id": 6,
+      "name": "mind shatter",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "wizard": 25
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "mind shatter",
+      "wear_off": "!Mind Shatter!",
+      "slot": 0
+    },
+    {
+      "id": 7,
+      "name": "wizards firestorm",
+      "type": "spell",
+      "levels": {
+        "mage": 45,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "wizards firestorm",
+      "wear_off": "!Wizards Firestorm!",
+      "slot": 0
+    },
+    {
+      "id": 8,
+      "name": "wizards fury",
+      "type": "spell",
+      "levels": {
+        "wizard": 80
+      },
+      "rating": {
+        "wizard": 7
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 250,
+      "beats": 12,
+      "damage_noun": "wizards fury",
+      "wear_off": "!Wizards Fury!",
+      "slot": 0
+    },
+    {
+      "id": 9,
+      "name": "glacier",
+      "type": "spell",
+      "levels": {
+        "mage": 55,
+        "wizard": 50,
+        "druid": 60
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3,
+        "druid": 4
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 5,
+      "damage_noun": "glacier",
+      "wear_off": "!Glacier!",
+      "slot": 0
+    },
+    {
+      "id": 10,
+      "name": "fire blade",
+      "type": "spell",
+      "levels": {
+        "mage": 70,
+        "warrior": 100,
+        "wizard": 70,
+        "druid": 70,
+        "assassin": 90
+      },
+      "rating": {
+        "mage": 6,
+        "warrior": 6,
+        "wizard": 6,
+        "druid": 6,
+        "assassin": 6
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 200,
+      "beats": 10,
+      "damage_noun": "fire blade",
+      "wear_off": "!Fire Blade!",
+      "slot": 0
+    },
+    {
+      "id": 11,
+      "name": "thunderstorm",
+      "type": "spell",
+      "levels": {
+        "mage": 80,
+        "wizard": 60
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "thunderstorm",
+      "wear_off": "!Thunderstorm!",
+      "slot": 0
+    },
+    {
+      "id": 12,
+      "name": "moonblade",
+      "type": "spell",
+      "levels": {
+        "cleric": 70,
+        "druid": 50
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 3
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "moonblade",
+      "wear_off": "!Moonblade!",
+      "slot": 0
+    },
+    {
+      "id": 13,
+      "name": "tornado",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 12,
+      "damage_noun": "tornado",
+      "wear_off": "!Tornado!",
+      "slot": 0
+    },
+    {
+      "id": 14,
+      "name": "desert fist",
+      "type": "spell",
+      "levels": {
+        "cleric": 20,
+        "druid": 15
+      },
+      "rating": {
+        "cleric": 2,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 12,
+      "damage_noun": "desert fist",
+      "wear_off": "!Desert Fist!",
+      "slot": 0
+    },
+    {
+      "id": 15,
+      "name": "sandstorm",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 150,
+      "beats": 12,
+      "damage_noun": "sandstorm",
+      "wear_off": "!Sandstorm!",
+      "slot": 0
+    },
+    {
+      "id": 16,
+      "name": "banshee scream",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 150,
+      "beats": 12,
+      "damage_noun": "banshee scream",
+      "wear_off": "!Banshee Scream!",
+      "slot": 0
+    },
+    {
+      "id": 17,
+      "name": "armor",
+      "type": "spell",
+      "levels": {
+        "mage": 7,
+        "wizard": 5
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel less armored.",
+      "slot": 0
+    },
+    {
+      "id": 18,
+      "name": "sate",
+      "type": "spell",
+      "levels": {
+        "mage": 7,
+        "cleric": 5,
+        "thief": 10,
+        "warrior": 5,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Not Hungry!",
+      "slot": 0
+    },
+    {
+      "id": 19,
+      "name": "quench",
+      "type": "spell",
+      "levels": {
+        "mage": 7,
+        "cleric": 5,
+        "thief": 10,
+        "warrior": 5,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Quenched!",
+      "slot": 0
+    },
+    {
+      "id": 20,
+      "name": "heroes feast",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 20,
+        "thief": 25,
+        "warrior": 25,
+        "wizard": 15,
+        "druid": 15,
+        "assassin": 20,
+        "barbarian": 20
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "!Heroes Feast!",
+      "slot": 0
+    },
+    {
+      "id": 21,
+      "name": "bless",
+      "type": "spell",
+      "levels": {
+        "cleric": 7,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "object_or_char_defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel less righteous.",
+      "slot": 0
+    },
+    {
+      "id": 22,
+      "name": "dark blessing",
+      "type": "spell",
+      "levels": {
+        "cleric": 7,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "object_or_char_defensive",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "You are no longer aligned with the dark gods.",
+      "slot": 0
+    },
+    {
+      "id": 23,
+      "name": "flame shield",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "cleric": 35,
+        "wizard": 35,
+        "druid": 30
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 40,
+      "beats": 12,
+      "damage_noun": "flame shield",
+      "wear_off": "The flames surrounding you die away.",
+      "slot": 0
+    },
+    {
+      "id": 24,
+      "name": "force shield",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 15,
+        "wizard": 15,
+        "druid": 10
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 30,
+      "beats": 12,
+      "damage_noun": "force shield",
+      "wear_off": "The shield about you fades away.",
+      "slot": 0
+    },
+    {
+      "id": 25,
+      "name": "shockshield",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "cleric": 22,
+        "wizard": 25,
+        "druid": 20
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 35,
+      "beats": 12,
+      "damage_noun": "shockshield",
+      "wear_off": "The static around you grounds out.",
+      "slot": 0
+    },
+    {
+      "id": 26,
+      "name": "blindness",
+      "type": "spell",
+      "levels": {
+        "mage": 12,
+        "cleric": 8,
+        "wizard": 10,
+        "druid": 7
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You can see again.",
+      "slot": 0
+    },
+    {
+      "id": 27,
+      "name": "burning hands",
+      "type": "spell",
+      "levels": {
+        "mage": 2
+      },
+      "rating": {
+        "mage": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "burning hands",
+      "wear_off": "!Burning Hands!",
+      "slot": 0
+    },
+    {
+      "id": 28,
+      "name": "call lightning",
+      "type": "spell",
+      "levels": {
+        "mage": 25,
+        "cleric": 18,
+        "wizard": 22,
+        "druid": 15
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 2,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "lightning bolt",
+      "wear_off": "!Call Lightning!",
+      "slot": 0
+    },
+    {
+      "id": 29,
+      "name": "holyblast",
+      "type": "spell",
+      "levels": {
+        "cleric": 18,
+        "druid": 15
+      },
+      "rating": {
+        "cleric": 3,
+        "druid": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "holyblast",
+      "wear_off": "!Holyblast!",
+      "slot": 0
+    },
+    {
+      "id": 30,
+      "name": "lightningblast",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 22,
+        "wizard": 15,
+        "druid": 19
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "lightningblast",
+      "wear_off": "Lightningblast!",
+      "slot": 0
+    },
+    {
+      "id": 31,
+      "name": "electric blast",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 25,
+        "wizard": 15,
+        "druid": 22
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "eletric blast",
+      "wear_off": "!Electric Blast!",
+      "slot": 0
+    },
+    {
+      "id": 32,
+      "name": "call wolf",
+      "type": "spell",
+      "levels": {
+        "druid": 53
+      },
+      "rating": {
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 25,
+      "beats": 12,
+      "damage_noun": "call wolf",
+      "wear_off": "!Call Wolf!",
+      "slot": 0
+    },
+    {
+      "id": 33,
+      "name": "gasblast",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 25,
+        "wizard": 15,
+        "druid": 22
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "gasblast",
+      "wear_off": "!gasblast!",
+      "slot": 0
+    },
+    {
+      "id": 34,
+      "name": "iceblast",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 25,
+        "wizard": 15,
+        "druid": 22
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "iceblast",
+      "wear_off": "!iceblast!",
+      "slot": 0
+    },
+    {
+      "id": 35,
+      "name": "holy bolt",
+      "type": "spell",
+      "levels": {
+        "cleric": 18,
+        "druid": 15
+      },
+      "rating": {
+        "cleric": 2,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "holy bolt",
+      "wear_off": "!Holy Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 36,
+      "name": "acid bolt",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "cleric": 18,
+        "thief": 31,
+        "warrior": 22,
+        "wizard": 12,
+        "druid": 15,
+        "assassin": 26,
+        "barbarian": 17
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "acid bolt",
+      "wear_off": "!Acid Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 37,
+      "name": "gas bolt",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "wizard": 12
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "gas bolt",
+      "wear_off": "!Gas Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 38,
+      "name": "sunbolt",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 18,
+        "thief": 31,
+        "warrior": 25,
+        "wizard": 18,
+        "druid": 16,
+        "assassin": 29,
+        "barbarian": 23
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "sunbolt",
+      "wear_off": "!Sunbolt!",
+      "slot": 0
+    },
+    {
+      "id": 39,
+      "name": "fire bolt",
+      "type": "spell",
+      "levels": {
+        "mage": 25,
+        "wizard": 20
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "fire bolt",
+      "wear_off": "!Fire Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 40,
+      "name": "ice bolt",
+      "type": "spell",
+      "levels": {
+        "mage": 25,
+        "wizard": 20
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "ice bolt",
+      "wear_off": "!Ice Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 41,
+      "name": "cone of cold",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 25,
+        "thief": 30,
+        "warrior": 35,
+        "wizard": 15,
+        "druid": 20,
+        "assassin": 25,
+        "barbarian": 30
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 2,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "cone of cold",
+      "wear_off": "!Cone of Cold!",
+      "slot": 0
+    },
+    {
+      "id": 42,
+      "name": "calm",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "cleric": 16,
+        "wizard": 30,
+        "druid": 11
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 1,
+        "wizard": 2,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 30,
+      "beats": 12,
+      "wear_off": "You have lost your peace of mind.",
+      "slot": 0
+    },
+    {
+      "id": 43,
+      "name": "cancellation",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 26,
+        "wizard": 15,
+        "druid": 23
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "!cancellation!",
+      "slot": 0
+    },
+    {
+      "id": 44,
+      "name": "cause critical",
+      "type": "spell",
+      "levels": {
+        "cleric": 13,
+        "druid": 10
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "spell",
+      "wear_off": "!Cause Critical!",
+      "slot": 0
+    },
+    {
+      "id": 45,
+      "name": "cause light",
+      "type": "spell",
+      "levels": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "spell",
+      "wear_off": "!Cause Light!",
+      "slot": 0
+    },
+    {
+      "id": 46,
+      "name": "cause serious",
+      "type": "spell",
+      "levels": {
+        "cleric": 7,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 17,
+      "beats": 12,
+      "damage_noun": "spell",
+      "wear_off": "!Cause Serious!",
+      "slot": 0
+    },
+    {
+      "id": 47,
+      "name": "trivia pill",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 18,
+      "wear_off": "!Trivia Pill!",
+      "slot": 0
+    },
+    {
+      "id": 48,
+      "name": "vicegrip",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 20,
+        "thief": 20,
+        "warrior": 20,
+        "wizard": 20,
+        "druid": 20,
+        "assassin": 20,
+        "barbarian": 20
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 4,
+        "warrior": 4,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 15,
+      "wear_off": "Your vice like grip softens!",
+      "slot": 0
+    },
+    {
+      "id": 49,
+      "name": "hurricane",
+      "type": "spell",
+      "levels": {
+        "mage": 55,
+        "wizard": 45
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "offensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 20,
+      "damage_noun": "hurricane",
+      "wear_off": "!Hurricane!",
+      "slot": 0
+    },
+    {
+      "id": 50,
+      "name": "chain lightning",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "wizard": 25
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 25,
+      "beats": 12,
+      "damage_noun": "lightning",
+      "wear_off": "!Chain Lightning!",
+      "slot": 0
+    },
+    {
+      "id": 51,
+      "name": "change sex",
+      "type": "spell",
+      "levels": {
+        "cleric": 40,
+        "druid": 35
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "Your body feels familiar again.",
+      "slot": 0
+    },
+    {
+      "id": 52,
+      "name": "charm person",
+      "type": "spell",
+      "levels": {
+        "mage": 25,
+        "wizard": 20
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel more self-confident.",
+      "slot": 0
+    },
+    {
+      "id": 53,
+      "name": "chill touch",
+      "type": "spell",
+      "levels": {
+        "mage": 4,
+        "thief": 6,
+        "warrior": 6,
+        "wizard": 2,
+        "assassin": 5,
+        "barbarian": 5
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "chilling touch",
+      "wear_off": "You feel less cold.",
+      "slot": 0
+    },
+    {
+      "id": 54,
+      "name": "colour spray",
+      "type": "spell",
+      "levels": {
+        "mage": 16,
+        "thief": 25,
+        "wizard": 14,
+        "assassin": 23
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "colour spray",
+      "wear_off": "!Colour Spray!",
+      "slot": 0
+    },
+    {
+      "id": 55,
+      "name": "continual light",
+      "type": "spell",
+      "levels": {
+        "mage": 6,
+        "cleric": 4,
+        "wizard": 5,
+        "druid": 3
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 7,
+      "beats": 12,
+      "wear_off": "!Continual Light!",
+      "slot": 0
+    },
+    {
+      "id": 56,
+      "name": "control weather",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "wizard": 15,
+        "druid": 15
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 12,
+      "wear_off": "!Control Weather!",
+      "slot": 0
+    },
+    {
+      "id": 57,
+      "name": "create food",
+      "type": "spell",
+      "levels": {
+        "cleric": 5,
+        "wizard": 5,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Create Food!",
+      "slot": 0
+    },
+    {
+      "id": 58,
+      "name": "create rose",
+      "type": "spell",
+      "levels": {
+        "mage": 16,
+        "wizard": 15
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 30,
+      "beats": 12,
+      "wear_off": "!Create Rose!",
+      "slot": 0
+    },
+    {
+      "id": 59,
+      "name": "create spring",
+      "type": "spell",
+      "levels": {
+        "mage": 14,
+        "wizard": 14,
+        "druid": 14
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "!Create Spring!",
+      "slot": 0
+    },
+    {
+      "id": 60,
+      "name": "create water",
+      "type": "spell",
+      "levels": {
+        "mage": 8,
+        "wizard": 5,
+        "druid": 5
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Create Water!",
+      "slot": 0
+    },
+    {
+      "id": 61,
+      "name": "cure blindness",
+      "type": "spell",
+      "levels": {
+        "cleric": 6,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 2
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Cure Blindness!",
+      "slot": 0
+    },
+    {
+      "id": 62,
+      "name": "cure critical",
+      "type": "spell",
+      "levels": {
+        "cleric": 13,
+        "druid": 10
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "!Cure Critical!",
+      "slot": 0
+    },
+    {
+      "id": 63,
+      "name": "cure disease",
+      "type": "spell",
+      "levels": {
+        "cleric": 13,
+        "druid": 10
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "!Cure Disease!",
+      "slot": 0
+    },
+    {
+      "id": 64,
+      "name": "cure light",
+      "type": "spell",
+      "levels": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 10,
+      "beats": 12,
+      "wear_off": "!Cure Light!",
+      "slot": 0
+    },
+    {
+      "id": 65,
+      "name": "cure poison",
+      "type": "spell",
+      "levels": {
+        "cleric": 14,
+        "druid": 11
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Cure Poison!",
+      "slot": 0
+    },
+    {
+      "id": 66,
+      "name": "cure serious",
+      "type": "spell",
+      "levels": {
+        "cleric": 7,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Cure Serious!",
+      "slot": 0
+    },
+    {
+      "id": 67,
+      "name": "curse",
+      "type": "spell",
+      "levels": {
+        "mage": 18,
+        "cleric": 18,
+        "wizard": 15,
+        "druid": 15
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "object_or_char_offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "curse",
+      "wear_off": "The curse wears off.",
+      "slot": 0
+    },
+    {
+      "id": 68,
+      "name": "demonfire",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "cleric": 35,
+        "wizard": 25,
+        "druid": 30
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "torments",
+      "wear_off": "!Demonfire!",
+      "slot": 0
+    },
+    {
+      "id": 69,
+      "name": "detect evil",
+      "type": "spell",
+      "levels": {
+        "mage": 11,
+        "cleric": 4,
+        "thief": 10,
+        "wizard": 10,
+        "druid": 11,
+        "assassin": 12
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "The red in your vision disappears.",
+      "slot": 0
+    },
+    {
+      "id": 70,
+      "name": "detect good",
+      "type": "spell",
+      "levels": {
+        "mage": 11,
+        "cleric": 4,
+        "wizard": 10,
+        "druid": 3
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "The gold in your vision disappears.",
+      "slot": 0
+    },
+    {
+      "id": 71,
+      "name": "detect hidden",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "cleric": 11,
+        "thief": 12,
+        "wizard": 10,
+        "druid": 6,
+        "assassin": 7
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel less aware of your surroundings.",
+      "slot": 0
+    },
+    {
+      "id": 72,
+      "name": "detect invis",
+      "type": "spell",
+      "levels": {
+        "mage": 3,
+        "cleric": 8,
+        "wizard": 3,
+        "druid": 8
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You no longer see invisible objects.",
+      "slot": 0
+    },
+    {
+      "id": 73,
+      "name": "detect magic",
+      "type": "spell",
+      "levels": {
+        "mage": 2,
+        "cleric": 6,
+        "wizard": 2,
+        "druid": 2
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "The detect magic wears off.",
+      "slot": 0
+    },
+    {
+      "id": 74,
+      "name": "detect poison",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "cleric": 7,
+        "wizard": 10,
+        "druid": 5,
+        "assassin": 5
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Detect Poison!",
+      "slot": 0
+    },
+    {
+      "id": 75,
+      "name": "dispel evil",
+      "type": "spell",
+      "levels": {
+        "cleric": 15
+      },
+      "rating": {
+        "cleric": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "dispel evil",
+      "wear_off": "!Dispel Evil!",
+      "slot": 0
+    },
+    {
+      "id": 76,
+      "name": "dispel good",
+      "type": "spell",
+      "levels": {
+        "cleric": 15
+      },
+      "rating": {
+        "cleric": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "dispel good",
+      "wear_off": "!Dispel Good!",
+      "slot": 0
+    },
+    {
+      "id": 77,
+      "name": "dispel magic",
+      "type": "spell",
+      "levels": {
+        "mage": 16,
+        "cleric": 24,
+        "wizard": 15,
+        "druid": 20
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Dispel Magic!",
+      "slot": 0
+    },
+    {
+      "id": 78,
+      "name": "earthquake",
+      "type": "spell",
+      "levels": {
+        "cleric": 10,
+        "druid": 5
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "earthquake",
+      "wear_off": "!Earthquake!",
+      "slot": 0
+    },
+    {
+      "id": 79,
+      "name": "enchant armor",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "wizard": 10
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 2
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 100,
+      "beats": 24,
+      "wear_off": "!Enchant Armor!",
+      "slot": 0
+    },
+    {
+      "id": 80,
+      "name": "enchant weapon",
+      "type": "spell",
+      "levels": {
+        "mage": 17,
+        "wizard": 15
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 2
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 100,
+      "beats": 24,
+      "wear_off": "!Enchant Weapon!",
+      "slot": 0
+    },
+    {
+      "id": 81,
+      "name": "weapon bless",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "cleric": 15,
+        "wizard": 15,
+        "druid": 15
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 2,
+        "wizard": 2,
+        "druid": 2
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 100,
+      "beats": 24,
+      "wear_off": "!Weapon Bless!",
+      "slot": 0
+    },
+    {
+      "id": 82,
+      "name": "energy drain",
+      "type": "spell",
+      "levels": {
+        "mage": 19,
+        "wizard": 18
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 35,
+      "beats": 12,
+      "damage_noun": "energy drain",
+      "wear_off": "!Energy Drain!",
+      "slot": 0
+    },
+    {
+      "id": 83,
+      "name": "faerie fire",
+      "type": "spell",
+      "levels": {
+        "mage": 6,
+        "thief": 5,
+        "wizard": 5,
+        "assassin": 5
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 5,
+      "beats": 12,
+      "damage_noun": "faerie fire",
+      "wear_off": "The pink aura around you fades away.",
+      "slot": 0
+    },
+    {
+      "id": 84,
+      "name": "faerie fog",
+      "type": "spell",
+      "levels": {
+        "mage": 14,
+        "thief": 16,
+        "assassin": 15
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "assassin": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 12,
+      "beats": 12,
+      "damage_noun": "faerie fog",
+      "wear_off": "!Faerie Fog!",
+      "slot": 0
+    },
+    {
+      "id": 85,
+      "name": "farsight",
+      "type": "spell",
+      "levels": {
+        "mage": 14,
+        "cleric": 16,
+        "thief": 16,
+        "wizard": 14,
+        "druid": 15,
+        "assassin": 15
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 36,
+      "beats": 20,
+      "damage_noun": "farsight",
+      "wear_off": "!Farsight!",
+      "slot": 0
+    },
+    {
+      "id": 86,
+      "name": "fireball",
+      "type": "spell",
+      "levels": {
+        "mage": 22,
+        "thief": 30,
+        "wizard": 20,
+        "assassin": 25
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "fireball",
+      "wear_off": "!Fireball!",
+      "slot": 0
+    },
+    {
+      "id": 87,
+      "name": "fireproof",
+      "type": "spell",
+      "levels": {
+        "mage": 13,
+        "cleric": 12,
+        "wizard": 13,
+        "druid": 12
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 10,
+      "beats": 12,
+      "slot": 0
+    },
+    {
+      "id": 88,
+      "name": "flamestrike",
+      "type": "spell",
+      "levels": {
+        "cleric": 20,
+        "druid": 20
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "flamestrike",
+      "wear_off": "!Flamestrike!",
+      "slot": 0
+    },
+    {
+      "id": 89,
+      "name": "fly",
+      "type": "spell",
+      "levels": {
+        "mage": 10,
+        "wizard": 10
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 10,
+      "beats": 18,
+      "wear_off": "You slowly float to the ground.",
+      "slot": 0
+    },
+    {
+      "id": 90,
+      "name": "floating disc",
+      "type": "spell",
+      "levels": {
+        "mage": 4,
+        "wizard": 4
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 40,
+      "beats": 24,
+      "wear_off": "!Floating disc!",
+      "slot": 0
+    },
+    {
+      "id": 91,
+      "name": "frenzy",
+      "type": "spell",
+      "levels": {
+        "cleric": 24,
+        "druid": 20
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 30,
+      "beats": 24,
+      "wear_off": "Your rage ebbs.",
+      "slot": 0
+    },
+    {
+      "id": 92,
+      "name": "synon aura",
+      "type": "skill",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 0,
+      "beats": 0,
+      "slot": 0
+    },
+    {
+      "id": 93,
+      "name": "gate",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 20,
+        "wizard": 20,
+        "assassin": 120
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 80,
+      "beats": 12,
+      "wear_off": "!Gate!",
+      "slot": 0
+    },
+    {
+      "id": 94,
+      "name": "giant strength",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "warrior": 20,
+        "barbarian": 15
+      },
+      "rating": {
+        "mage": 1,
+        "warrior": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "You feel weaker.",
+      "slot": 0
+    },
+    {
+      "id": 95,
+      "name": "harm",
+      "type": "spell",
+      "levels": {
+        "cleric": 23,
+        "warrior": 28,
+        "druid": 20,
+        "barbarian": 25
+      },
+      "rating": {
+        "cleric": 1,
+        "warrior": 2,
+        "druid": 1,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 35,
+      "beats": 12,
+      "damage_noun": "harm spell",
+      "wear_off": "!Harm!,\t\t",
+      "slot": 0
+    },
+    {
+      "id": 96,
+      "name": "haste",
+      "type": "spell",
+      "levels": {
+        "thief": 20,
+        "warrior": 25,
+        "druid": 15,
+        "assassin": 15
+      },
+      "rating": {
+        "thief": 2,
+        "warrior": 2,
+        "druid": 1,
+        "assassin": 2
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 30,
+      "beats": 12,
+      "wear_off": "You feel yourself slow down.",
+      "slot": 0
+    },
+    {
+      "id": 97,
+      "name": "heal",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "cleric": 30,
+        "thief": 50,
+        "warrior": 50,
+        "wizard": 30,
+        "druid": 20,
+        "assassin": 40,
+        "barbarian": 40
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "!Heal!",
+      "slot": 0
+    },
+    {
+      "id": 98,
+      "name": "greater heal",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "cleric": 40,
+        "wizard": 45
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "wizard": 4
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 15,
+      "wear_off": "!Greater Heal!",
+      "slot": 0
+    },
+    {
+      "id": 99,
+      "name": "super heal",
+      "type": "spell",
+      "levels": {
+        "cleric": 70,
+        "wizard": 55
+      },
+      "rating": {
+        "cleric": 5,
+        "wizard": 5
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 150,
+      "beats": 15,
+      "wear_off": "!Super Heal!",
+      "slot": 0
+    },
+    {
+      "id": 100,
+      "name": "ultimate heal",
+      "type": "spell",
+      "levels": {
+        "cleric": 100,
+        "wizard": 70,
+        "barbarian": 0
+      },
+      "rating": {
+        "cleric": 6,
+        "wizard": 0,
+        "barbarian": 0
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 15,
+      "wear_off": "!Ultimate Heal!",
+      "slot": 0
+    },
+    {
+      "id": 101,
+      "name": "group heal",
+      "type": "spell",
+      "levels": {
+        "cleric": 50
+      },
+      "rating": {
+        "cleric": 4
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 15,
+      "wear_off": "!Group Heal!",
+      "slot": 0
+    },
+    {
+      "id": 102,
+      "name": "revitalize",
+      "type": "spell",
+      "levels": {
+        "cleric": 110,
+        "druid": 50
+      },
+      "rating": {
+        "cleric": 5,
+        "druid": 4
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 15,
+      "wear_off": "!Revitalize!",
+      "slot": 0
+    },
+    {
+      "id": 103,
+      "name": "channel",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 15,
+      "wear_off": "!Channel!",
+      "slot": 0
+    },
+    {
+      "id": 104,
+      "name": "heat metal",
+      "type": "spell",
+      "levels": {
+        "mage": 53,
+        "cleric": 16,
+        "thief": 53,
+        "warrior": 23,
+        "wizard": 0,
+        "druid": 0,
+        "assassin": 0,
+        "barbarian": 0
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 0,
+        "druid": 0,
+        "assassin": 0,
+        "barbarian": 0
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 25,
+      "beats": 18,
+      "damage_noun": "spell",
+      "wear_off": "!Heat Metal!",
+      "slot": 0
+    },
+    {
+      "id": 105,
+      "name": "holy word",
+      "type": "spell",
+      "levels": {
+        "cleric": 36,
+        "druid": 31
+      },
+      "rating": {
+        "cleric": 2,
+        "druid": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 24,
+      "damage_noun": "divine wrath",
+      "wear_off": "!Holy Word!",
+      "slot": 0
+    },
+    {
+      "id": 106,
+      "name": "identify",
+      "type": "spell",
+      "levels": {
+        "mage": 15,
+        "wizard": 10
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 12,
+      "beats": 24,
+      "wear_off": "!Identify!",
+      "slot": 0
+    },
+    {
+      "id": 107,
+      "name": "infravision",
+      "type": "spell",
+      "levels": {
+        "mage": 9,
+        "thief": 10,
+        "wizard": 9,
+        "assassin": 10
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 18,
+      "wear_off": "You no longer see in the dark.",
+      "slot": 0
+    },
+    {
+      "id": 108,
+      "name": "invisibility",
+      "type": "spell",
+      "levels": {
+        "mage": 5,
+        "thief": 9,
+        "wizard": 5,
+        "assassin": 9
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "object_or_char_defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You are no longer invisible.",
+      "slot": 0
+    },
+    {
+      "id": 109,
+      "name": "know alignment",
+      "type": "spell",
+      "levels": {
+        "mage": 12,
+        "cleric": 9,
+        "wizard": 12,
+        "druid": 9
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "fighting",
+      "mana": 9,
+      "beats": 12,
+      "wear_off": "!Know Alignment!",
+      "slot": 0
+    },
+    {
+      "id": 110,
+      "name": "lightning bolt",
+      "type": "spell",
+      "levels": {
+        "mage": 13,
+        "cleric": 23,
+        "thief": 18,
+        "warrior": 16,
+        "wizard": 13,
+        "druid": 23,
+        "assassin": 18,
+        "barbarian": 16
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "lightning bolt",
+      "wear_off": "!Lightning Bolt!",
+      "slot": 0
+    },
+    {
+      "id": 111,
+      "name": "locate object",
+      "type": "spell",
+      "levels": {
+        "mage": 9,
+        "cleric": 15,
+        "thief": 11,
+        "wizard": 9,
+        "druid": 15,
+        "assassin": 11
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 20,
+      "beats": 18,
+      "wear_off": "!Locate Object!",
+      "slot": 0
+    },
+    {
+      "id": 112,
+      "name": "Energy spike",
+      "type": "spell",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "energy spike",
+      "wear_off": "!Energy Spike!",
+      "slot": 0
+    },
+    {
+      "id": 113,
+      "name": "mass healing",
+      "type": "spell",
+      "levels": {
+        "cleric": 40,
+        "druid": 35
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 4
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 100,
+      "beats": 36,
+      "wear_off": "!Mass Healing!",
+      "slot": 0
+    },
+    {
+      "id": 114,
+      "name": "mass invis",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 20,
+      "beats": 24,
+      "wear_off": "You are no longer invisible.",
+      "slot": 0
+    },
+    {
+      "id": 115,
+      "name": "nexus",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 150,
+      "beats": 36,
+      "wear_off": "!Nexus!",
+      "slot": 0
+    },
+    {
+      "id": 116,
+      "name": "pass door",
+      "type": "spell",
+      "levels": {
+        "mage": 24,
+        "cleric": 32,
+        "thief": 25,
+        "warrior": 37,
+        "wizard": 20,
+        "druid": 28,
+        "assassin": 21,
+        "barbarian": 33
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "You feel solid again.",
+      "slot": 0
+    },
+    {
+      "id": 117,
+      "name": "knock",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "assassin": 20
+      },
+      "rating": {
+        "mage": 2,
+        "assassin": 1
+      },
+      "target": "offensive",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "!Knock!",
+      "slot": 0
+    },
+    {
+      "id": 118,
+      "name": "group defense",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "cleric": 50,
+        "wizard": 40,
+        "druid": 40
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "wizard": 3,
+        "druid": 3
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "wear_off": "The group defense fades.",
+      "slot": 0
+    },
+    {
+      "id": 119,
+      "name": "plague",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 17,
+        "wizard": 20,
+        "druid": 17
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "sickness",
+      "wear_off": "Your sores vanish.",
+      "slot": 0
+    },
+    {
+      "id": 120,
+      "name": "poison",
+      "type": "spell",
+      "levels": {
+        "thief": 15,
+        "assassin": 10
+      },
+      "rating": {
+        "thief": 1,
+        "assassin": 1
+      },
+      "target": "object_or_char_offensive",
+      "position": "fighting",
+      "mana": 10,
+      "beats": 12,
+      "damage_noun": "poison",
+      "wear_off": "You feel less sick.",
+      "slot": 0
+    },
+    {
+      "id": 121,
+      "name": "portal",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "wizard": 30
+      },
+      "rating": {
+        "mage": 2,
+        "wizard": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 100,
+      "beats": 24,
+      "wear_off": "!Portal!",
+      "slot": 0
+    },
+    {
+      "id": 122,
+      "name": "protection evil",
+      "type": "spell",
+      "levels": {
+        "cleric": 9,
+        "druid": 9
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel less protected.",
+      "slot": 0
+    },
+    {
+      "id": 123,
+      "name": "protection good",
+      "type": "spell",
+      "levels": {
+        "mage": 12,
+        "cleric": 9,
+        "wizard": 12,
+        "druid": 9
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "You feel less protected.",
+      "slot": 0
+    },
+    {
+      "id": 124,
+      "name": "ray of truth",
+      "type": "spell",
+      "levels": {
+        "cleric": 35,
+        "druid": 30
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "ray of truth",
+      "wear_off": "!Ray of Truth!",
+      "slot": 0
+    },
+    {
+      "id": 125,
+      "name": "recharge",
+      "type": "spell",
+      "levels": {
+        "mage": 9,
+        "wizard": 5
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 60,
+      "beats": 24,
+      "wear_off": "!Recharge!",
+      "slot": 0
+    },
+    {
+      "id": 126,
+      "name": "refresh",
+      "type": "spell",
+      "levels": {
+        "mage": 8,
+        "cleric": 5,
+        "wizard": 8,
+        "druid": 5
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "damage_noun": "refresh",
+      "wear_off": "!Refresh!",
+      "slot": 0
+    },
+    {
+      "id": 127,
+      "name": "remove curse",
+      "type": "spell",
+      "levels": {
+        "cleric": 18,
+        "druid": 15
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "object_or_char_defensive",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Remove Curse!",
+      "slot": 0
+    },
+    {
+      "id": 128,
+      "name": "sanctuary",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "cleric": 20,
+        "thief": 40,
+        "warrior": 40,
+        "wizard": 30,
+        "druid": 15,
+        "assassin": 35,
+        "barbarian": 35
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 75,
+      "beats": 12,
+      "wear_off": "The white aura around your body fades.",
+      "slot": 0
+    },
+    {
+      "id": 129,
+      "name": "group sanctuary",
+      "type": "spell",
+      "levels": {
+        "cleric": 50,
+        "druid": 40
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 3
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 75,
+      "beats": 12,
+      "wear_off": "The white aura around your body fades.",
+      "slot": 0
+    },
+    {
+      "id": 130,
+      "name": "divine protection",
+      "type": "spell",
+      "levels": {
+        "cleric": 30,
+        "druid": 25
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 100,
+      "beats": 18,
+      "wear_off": "You are no longer protected by the gods.",
+      "slot": 0
+    },
+    {
+      "id": 131,
+      "name": "shield",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "thief": 35,
+        "warrior": 40,
+        "wizard": 25,
+        "assassin": 30,
+        "barbarian": 35
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 1,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your force shield shimmers then fades away.",
+      "slot": 0
+    },
+    {
+      "id": 132,
+      "name": "shadow shield",
+      "type": "spell",
+      "levels": {
+        "cleric": 40,
+        "druid": 35,
+        "barbarian": 0
+      },
+      "rating": {
+        "cleric": 2,
+        "druid": 2,
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 100,
+      "beats": 18,
+      "wear_off": "The shadow about your body fades away.",
+      "slot": 0
+    },
+    {
+      "id": 133,
+      "name": "steel skin",
+      "type": "spell",
+      "levels": {
+        "barbarian": 35
+      },
+      "rating": {
+        "barbarian": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 100,
+      "beats": 18,
+      "wear_off": "Your skin returns to normal.",
+      "slot": 0
+    },
+    {
+      "id": 134,
+      "name": "sturning",
+      "type": "spell",
+      "levels": {
+        "mage": 80,
+        "wizard": 70
+      },
+      "rating": {
+        "mage": 4,
+        "wizard": 3
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 150,
+      "beats": 18,
+      "wear_off": "You are no longer surrounded by a magical shield.",
+      "slot": 0
+    },
+    {
+      "id": 135,
+      "name": "mystic armor",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "wizard": 15
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 100,
+      "beats": 18,
+      "wear_off": "You feel somewhat vulnerable as your mystic armor fades out of existance.",
+      "slot": 0
+    },
+    {
+      "id": 136,
+      "name": "resilience",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 30,
+        "wizard": 18,
+        "druid": 28
+      },
+      "rating": {
+        "mage": 3,
+        "cleric": 3,
+        "wizard": 2,
+        "druid": 2
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 50,
+      "beats": 18,
+      "wear_off": "Your no longer resist draining attacks.",
+      "slot": 0
+    },
+    {
+      "id": 137,
+      "name": "magic resistance",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "warrior": 35,
+        "wizard": 18,
+        "assassin": 15,
+        "barbarian": 30
+      },
+      "rating": {
+        "mage": 4,
+        "warrior": 4,
+        "wizard": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "defensive",
+      "position": "standing",
+      "mana": 50,
+      "beats": 18,
+      "wear_off": "Your no longer resist magic.",
+      "slot": 0
+    },
+    {
+      "id": 138,
+      "name": "shocking grasp",
+      "type": "spell",
+      "levels": {
+        "mage": 10,
+        "warrior": 13,
+        "wizard": 8,
+        "barbarian": 11
+      },
+      "rating": {
+        "mage": 1,
+        "warrior": 2,
+        "wizard": 1,
+        "barbarian": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 15,
+      "beats": 12,
+      "damage_noun": "shocking grasp",
+      "wear_off": "!Shocking Grasp!",
+      "slot": 0
+    },
+    {
+      "id": 139,
+      "name": "sleep",
+      "type": "spell",
+      "levels": {
+        "mage": 10,
+        "thief": 11,
+        "wizard": 8,
+        "assassin": 9
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 1
+      },
+      "target": "offensive",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "You feel less tired.",
+      "slot": 0
+    },
+    {
+      "id": 140,
+      "name": "slow",
+      "type": "spell",
+      "levels": {
+        "mage": 23,
+        "cleric": 30,
+        "wizard": 20,
+        "druid": 27
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 30,
+      "beats": 12,
+      "wear_off": "You feel yourself speed up.",
+      "slot": 0
+    },
+    {
+      "id": 141,
+      "name": "stone skin",
+      "type": "spell",
+      "levels": {
+        "thief": 40,
+        "warrior": 40,
+        "assassin": 35,
+        "barbarian": 35
+      },
+      "rating": {
+        "thief": 2,
+        "warrior": 2,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your skin feels soft again.",
+      "slot": 0
+    },
+    {
+      "id": 142,
+      "name": "bark skin",
+      "type": "spell",
+      "levels": {
+        "cleric": 50,
+        "druid": 40
+      },
+      "rating": {
+        "cleric": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your skin feels soft again.",
+      "slot": 0
+    },
+    {
+      "id": 143,
+      "name": "diamond skin",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 20,
+        "druid": 30
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 2,
+        "druid": 2
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your skin feels soft again.",
+      "slot": 0
+    },
+    {
+      "id": 144,
+      "name": "mud skin",
+      "type": "spell",
+      "levels": {
+        "druid": 25
+      },
+      "rating": {
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your skin feels clean again.",
+      "slot": 0
+    },
+    {
+      "id": 145,
+      "name": "moss skin",
+      "type": "spell",
+      "levels": {
+        "druid": 30
+      },
+      "rating": {
+        "druid": 1
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 12,
+      "beats": 18,
+      "wear_off": "Your skin feels normal again.",
+      "slot": 0
+    },
+    {
+      "id": 146,
+      "name": "music",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 20,
+        "cleric": 20,
+        "thief": 20,
+        "warrior": 20,
+        "wizard": 20,
+        "druid": 20,
+        "assassin": 20,
+        "barbarian": 20
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 5,
+      "wear_off": "!music!",
+      "slot": 0
+    },
+    {
+      "id": 147,
+      "name": "summon",
+      "type": "spell",
+      "levels": {
+        "mage": 24,
+        "wizard": 20
+      },
+      "rating": {
+        "mage": 1,
+        "wizard": 1
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "!Summon!",
+      "slot": 0
+    },
+    {
+      "id": 148,
+      "name": "summon ggolem",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "!Summon Ggolem!",
+      "slot": 0
+    },
+    {
+      "id": 149,
+      "name": "lesser ggolem",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Lesser Golem!",
+      "slot": 0
+    },
+    {
+      "id": 150,
+      "name": "slayer",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Slayer!",
+      "slot": 0
+    },
+    {
+      "id": 151,
+      "name": "create mummy",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Create Mummy!",
+      "slot": 0
+    },
+    {
+      "id": 152,
+      "name": "decay corpse",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Decay Corpse!",
+      "slot": 0
+    },
+    {
+      "id": 153,
+      "name": "magic plate",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Magic Plate!",
+      "slot": 0
+    },
+    {
+      "id": 154,
+      "name": "raise dead",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Raise Dead!",
+      "slot": 0
+    },
+    {
+      "id": 155,
+      "name": "adamantite golem",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Adamantite Golem!",
+      "slot": 0
+    },
+    {
+      "id": 156,
+      "name": "stone golem",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Stone Golem!",
+      "slot": 0
+    },
+    {
+      "id": 157,
+      "name": "iron golem",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Iron Golem!",
+      "slot": 0
+    },
+    {
+      "id": 158,
+      "name": "raise skeleton",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Raise Skeleton!",
+      "slot": 0
+    },
+    {
+      "id": 159,
+      "name": "resurrect",
+      "type": "spell",
+      "levels": {
+        "mage": 40,
+        "wizard": 35
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 25,
+      "beats": 6,
+      "wear_off": "!Resurrect!",
+      "slot": 0
+    },
+    {
+      "id": 160,
+      "name": "fire and ice",
+      "type": "spell",
+      "levels": {
+        "cleric": 60,
+        "wizard": 55
+      },
+      "rating": {
+        "cleric": 5,
+        "wizard": 4
+      },
+      "target": "offensive",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "damage_noun": "fire and ice",
+      "wear_off": "!Fire and Ice!",
+      "slot": 0
+    },
+    {
+      "id": 161,
+      "name": "preserve",
+      "type": "spell",
+      "levels": {
+        "mage": 25,
+        "cleric": 12,
+        "wizard": 20,
+        "druid": 10
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "!Preserve!",
+      "slot": 0
+    },
+    {
+      "id": 162,
+      "name": "teleport",
+      "type": "spell",
+      "levels": {
+        "mage": 13,
+        "barbarian": 0
+      },
+      "rating": {
+        "mage": 1,
+        "barbarian": 2
+      },
+      "target": "self",
+      "position": "fighting",
+      "mana": 35,
+      "beats": 12,
+      "wear_off": "!Teleport!",
+      "slot": 0
+    },
+    {
+      "id": 163,
+      "name": "ventriloquate",
+      "type": "spell",
+      "levels": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 1
+      },
+      "rating": {
+        "mage": 1,
+        "thief": 2,
+        "wizard": 1,
+        "assassin": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Ventriloquate!",
+      "slot": 0
+    },
+    {
+      "id": 164,
+      "name": "weaken",
+      "type": "spell",
+      "levels": {
+        "mage": 11,
+        "cleric": 14,
+        "wizard": 10,
+        "druid": 13
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 20,
+      "beats": 12,
+      "damage_noun": "spell",
+      "wear_off": "You feel stronger.",
+      "slot": 0
+    },
+    {
+      "id": 165,
+      "name": "word of recall",
+      "type": "spell",
+      "levels": {
+        "mage": 20,
+        "cleric": 25,
+        "wizard": 15,
+        "druid": 20
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "self",
+      "position": "resting",
+      "mana": 5,
+      "beats": 12,
+      "wear_off": "!Word of Recall!",
+      "slot": 0
+    },
+    {
+      "id": 166,
+      "name": "acid breath",
+      "type": "spell",
+      "levels": {
+        "mage": 31,
+        "cleric": 32,
+        "wizard": 30,
+        "druid": 31
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 24,
+      "damage_noun": "blast of acid",
+      "wear_off": "!Acid Breath!",
+      "slot": 0
+    },
+    {
+      "id": 167,
+      "name": "fire breath",
+      "type": "spell",
+      "levels": {
+        "mage": 33,
+        "cleric": 34,
+        "wizard": 31,
+        "druid": 32
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 200,
+      "beats": 24,
+      "damage_noun": "blast of flame",
+      "wear_off": "The smoke leaves your eyes.",
+      "slot": 0
+    },
+    {
+      "id": 168,
+      "name": "frost breath",
+      "type": "spell",
+      "levels": {
+        "mage": 32,
+        "cleric": 33,
+        "wizard": 30,
+        "druid": 31
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 125,
+      "beats": 24,
+      "damage_noun": "blast of frost",
+      "wear_off": "!Frost Breath!",
+      "slot": 0
+    },
+    {
+      "id": 169,
+      "name": "gas breath",
+      "type": "spell",
+      "levels": {
+        "mage": 35,
+        "cleric": 42,
+        "wizard": 33,
+        "druid": 40
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 175,
+      "beats": 24,
+      "damage_noun": "blast of gas",
+      "wear_off": "!Gas Breath!",
+      "slot": 0
+    },
+    {
+      "id": 170,
+      "name": "lightning breath",
+      "type": "spell",
+      "levels": {
+        "mage": 30,
+        "cleric": 40,
+        "wizard": 25,
+        "druid": 35
+      },
+      "rating": {
+        "mage": 1,
+        "cleric": 1,
+        "wizard": 1,
+        "druid": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 150,
+      "beats": 24,
+      "damage_noun": "blast of lightning",
+      "wear_off": "!Lightning Breath!",
+      "slot": 0
+    },
+    {
+      "id": 171,
+      "name": "random",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 20,
+      "beats": 12,
+      "slot": 0
+    },
+    {
+      "id": 172,
+      "name": "drain blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Drain Blade!",
+      "slot": 0
+    },
+    {
+      "id": 173,
+      "name": "shocking blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Shocking Blade!",
+      "slot": 0
+    },
+    {
+      "id": 174,
+      "name": "flame blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Flame Blade!",
+      "slot": 0
+    },
+    {
+      "id": 175,
+      "name": "frost blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Frost Blade!",
+      "slot": 0
+    },
+    {
+      "id": 176,
+      "name": "sharp blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Sharp Blade!",
+      "slot": 0
+    },
+    {
+      "id": 177,
+      "name": "vorpal blade",
+      "type": "spell",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "object",
+      "position": "standing",
+      "mana": 15,
+      "beats": 12,
+      "wear_off": "!Vorpal Blade!",
+      "slot": 0
+    },
+    {
+      "id": 178,
+      "name": "general purpose",
+      "type": "skill",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "general purpose ammo",
+      "wear_off": "!General Purpose Ammo!",
+      "slot": 0
+    },
+    {
+      "id": 179,
+      "name": "high explosive",
+      "type": "skill",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "high explosive ammo",
+      "wear_off": "!High Explosive Ammo!",
+      "slot": 0
+    },
+    {
+      "id": 180,
+      "name": "axe",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Axe!",
+      "slot": 0
+    },
+    {
+      "id": 181,
+      "name": "dagger",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 3,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 2,
+        "druid": 3,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Dagger!",
+      "slot": 0
+    },
+    {
+      "id": 182,
+      "name": "flail",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Flail!",
+      "slot": 0
+    },
+    {
+      "id": 183,
+      "name": "mace",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 2,
+        "thief": 3,
+        "warrior": 3,
+        "wizard": 5,
+        "druid": 2,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Mace!",
+      "slot": 0
+    },
+    {
+      "id": 184,
+      "name": "polearm",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Polearm!",
+      "slot": 0
+    },
+    {
+      "id": 185,
+      "name": "shield block",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 6,
+        "cleric": 4,
+        "thief": 6,
+        "warrior": 2,
+        "wizard": 6,
+        "druid": 4,
+        "assassin": 6,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Shield!",
+      "slot": 0
+    },
+    {
+      "id": 186,
+      "name": "spear",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 4,
+        "warrior": 3,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Spear!",
+      "slot": 0
+    },
+    {
+      "id": 187,
+      "name": "sword",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 6,
+        "thief": 3,
+        "warrior": 2,
+        "wizard": 5,
+        "druid": 6,
+        "assassin": 3,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!sword!",
+      "slot": 0
+    },
+    {
+      "id": 188,
+      "name": "whip",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 6,
+        "cleric": 5,
+        "thief": 5,
+        "warrior": 4,
+        "wizard": 6,
+        "druid": 5,
+        "assassin": 5,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Whip!",
+      "slot": 0
+    },
+    {
+      "id": 189,
+      "name": "backstab",
+      "type": "skill",
+      "levels": {
+        "thief": 1,
+        "druid": 1
+      },
+      "rating": {
+        "thief": 4,
+        "druid": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "backstab",
+      "wear_off": "!Backstab!",
+      "slot": 0
+    },
+    {
+      "id": 190,
+      "name": "cleave",
+      "type": "skill",
+      "levels": {
+        "thief": 1,
+        "druid": 1
+      },
+      "rating": {
+        "thief": 4,
+        "druid": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "cleave",
+      "wear_off": "!Cleave!",
+      "slot": 0
+    },
+    {
+      "id": 191,
+      "name": "blackjack",
+      "type": "skill",
+      "levels": {
+        "thief": 1,
+        "druid": 1
+      },
+      "rating": {
+        "thief": 4,
+        "druid": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "blackjack",
+      "wear_off": "!Blackjack!",
+      "slot": 0
+    },
+    {
+      "id": 192,
+      "name": "stake",
+      "type": "skill",
+      "levels": {
+        "cleric": 45,
+        "druid": 40
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 4
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "stake",
+      "wear_off": "!Stake!",
+      "slot": 0
+    },
+    {
+      "id": 193,
+      "name": "bash",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "bash",
+      "wear_off": "!Bash!",
+      "slot": 0
+    },
+    {
+      "id": 194,
+      "name": "tail",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "tail",
+      "wear_off": "!Tail!",
+      "slot": 0
+    },
+    {
+      "id": 195,
+      "name": "doorbash",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "doorbash",
+      "wear_off": "!Doorbash!",
+      "slot": 0
+    },
+    {
+      "id": 196,
+      "name": "gouge",
+      "type": "skill",
+      "levels": {
+        "thief": 25,
+        "warrior": 25,
+        "assassin": 20,
+        "barbarian": 20
+      },
+      "rating": {
+        "thief": 3,
+        "warrior": 3,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 20,
+      "damage_noun": "gouge",
+      "wear_off": "!Gouge!",
+      "slot": 0
+    },
+    {
+      "id": 197,
+      "name": "smithing",
+      "type": "skill",
+      "levels": {
+        "warrior": 25,
+        "barbarian": 25
+      },
+      "rating": {
+        "warrior": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 20,
+      "wear_off": "!Smithing!",
+      "slot": 0
+    },
+    {
+      "id": 198,
+      "name": "tithe",
+      "type": "skill",
+      "levels": {
+        "cleric": 50,
+        "druid": 45
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 15,
+      "wear_off": "!Tithe!",
+      "slot": 0
+    },
+    {
+      "id": 199,
+      "name": "sharpen",
+      "type": "skill",
+      "levels": {
+        "warrior": 40,
+        "barbarian": 35
+      },
+      "rating": {
+        "warrior": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 15,
+      "wear_off": "!Sharpen!",
+      "slot": 0
+    },
+    {
+      "id": 200,
+      "name": "srush",
+      "type": "skill",
+      "levels": {
+        "warrior": 40,
+        "barbarian": 35
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "srush",
+      "wear_off": "!Srush!",
+      "slot": 0
+    },
+    {
+      "id": 201,
+      "name": "berserk",
+      "type": "skill",
+      "levels": {
+        "warrior": 20,
+        "barbarian": 15
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "wear_off": "You feel your pulse slow down.",
+      "slot": 0
+    },
+    {
+      "id": 202,
+      "name": "warcry",
+      "type": "skill",
+      "levels": {
+        "warrior": 15,
+        "barbarian": 10
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 20,
+      "wear_off": "Your battle rage slowly fades away.",
+      "slot": 0
+    },
+    {
+      "id": 203,
+      "name": "bloodlust",
+      "type": "spell",
+      "levels": {
+        "barbarian": 15
+      },
+      "rating": {
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 50,
+      "beats": 20,
+      "wear_off": "Your lust for blood fades away.",
+      "slot": 0
+    },
+    {
+      "id": 204,
+      "name": "nature",
+      "type": "spell",
+      "levels": {
+        "druid": 15
+      },
+      "rating": {
+        "druid": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 50,
+      "beats": 20,
+      "wear_off": "You feel more human again.",
+      "slot": 0
+    },
+    {
+      "id": 205,
+      "name": "bow",
+      "type": "skill",
+      "levels": {
+        "mage": 20,
+        "cleric": 20,
+        "thief": 20,
+        "warrior": 20,
+        "wizard": 20,
+        "druid": 20,
+        "assassin": 20,
+        "barbarian": 20
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 4,
+        "warrior": 4,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "damage_noun": "arrow",
+      "wear_off": "!Bow!",
+      "slot": 0
+    },
+    {
+      "id": 206,
+      "name": "dirt kicking",
+      "type": "skill",
+      "levels": {
+        "thief": 3,
+        "warrior": 3,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 4,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "kicked dirt",
+      "wear_off": "You rub the dirt out of your eyes.",
+      "slot": 0
+    },
+    {
+      "id": 207,
+      "name": "track",
+      "type": "skill",
+      "levels": {
+        "thief": 10,
+        "warrior": 10,
+        "druid": 10,
+        "assassin": 10,
+        "barbarian": 10
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 3,
+        "druid": 5,
+        "assassin": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Track!",
+      "slot": 0
+    },
+    {
+      "id": 208,
+      "name": "disarm",
+      "type": "skill",
+      "levels": {
+        "thief": 12,
+        "warrior": 11,
+        "assassin": 10,
+        "barbarian": 9
+      },
+      "rating": {
+        "thief": 5,
+        "warrior": 4,
+        "assassin": 5,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "wear_off": "!Disarm!",
+      "slot": 0
+    },
+    {
+      "id": 209,
+      "name": "engage",
+      "type": "skill",
+      "levels": {
+        "thief": 40,
+        "warrior": 30,
+        "assassin": 35,
+        "barbarian": 25
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 3,
+        "assassin": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 5,
+      "wear_off": "!Engage!",
+      "slot": 0
+    },
+    {
+      "id": 210,
+      "name": "whirlwind",
+      "type": "skill",
+      "levels": {
+        "warrior": 50,
+        "barbarian": 45
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 5,
+      "damage_noun": "WhirlWind",
+      "wear_off": "!Whirlwind!",
+      "slot": 0
+    },
+    {
+      "id": 211,
+      "name": "circle",
+      "type": "skill",
+      "levels": {
+        "thief": 50,
+        "assassin": 45
+      },
+      "rating": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 8,
+      "damage_noun": "Circle",
+      "wear_off": "!Circle!",
+      "slot": 0
+    },
+    {
+      "id": 212,
+      "name": "assassinate",
+      "type": "skill",
+      "levels": {
+        "assassin": 45
+      },
+      "rating": {
+        "assassin": 5
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 8,
+      "damage_noun": "Assassinate",
+      "wear_off": "!Assassinate!",
+      "slot": 0
+    },
+    {
+      "id": 213,
+      "name": "spin",
+      "type": "skill",
+      "levels": {
+        "cleric": 50,
+        "druid": 45
+      },
+      "rating": {
+        "cleric": 4,
+        "druid": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 10,
+      "damage_noun": "Spin",
+      "wear_off": "!Spin!",
+      "slot": 0
+    },
+    {
+      "id": 214,
+      "name": "rage",
+      "type": "skill",
+      "levels": {
+        "barbarian": 80
+      },
+      "rating": {
+        "barbarian": 8
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 10,
+      "damage_noun": "Rage",
+      "wear_off": "!Rage!",
+      "slot": 0
+    },
+    {
+      "id": 215,
+      "name": "peek",
+      "type": "skill",
+      "levels": {
+        "thief": 20,
+        "assassin": 15
+      },
+      "rating": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 5,
+      "damage_noun": "Peek",
+      "wear_off": "!Peek!",
+      "slot": 0
+    },
+    {
+      "id": 216,
+      "name": "dodge",
+      "type": "skill",
+      "levels": {
+        "mage": 25,
+        "cleric": 22,
+        "thief": 1,
+        "warrior": 13,
+        "wizard": 20,
+        "druid": 20,
+        "assassin": 1,
+        "barbarian": 10
+      },
+      "rating": {
+        "mage": 7,
+        "cleric": 7,
+        "thief": 4,
+        "warrior": 5,
+        "wizard": 7,
+        "druid": 7,
+        "assassin": 3,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Dodge!",
+      "slot": 0
+    },
+    {
+      "id": 217,
+      "name": "enhanced damage",
+      "type": "skill",
+      "levels": {
+        "mage": 50,
+        "cleric": 40,
+        "thief": 25,
+        "warrior": 1,
+        "wizard": 45,
+        "druid": 35,
+        "assassin": 20,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 7,
+        "cleric": 7,
+        "thief": 5,
+        "warrior": 3,
+        "wizard": 7,
+        "druid": 7,
+        "assassin": 4,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Enhanced Damage!",
+      "slot": 0
+    },
+    {
+      "id": 218,
+      "name": "ultra damage",
+      "type": "skill",
+      "levels": {
+        "thief": 80,
+        "warrior": 75,
+        "assassin": 75,
+        "barbarian": 70
+      },
+      "rating": {
+        "thief": 7,
+        "warrior": 5,
+        "assassin": 7,
+        "barbarian": 5
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Ultra Damage!",
+      "slot": 0
+    },
+    {
+      "id": 219,
+      "name": "hero damage",
+      "type": "skill",
+      "levels": {
+
+      },
+      "rating": {
+
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Hero Damage!",
+      "slot": 0
+    },
+    {
+      "id": 220,
+      "name": "demand",
+      "type": "skill",
+      "levels": {
+        "warrior": 30,
+        "barbarian": 25
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "slot": 0
+    },
+    {
+      "id": 221,
+      "name": "envenom",
+      "type": "skill",
+      "levels": {
+        "thief": 10,
+        "assassin": 8
+      },
+      "rating": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 36,
+      "wear_off": "!Envenom!",
+      "slot": 0
+    },
+    {
+      "id": 222,
+      "name": "hand to hand",
+      "type": "skill",
+      "levels": {
+        "thief": 15,
+        "warrior": 6,
+        "assassin": 10,
+        "barbarian": 2
+      },
+      "rating": {
+        "thief": 6,
+        "warrior": 4,
+        "assassin": 6,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Hand to Hand!",
+      "slot": 0
+    },
+    {
+      "id": 223,
+      "name": "kick",
+      "type": "skill",
+      "levels": {
+        "cleric": 18,
+        "thief": 24,
+        "warrior": 6,
+        "druid": 45,
+        "assassin": 24,
+        "barbarian": 5
+      },
+      "rating": {
+        "cleric": 5,
+        "thief": 4,
+        "warrior": 4,
+        "druid": 7,
+        "assassin": 6,
+        "barbarian": 4
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "kick",
+      "wear_off": "!Kick!",
+      "slot": 0
+    },
+    {
+      "id": 224,
+      "name": "butchering",
+      "type": "skill",
+      "levels": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 4,
+        "warrior": 4,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 3
+      },
+      "rating": {
+        "mage": 3,
+        "cleric": 3,
+        "thief": 3,
+        "warrior": 2,
+        "wizard": 3,
+        "druid": 3,
+        "assassin": 3,
+        "barbarian": 1
+      },
+      "target": "offensive",
+      "position": "resting",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "butchering",
+      "wear_off": "!Butchering!",
+      "slot": 0
+    },
+    {
+      "id": 225,
+      "name": "knee",
+      "type": "skill",
+      "levels": {
+        "thief": 25,
+        "warrior": 20,
+        "assassin": 20,
+        "barbarian": 15
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 2,
+        "assassin": 4,
+        "barbarian": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "knee",
+      "wear_off": "!Knee!",
+      "slot": 0
+    },
+    {
+      "id": 226,
+      "name": "feed",
+      "type": "skill",
+      "levels": {
+        "thief": 25,
+        "warrior": 20,
+        "assassin": 20,
+        "barbarian": 15
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 2,
+        "assassin": 4,
+        "barbarian": 1
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 8,
+      "damage_noun": "feed",
+      "wear_off": "!Feed!",
+      "slot": 0
+    },
+    {
+      "id": 227,
+      "name": "parry",
+      "type": "skill",
+      "levels": {
+        "mage": 22,
+        "cleric": 20,
+        "thief": 13,
+        "warrior": 1,
+        "wizard": 20,
+        "druid": 18,
+        "assassin": 11,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "thief": 5,
+        "warrior": 4,
+        "wizard": 5,
+        "druid": 5,
+        "assassin": 5,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Parry!",
+      "slot": 0
+    },
+    {
+      "id": 228,
+      "name": "rescue",
+      "type": "skill",
+      "levels": {
+        "warrior": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Rescue!",
+      "slot": 0
+    },
+    {
+      "id": 229,
+      "name": "familiar",
+      "type": "skill",
+      "levels": {
+        "mage": 45,
+        "wizard": 40
+      },
+      "rating": {
+        "mage": 3,
+        "wizard": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 10,
+      "wear_off": "!Familiar!",
+      "slot": 0
+    },
+    {
+      "id": 230,
+      "name": "spell craft",
+      "type": "skill",
+      "levels": {
+        "mage": 80,
+        "wizard": 70
+      },
+      "rating": {
+        "mage": 5,
+        "wizard": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Spell Craft!",
+      "slot": 0
+    },
+    {
+      "id": 231,
+      "name": "trip",
+      "type": "skill",
+      "levels": {
+        "thief": 1,
+        "warrior": 14,
+        "assassin": 1,
+        "barbarian": 10
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 5,
+        "assassin": 3,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 24,
+      "damage_noun": "trip",
+      "wear_off": "!Trip!",
+      "slot": 0
+    },
+    {
+      "id": 232,
+      "name": "second attack",
+      "type": "skill",
+      "levels": {
+        "mage": 30,
+        "cleric": 24,
+        "thief": 12,
+        "warrior": 5,
+        "wizard": 25,
+        "druid": 20,
+        "assassin": 8,
+        "barbarian": 4
+      },
+      "rating": {
+        "mage": 7,
+        "cleric": 6,
+        "thief": 4,
+        "warrior": 3,
+        "wizard": 6,
+        "druid": 5,
+        "assassin": 3,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Second Attack!",
+      "slot": 0
+    },
+    {
+      "id": 233,
+      "name": "third attack",
+      "type": "skill",
+      "levels": {
+        "thief": 45,
+        "warrior": 40,
+        "assassin": 40,
+        "barbarian": 35
+      },
+      "rating": {
+        "thief": 5,
+        "warrior": 4,
+        "assassin": 5,
+        "barbarian": 5
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Third Attack!",
+      "slot": 0
+    },
+    {
+      "id": 234,
+      "name": "fourth attack",
+      "type": "skill",
+      "levels": {
+        "warrior": 80,
+        "barbarian": 70
+      },
+      "rating": {
+        "warrior": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Fourth Attack!",
+      "slot": 0
+    },
+    {
+      "id": 235,
+      "name": "fifth attack",
+      "type": "skill",
+      "levels": {
+        "warrior": 100,
+        "barbarian": 90
+      },
+      "rating": {
+        "warrior": 5,
+        "barbarian": 5
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Fifth Attack!",
+      "slot": 0
+    },
+    {
+      "id": 236,
+      "name": "critical strike",
+      "type": "skill",
+      "levels": {
+        "thief": 75,
+        "warrior": 65,
+        "assassin": 65,
+        "barbarian": 55
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 4,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Critical Strike!",
+      "slot": 0
+    },
+    {
+      "id": 237,
+      "name": "counter",
+      "type": "skill",
+      "levels": {
+        "thief": 80,
+        "warrior": 70,
+        "assassin": 70,
+        "barbarian": 60
+      },
+      "rating": {
+        "thief": 4,
+        "warrior": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "damage_noun": "counter",
+      "wear_off": "!Counter!",
+      "slot": 0
+    },
+    {
+      "id": 238,
+      "name": "phase",
+      "type": "skill",
+      "levels": {
+        "thief": 50,
+        "warrior": 45,
+        "assassin": 40,
+        "barbarian": 35
+      },
+      "rating": {
+        "thief": 5,
+        "warrior": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "fighting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Phase!",
+      "slot": 0
+    },
+    {
+      "id": 239,
+      "name": "dual wield",
+      "type": "skill",
+      "levels": {
+        "thief": 40,
+        "warrior": 20,
+        "assassin": 30,
+        "barbarian": 10
+      },
+      "rating": {
+        "thief": 3,
+        "warrior": 3,
+        "assassin": 3,
+        "barbarian": 3
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Dual Wield!",
+      "slot": 0
+    },
+    {
+      "id": 240,
+      "name": "brew",
+      "type": "skill",
+      "levels": {
+        "mage": 15,
+        "cleric": 9,
+        "thief": 16,
+        "warrior": 6,
+        "wizard": 14,
+        "druid": 8,
+        "assassin": 15,
+        "barbarian": 5
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "thief": 5,
+        "warrior": 4,
+        "wizard": 5,
+        "druid": 5,
+        "assassin": 5,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Brew!",
+      "slot": 0
+    },
+    {
+      "id": 241,
+      "name": "fast healing",
+      "type": "skill",
+      "levels": {
+        "thief": 15,
+        "warrior": 5,
+        "assassin": 10,
+        "barbarian": 5
+      },
+      "rating": {
+        "thief": 5,
+        "warrior": 4,
+        "assassin": 5,
+        "barbarian": 4
+      },
+      "target": "ignore",
+      "position": "sleeping",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Fast Healing!",
+      "slot": 0
+    },
+    {
+      "id": 242,
+      "name": "haggle",
+      "type": "skill",
+      "levels": {
+        "mage": 10,
+        "cleric": 18,
+        "thief": 1,
+        "warrior": 14,
+        "wizard": 10,
+        "druid": 18,
+        "assassin": 1,
+        "barbarian": 14
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "thief": 3,
+        "warrior": 5,
+        "wizard": 5,
+        "druid": 5,
+        "assassin": 2,
+        "barbarian": 5
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Haggle!",
+      "slot": 0
+    },
+    {
+      "id": 243,
+      "name": "hide",
+      "type": "skill",
+      "levels": {
+        "thief": 1,
+        "assassin": 1
+      },
+      "rating": {
+        "thief": 3,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Hide!",
+      "slot": 0
+    },
+    {
+      "id": 244,
+      "name": "lore",
+      "type": "skill",
+      "levels": {
+        "mage": 10,
+        "cleric": 10,
+        "thief": 10,
+        "warrior": 20,
+        "wizard": 10,
+        "druid": 10,
+        "assassin": 10,
+        "barbarian": 10
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 3,
+        "warrior": 6,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 3,
+        "barbarian": 6
+      },
+      "target": "ignore",
+      "position": "resting",
+      "mana": 0,
+      "beats": 36,
+      "wear_off": "!Lore!",
+      "slot": 0
+    },
+    {
+      "id": 245,
+      "name": "meditation",
+      "type": "skill",
+      "levels": {
+        "mage": 5,
+        "cleric": 6,
+        "wizard": 5,
+        "druid": 5
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "wizard": 3,
+        "druid": 3
+      },
+      "target": "ignore",
+      "position": "sleeping",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "Meditation",
+      "slot": 0
+    },
+    {
+      "id": 246,
+      "name": "peek",
+      "type": "skill",
+      "levels": {
+        "mage": 121,
+        "cleric": 121,
+        "thief": 12,
+        "warrior": 121,
+        "wizard": 121,
+        "druid": 10,
+        "assassin": 121,
+        "barbarian": 121
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 7,
+        "thief": 3,
+        "warrior": 5,
+        "wizard": 5,
+        "druid": 2,
+        "assassin": 5,
+        "barbarian": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 0,
+      "wear_off": "!Peek!",
+      "slot": 0
+    },
+    {
+      "id": 247,
+      "name": "pick lock",
+      "type": "skill",
+      "levels": {
+        "thief": 7,
+        "assassin": 5
+      },
+      "rating": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 8,
+      "wear_off": "!Pick!",
+      "slot": 0
+    },
+    {
+      "id": 248,
+      "name": "sneak",
+      "type": "skill",
+      "levels": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "rating": {
+        "thief": 4,
+        "assassin": 3
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "You no longer feel stealthy.",
+      "slot": 0
+    },
+    {
+      "id": 249,
+      "name": "steal",
+      "type": "skill",
+      "levels": {
+        "thief": 5
+      },
+      "rating": {
+        "thief": 4
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "wear_off": "!Steal!",
+      "slot": 0
+    },
+    {
+      "id": 250,
+      "name": "scrolls",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 18,
+        "warrior": 149,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 18
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 3,
+        "thief": 5,
+        "warrior": 8,
+        "wizard": 2,
+        "druid": 3,
+        "assassin": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 24,
+      "wear_off": "!Scrolls!",
+      "slot": 0
+    },
+    {
+      "id": 251,
+      "name": "staves",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 18,
+        "warrior": 149,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 18
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 3,
+        "thief": 5,
+        "warrior": 8,
+        "wizard": 2,
+        "druid": 3,
+        "assassin": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Staves!",
+      "slot": 0
+    },
+    {
+      "id": 252,
+      "name": "wands",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 18,
+        "warrior": 149,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 18
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 3,
+        "thief": 5,
+        "warrior": 8,
+        "wizard": 2,
+        "druid": 3,
+        "assassin": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Wands!",
+      "slot": 0
+    },
+    {
+      "id": 253,
+      "name": "recall",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 2,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 2,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Recall!",
+      "slot": 0
+    },
+    {
+      "id": 254,
+      "name": "riding",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 2,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 2,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Riding!",
+      "slot": 0
+    },
+    {
+      "id": 255,
+      "name": "forge",
+      "type": "skill",
+      "levels": {
+        "mage": 1,
+        "cleric": 1,
+        "thief": 1,
+        "warrior": 1,
+        "wizard": 1,
+        "druid": 1,
+        "assassin": 1,
+        "barbarian": 1
+      },
+      "rating": {
+        "mage": 2,
+        "cleric": 2,
+        "thief": 2,
+        "warrior": 2,
+        "wizard": 2,
+        "druid": 2,
+        "assassin": 2,
+        "barbarian": 2
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "wear_off": "!Riding!",
+      "slot": 0
+    },
+    {
+      "id": 256,
+      "name": "Essence of mist",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "cleric": 50,
+        "wizard": 45,
+        "druid": 45
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "wizard": 4,
+        "druid": 4
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 100,
+      "beats": 1,
+      "slot": 0
+    },
+    {
+      "id": 257,
+      "name": "Throatchop",
+      "type": "skill",
+      "levels": {
+        "assassin": 75
+      },
+      "rating": {
+        "assassin": 5
+      },
+      "target": "ignore",
+      "position": "standing",
+      "mana": 0,
+      "beats": 12,
+      "damage_noun": "throatchop",
+      "wear_off": "!Throatchop!",
+      "slot": 0
+    },
+    {
+      "id": 258,
+      "name": "Lifeforce",
+      "type": "skill",
+      "levels": {
+        "mage": 50,
+        "cleric": 50,
+        "thief": 50,
+        "warrior": 50,
+        "wizard": 50,
+        "druid": 50,
+        "assassin": 50,
+        "barbarian": 50
+      },
+      "rating": {
+        "mage": 4,
+        "cleric": 4,
+        "thief": 4,
+        "warrior": 4,
+        "wizard": 4,
+        "druid": 4,
+        "assassin": 4,
+        "barbarian": 4
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 0,
+      "beats": 2,
+      "slot": 0
+    },
+    {
+      "id": 259,
+      "name": "Silver fire",
+      "type": "spell",
+      "levels": {
+        "mage": 75,
+        "cleric": 75,
+        "wizard": 70,
+        "druid": 70
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "wizard": 5,
+        "druid": 5
+      },
+      "target": "offensive",
+      "position": "fighting",
+      "mana": 100,
+      "beats": 10,
+      "slot": 0
+    },
+    {
+      "id": 260,
+      "name": "Soulburn",
+      "type": "spell",
+      "levels": {
+        "mage": 50,
+        "cleric": 50,
+        "thief": 50,
+        "warrior": 50,
+        "wizard": 50,
+        "druid": 50,
+        "assassin": 50,
+        "barbarian": 50
+      },
+      "rating": {
+        "mage": 5,
+        "cleric": 5,
+        "thief": 5,
+        "warrior": 5,
+        "wizard": 5,
+        "druid": 5,
+        "assassin": 5,
+        "barbarian": 5
+      },
+      "target": "offensive",
+      "position": "dead",
+      "mana": 100,
+      "beats": 10,
+      "slot": 0
+    },
+    {
+      "id": 261,
+      "name": "Shield of darkness",
+      "type": "spell",
+      "levels": {
+        "mage": 0,
+        "cleric": 0,
+        "thief": 0,
+        "warrior": 0,
+        "wizard": 0,
+        "druid": 0,
+        "assassin": 0,
+        "barbarian": 0
+      },
+      "rating": {
+        "mage": 0,
+        "cleric": 0,
+        "thief": 0,
+        "warrior": 0,
+        "wizard": 0,
+        "druid": 0,
+        "assassin": 0,
+        "barbarian": 0
+      },
+      "target": "self",
+      "position": "standing",
+      "mana": 50,
+      "beats": 12,
+      "wear_off": "Your dark aura fades in the light.",
+      "slot": 0
+    }
+  ],
+  "total": 262,
+  "skill_count": 81,
+  "spell_count": 181
+}

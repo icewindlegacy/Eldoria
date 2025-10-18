@@ -266,6 +266,7 @@ void song_of_huma( int songnum, int level, CHAR_DATA *ch )
 
     for ( vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room )
     {
+        if(!same_room(ch, vch, NULL)) continue;
 	if (ch == vch)
 	    continue;
 
@@ -307,6 +308,7 @@ void song_of_soothing( int songnum, int level, CHAR_DATA *ch)
     /* get sum of all mobile levels in the room */
     for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
     {
+        if(!same_room(ch, vch, NULL)) continue;
         if (vch->position == POS_FIGHTING)
         {
             count++;
@@ -328,6 +330,7 @@ void song_of_soothing( int songnum, int level, CHAR_DATA *ch)
     {
         for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
         {
+            if(!same_room(ch, vch, NULL)) continue;
             if (IS_SET(vch->imm_flags,IMM_MAGIC) ||
                                 IS_SET(vch->act,ACT_UNDEAD))
               return;
@@ -386,6 +389,7 @@ void song_of_paralysis( int songnum, int level, CHAR_DATA *ch)
 
      for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
      {
+         if(!same_room(ch, vch, NULL)) continue;
 	if (IS_NPC(vch))
 	{
 	   if (vch->fighting || vch->position == POS_FIGHTING)

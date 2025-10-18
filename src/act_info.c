@@ -37,6 +37,7 @@
 #include <ctype.h>
 #include <time.h>
 #include "include.h"
+#include "worldmap.h"
 
 int mortal_online args (());
 int immortal_online args (());
@@ -1355,6 +1356,13 @@ void do_look( CHAR_DATA *ch, char *argument )
     {
 	if(!IS_NPC(ch) && IN_MINE(ch) )
 	{   do_function(ch, &do_look, "mine" );
+	    return;
+	}
+	
+	// Worldmap display
+	if(is_wmap(ch, NULL))
+	{
+	    display_wmap(ch, FALSE);
 	    return;
 	}
    

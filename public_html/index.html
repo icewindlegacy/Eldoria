@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldoria MUD - A ShadowStorm Adventure!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with animated title -->
+        <div class="header">
+            <h1 class="glow">
+                <span class="letter-e">E</span><span class="letter-l">L</span><span class="letter-d">D</span><span class="letter-o">O</span><span class="letter-r">R</span><span class="letter-i">I</span><span class="letter-a">A</span>
+            </h1>
+            <p class="subtitle">~ A ShadowStorm MUD Adventure ~</p>
+            <p class="tagline">Bringing the magic of ROM 2.4b6 to 2025!</p>
+        </div>
+
+        <!-- Marquee for that authentic 90s feel -->
+        <marquee class="marquee" behavior="scroll" direction="left">
+            ⚔️ WELCOME ADVENTURERS! ⚔️ 10 Races! 8 Classes! 150 Levels! Over 60 Areas! ⚔️ NEW PLAYERS WELCOME! ⚔️
+        </marquee>
+
+        <!-- Main content -->
+        <div class="content-box">
+            <h2>🌟 About Eldoria 🌟</h2>
+            <p>
+                Built upon the legendary <strong>ShadowStorm</strong> by Synon and Davion, 
+                Eldoria combines the nostalgia and charm of late 90s-early 2000s ROM MUDs 
+                with modern enhancements and endless adventure!
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>🧙 Character Creation</h3>
+                    <ul>
+                        <li>10 Playable Races</li>
+                        <li>8 Unique Classes</li>
+                        <li>Multiclass Remort System</li>
+                        <li>150 Levels of Progression</li>
+                    </ul>
+                </div>
+                
+                <div class="feature">
+                    <h3>🗺️ World & Adventure</h3>
+                    <ul>
+                        <li>Over 60 Diverse Areas</li>
+                        <li>Epic Quests & Global Quests</li>
+                        <li>Arena PvP Combat</li>
+                        <li>Mysterious Secrets to Discover</li>
+                    </ul>
+                </div>
+                
+                <div class="feature">
+                    <h3>🛠️ Crafting & Economy</h3>
+                    <ul>
+                        <li>Mining System</li>
+                        <li>Crafting & Brewing</li>
+                        <li>Player Homes</li>
+                        <li>Banking & Auctions</li>
+                    </ul>
+                </div>
+                
+                <div class="feature">
+                    <h3>✨ Special Features</h3>
+                    <ul>
+                        <li>Religion System</li>
+                        <li>Guilds & Clans</li>
+                        <li>Mounts & Pets</li>
+                        <li>And SO Much More!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Connect -->
+        <div class="content-box connect-box">
+            <h2>🎮 How to Connect 🎮</h2>
+            <div class="connect-info">
+                <p class="server-info">
+                    <strong>Server:</strong> <span class="highlight">reaux.vineyard.haus</span><br>
+                    <strong>Port:</strong> <span class="highlight">3034</span>
+                </p>
+                <p>Use any MUD client:</p>
+                <ul>
+                    <li><strong>Windows:</strong> MUSHclient, zMUD, Mudlet</li>
+                    <li><strong>Mac/Linux:</strong> Mudlet, TinTin++</li>
+                    <li><strong>Web:</strong> <a href="telnet://reaux.vineyard.haus:3034">Connect via Browser Telnet</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="content-box" style="background: linear-gradient(135deg, #003300, #006600); border-color: #00ff00; box-shadow: 0 0 15px #00ff00;">
+            <h2>📖 Game Resources 📖</h2>
+            <div style="text-align: center; padding: 20px;">
+                <a href="help.html" class="retro-button" style="text-decoration: none; display: inline-block; margin: 10px;">
+                    📚 Browse Help Files
+                </a>
+                <a href="skills.html" class="retro-button" style="text-decoration: none; display: inline-block; margin: 10px;">
+                    ⚔️ Skills & Spells
+                </a>
+                <a href="areas.html" class="retro-button" style="text-decoration: none; display: inline-block; margin: 10px;">
+                    🗺️ Area List
+                </a>
+            </div>
+        </div>
+
+        <!-- Who's Online Section -->
+        <div class="content-box">
+            <h2>👥 Who's Online? 👥</h2>
+            <div class="online-container">
+                <iframe id="whoFrame" src="online.html" frameborder="0"></iframe>
+                <p class="refresh-note">
+                    <button onclick="refreshWho()" class="retro-button">🔄 Refresh</button>
+                    <small>Auto-refreshes every 30 seconds</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                Based on ROM 2.4b6 | ShadowStorm by Synon & Davion<br>
+                Original Diku Mud © 1990-1991 | Merc Diku Mud © 1992-1993<br>
+                ROM © 1993-1998 Russ Taylor
+            </p>
+            <p class="copyright">
+                Built with ❤️ for the MUD community | Est. 2025
+            </p>
+        </div>
+    </div>
+
+    <!-- Starfield background effect -->
+    <canvas id="starfield"></canvas>
+
+    <script>
+        // Auto-refresh who's online
+        function refreshWho() {
+            document.getElementById('whoFrame').src = 'online.html?t=' + new Date().getTime();
+        }
+        
+        setInterval(refreshWho, 30000); // Refresh every 30 seconds
+
+        // Retro starfield effect
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function drawStars() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'white';
+            stars.forEach(star => {
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+                star.y += star.speed;
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+            
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+

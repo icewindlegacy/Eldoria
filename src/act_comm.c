@@ -879,6 +879,7 @@ void do_pmote( CHAR_DATA *ch, char *argument )
 
     for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
     {
+        if(!same_room(ch, vch, NULL)) continue;
 	if (vch->desc == NULL || vch == ch)
 	    continue;
 
@@ -1785,6 +1786,7 @@ void do_split( CHAR_DATA *ch, char *argument )
     members = 0;
     for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     {
+        if(!same_room(ch, gch, NULL)) continue;
 	if ( is_same_group( gch, ch ) && !IS_AFFECTED(gch,AFF_CHARM))
 	    members++;
     }
@@ -1847,6 +1849,7 @@ void do_split( CHAR_DATA *ch, char *argument )
 
     for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     {
+        if(!same_room(ch, gch, NULL)) continue;
 	if ( gch != ch && is_same_group(gch,ch) && !IS_AFFECTED(gch,AFF_CHARM))
 	{
 	    act( buf, ch, NULL, gch, TO_VICT );

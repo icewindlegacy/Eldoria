@@ -1458,7 +1458,8 @@ void read_from_buffer( DESCRIPTOR_DATA *d )
 	else
 	{
 	    if (++d->repeat >= 25 && d->character
-	    &&  d->connected == CON_PLAYING)
+	    &&  d->connected == CON_PLAYING
+	    &&  !IS_IMMORTAL(d->character))  /* Don't kick immortals for spam */
 	    {
 		sprintf( log_buf, "%s input spamming!", d->host );
 		log_string( log_buf );
@@ -1891,7 +1892,7 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length )
     {
 	char *outbuf;
 
-        if (d->outsize >= 32000)
+        if (d->outsize >= 512000)  /* Increased from 32000 for worldmap large displays */
 	{
 	    bug("Buffer overflow. Closing.\n\r",0);
 	    close_socket(d);

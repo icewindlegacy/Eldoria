@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Spells - Eldoria MUD</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', 'Lucida Console', monospace;
+            margin: 0;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: #00ffff;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffff;
+            white-space: pre;
+            font-size: 12px;
+        }
+        
+        .header {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00;
+        }
+        
+        .stats {
+            color: #00ffff;
+            margin: 10px 0;
+        }
+        
+        .controls {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .control-group {
+            margin-bottom: 10px;
+        }
+        
+        .control-group label {
+            color: #ffff00;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 5px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            width: 300px;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+        }
+        
+        select {
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 5px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #00ffff;
+        }
+        
+        .filter-buttons {
+            margin-top: 10px;
+        }
+        
+        .filter-btn {
+            background: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 5px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 5px #0f0;
+        }
+        
+        .filter-btn.active {
+            background: rgba(0, 255, 0, 0.3);
+            border-color: #00ffff;
+            color: #00ffff;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .skill-card {
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .skill-card:hover {
+            background: rgba(0, 255, 0, 0.1);
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .skill-card.spell {
+            border-left: 3px solid #ff00ff;
+        }
+        
+        .skill-card.skill {
+            border-left: 3px solid #ffaa00;
+        }
+        
+        .skill-name {
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+        
+        .skill-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        
+        .skill-type.spell {
+            background: rgba(255, 0, 255, 0.3);
+            color: #ff00ff;
+            border: 1px solid #ff00ff;
+        }
+        
+        .skill-type.skill {
+            background: rgba(255, 170, 0, 0.3);
+            color: #ffaa00;
+            border: 1px solid #ffaa00;
+        }
+        
+        .skill-info {
+            margin: 8px 0;
+            color: #00aaff;
+        }
+        
+        .skill-info span {
+            color: #ffff00;
+            font-weight: bold;
+        }
+        
+        .class-levels {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .class-level {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .class-level .class-name {
+            color: #00ffff;
+            text-transform: capitalize;
+        }
+        
+        .class-level .level {
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .wear-off {
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 0, 0.1);
+            border-left: 2px solid #ffff00;
+            font-style: italic;
+            color: #ffff00;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #ff0000;
+            font-size: 18px;
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            background: rgba(255, 0, 0, 0.1);
+        }
+        
+        .loading {
+            text-align: center;
+            color: #00ffff;
+            font-size: 18px;
+            margin-top: 40px;
+        }
+        
+        .update-time {
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        
+        .back-link {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+        }
+        
+        .back-link:hover {
+            color: #ffff00;
+            border-color: #ffff00;
+            text-shadow: 0 0 5px #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+___________.__       .___           .__         
+\_   _____/|  |    __| _/___________|__|____  
+ |    __)_ |  |   / __ |/  _ \_  __ \  \__  \  
+ |        \|  |__/ /_/ (  <_> )  | \/  |/ __ \_ 
+/_______  /|____/\____ |\____/|__|  |__(____  / 
+        \/            \/                    \/  
+                   MUD
+        </div>
+
+        <div class="header">
+            <h1>Skills & Spells Reference</h1>
+            <div class="stats" id="stats">Loading...</div>
+            <div style="margin-top: 15px;">
+                <a href="index.html" class="back-link">
+                    ← Back to Main Page
+                </a>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Type skill/spell name..." />
+            </div>
+            
+            <div class="control-group">
+                <label for="classFilter">Class:</label>
+                <select id="classFilter">
+                    <option value="">All Classes</option>
+                </select>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="spell">Spells Only</button>
+                <button class="filter-btn" data-filter="skill">Skills Only</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">Loading skills and spells...</div>
+        <div id="skillsContainer" class="skills-grid" style="display: none;"></div>
+        <div id="noResults" class="no-results" style="display: none;">No skills or spells found matching your search.</div>
+        
+        <div class="update-time" id="updateTime"></div>
+    </div>
+
+    <script>
+        let allSkills = [];
+        let currentFilter = 'all';
+        let currentClass = '';
+        let currentSearch = '';
+        
+        // Load skills data
+        fetch('skills.json')
+            .then(response => response.json())
+            .then(data => {
+                allSkills = data.skills;
+                
+                // Update stats
+                document.getElementById('stats').innerHTML = 
+                    `<strong>${data.total}</strong> Total | ` +
+                    `<strong>${data.spell_count}</strong> Spells | ` +
+                    `<strong>${data.skill_count}</strong> Skills`;
+                
+                // Update time
+                const updateDate = new Date(data.updated * 1000);
+                document.getElementById('updateTime').textContent = 
+                    'Last updated: ' + updateDate.toLocaleString();
+                
+                // Populate class filter
+                const classes = new Set();
+                allSkills.forEach(skill => {
+                    Object.keys(skill.levels).forEach(cls => classes.add(cls));
+                });
+                
+                const classFilter = document.getElementById('classFilter');
+                Array.from(classes).sort().forEach(cls => {
+                    const option = document.createElement('option');
+                    option.value = cls;
+                    option.textContent = cls.charAt(0).toUpperCase() + cls.slice(1);
+                    classFilter.appendChild(option);
+                });
+                
+                // Hide loading, show content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('skillsContainer').style.display = 'grid';
+                
+                // Initial render
+                renderSkills();
+            })
+            .catch(error => {
+                console.error('Error loading skills:', error);
+                document.getElementById('loading').innerHTML = 
+                    '<span style="color: #ff0000;">Error loading skills data. Please try refreshing the page.</span>';
+            });
+        
+        // Filter skills based on current filters
+        function filterSkills() {
+            return allSkills.filter(skill => {
+                // Type filter
+                if (currentFilter !== 'all' && skill.type !== currentFilter) {
+                    return false;
+                }
+                
+                // Class filter
+                if (currentClass && !skill.levels[currentClass]) {
+                    return false;
+                }
+                
+                // Search filter
+                if (currentSearch && !skill.name.toLowerCase().includes(currentSearch.toLowerCase())) {
+                    return false;
+                }
+                
+                return true;
+            });
+        }
+        
+        // Render skills to the page
+        function renderSkills() {
+            const container = document.getElementById('skillsContainer');
+            const noResults = document.getElementById('noResults');
+            const filtered = filterSkills();
+            
+            if (filtered.length === 0) {
+                container.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            container.style.display = 'grid';
+            noResults.style.display = 'none';
+            container.innerHTML = '';
+            
+            // Sort by name
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+            
+            filtered.forEach(skill => {
+                const card = document.createElement('div');
+                card.className = `skill-card ${skill.type}`;
+                
+                let html = `
+                    <div class="skill-name">
+                        ${escapeHtml(skill.name)}
+                        <span class="skill-type ${skill.type}">${skill.type}</span>
+                    </div>
+                `;
+                
+                // Spell-specific info
+                if (skill.type === 'spell') {
+                    html += `<div class="skill-info"><span>Target:</span> ${skill.target}</div>`;
+                    html += `<div class="skill-info"><span>Mana:</span> ${skill.mana}</div>`;
+                    html += `<div class="skill-info"><span>Position:</span> ${skill.position}</div>`;
+                    
+                    if (skill.damage_noun) {
+                        html += `<div class="skill-info"><span>Damage:</span> ${escapeHtml(skill.damage_noun)}</div>`;
+                    }
+                }
+                
+                // Class levels
+                const levels = Object.keys(skill.levels);
+                if (levels.length > 0) {
+                    html += '<div class="class-levels">';
+                    levels.sort().forEach(cls => {
+                        const rating = skill.rating[cls] || 1;
+                        html += `
+                            <div class="class-level">
+                                <span class="class-name">${cls}:</span>
+                                <span class="level">Lv${skill.levels[cls]}</span>
+                                <span style="color: #888;">(${rating}%)</span>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+                
+                // Wear-off message
+                if (skill.wear_off) {
+                    html += `<div class="wear-off">${escapeHtml(skill.wear_off)}</div>`;
+                }
+                
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+        
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderSkills();
+            });
+        });
+        
+        document.getElementById('classFilter').addEventListener('change', function() {
+            currentClass = this.value;
+            renderSkills();
+        });
+        
+        document.getElementById('search').addEventListener('input', function() {
+            currentSearch = this.value;
+            renderSkills();
+        });
+    </script>
+</body>
+</html>
+

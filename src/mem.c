@@ -44,6 +44,7 @@ EXIT_DATA		*	exit_free;
 ROOM_INDEX_DATA		*	room_index_free;
 OBJ_INDEX_DATA		*	obj_index_free;
 SHOP_DATA		*	shop_free;
+QSHOP_DATA		*	qshop_free;
 MOB_INDEX_DATA		*	mob_index_free;
 RESET_DATA		*	reset_free;
 extern HELP_DATA		*	help_free;
@@ -306,6 +307,34 @@ void free_shop( SHOP_DATA *pShop )
     return;
 }
 
+QSHOP_DATA *new_qshop( void )
+{
+    QSHOP_DATA *pQShop;
+
+    if ( !qshop_free )
+    {
+        pQShop          =   (QSHOP_DATA *)alloc_perm( sizeof(*pQShop) );
+    }
+    else
+    {
+        pQShop          =   qshop_free;
+        qshop_free      =   qshop_free->next;
+    }
+
+    pQShop->next        =   NULL;
+    pQShop->keeper      =   0;
+    pQShop->profit_sell =   33;  /* Default: sell back for 33% of qcost */
+
+    return pQShop;
+}
+
+void free_qshop( QSHOP_DATA *pQShop )
+{
+    pQShop->next = qshop_free;
+    qshop_free   = pQShop;
+    return;
+}
+
 
 
 OBJ_INDEX_DATA *new_obj_index( void )
@@ -339,6 +368,7 @@ OBJ_INDEX_DATA *new_obj_index( void )
     pObj->count         =   0;
     pObj->weight        =   0;
     pObj->cost          =   0;
+    pObj->qcost         =   0;
     pObj->material      =   str_dup( "unknown" );      /* ROM */
     pObj->condition     =   100;                        /* ROM */
     for ( value = 0; value < 5; value++ )               /* 5 - ROM */
@@ -396,6 +426,7 @@ MOB_INDEX_DATA *new_mob_index( void )
     pMob->next          =   NULL;
     pMob->spec_fun      =   NULL;
     pMob->pShop         =   NULL;
+    pMob->pQShop        =   NULL;
     pMob->area          =   NULL;
     pMob->player_name   =   str_dup( "no name" );
     pMob->short_descr   =   str_dup( "(no short description)" );

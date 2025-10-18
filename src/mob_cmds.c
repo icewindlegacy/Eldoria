@@ -41,6 +41,7 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "const.h"
+#include "worldmap.h"
 
 DECLARE_DO_FUN( do_look 	);
 extern ROOM_INDEX_DATA *find_location( CHAR_DATA *, char * );
@@ -1970,6 +1971,20 @@ void do_optransfer( OBJ_DATA *obj, char *argument )
 	stop_fighting( victim, TRUE );
     char_from_room( victim );
     char_to_room( victim, location );
+    
+    //worldmap.c - initialize coordinates if transferring to a worldmap room
+    if(is_wmap_vnum(location->vnum))
+    {
+        int wmap_index = wmap_vnum_index(location->vnum);
+        if(wmap_index >= 0)
+        {
+            victim->wmap[0] = wmap_index;
+            victim->wmap[1] = wmap_table[wmap_index].max_x / 2;
+            victim->wmap[2] = wmap_table[wmap_index].max_y / 2;
+            victim->wmap[3] = 0;
+        }
+    }
+    
     do_look( victim, "auto" );
 
     return;
@@ -3317,6 +3332,20 @@ void do_rptransfer( ROOM_INDEX_DATA *room, char *argument )
 	stop_fighting( victim, TRUE );
     char_from_room( victim );
     char_to_room( victim, location );
+    
+    //worldmap.c - initialize coordinates if transferring to a worldmap room
+    if(is_wmap_vnum(location->vnum))
+    {
+        int wmap_index = wmap_vnum_index(location->vnum);
+        if(wmap_index >= 0)
+        {
+            victim->wmap[0] = wmap_index;
+            victim->wmap[1] = wmap_table[wmap_index].max_x / 2;
+            victim->wmap[2] = wmap_table[wmap_index].max_y / 2;
+            victim->wmap[3] = 0;
+        }
+    }
+    
     do_look( victim, "auto" );
 
     return;

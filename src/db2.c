@@ -465,7 +465,13 @@ void load_objects( FILE *fp )
 		pOprog->next		= pObjIndex->oprogs;
 		pObjIndex->oprogs	= pOprog;
 	    }
- 
+	    
+	    else if ( letter == 'Q' )
+	    {
+		/* Quest point cost for quest shops */
+		pObjIndex->qcost = fread_number( fp );
+	    }
+
             else
             {
                 ungetc( letter, fp );

@@ -272,6 +272,9 @@ void fread_one_object( FILE *fp )
                         case 'P':
                                 KEY( "Plevel",          pOI->plevel,           fread_number( fp ) );
                                 break;
+			case 'Q':
+				KEY( "Qcost",	pOI->qcost, fread_number( fp ) );
+				break;
 			case 'S':
 				KEY( "Short",		pOI->short_descr,		fread_string( fp ));
 				break;

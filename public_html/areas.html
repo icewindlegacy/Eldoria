@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eldoria MUD - Area List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search-box {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .search-box input {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            background: #001a00;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .search-box input::placeholder {
+            color: #006600;
+        }
+        
+        .areas-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 20, 0, 0.8);
+            border: 2px solid #00ff00;
+        }
+        
+        .areas-table th {
+            background: linear-gradient(135deg, #003300, #006600);
+            color: #00ff00;
+            padding: 15px 10px;
+            text-align: left;
+            border-bottom: 2px solid #00ff00;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .areas-table th:hover {
+            background: linear-gradient(135deg, #004400, #008800);
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        .areas-table th::after {
+            content: ' ⇅';
+            opacity: 0.5;
+        }
+        
+        .areas-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #003300;
+            color: #00dd00;
+        }
+        
+        .areas-table tr:hover {
+            background: rgba(0, 50, 0, 0.5);
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #003300;
+            border: 1px solid #00ff00;
+            border-radius: 3px;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        .level-newbie { border-color: #00ff00; color: #00ff00; }
+        .level-low { border-color: #88ff00; color: #88ff00; }
+        .level-mid { border-color: #ffff00; color: #ffff00; }
+        .level-high { border-color: #ff8800; color: #ff8800; }
+        .level-epic { border-color: #ff0000; color: #ff0000; }
+        .level-all { border-color: #00dddd; color: #00dddd; }
+        
+        .back-button {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .stats {
+            text-align: center;
+            margin: 20px 0;
+            color: #00dd00;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="glow">ELDORIA</h1>
+            <p class="subtitle">~ Area List ~</p>
+        </div>
+
+        <div class="back-button">
+            <a href="index.html" class="retro-button" style="text-decoration: none;">
+                ⬅️ Back to Home
+            </a>
+        </div>
+
+        <div class="content-box">
+            <h2>🗺️ Explore the World of Eldoria 🗺️</h2>
+            
+            <div class="stats">
+                <strong>Total Areas:</strong> <span id="totalAreas">81</span>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search areas by name, builder, or level..." onkeyup="filterAreas()">
+            </div>
+            
+            <table class="areas-table" id="areasTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Area Name</th>
+                        <th onclick="sortTable(1)">Level Range</th>
+                        <th onclick="sortTable(2)">VNUMs</th>
+                        <th onclick="sortTable(3)">Builders</th>
+                    </tr>
+                </thead>
+                <tbody id="areasBody">
+                    <tr>
+                        <td><strong>A Lightly Wooded Forest</strong></td>
+                        <td><span class="level-badge level-newbie">1-10</span></td>
+                        <td>100 199</td>
+                        <td>Nex Ashlynn</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day Care</strong></td>
+                        <td><span class="level-badge level-newbie">1-5</span></td>
+                        <td>6600 6699</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Machine Dreams</strong></td>
+                        <td><span class="level-badge level-newbie">1-5</span></td>
+                        <td>8600 8699</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>mud school</strong></td>
+                        <td><span class="level-badge level-newbie">1-5</span></td>
+                        <td>3700 3799</td>
+                        <td>Ponaka</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Old Thalos</strong></td>
+                        <td><span class="level-badge level-newbie">1-30</span></td>
+                        <td>5300 5399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plains</strong></td>
+                        <td><span class="level-badge level-newbie">1-20</span></td>
+                        <td>300 399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arachnos</strong></td>
+                        <td><span class="level-badge level-newbie">5-20</span></td>
+                        <td>6200 6399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dragon Tower</strong></td>
+                        <td><span class="level-badge level-newbie">5-30</span></td>
+                        <td>2200 2299</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elemental Canyon</strong></td>
+                        <td><span class="level-badge level-newbie">5-30</span></td>
+                        <td>9200 9299</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gangland</strong></td>
+                        <td><span class="level-badge level-newbie">5-15</span></td>
+                        <td>2100 2199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gnome Village</strong></td>
+                        <td><span class="level-badge level-newbie">5-15</span></td>
+                        <td>1500 1599</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Graveyard</strong></td>
+                        <td><span class="level-badge level-newbie">5-10</span></td>
+                        <td>3600 3699</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haon Dor</strong></td>
+                        <td><span class="level-badge level-newbie">5-10</span></td>
+                        <td>6000 6199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Holy Grove</strong></td>
+                        <td><span class="level-badge level-newbie">5-20</span></td>
+                        <td>8900 8999</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>In the Air</strong></td>
+                        <td><span class="level-badge level-newbie">5-10</span></td>
+                        <td>1000 1099</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mahn-Tor</strong></td>
+                        <td><span class="level-badge level-newbie">5-35</span></td>
+                        <td>2300 2399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mega City One</strong></td>
+                        <td><span class="level-badge level-newbie">5-35</span></td>
+                        <td>8000 8099</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Miden'nir</strong></td>
+                        <td><span class="level-badge level-newbie">5-15</span></td>
+                        <td>3500 3599</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mob Factory</strong></td>
+                        <td><span class="level-badge level-newbie">5-15</span></td>
+                        <td>9400 9499</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moria</strong></td>
+                        <td><span class="level-badge level-newbie">5-15</span></td>
+                        <td>3900 4199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Ofcol</strong></td>
+                        <td><span class="level-badge level-newbie">5-35</span></td>
+                        <td>600 699</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Olympus</strong></td>
+                        <td><span class="level-badge level-newbie">5-50</span></td>
+                        <td>900 999</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sewers</strong></td>
+                        <td><span class="level-badge level-newbie">5-30</span></td>
+                        <td>7000 7499</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shire</strong></td>
+                        <td><span class="level-badge level-newbie">5-35</span></td>
+                        <td>1100 1199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Valley of the Elves</strong></td>
+                        <td><span class="level-badge level-newbie">5-20</span></td>
+                        <td>7800 7899</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wyvern's Tower</strong></td>
+                        <td><span class="level-badge level-newbie">5-30</span></td>
+                        <td>1600 1799</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Astral Plane</strong></td>
+                        <td><span class="level-badge level-newbie">10-35</span></td>
+                        <td>7700 7799</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Catacombs</strong></td>
+                        <td><span class="level-badge level-newbie">10-20</span></td>
+                        <td>2000 2099</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dwarven Kingdom</strong></td>
+                        <td><span class="level-badge level-newbie">10-25</span></td>
+                        <td>6500 6599</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>High Tower</strong></td>
+                        <td><span class="level-badge level-newbie">10-30</span></td>
+                        <td>1300 1499</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Thalos</strong></td>
+                        <td><span class="level-badge level-newbie">10-35</span></td>
+                        <td>9500 9799</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sands of Sorrow</strong></td>
+                        <td><span class="level-badge level-newbie">10-20</span></td>
+                        <td>5000 5099</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thalos</strong></td>
+                        <td><span class="level-badge level-newbie">10-25</span></td>
+                        <td>5200 5299</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Troll Den</strong></td>
+                        <td><span class="level-badge level-newbie">10-15</span></td>
+                        <td>2800 2899</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chapel</strong></td>
+                        <td><span class="level-badge level-low">15-25</span></td>
+                        <td>3400 3499</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Drow City</strong></td>
+                        <td><span class="level-badge level-low">15-25</span></td>
+                        <td>5100 5199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dylan's Area</strong></td>
+                        <td><span class="level-badge level-low">15-25</span></td>
+                        <td>9100 9199</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marsh</strong></td>
+                        <td><span class="level-badge level-low">15-25</span></td>
+                        <td>8300 8399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Galaxy</strong></td>
+                        <td><span class="level-badge level-low">20-30</span></td>
+                        <td>9300 9399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Redferne's</strong></td>
+                        <td><span class="level-badge level-low">20-30</span></td>
+                        <td>7900 7999</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nirvana</strong></td>
+                        <td><span class="level-badge level-low">30-35</span></td>
+                        <td>9000 9099</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quifael's</strong></td>
+                        <td><span class="level-badge level-mid">31-35</span></td>
+                        <td>6900 6999</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hell</strong></td>
+                        <td><span class="level-badge level-mid">32-51</span></td>
+                        <td>10400 10599</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Valhalla</strong></td>
+                        <td><span class="level-badge level-mid">51-60</span></td>
+                        <td>1200 1299</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bridgewater</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5600 5800</td>
+                        <td>Khalandar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BW new player zone</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5801 5831</td>
+                        <td>Khalandar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Castle of Darkness</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>550 599</td>
+                        <td>Gretago</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Castle Titolus</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5400 5499</td>
+                        <td>Titos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ciel'en Mountains</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>4300 4450</td>
+                        <td>Heriik</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dragonkeep Dungeon</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>6400 6499</td>
+                        <td>Radeon</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Drykndra</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>1900 1999</td>
+                        <td>Khalandar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Eldoria World Maps</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>30000 30499</td>
+                        <td>Synon Davion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fairfield Forest</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>700 799</td>
+                        <td>Tielee</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gathrinburg Fortress</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>2700 2799</td>
+                        <td>Azzimoff</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hallawood</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>1800 1899</td>
+                        <td>Hallafang</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Haunted Tower</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>400 499</td>
+                        <td>Gigi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hills of Dessolation</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>2900 2999</td>
+                        <td>Dyril</td>
+                    </tr>
+                    <tr>
+                        <td><strong>house</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>20700 20800</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>House area</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>10600 12600</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Immortal Graveyard</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>7500 7524</td>
+                        <td>Gigi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kearns</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5600 5800</td>
+                        <td>Khalandar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Limbo</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>1 27</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mauraders hideout</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>800 899</td>
+                        <td>Jaydi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Midgaard</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>3000 3399</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New area</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5801 5831</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Newbie Stuffs</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>200 299</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ofcol</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>5500 5599</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pegasus Castle</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>9800 9849</td>
+                        <td>Sussagep</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pyramid</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>8700 8799</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sands Of Time</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>8800 8899</td>
+                        <td>Jade</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shadowcastle</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>2500 2599</td>
+                        <td>Cederic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>splynn</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>2400 2499</td>
+                        <td>Modeus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock Rom Dependancy</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>28 99</td>
+                        <td>Cederic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temple of Matrimony</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>500 549</td>
+                        <td>Gretago</td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Crypt Of No Return</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>2600 2699</td>
+                        <td>Terminus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Graveyard Of Lost Souls</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>6700 6824</td>
+                        <td>Gretago</td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Immortal Tower</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>3800 3899</td>
+                        <td>Gretago</td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Stone Ruins</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>4200 4299</td>
+                        <td>Kera</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Twylia</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>8100 8199</td>
+                        <td>Elinea</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unknown</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>N/A</td>
+                        <td>Unknown</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unknown</strong></td>
+                        <td><span class="level-badge level-all">All</span></td>
+                        <td>N/A</td>
+                        <td>Unknown</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>
+                Based on ROM 2.4b6 | ShadowStorm by Synon & Davion<br>
+                Built with ❤️ for the MUD community | Est. 2025
+            </p>
+        </div>
+    </div>
+
+    <canvas id="starfield"></canvas>
+
+    <script>
+        // Search/filter function
+        function filterAreas() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('areasTable');
+            const tbody = document.getElementById('areasBody');
+            const rows = tbody.getElementsByTagName('tr');
+            let visibleCount = 0;
+            
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const cells = row.getElementsByTagName('td');
+                let found = false;
+                
+                for (let j = 0; j < cells.length; j++) {
+                    const cell = cells[j];
+                    if (cell.textContent.toLowerCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (found) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+            
+            document.getElementById('totalAreas').textContent = visibleCount + ' / 81';
+        }
+        
+        // Sort table function
+        function sortTable(columnIndex) {
+            const table = document.getElementById('areasTable');
+            const tbody = document.getElementById('areasBody');
+            const rows = Array.from(tbody.getElementsByTagName('tr'));
+            
+            // Toggle sort direction
+            const currentDir = table.getAttribute('data-sort-dir') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            table.setAttribute('data-sort-dir', newDir);
+            
+            rows.sort((a, b) => {
+                let aValue = a.getElementsByTagName('td')[columnIndex].textContent.trim();
+                let bValue = b.getElementsByTagName('td')[columnIndex].textContent.trim();
+                
+                // Handle level ranges specially
+                if (columnIndex === 1) {
+                    const aMatch = aValue.match(/(\d+)/);
+                    const bMatch = bValue.match(/(\d+)/);
+                    if (aMatch && bMatch) {
+                        aValue = parseInt(aMatch[1]);
+                        bValue = parseInt(bMatch[1]);
+                    }
+                }
+                
+                if (typeof aValue === 'number' && typeof bValue === 'number') {
+                    return newDir === 'asc' ? aValue - bValue : bValue - aValue;
+                } else {
+                    if (newDir === 'asc') {
+                        return aValue.localeCompare(bValue);
+                    } else {
+                        return bValue.localeCompare(aValue);
+                    }
+                }
+            });
+            
+            // Rebuild tbody
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Starfield effect (reused from index.html)
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function drawStars() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'white';
+            stars.forEach(star => {
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+                star.y += star.speed;
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+            
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

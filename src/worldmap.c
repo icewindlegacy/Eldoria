@@ -64,9 +64,11 @@ WMAP_RESET_DATA     *wmap_reset_list[MAX_WMAP] = {NULL};
 
 WMAP_TYPE wmap_table[MAX_WMAP] = {
 //   MAP NAME       MAP PNG         MAP VNUM        X       Y       SIZE    WRAPPING
-    {"mapone",      "mapone.png",   WMAP_ONE,       500,    500,    16,     FALSE    },
-    {"maptwo",      "maptwo.png",   WMAP_TWO,       500,    500,    16,     TRUE     },
-    {"mapthree",    "mapthree.png", WMAP_THREE,     500,    500,    16,     TRUE     }
+    {"mapone",      "map1.png",     WMAP_ONE,       500,    500,    16,     TRUE     },
+    {"maptwo",      "map2.png",     WMAP_TWO,       500,    500,    16,     TRUE     },
+    {"mapthree",    "map3.png",     WMAP_THREE,     500,    500,    16,     TRUE     },
+    {"mapfour",     "map4.png",     WMAP_FOUR,      500,    500,    16,     TRUE     },
+    {"mapfive",     "map5.png",     WMAP_FIVE,      500,    500,    16,     TRUE     }
 };
 
 const struct sec_type sector_flags[SECT_MAX] = {
@@ -155,6 +157,13 @@ void do_wmap_show(CHAR_DATA *ch, char *argument)
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
     int width, height;
+    
+    if(!is_wmap(ch, NULL))
+    {
+        send_to_char("You must be on a worldmap to use this command.\r\n", ch);
+        return;
+    }
+    
     int x = ch->wmap[1];
     int y = ch->wmap[2];
 
@@ -231,13 +240,13 @@ void do_wmap_show(CHAR_DATA *ch, char *argument)
 
         if (row_count % 5 == 0)
         {
-            send_to_char(strip_recolor(buf), ch);  
+            send_to_char(buf, ch);  
             buf[0] = '\0';  
         }
     }
  
     if (buf[0] != '\0')
-        send_to_char(strip_recolor(buf), ch);
+        send_to_char(buf, ch);
 }
 
 //string copying utility
@@ -1733,7 +1742,7 @@ void draw_wmap(CHAR_DATA *ch, int wmap_index, int view_radius, bool full_view)
 
     // Display map rows with descriptions
     for (int i = 0; i < tcount; i++)
-        send_to_char(strip_recolor(wmap_rows[i]), ch);
+        send_to_char(wmap_rows[i], ch);
 
     // Display bottom border
     if(!dht)
@@ -3019,16 +3028,23 @@ void load_png(int wmap_index)
     char filepath[MAX_STRING_LENGTH];
     snprintf(filepath, sizeof(filepath), "%s%s", WMAP_DIR, wmap->filename);
 
+    sprintf(buf, "load_png: Attempting to load %s", filepath);
+    log_string(buf);
+
     unsigned char *image = NULL;
     unsigned width, height;
 
     unsigned error = lodepng_decode24_file(&image, &width, &height, filepath);
     if (error)
     {
-        sprintf(buf, "Error loading PNG: %s", lodepng_error_text(error));
+        sprintf(buf, "Error loading PNG %s: %s", filepath, lodepng_error_text(error));
         bug(buf, 0);
+        log_string(buf);
         return;
     }
+    
+    sprintf(buf, "load_png: Successfully loaded %s (%dx%d)", filepath, width, height);
+    log_string(buf);
 
     if (width != wmap->max_x || height != wmap->max_y)
     {
@@ -3082,22 +3098,25 @@ void load_png(int wmap_index)
             unsigned char g = image[index + 1];
             unsigned char b = image[index + 2];
 
-            // Determine the sector based on RGB values
-            int sec;
-            for (sec = 0; sec < SECT_MAX; sec++)
+            // Find closest matching sector by color distance
+            int best_sec = 0;
+            int best_dist = 999999;
+            
+            for (int sec = 0; sec < SECT_MAX; sec++)
             {
-                if (sector_flags[sec].red == r && sector_flags[sec].green == g && sector_flags[sec].blue == b)
+                int dr = sector_flags[sec].red - r;
+                int dg = sector_flags[sec].green - g;
+                int db = sector_flags[sec].blue - b;
+                int dist = dr*dr + dg*dg + db*db;  // Squared Euclidean distance
+                
+                if (dist < best_dist)
                 {
-                    wmap_table[wmap_index].grid[x][y] = sec;  // Store sector index as uint8_t
-                    break;
+                    best_dist = dist;
+                    best_sec = sec;
                 }
             }
-
-            if (sec == SECT_MAX)
-            {
-                sprintf(buf, "No matching sector found for pixel at (%d, %d) with color (R=%d, G=%d, B=%d)\n", x, y, r, g, b);
-                bug(buf, 0);
-            }
+            
+            wmap_table[wmap_index].grid[x][y] = best_sec;  // Store closest sector
         }
     }
 
@@ -3203,9 +3222,32 @@ int save_image(const char *filename, int wmap_index)
 void do_zoomwmap(CHAR_DATA *ch, char *argument)
 {
     int zoom;
-    if (!is_number(argument)) return;
+    
+    if(!is_wmap(ch, NULL))
+    {
+        send_to_char("You must be on a worldmap to use this command.\r\n", ch);
+        return;
+    }
+    
+    if (!is_number(argument))
+    {
+        send_to_char("Syntax: zoomwmap <zoom level>\r\n", ch);
+        return;
+    }
 
-    if ((zoom = atoi(argument)) < 1) return;
+    zoom = atoi(argument);
+    
+    if (zoom < 1)
+    {
+        send_to_char("Zoom level must be at least 1.\r\n", ch);
+        return;
+    }
+    
+    if (zoom > 50)
+    {
+        send_to_char("Maximum zoom level is 50 to prevent server strain.\r\n", ch);
+        return;
+    }
 
     int wmap_index = ch->wmap[0];
     int center_x = ch->wmap[1];
@@ -3238,8 +3280,18 @@ void do_zoomwmap(CHAR_DATA *ch, char *argument)
             {
                 for (int x = start_x; x < end_x; x++)
                 {
-                    int wrapped_x = (x + wmap_table[wmap_index].max_x) % wmap_table[wmap_index].max_x;
-                    int wrapped_y = (y + wmap_table[wmap_index].max_y) % wmap_table[wmap_index].max_y;
+                    // Proper wrapping that handles negative coordinates
+                    int wrapped_x = x % wmap_table[wmap_index].max_x;
+                    if (wrapped_x < 0) wrapped_x += wmap_table[wmap_index].max_x;
+                    
+                    int wrapped_y = y % wmap_table[wmap_index].max_y;
+                    if (wrapped_y < 0) wrapped_y += wmap_table[wmap_index].max_y;
+                    
+                    // Bounds check to prevent crashes
+                    if (wrapped_x < 0 || wrapped_x >= wmap_table[wmap_index].max_x ||
+                        wrapped_y < 0 || wrapped_y >= wmap_table[wmap_index].max_y ||
+                        wmap_table[wmap_index].grid == NULL)
+                        continue;
                     
                     // Access sector index directly (no need for WMAPTILE_DATA)
                     uint8_t sector_index = wmap_table[wmap_index].grid[wrapped_x][wrapped_y];
@@ -3326,7 +3378,7 @@ void do_zoomwmap(CHAR_DATA *ch, char *argument)
         *buf_ptr++ = '\n';
         *buf_ptr = '\0';
 
-        send_to_char(strip_recolor(buf), ch);
+        send_to_char(buf, ch);
     }
 
     // Bottom border

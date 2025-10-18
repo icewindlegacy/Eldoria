@@ -382,6 +382,7 @@ const struct olc_cmd_type oedit_table[] =
     {   "addspell",     oedit_addspell  },
     {   "commands",	show_commands	},
     {   "cost",		oedit_cost	},
+    {   "qcost",	oedit_qcost	},
     {   "create",	oedit_create	},
     {   "delaffect",	oedit_delaffect	},
     {   "ed",		oedit_ed	},
@@ -434,6 +435,7 @@ const struct olc_cmd_type medit_table[] =
     {   "long",		medit_long	},
     {   "name",		medit_name	},
     {   "shop",		medit_shop	},
+    {   "qshop",	medit_qshop	},
     {   "short",	medit_short	},
     {	"show",		medit_show	},
     {   "spec",		medit_spec	},
@@ -775,6 +777,15 @@ void oedit( CHAR_DATA *ch, char *argument )
     argument = one_argument( argument, command );
 
     EDIT_OBJ(ch, pObj);
+    
+    if ( !pObj )
+    {
+        bug( "oedit: pObj is NULL", 0 );
+        send_to_char( "Error: Not editing an object.\n\r", ch );
+        edit_done( ch );
+        return;
+    }
+    
     pArea = pObj->area;
 
     if ( !IS_BUILDER( ch, pArea ) )

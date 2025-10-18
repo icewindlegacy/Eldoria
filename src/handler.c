@@ -5045,6 +5045,40 @@ void affect_join_obj2 (OBJ_DATA * obj, AFFECT_DATA * paf)
     return;
 }
 
+/* Fallen Angels auto_quaff function - for drinking potions stored in containers */
+bool auto_quaff(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+   int i;
+
+    if ( obj->item_type != ITEM_POTION )
+    {
+        bug("auto_quaff invalid item type %d",obj->item_type );
+        return FALSE;
+    }
+
+    if (ch->level < obj->level)
+    {
+        send_to_char("This liquid is too powerful for you to drink.\n\r",ch);
+        return FALSE;
+    }
+
+    if ( ( IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)    )
+    ||   ( IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)    )
+    ||   ( IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch) ) )
+    {
+        act( "You are burned by the liquid and you spit it out.", ch, NULL, NULL, TO_CHAR );
+        act( "$n is burned by the liquid and spits it out.",  ch, NULL, NULL, TO_ROOM );
+        return FALSE;
+    }
+
+   for(i=1;( i < 4) && (ch != NULL ) && (ch->position > POS_DEAD);i++)
+     {
+       if( obj->value[i] != 0 )
+           obj_cast_spell(   obj->value[i],   obj->value[0], ch, ch, NULL );
+      }
+  extract_obj(obj);
+  return TRUE;
+}
 
 //worldmap.c
 void WAIT_STATE(CHAR_DATA *ch, int npulse)

@@ -1,0 +1,1086 @@
+{
+  "updated": "1760819194",
+  "helps": [
+    {
+      "id": 0,
+      "level": -1,
+      "keyword": "DIKU",
+      "text": ".                    Original game idea, concept, and design:<br><br>          Katja Nyboe               [Superwoman] (katz@freja.diku.dk)<br>          Tom Madsen              [Stormbringer] (noop@freja.diku.dk)<br>          Hans Henrik Staerfeldt           [God] (bombman@freja.diku.dk)<br>          Michael Seifert                 [Papi] (seifert@freja.diku.dk)<br>          Sebastian Hammer               [Quinn] (quinn@freja.diku.dk)<br><br><br>Developed at: DIKU -- The Department of Computer Science<br>                      at the University of Copenhagen.<br><br><br>"
+    },
+    {
+      "id": 1,
+      "level": -1,
+      "keyword": "GOLD SILVER MONEY",
+      "text": "Midgaard's economy is based on gold and silver coinage (and the lowly copper,<br>which you as an adventurer are far too proud to carry).  Gold coins are worth<br>100 silver coins, but are also four times as heavy (25 to the pound, as <br>opposed to 100 to the pound for silver). Gems can be bought to alleviate weight problems<br>from the Midgaard jeweller, he charges a mere 10% more than they are worth.<br>10 gems weigh one pound, and they can be worth more than 100 gold pieces for<br>the highest quality stones.<br>"
+    },
+    {
+      "id": 2,
+      "level": -1,
+      "keyword": "BANK",
+      "text": "Syntax: Account<br>\tSyntax: Deposit &lt;value&gt; gold|silver<br>\tSyntax: Withdraw &lt;value&gt; gold|silver<br>\tSyntax: Change &lt;value&gt;<br>\tSyntax: Share &lt;value&gt;<br>        Syntax: Btransfer &lt;player&gt; &lt;value&gt; gold|silver<br><br>For information on each transaction Type 'Deposit', 'Withdraw', 'Change', <br>'Share', 'Account' without an argument.<br><br>Ian McCormick (aka Gothar)<br>mcco0055@algonquinc.on.ca<br>"
+    },
+    {
+      "id": 3,
+      "level": -1,
+      "keyword": "REMORT MULTICLASS",
+      "text": "When you reach HERO level on Eldoria, you can continue to <br>gain hp, mana, trains, pracs, moves. Alternatively, you can choose<br>to be 'reborn' into another class. What basically happens is that <br>you add another class to your existing set of skills and spells and<br>restart at level 1. A player can now 'go around' the whole game several times. But, this will get harder each <br>time. If you choose to change races while remorting you will be that race<br>FOREVER, please be sure you want to change races.<br><br>There are many features to multiclass playing, but, the main ones <br>of note are:<br><br>* Most of your existing skills/spells are reset to 1%, when you reach<br>  the correct level, you can practice them again. In the meantime, you<br>  gain and practice skills/spells in the new class. Race skills are lost<br>  at remort regardless of class, and 100% in a skill stays at 100%. <br>* Gold, trivia points, quest points, gamestats ect. are kept.<br>* Quest items can be kept they are reset to your level.<br>* You can access the class channels for all the classes you have.<br>* Remorted chars will retain access to hero channel.<br>* Online time will remain untouched. <br>* Different high power skills are available to the number of times<br>  you have remorted.<br>* Remort chars receive bonuses to level restrictions on eq each remort.<br>* Remorts retain hero+ status thus feel less hunger/thirst.<br>* Second time round, exp per level is 2k, third time 3k and so on.<br>  You also 'begin' with many extra training and practice sessions.<br>* You get the lowest level of a skill/spell if two or more of your <br>  classes have that spell.<br>* When leveling you will get the highest gain of all classes.<br>* The same also applies to AC, you get the best Thac0 for each class.<br>* When increasing stats, you will get the primary stat (+2) bonus of<br>  all your classes. If you have two classes with the same primary <br>  stat, the bonus is only given once.<br>* When you gain a skill, if you have two classes with that skill and<br>  there are different CP costs, you will pay the lower.<br>* 'Who' and 'Group' will show a 1 letter abbreviation for your class<br>  and the total number of classes you have. 'whois' will show<br>  all of your classes.<br><br>To remort follow the following steps:<br><br>1. Make sure you're a HERO (Level 150 ).<br><br>2. Remove any eq and either donate/sac/auction it all or put some in a locker.<br><br>3. Go to the Healer in Midgaard (1 n from recall), type 'remort'<br>   and follow instructions, you will be re-guided through the ceration process.<br>   <br>Please take a few seconds to read very carefully the messages that the mud<br>gives you during the remort process. Unless caused by a bug, any mistakes <br>you make during remort will not be reversed by an imm. <br>"
+    },
+    {
+      "id": 4,
+      "level": 0,
+      "keyword": "BRIEF COMPACT",
+      "text": "Brief and compact help set your display options for the game. Typing brief<br>toggles on and off the showing of room descriptions when you move around<br>(considerably reducing the text to be processed), and typing compact <br>removes the extra blank line before your prompt.<br>"
+    },
+    {
+      "id": 5,
+      "level": 0,
+      "keyword": "QUEST QUESTS",
+      "text": "Certain characters in the game will allow you to go on quests to recover <br>an item or kill another mob. To go on a quest, you must be in the same <br>room with a quest master. When you successfully complete a quest, you will <br>receive a certain number of quest points. These points may be saved up and <br>used to buy incredible items from the quest master.<br><br>The QUEST command is used for information about your current quest, to <br>request a quest from a quest master, etc. Commands are as follows:<br><br>QUEST POINTS - Gives your current number of quest points. This command may <br>be used anywhere.<br><br>QUEST INFO - If you are on a quest, this will remind you who or what you <br>are after.<br><br>QUEST TIME - Gives the amount of time remaining on your current quest, or <br>the amount of time until you can request another quest. This command may <br>be used anywhere.<br><br>QUEST REQUEST - Petitions the quest master to send you on a quest. If you<br>accept the quest, you will be given a real time limit (in minutes) in <br>which you must complete the quest. If you are on a quest to kill a <br>creature, when you come across that creature you will see a <font color='#800000'>[<font color='#FF0000'>TARGET</font><font color='#800000'>]</font> notice before <br>it. This is the creature you are to kill.<br><br>QUEST COMPLETE - Once you have completed your quest and recovered the item <br>or killed the mob or whatever, you must return to the quest master who <br>sent you on the quest and use this command. If you have successfully completed <br>your quest, he will reward you with gold and quest points. Once you complete a <br>quest you cannot request another for 12 minutes.<br><br>QUEST LIST - Displays the list of fabulous items for sale by the quest master.<br>These items are not purchased via gold, they must be purchased with quest points.<br><br>QUEST BUY &lt;item&gt; - Purchases an item from the questmaster and deducts the cost<br>of the item from your quest points.<br><br>QUEST QUIT - Quits the current quest and sets your timer to 18.<br><br>QUEST SELL - Returns a quest item to the questor for 1/3 the price.<br> <br>QUEST REPLACE - Replaces an old or defunct quest item for 75 questpoints.<br><br>QUEST IDENTIFY - Identifies a quest object.<br>--------------------------------------------<br>Quest Code originnaly by Vassago of Moongate<br>--------------------------------------------<br>Modified Code by Markanth <br>Email : markanth@spaceservices.net<br>Devil's Lament : spaceservices.net port 3778<br>--------------------------------------------<br>"
+    },
+    {
+      "id": 6,
+      "level": 0,
+      "keyword": "TRIVIA TPSPEND",
+      "text": "Trivia Points can be used to purchase extras for your character that will <br>make<br>you the envy of all your friends.  Most of the features are automated with<br>the TPSPEND command, but some you still require immortal assistance for.<br>Type 'TPSPEND LIST' for a list of options.<br><br>IMPORTANT NOTES:<br>1) Transfers can be the keyword of a person/mob, obj, or the word &quot;recall&quot;.<br>2) Reimbursements for mistakes are generally not given unless for a good<br>   reason. BE CAREFULL with how you spend your TP.<br> <br>OTHER USES FOR TRIVIA POINTS:<br>-----------------------------<br>1TP  - Transfer from a no_recall room.<br>2TP  - Rename your character. (Price increases based on times used,<br>       this is intended for serious reasons only and is negotiable. <br>       With a REAL good reason, you will not be charged at all).<br>3TP  - Add a new social to the game, contact an immortal to do this.<br>5tp  - add a song to the jukebox, contact an immortal to do this.<br> <br>Note: You can obtain Trivia Points either by buying them from Questor, <br>at the cost of 100 Quest Points; as a rare bonus when you complete a <br>quest; or by answering a Trivia question on a game run by the Imms.<br>"
+    },
+    {
+      "id": 7,
+      "level": 0,
+      "keyword": "PETNAME",
+      "text": "This command allows you to rename your pets!  The syntax is really quite<br>simple, you have four options; [name|short|long|desc] and they work like<br>this.<br><br>examples:<br><br>  petname name dino  (renames your pet to &quot;dino&quot;)<br>  petname short a fierce, mottled mutt!<br>  petname long Dino, the stalwart companion of (your name) is here.<br><br>The &quot;desc&quot; command works just like it does for setting your own<br>description.  Use the same command syntax for this option. See &quot;help<br>description&quot; for more information on the &quot;petname desc&quot; option.     <br><br>A word about color<br>Dont try to put colors in your pets name! *boggle* It wont work, trust me.<br>However, colors work fine for any of the descriptions.<br><br>[Coded by Dark Harvest gary@dharvest.com]<br>"
+    },
+    {
+      "id": 8,
+      "level": -1,
+      "keyword": "RENT RENTAL",
+      "text": "Rental of rooms is possible via inns.  Look for these rooms throughout <br>the world.  By paying 10 gold pieces, you make the room 'PRIVATE' and <br>double your regeneration.  This also costs you 10 silver each additional <br>tick, Until you use the command 'CHECKOUT' in the rented room.<br><br>Rent code by Ryouga (ryouga@jessi.indstate.edu)<br>"
+    },
+    {
+      "id": 9,
+      "level": 0,
+      "keyword": "NICKNAMES",
+      "text": "Syntax:  nickname &lt;nickname&gt; &lt;real name&gt;  - add/replace a nickname<br>         nickname &lt;nickname&gt;              - delete a nickname<br>         nickname                         - show nicknames<br><br>The nickname command will allow you to create an alias for someone's name<br>which you may then use to interact with them.<br>Example:  &quot;nickname Bubba loser&quot;<br>This would allow you to use &quot;loser&quot; to send tells, or socials, or whatever to<br>Bubba.<br>"
+    },
+    {
+      "id": 10,
+      "level": -1,
+      "keyword": "DEAF",
+      "text": "The deaf toggle turns off incoming tells, helpfull if you are being bombarded<br>by messages from other players.  You can still use reply (see 'help reply') to<br>reply to people who were telling you before you went deaf, although you<br>cannot reply to a deaf person unless you or they are a diety (it's mostly <br>useful for sending a quick &quot;I'm being spammed so I went deaf&quot; message to<br>a person).<br>"
+    },
+    {
+      "id": 11,
+      "level": -1,
+      "keyword": "AFK",
+      "text": "Typing AFK puts your character in a tell-saving mode as follows: any tell<br>to you is stored in a special buffer, and can be seen later by typing<br>recall.  This is useful when you need to leave the mud for 5 or 10 minutes,<br>but don't want to miss tells.  AFK shows up in your prompt until it is<br>turned off.<br><br>Tells to link-dead players are stored in a similar fashion, and can also be<br>seen by typing replay (unless, of course, the character logs off before<br>reading them).<br>"
+    },
+    {
+      "id": 12,
+      "level": -1,
+      "keyword": "PROMPT",
+      "text": "<font color='#00FFFF'>o===========================================================================o<br>|                                                                           |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>prompt<font color='#00FFFF'>                                                            |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>prompt all<font color='#00FFFF'>                                                        |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>prompt &lt;%*&gt;<font color='#00FFFF'>                                                       |<br>|                                                                           |<br>| <font color='#0000FF'>PROMPT<font color='#008080'> with out an argument will turn your prompt on or off.<font color='#00FFFF'>              |<br>|                                                                           |<br>| <font color='#0000FF'>PROMPT<font color='#008080'> ALL will give you the standard &quot;&lt;hits mana moves&gt;&quot; prompt.<font color='#00FFFF'>         |<br>|                                                                           |<br>| <font color='#0000FF'>PROMPT &lt;%*&gt; <font color='#008080'>where the %* are the various variables you may set yourself.<font color='#00FFFF'>  |<br>|                                                                           |<br>|        <font color='#0000FF'>%h <font color='#008080'>:  Display your current hits<font color='#00FFFF'>                                    |<br>|        <font color='#0000FF'>%H <font color='#008080'>:  Display your maximum hits<font color='#00FFFF'>                                    |<br>|        <font color='#0000FF'>%m <font color='#008080'>:  Display your current mana<font color='#00FFFF'>                                    |<br>|        <font color='#0000FF'>%M <font color='#008080'>:  Display your maximum mana<font color='#00FFFF'>                                    |<br>|        <font color='#0000FF'>%v <font color='#008080'>:  Display your current moves<font color='#00FFFF'>                                   |<br>|        <font color='#0000FF'>%V <font color='#008080'>:  Display your maximum moves<font color='#00FFFF'>                                   |<br>|        <font color='#0000FF'>%x <font color='#008080'>:  Display your current experience<font color='#00FFFF'>                              |<br>|        <font color='#0000FF'>%X <font color='#008080'>:  Display experience to level <font color='#00FFFF'>                                 |<br>|        <font color='#0000FF'>%g <font color='#008080'>:  Display your gold held   <font color='#00FFFF'>                                    |<br>|        <font color='#0000FF'>%s <font color='#008080'>:  Display silver carried <font color='#00FFFF'>                                      |<br>|        <font color='#0000FF'>%a <font color='#008080'>:  Display your alignment<font color='#00FFFF'>                                       |<br>|        <font color='#0000FF'>%r <font color='#008080'>:  Display the room name you are in<font color='#00FFFF'>                             |<br>|        <font color='#0000FF'>%e <font color='#008080'>:  Display the exits from the room in NESWDU style <font color='#00FFFF'>             |<br>|        <font color='#0000FF'>%c <font color='#008080'>:  Display a carriage return (useful for multi-line prompts)<font color='#00FFFF'>    |<br>|        <font color='#0000FF'>%R <font color='#008080'>:  Display the vnum you are in (IMMORTAL ONLY) <font color='#00FFFF'>                 |<br>|        <font color='#0000FF'>%z <font color='#008080'>:  Display the area name you are in (IMMORTAL ONLY)<font color='#00FFFF'>             |<br><font color='#00FFFF'>|<font color='#0000FF'>        %B <font color='#008080'>:  Display the enemy's hitpoints in a percentage                <font color='#00FFFF'>|<br><font color='#00FFFF'>| <font color='#008080'>Example: <font color='#0000FF'> PROMPT &lt;%hhp %mm %vmv&gt;<font color='#00FFFF'>                                          |<br><font color='#00FFFF'>|<font color='#008080'>        Will set your prompt to &quot;<font color='#0000FF'>&lt;10hp 100m 100mv&gt;<font color='#008080'>&quot;<font color='#00FFFF'>                        |<br><font color='#00FFFF'>o===========================================================================o</font><br>"
+    },
+    {
+      "id": 13,
+      "level": -1,
+      "keyword": "SUMMARY",
+      "text": "<font color='#00FFFF'>o===========================================================================o<br>|                                                                           |<br>| <font color='#00FFFF'>MOVEMENT                                                                  |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>north<font color='#FF00FF'>] [<font color='#FFFFFF'>south<font color='#FF00FF'>] [<font color='#FFFFFF'>east<font color='#FF00FF'>] [<font color='#FFFFFF'>west<font color='#FF00FF'>]  [<font color='#FFFFFF'>up<font color='#FF00FF'>] [<font color='#FFFFFF'>down<font color='#FF00FF'>] [<font color='#FFFFFF'>exits<font color='#FF00FF'>] [<font color='#FFFFFF'>recall<font color='#FF00FF'>]<font color='#00FFFF'>               |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>sleep<font color='#FF00FF'>] [<font color='#FFFFFF'>wake<font color='#FF00FF'>]  [<font color='#FFFFFF'>rest<font color='#FF00FF'>] [<font color='#FFFFFF'>stand<font color='#FF00FF'>]                          <font color='#00FFFF'>                  |<br>|                                                                           |<br>| <font color='#00FFFF'>GROUP                                                                     |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>follow<font color='#FF00FF'>] [<font color='#FFFFFF'>group<font color='#FF00FF'>] [<font color='#FFFFFF'>gtell<font color='#FF00FF'>] [<font color='#FFFFFF'>split<font color='#FF00FF'>]                         <font color='#00FFFF'>                 |<br>|                                                                           |<br>| <font color='#00FFFF'>OBJECTS                                                                   |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>sacrifice<font color='#FF00FF'>] [<font color='#FFFFFF'>brandish<font color='#FF00FF'>] [<font color='#FFFFFF'>inventory<font color='#FF00FF'>] [<font color='#FFFFFF'>equipment<font color='#FF00FF'>] [<font color='#FFFFFF'>compare<font color='#FF00FF'>] [<font color='#FFFFFF'>drink<font color='#FF00FF'>]     <font color='#00FFFF'>     |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>unlock<font color='#FF00FF'>]    [<font color='#FFFFFF'>wield<font color='#FF00FF'>]    [<font color='#FFFFFF'>recite<font color='#FF00FF'>]    [<font color='#FFFFFF'>value<font color='#FF00FF'>]     [<font color='#FFFFFF'>quaff<font color='#FF00FF'>]   [<font color='#FFFFFF'>close<font color='#FF00FF'>]   <font color='#00FFFF'>       |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>lock<font color='#FF00FF'>]      [<font color='#FFFFFF'>hold<font color='#FF00FF'>]     [<font color='#FFFFFF'>wear<font color='#FF00FF'>]      [<font color='#FFFFFF'>drop<font color='#FF00FF'>]      [<font color='#FFFFFF'>open<font color='#FF00FF'>]    [<font color='#FFFFFF'>pick<font color='#FF00FF'>]  <font color='#00FFFF'>         |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>look<font color='#FF00FF'>]      [<font color='#FFFFFF'>give<font color='#FF00FF'>]     [<font color='#FFFFFF'>fill<font color='#FF00FF'>]      [<font color='#FFFFFF'>sell<font color='#FF00FF'>]      [<font color='#FFFFFF'>list<font color='#FF00FF'>]    [<font color='#FFFFFF'>buy<font color='#FF00FF'>] <font color='#00FFFF'>           |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>get<font color='#FF00FF'>]       [<font color='#FFFFFF'>put<font color='#FF00FF'>]      [<font color='#FFFFFF'>eat<font color='#FF00FF'>]       [<font color='#FFFFFF'>zap<font color='#FF00FF'>]                 <font color='#00FFFF'>                 |<br>|                                                                           |<br>| <font color='#00FFFF'>INFORMATION <font color='#FF00FF'>/<font color='#00FFFF'> COMMUNICATION                                               |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>commands<font color='#FF00FF'>] [<font color='#FFFFFF'>weather<font color='#FF00FF'>] [<font color='#FFFFFF'>password<font color='#FF00FF'>] [<font color='#FFFFFF'>gossip<font color='#FF00FF'>] [<font color='#FFFFFF'>cgossip<font color='#FF00FF'>] [<font color='#FFFFFF'>description<font color='#FF00FF'>]<font color='#00FFFF'>          |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>credits<font color='#FF00FF'>]  [<font color='#FFFFFF'>report<font color='#FF00FF'>]  [<font color='#FFFFFF'>where<font color='#FF00FF'>]    [<font color='#FFFFFF'>score<font color='#FF00FF'>]  [<font color='#FFFFFF'>areas<font color='#FF00FF'>]   [<font color='#FFFFFF'>shout<font color='#FF00FF'>]  <font color='#00FFFF'>              |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>emote<font color='#FF00FF'>]    [<font color='#FFFFFF'>help<font color='#FF00FF'>]    [<font color='#FFFFFF'>time<font color='#FF00FF'>]     [<font color='#FFFFFF'>title<font color='#FF00FF'>]  [<font color='#FFFFFF'>typo<font color='#FF00FF'>]    [<font color='#FFFFFF'>yell<font color='#FF00FF'>] <font color='#00FFFF'>                |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>tell<font color='#FF00FF'>]     [<font color='#FFFFFF'>idea<font color='#FF00FF'>]    [<font color='#FFFFFF'>pose<font color='#FF00FF'>]     [<font color='#FFFFFF'>note<font color='#FF00FF'>]   [<font color='#FFFFFF'>who<font color='#FF00FF'>]     [<font color='#FFFFFF'>bug<font color='#FF00FF'>]<font color='#00FFFF'>                  |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>say<font color='#FF00FF'>]                                                                     <font color='#00FFFF'>|<br>|                                                                           |<br>| <font color='#00FFFF'>COMBAT                                                                    |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>backstab<font color='#FF00FF'>] [<font color='#FFFFFF'>rescue<font color='#FF00FF'>] [<font color='#FFFFFF'>disarm<font color='#FF00FF'>] [<font color='#FFFFFF'>wimpy<font color='#FF00FF'>] [<font color='#FFFFFF'>flee<font color='#FF00FF'>] [<font color='#FFFFFF'>kill<font color='#FF00FF'>] [<font color='#FFFFFF'>kick<font color='#FF00FF'>] [<font color='#FFFFFF'>cast<font color='#FF00FF'>]          <font color='#00FFFF'>|<br>|                                                                           |<br>| <font color='#00FFFF'>OTHER                                                                     |<br>| <font color='#FF00FF'>[<font color='#FFFFFF'>practice<font color='#FF00FF'>] [<font color='#FFFFFF'>train<font color='#FF00FF'>] [<font color='#FFFFFF'>save<font color='#FF00FF'>] [<font color='#FFFFFF'>quit<font color='#FF00FF'>]<font color='#00FFFF'>                                          |<br>|                                                                           |<br>| <font color='#00FFFF'>For more help, type <font color='#FF00FF'>'<font color='#FFFFFF'>help<font color='#FF00FF'> &lt;<font color='#FFFFFF'>topic<font color='#FF00FF'>&gt;'<font color='#00FFFF'> for any command, skill, or spell. <font color='#00FFFF'>     |<br>| <font color='#00FFFF'>Also help on<font color='#FF00FF'>: <font color='#FFFFFF'>DAMAGE DEATH EXPERIENCE NEWS STORY TICK WIZLIST<font color='#00FFFF'>             |<br>|                                                                           |<br>o===========================================================================o<br>"
+    },
+    {
+      "id": 14,
+      "level": 0,
+      "keyword": "DEATH",
+      "text": "When your character dies, you are reincarnated back at the Altar of the Temple<br>of Midgaard.  Your corpse is left behind in the room where you were killed,<br>together with all of your equipment.<br><br>Any spells which were affecting you are canceled by death.<br><br>Following and groups are not affected by death.<br><br>You lose experience points for dying.  The amount you lose is two-thirds of <br>the way back to the beginning of your level.<br><br>Corpses decay after time, and the objects inside corpses decay with them.<br>Player corpses last *roughly* 30 hours of game time (15 minutes of real time).<br>Only the player who died, or someone in the same group, can retrieve objects<br>from a player's corpse.<br><br>"
+    },
+    {
+      "id": 15,
+      "level": 0,
+      "keyword": "SURRENDER",
+      "text": "Syntax: surrender<br><br>When you're fighting, you may choose to SURRENDER your opponent. If you<br>surrender, you will cease fighting. Your opponent may ignore your action<br>(receiving one free attack) or react in some other way depending on the<br>situation. Fighting may always be resumed via kill command.<br>See also: KILL<br>"
+    },
+    {
+      "id": 16,
+      "level": 0,
+      "keyword": "EXPERIENCE LEVEL XP",
+      "text": "Your character advances in power by gaining experience.  You need a set <br>amount of experience points for each level based on your creation points.<br><br>You gain experience by:<br><br>    being part of a group that kills a monster<br><br>You lose experience by:<br><br>    fleeing from combat<br>    recalling out of combat<br>    being the target of certain spells<br>    dying<br><br>The experience you get from a kill depends on several things: how many players<br>are in your group; your level versus the level of the monster; your alignment<br>versus the monster's alignment; how many of this monster have been killed<br>lately; and some random variation.<br>"
+    },
+    {
+      "id": 17,
+      "level": 0,
+      "keyword": "PET PETS",
+      "text": "You can buy pets in the pet shop.  You may own only one pet at a time, after <br>the old one dies you may purchase a replacement.<br><br>New pets are planned for a shop in New Thalos.<br>"
+    },
+    {
+      "id": 18,
+      "level": 0,
+      "keyword": "TICK",
+      "text": "Many of the game actions are based upon interval timers, including combat,<br>most autonomous monster actions, hp/mana/move regeneration, spell duration,<br>weather, and area resetting.<br><br>Of these timers, the hp/mana/move regeneration timer is popularly called the<br>'tick'.  Ticks on this mud average 30 seconds of real time, but the actual<br>amount varies randomly from 15 seconds to 45 seconds.<br><br>Area resetting happens roughly every 3 minutes if no one is in the area; less<br>often (15 minutes) if some one is.  Also note that objects lying on the ground<br>will not be regenerated if anyone is in the area when it resets.<br>"
+    },
+    {
+      "id": 19,
+      "level": 0,
+      "keyword": "!",
+      "text": "Syntax: !<br><br>! repeats the last command you typed.<br>"
+    },
+    {
+      "id": 20,
+      "level": 0,
+      "keyword": "NORTH SOUTH EAST WEST UP DOWN",
+      "text": "Syntax: north<br>Syntax: south<br>Syntax: east<br>Syntax: west<br>Syntax: up<br>Syntax: down<br><br>Use these commands to walk in a particular direction.<br>"
+    },
+    {
+      "id": 21,
+      "level": 0,
+      "keyword": "CAST",
+      "text": "Syntax: cast &lt;spell&gt; &lt;target&gt;<br><br>Before you can cast a spell, you have to practice it.  The more you practice,<br>the higher chance you have of success when casting.  Casting spells costs mana.<br>The mana cost decreases as your level increases.<br><br>The &lt;target&gt; is optional.  Many spells which need targets will use an<br>appropriate default target, especially during combat.<br><br>If the spell name is more than one word, then you must quote the spell name.<br>Example: cast 'cure critic' frag.  Quoting is optional for single-word spells.<br>You can abbreviate the spell name.<br><br>When you cast an offensive spell, the victim usually gets a saving throw.<br>The effect of the spell is reduced or eliminated if the victim makes the<br>saving throw successfully.<br><br>See also the help sections for individual spells.<br>NOTE: Any spell with more than one word in the name must be enclosed in single quotes (').<br>"
+    },
+    {
+      "id": 22,
+      "level": 0,
+      "keyword": "EXITS",
+      "text": "Syntax: exits<br><br>Tells you the visible exits of the room you are in.  Not all exits are visible.<br>You can use the 'bump' technique to find hidden exits.  (Try to walk in a<br>certain direction and see what you bump into).<br>"
+    },
+    {
+      "id": 23,
+      "level": 0,
+      "keyword": "DROP GET GIVE PUT TAKE",
+      "text": "Syntax: drop &lt;object&gt;<br>Syntax: drop &lt;amount&gt; coins<br>Syntax: get  &lt;object&gt;<br>Syntax: get  &lt;object&gt; &lt;container&gt;<br>Syntax: give &lt;object&gt; &lt;character&gt;<br>Syntax: give &lt;amount&gt; coins &lt;character&gt;<br>Syntax: put  &lt;object&gt; &lt;container&gt;<br><br>DROP drops an object, or some coins, on the ground.<br><br>GET gets an object, either lying on the ground, or from a container, or even<br>from a corpse.  TAKE is a synonym for get.<br><br>GIVE gives an object, or some coins, to another character.<br><br>PUT puts an object into a container.<br><br>DROP, GET and PUT understand the object names 'ALL' for all objects and<br>'ALL.object' for all objects with the same name.<br>"
+    },
+    {
+      "id": 24,
+      "level": 0,
+      "keyword": "EQUIPMENT INVENTORY",
+      "text": "Syntax: equipment<br>Syntax: inventory<br><br>EQUIPMENT lists your equipment (armor, weapons, and held items).<br>INVENTORY lists your inventory.<br>"
+    },
+    {
+      "id": 25,
+      "level": 0,
+      "keyword": "COMPARE",
+      "text": "Syntax: compare &lt;object-1&gt; &lt;object-2&gt;<br>Syntax: compare &lt;object&gt;<br> <br>COMPARE compares two objects in your inventory.  If both objects are weapons,<br>it will report the one with the better average damage.  If both objects are<br>armor, it will report the one with the better armor class.<br> <br>COMPARE with one argument compares an object in your inventory to the object<br>you are currently wearing or wielding of the same type.<br> <br>COMPARE doesn't consider any special modifiers of the objects.<br>"
+    },
+    {
+      "id": 26,
+      "level": 0,
+      "keyword": "FLEE",
+      "text": "Syntax: flee<br>Syntax: rescue   &lt;character&gt;<br><br>Once you start a fight, you can't just walk away from it.  If the fight<br>is not going well, you can attempt to FLEE, or another character can<br>RESCUE you.  (You can also RECALL, but this is less likely to work,<br>and costs more experience points, then fleeing).<br><br>If you lose your link during a fight, then your character will keep<br>fighting, and will attempt to RECALL from time to time.  Your chances<br>of making the recall are reduced, and you will lose much more experience.<br>"
+    },
+    {
+      "id": 27,
+      "level": 0,
+      "keyword": "EXAMINE LOOK",
+      "text": "Syntax: look<br>Syntax: look    &lt;object&gt;<br>Syntax: look    &lt;character&gt;<br>Syntax: look    &lt;direction&gt;<br>Syntax: look    &lt;keyword&gt;<br>Syntax: look in &lt;container&gt;<br>Syntax: look in &lt;corpse&gt;<br>Syntax: examine &lt;container&gt;<br>Syntax: examine &lt;corpse&gt;<br><br>LOOK looks at something and sees what you can see.<br><br>EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.<br>"
+    },
+    {
+      "id": 28,
+      "level": 0,
+      "keyword": "ORDER",
+      "text": "Syntax: order &lt;character&gt; command<br>Syntax: order all command<br><br>ORDER orders one or all of your charmed followers (including pets) to<br>perform any command.  The command may have arguments.  You are responsible<br>for the actions of your followers, and others who attack your followers<br>will incur the same penalty as if they attacked you directly.<br><br>Most charmed creatures lose their aggresive nature (while charmed).<br><br>If your charmed creature engages in combat, that will break the charm.<br>"
+    },
+    {
+      "id": 29,
+      "level": 0,
+      "keyword": "REST SLEEP STAND WAKE",
+      "text": "Syntax: rest<br>Syntax: sleep<br>Syntax: stand<br>Syntax: wake<br><br>These commands change your position.  When you REST or SLEEP, you <br>regenerate hit points, mana points, and movement points faster.<br>However, you are more vulnerable to attack, and if you SLEEP,<br>you won't hear many things happen.<br><br>Use STAND or WAKE to come back to a standing position.  You can<br>also WAKE other sleeping characters.<br>"
+    },
+    {
+      "id": 30,
+      "level": 0,
+      "keyword": "GTELL ; REPLY SAY TELL",
+      "text": "Syntax: gtell &lt;message&gt;<br>Syntax: say   &lt;message&gt;<br>Syntax: tell  &lt;character&gt; &lt;message&gt;<br><br>All of these commands send messages to other players.  GTELL sends a message to<br>all of the characters in your group, wherever they are, even if they are<br>sleeping or stunned or dying.  ';' is a synonym for GTELL.<br><br>SAY sends a message to all awake players in your room.  The single quote '''<br>is a synonym for SAY.<br><br>TELL sends a message to one awake player anywhere in the world.<br><br>REPLY sends a message to the last player who sent you a TELL.  REPLY will work<br>even if you can't see the player, and without revealing their identity.  This<br>is handy for talking to invisible or switched immortal players.<br>"
+    },
+    {
+      "id": 31,
+      "level": 0,
+      "keyword": "NOTE 'NOTE WRITE' 'NOTE READ' BOARD 'NOTE SYSTEM' BOARDS",
+      "text": "Syntax:<br><br>board [number|name]                     Shows or changes board.<br>note                                    Reads next note.<br>note read [number]                      Reads a certain note.<br>note remove &lt;number&gt;                    Removes a note written by you.<br>note list [number]                      Shows up to number notes.<br>note write                              Posts a note.<br>note catchup                            Marks all notes in this board <br>read.<br><br>These commands are used for the new note system. Instead of just one <br>board, there are several, each with its special purpose. <br><br>Changing between the boards is accomplished using the BOARD command. BOARD<br>without any arguments gives you a list of all boards together with number <br>of unread message. To change, type BOARD &lt;number&gt; or BOARD &lt;name of the board&gt;.<br><br>To read next unread note, type NOTE. To read a note with a specified <br>number, type NOTE READ &lt;number&gt;. Typing NOTE while in a board with no <br>unread notes shifts you to the next board. Note that unlike the standard <br>note system, a note has the same number in NOTE LIST and NOTE READ.<br><br>Posting a message is as simple as writing NOTE WRITE. You will be moved <br>into interactive mode, where all you see are prompts for the fields like <br>To:, From: etc. You will be automatically put AFK while writing a note.<br><br>To see the list of the notes in the current board, type NOTE LIST. Typing<br>NOTE LIST &lt;number&gt; will list only &lt;number&gt; of the last notes in the area.<br><br>You can remove your own note by using NOTE REMOVE &lt;number&gt;. Implementors <br>may remove other people's notes. Implementors can also select how many <br>days their note is kept before being purged. Purging happens automatically <br>at bootup. Purged notes are not deleted, but saved into a file.<br>To let only immortals see your note, address it to &quot;imm&quot;. To let players <br>of a specific level and above, address it to that level (no other <br>recipients may appear in that case).<br><br>This board system was created by Erwin S. Andreasen, erwin@andreasen.org, aka<br>Phunk/Drylock and is freely available. The general outlook was based on<br>Mystic Adventure's note system (mud.gel.ulaval.ca 4000).<br>"
+    },
+    {
+      "id": 32,
+      "level": 0,
+      "keyword": "GOSSIP CGOSSIP . SHOUT YELL",
+      "text": "Syntax: gossip  &lt;message&gt;<br>Syntax: cgossip &lt;message&gt;<br>Syntax: shout   &lt;message&gt;<br>Syntax: yell    &lt;message&gt;<br><br>SHOUT sends a message to all awake players in the world.  To curb excessive<br>shouting, SHOUT imposes a three-second delay on the shouter.<br><br>GOSSIP and CGOSSIP are variants of SHOUT (without the delay).  '.' is a <br>synonym for GOSSIP.<br><br>YELL sends a message to all awake players within your area.<br><br>Type a channel name by itself to turn it off.<br>"
+    },
+    {
+      "id": 33,
+      "level": 0,
+      "keyword": "EMOTE PMOTE POSE SOCIAL",
+      "text": "Syntax: emote &lt;action&gt;<br>Syntax: pose<br><br>EMOTE is used to express emotions or actions.  Besides EMOTE, there are<br>several dozen built-in social commands, such as CACKLE, HUG, and THANK<br>(type socials or help socials for a listing).<br><br>PMOTE is similar to emote, but will substitute you and your for a target's<br>name (i.e. pmote bonks Alander will be read as bonks you by Alander, and<br>as bonks Alander by everyone else).<br><br>POSE produces a random message depending on your class and level.<br>"
+    },
+    {
+      "id": 34,
+      "level": 0,
+      "keyword": "COLOUR COLOR ANSI COLORS",
+      "text": "<font color='#008080'>o------------------------------------------------------------------o<br><font color='#008080'>|<font color='#00FFFF'> Syntax: color    Toggles color mode on/off                       <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>                                                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'> You may also talk in color; the format is like this:             <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>  the 'escape character' to specify a colour is the left          <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>  handed brace '{', following that you should use one             <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>  of the following letters,                                       <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>                                                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#800000'>  {r     Red         {R     Red                                   <font color='#008080'>|<br><font color='#008080'>|<font color='#008080'>  {c     Cyan        {C     Cyan                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#008000'>  {g     green       {G     Green                                 <font color='#008080'>|<br><font color='#008080'>|<font color='#808000'>  {y     yellow      {Y     Yellow                                <font color='#008080'>|<br><font color='#008080'>|<font color='#000080'>  {b     blue        {B     Blue                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#C0C0C0'>  {w     white       {W     Off-White                             <font color='#008080'>|<br><font color='#008080'>|<font color='#800080'>  {m     magenta     {M     Magenta                               <font color='#008080'>|<br><font color='#008080'>|  {D     Grey        {x     clear(reset color)                    <font color='#008080'>|<br><font color='#008080'>|  {{     { char   {*     beep                                     <font color='#008080'>|<br><font color='#008080'>|  {/     newline                                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>                                                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>  When using colour, it looks better if you finish the line with  <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>   whatever colour it would normally be in, such as a gossip,     <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>   the colour is magenta, so:                                     <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>        Lope gossips 'hello, world'                               <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>   looks better than:                                             <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>        Lope gossips 'hello, world'                               <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>                                                                  <font color='#008080'>|<br><font color='#008080'>|<font color='#00FFFF'>        ColoUr is written by Lope (ant@solace.mh.se)              <font color='#008080'>|<br><font color='#008080'>o------------------------------------------------------------------o<br>"
+    },
+    {
+      "id": 35,
+      "level": 0,
+      "keyword": "COLOUR2 COLOR2 ANSI2",
+      "text": "<font color='#008080'>o-------------------------------------------------------------------------o</font><br><font color='#008080'>|<font color='#00FFFF'>Syntax: colour &lt;field&gt; &lt;colour&gt;                                          <font color='#008080'>|</font><br><font color='#008080'>|                                                                         |</font><br><font color='#008080'>|<font color='#00FFFF'>  You may configure your colour setting for personal preference.         <font color='#008080'>|</font><br><font color='#008080'>|<font color='#00FFFF'>    Current setting are indicated by colour.                             <font color='#008080'>|</font><br><font color='#008080'>|                                                                         <font color='#008080'>|</font><br><font color='#008080'>|<font color='#00FFFF'>  fields are:                                                            <font color='#008080'>|</font><br><font color='#008080'>|    text auction gossip music question answer class_text                 <font color='#008080'>|</font><br><font color='#008080'>|    answer class_text class_name immtalk_text                            <font color='#008080'>|</font><br><font color='#008080'>| immtalk_type                                                            <font color='#008080'>|</font><br><font color='#008080'>|    info tell reply gtell_text gtell_type wiznet room_title              <font color='#008080'>|</font><br><font color='#008080'>|    room_text room_exits                                                 <font color='#008080'>|</font><br><font color='#008080'>| room_things                                                             <font color='#008080'>|</font><br><font color='#008080'>|    prompt fight_death fight_yhit fight_ohit fight_thit                  <font color='#008080'>|</font><br><font color='#008080'>|    fight_skill</font>                                                          <font color='#008080'>|</font><br><font color='#008080'>|<font color='#00FFFF'>colours are: ( Hi- )                                                     <font color='#008080'>|</font><br><font color='#008080'>| <font color='#800000'>red <font color='#008000'>green <font color='#000080'>blue <font color='#808000'>yellow <font color='#800080'>magenta <font color='#008080'>cyan <font color='#C0C0C0'>white</font>                                <font color='#008080'>|</font><br><font color='#008080'>|                                                                         <font color='#008080'>|</font><br><font color='#008080'>|<font color='#00FFFF'>eg. to make the gossip channel red type 'colour gossip red'              <font color='#008080'>|</font><br><font color='#008080'>|<font color='#008080'>  to make your hits in fights magenta type 'colour fight_yhit magenta'   <font color='#008080'>|</font><br><font color='#008080'>o-------------------------------------------------------------------------o</font><br>"
+    },
+    {
+      "id": 36,
+      "level": 0,
+      "keyword": "HOLD REMOVE WEAR WIELD",
+      "text": "Syntax: hold   &lt;object&gt;<br>Syntax: remove &lt;object&gt;<br>Syntax: wear   &lt;object&gt;<br>Syntax: wear   all<br>Syntax: wield  &lt;object&gt;<br><br>Three of these commands will take an object from your inventory and start using<br>it as equipment.  HOLD is for light sources, wands, and staves.  WEAR is for<br>armor.  WIELD is for weapons.<br><br>WEAR ALL will attempt to HOLD, WEAR, or WIELD each suitable item in your<br>inventory.<br><br>You may not be able to HOLD, WEAR, or WIELD an item if its alignment does not<br>match yours, if it is too heavy for you, or if you are not experienced enough<br>to use it properly.<br><br>REMOVE will take any object from your equipment and put it back into your<br>inventory.<br>"
+    },
+    {
+      "id": 37,
+      "level": 0,
+      "keyword": "BUG TYPO",
+      "text": "Syntax: bug &lt;message&gt;<br>Syntax: idea &lt;message&gt;<br>Syntax: typo &lt;message&gt;<br><br>These commands will take your message and record it into a file as feedback<br>to the mud implementors.<br>"
+    },
+    {
+      "id": 38,
+      "level": 0,
+      "keyword": "CREDITS",
+      "text": "Syntax: credits<br><br>This command shows the list of the original Diku Mud implementors.<br>"
+    },
+    {
+      "id": 39,
+      "level": 0,
+      "keyword": "AREAS COMMANDS REPORT SCORE TIME",
+      "text": "Syntax: areas<br>Syntax: commands<br>Syntax: report<br>Syntax: score<br>Syntax: time<br>Syntax: weather<br><br>AREAS shows you a list of areas in the game.<br><br>COMMANDS shows you all the commands in the game.<br><br>REPORT shows your current statistics to you and also announces them to other<br>players in the room.  SCORE shows much more detailed statistics to you only.<br>Your ability scores are shown as true value(current value), so for example<br>Str: 15(23) means you have a 15 strength from training, but a 23 strength<br>from other factors (spells or items).<br><br>TIME shows the game time, as well as the time the mud was last started,<br>and the current local time for the host computer.<br><br>WEATHER shows the current game weather.<br>"
+    },
+    {
+      "id": 40,
+      "level": -1,
+      "keyword": "WHO",
+      "text": "Syntax: who<br>Syntax: who &lt;level-range&gt;<br>Syntax: who &lt;class or race&gt;<br>Syntax: who &lt;clan name&gt;<br>Syntax: who &lt;class or race&gt; &lt;level-range&gt; &lt;clan name&gt;<br><br>WHO shows the people currently in the game.  Some people may choose to<br>remain unseen and won't appear on the WHO<br> <br>WHO without any arguments shows all of the (visible) people currently playing.<br><br>With arguments, WHO can show players of certain classes or levels.<br>For example:<br> <br>who 10          lists all players of level 10 or above<br>who 15 20       lists all players between level 15 and 20<br>who cleric      lists all clerics playing<br>who immortal    lists all immortals playing<br>who cleric 1 5  lists all clerics between levels 1 and 5<br>who elf cleric  lists all elven clerics<br>who demise e m  lists all elven mages in Demise (hi Alander!)<br><br>Classes and races may be abbreviated.<br>"
+    },
+    {
+      "id": 41,
+      "level": -1,
+      "keyword": "WHOIS",
+      "text": "Syntax: whois &lt;name&gt;<br>The whois command identifies any user who matches the name given. For<br>example, 'whois a' shows all characters whose name begins with A.<br>"
+    },
+    {
+      "id": 42,
+      "level": 0,
+      "keyword": "WHERE",
+      "text": "Syntax: where<br>Syntax: where &lt;character&gt;<br><br>WHERE without an argument tells you the location of visible players in the same<br>area as you are.<br><br>WHERE with an argument tells you the location of one character with that name<br>within your area, including monsters.<br>"
+    },
+    {
+      "id": 43,
+      "level": 0,
+      "keyword": "HELP",
+      "text": "Syntax: help<br>Syntax: help &lt;keyword&gt;<br><br>HELP without any arguments shows a one-page command summary.<br><br>HELP &lt;keyword&gt; shows a page of help on that keyword.  The keywords include<br>all the commands, spells, and skills listed in the game.<br>"
+    },
+    {
+      "id": 44,
+      "level": 0,
+      "keyword": "DESCRIPTION DESC",
+      "text": "Syntax: description &lt;string&gt;<br>Syntax: description + &lt;string&gt;<br>Syntax: description - <br><br>Sets your long description to the given string.  If the description string<br>starts with a '+', the part after the '+' is appended to your current<br>description, so that you can make multi-line descriptions. You can delete<br>lines by uses description -.<br>"
+    },
+    {
+      "id": 45,
+      "level": 0,
+      "keyword": "PASSWORD",
+      "text": "Syntax: password &lt;old-password&gt; &lt;new-password&gt;<br><br>PASSWORD changes your character's password.  The first argument must be<br>your old password.  The second argument is your new password.<br><br>The PASSWORD command is protected against being snooped or logged.<br>"
+    },
+    {
+      "id": 46,
+      "level": 0,
+      "keyword": "TITLE",
+      "text": "Syntax: title &lt;string&gt;<br><br>Sets your title to a given string.<br><br>The game supplies a title when your character is created and when you<br>advance a level.  You can use TITLE to set your title to something else.<br>"
+    },
+    {
+      "id": 47,
+      "level": 0,
+      "keyword": "WIMPY",
+      "text": "Syntax: wimpy<br>Syntax: wimpy &lt;number&gt;<br><br>WIMPY sets your wimpy value.  When your character takes damage that reduces<br>your hit points below your wimpy value, you will automatically attempt to flee.<br>You will only flee if your character is not in a wait state -- i.e. has not<br>been using combat commands like cast, trip and bash, and has not been<br>tripped or bash by an enemy.<br><br>WIMPY with no argument sets your wimpy value to 20% of your maximum hit points.<br><br>Some monsters are wimpy.<br>"
+    },
+    {
+      "id": 48,
+      "level": 0,
+      "keyword": "OPEN CLOSE LOCK UNLOCK PICK",
+      "text": "Syntax: open   &lt;object|direction&gt;<br>Syntax: close  &lt;object|direction&gt;<br>Syntax: lock   &lt;object|direction&gt;<br>Syntax: unlock &lt;object|direction&gt;<br>Syntax: pick   &lt;object|direction&gt;<br><br>OPEN and CLOSE open and close an object or a door.<br><br>LOCK and UNLOCK lock and unlock a closed object or door.  You must have<br>the requisite key to LOCK or UNLOCK.<br><br>PICK can open a lock without having the key.  In order to PICK successfully,<br>you must practice the appropriate skill.<br>"
+    },
+    {
+      "id": 49,
+      "level": 0,
+      "keyword": "DRINK EAT FILL POUR",
+      "text": "Syntax: drink &lt;object&gt;<br>Syntax: eat   &lt;object&gt;<br>Syntax: fill  &lt;object&gt;<br>Syntax: pour  &lt;object&gt; out<br>Syntax: pour  &lt;object&gt; &lt;object&gt;<br>Syntax: pour  &lt;object&gt; &lt;character&gt;<br><br>When you are thirsty, DRINK something.<br><br>When you are hungry, EAT something.<br><br>FILL fills a drink container with water.<br><br>POUR transfers a liquid to a container, or empties one.<br>You can also pour from an object into something a character is holding.<br>"
+    },
+    {
+      "id": 50,
+      "level": 0,
+      "keyword": "BUY LIST SELL VALUE",
+      "text": "Syntax: buy   &lt;object&gt;<br>Syntax: list<br>Syntax: sell  &lt;object&gt;<br>Syntax: value &lt;object&gt;<br><br>BUY buys an object from a shop keeper.<br>When multiple items of the same name are listed, type 'buy n.item', where n<br>is the position of the item in a list of that name.  So if there are two<br>swords, buy 2.sword will buy the second. If you want to buy multiples of<br>an item, use an * (buy 5*pie will buy 5 pies).  These can be combined into<br>(for example) buy 2*2.shield, as long as the * is first.  <br><br>LIST lists the objects the shop keeper will sell you.<br>List &lt;name&gt; shows you only objects of that name.<br><br>SELL sells an object to a shop keeper.<br><br>VALUE asks the shop keeper how much he, she, or it will buy the item for.<br>"
+    },
+    {
+      "id": 51,
+      "level": 0,
+      "keyword": "SACRIFICE",
+      "text": "Syntax: sacrifice &lt;object&gt;<br><br>SACRIFICE offers an object to Mota, who may reward you.<br>The nature of the reward depends upon the type of object.<br>"
+    },
+    {
+      "id": 52,
+      "level": 0,
+      "keyword": "SCROLL",
+      "text": "Syntax: scroll<br>Syntax: scroll &lt;number&gt;<br><br>This command changes the number of lines the mud sends you in a page (the <br>default is 24 lines).  Change this to a higher number for larger screen<br>sizes, or to 0 to disabling paging.<br>"
+    },
+    {
+      "id": 53,
+      "level": 0,
+      "keyword": "BRANDISH QUAFF RECITE ZAP",
+      "text": "Syntax: brandish<br>Syntax: quaff    &lt;potion&gt;<br>Syntax: recite   &lt;scroll&gt; &lt;target&gt;<br>Syntax: zap      &lt;target&gt;<br>Syntax: zap<br><br>BRANDISH brandishes a magical staff.  QUAFF quaffs a magical potion (as opposed<br>to DRINK, which drinks mundane liquids).  RECITE recites a magical scroll; the<br>&lt;target&gt; is optional, depending on the nature of the scroll.  ZAP zaps a<br>magical wand at a target.  If the target is not specified, and you are fighting<br>someone, then that character is used for a target.<br><br>You must HOLD a wand or a staff before using BRANDISH or ZAP.<br><br>All of these commands use up their objects.  Potions and scrolls have a single<br>charge.  Wands and staves have multiple charges.  When a magical object has no<br>more charges, it will be consumed.<br><br>These commands may require an item skill to be succesful, see the help entries<br>on the skills scrolls, staves, and wands for more information.<br>"
+    },
+    {
+      "id": 54,
+      "level": 0,
+      "keyword": "CONSIDER",
+      "text": "Syntax: consider &lt;character&gt;<br><br>CONSIDER tells you what your chances are of killing a character.<br>Of course, it's only a rough estimate.<br>"
+    },
+    {
+      "id": 55,
+      "level": 0,
+      "keyword": "FOLLOW GROUP",
+      "text": "<font color='#00FFFF'>o==========================================================================o<br>|                                                                          |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>follow<font color='#008080'> &lt;character&gt;<font color='#00FFFF'>                                               |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>group<font color='#00FFFF'>                                                            |<br>| <font color='#008080'>Syntax: <font color='#0000FF'>group <font color='#008080'>&lt;character&gt;<font color='#00FFFF'>                                                |<br>|                                                                          |<br>| <font color='#0000FF'>FOLLOW <font color='#008080'>starts you following another character.  To stop following        <font color='#00FFFF'>|<br>| <font color='#008080'>anyone else just <font color='#0000FF'>FOLLOW <font color='#008080'>&lt;yourself&gt;.<font color='#00FFFF'>                                      |<br>|                                                                          |<br>| <font color='#0000FF'>GROUP <font color='#008080'>&lt;character&gt; makes someone who is following you a member of         <font color='#00FFFF'>|<br>| <font color='#008080'>your group. Group members share experience points from kills and may     <font color='#00FFFF'>|<br>| <font color='#008080'>use the <font color='#0000FF'>GTELL <font color='#008080'>and <font color='#0000FF'>SPLIT <font color='#008080'>commands.  If anyone in your group is            <font color='#00FFFF'>|<br>| <font color='#008080'>attacked, you will automatically join the fight.<font color='#00FFFF'>                         |<br>|                                                                          |<br>| <font color='#008080'>If the &lt;character&gt; is already a member of your group, then <font color='#0000FF'>GROUP <font color='#008080'>will<font color='#00FFFF'>    |<br>| <font color='#008080'>kick out the &lt;character&gt; from your group.  Characters can also leave your<font color='#00FFFF'>|<br>| <font color='#008080'>group by using a <font color='#0000FF'>FOLLOW <font color='#008080'>command to stop following you.<font color='#00FFFF'>                   |<br>|                                                                          |<br>| <font color='#0000FF'>GROUP <font color='#008080'>with no argument shows statistics for each character in your group.<font color='#00FFFF'>|<br>|                                                                          |<br>| <font color='#008080'>You may <font color='#0000FF'>FOLLOW <font color='#008080'>and <font color='#0000FF'>GROUP <font color='#008080'>only with characters who are within five        <font color='#00FFFF'>|<br>| <font color='#008080'>levels of your own.<font color='#00FFFF'>                                                      |<br>|                                                                          |    o==========================================================================o</font><br>"
+    },
+    {
+      "id": 56,
+      "level": 0,
+      "keyword": "VISIBLE",
+      "text": "VISIBLE cancels your hiding and sneaking, as well as any invisibility,<br>making you visible again.<br>"
+    },
+    {
+      "id": 57,
+      "level": 0,
+      "keyword": "QUIT RENT SAVE",
+      "text": "Syntax: QUIT<br>Syntax: RENT ... not!<br>Syntax: SAVE<br><br>SAVE saves your character and object.  The game saves your character every<br>15 minutes regardless, and is the preferred method of saving.  Typing save<br>will block all other command for about 20 seconds, so use it sparingly.<br>(90+ players all typing save every 30 seconds just generated too much lag)<br><br>Some objects, such as keys and potions, may not be saved.<br><br>QUIT leaves the game.  You may QUIT anywhere.  When you re-enter the game <br>you will be back in the same room.<br><br>QUIT automatically does a SAVE, so you can safely leave the game with just one<br>command.  Nevertheless it's a good idea to SAVE before QUIT.  If you get into<br>the habit of using QUIT without SAVE, and then you play some other mud that<br>doesn't save before quitting, you're going to regret it.<br><br>There is no RENT in this mud.  Just SAVE and QUIT whenever you want to leave.<br>"
+    },
+    {
+      "id": 58,
+      "level": 0,
+      "keyword": "RECALL /",
+      "text": "Syntax: RECALL<br><br>RECALL prays to Mota for miraculous transportation from where you are<br>back to the Temple of Midgaard.  '/' is a synonym for RECALL.<br><br>If you RECALL during combat, you will lose experience (more than for fleeing),<br>and you will have a chance of failing (again, more than for fleeing).  This<br>chance is based on your recall skill, although a 100% recall does not <br>insure success.<br><br>RECALL costs half of your movement points.<br><br>RECALL doesn't work in certain god-forsaken rooms.  Characters afflicted by a<br>curse may not recall at all.<br>"
+    },
+    {
+      "id": 59,
+      "level": -1,
+      "keyword": "SPLIT",
+      "text": "Syntax: SPLIT &lt;silver&gt; &lt;gold&gt;<br><br>SPLIT splits some coins  between you and all the members of your<br>group who are in the same room as you.  It's customary to SPLIT<br>the loot after a kill.  The first argument is the amount of silver<br>the split (0 is acceptable), and the second gold (optional).<br>Examples:<br>split 30 \t--&gt; split 30 silver<br>split 20 50\t--&gt; split 20 silver, 50 gold<br>split  0 10\t--&gt; split 10 gold<br>"
+    },
+    {
+      "id": 60,
+      "level": 0,
+      "keyword": "STEAL",
+      "text": "Syntax: STEAL coins &lt;character&gt;<br>Syntax: STEAL &lt;object&gt; &lt;character&gt;<br><br>STEAL attempts to steal coins, or an object, from a character.<br><br>There are penalties for using STEAL on other players.<br><br>In order to STEAL successfully, you must practice the appropriate skill.<br>"
+    },
+    {
+      "id": 61,
+      "level": 0,
+      "keyword": "PRACTICE",
+      "text": "Syntax: PRACTICE<br>Syntax: PRACTICE &lt;skill|spell&gt;<br><br>PRACTICE without an argument tells you your current ability level in all<br>the skills and spells available to you.  You can check this anywhere.<br><br>PRACTICE with an argument practice that skill or spell.  Your learning<br>percentage varies from 0% (unlearned) to a some maximum between 80% and 100%,<br>depending on your class.  You must be at a guild master to practice.<br><br>The higher your intelligence, the more you will learn at each practice<br>session.  The higher your wisdom, the more practice sessions you will<br>have each time you gain a level.  Unused sessions are saved until you<br>do use them.<br>"
+    },
+    {
+      "id": 62,
+      "level": 0,
+      "keyword": "TRAIN",
+      "text": "Syntax: train &lt;str int wis dex con hp mana&gt;<br><br>TRAIN increases one of your attributes.  When you start the game, your<br>character has standard attributes based on your class, and several<br>initial training sessions.  You can increase your attributes by<br>using these sessions at a trainer (there are several in town).<br><br>It takes one training session to improve an attribute, or to increase<br>mana or hp by 10.  You receive one session per level.<br><br>The best attributes to train first are WIS and CON.  WIS gives you more<br>practice when you gain a level.  CON gives you more hit points.<br>In the long run, your character will be most powerful if you train<br>WIS and CON both to 18 before practising or training anything else.<br>"
+    },
+    {
+      "id": 63,
+      "level": 0,
+      "keyword": "ARMOR",
+      "text": "Syntax: cast armor &lt;character&gt;<br><br>This spell decreases (improves) the armor class of the target character<br>by 20 points.<br>"
+    },
+    {
+      "id": 64,
+      "level": 0,
+      "keyword": "BLESS",
+      "text": "Syntax: cast bless &lt;character&gt;<br>Syntax: cast bless &lt;object&gt;<br><br>This spell improves the to-hit roll and saving throw versus spell of the<br>target character by 1 for every 8 levels of the caster. It may also be<br>cast on an object to temporarily bless it (blessed weapons, for example,<br>are more effective against demonic beings).<br>"
+    },
+    {
+      "id": 65,
+      "level": 0,
+      "keyword": "BLINDNESS",
+      "text": "Syntax: cast blindness &lt;victim&gt;<br><br>This spell renders the target character blind.<br>"
+    },
+    {
+      "id": 66,
+      "level": 0,
+      "keyword": "'ACID BLAST' 'BURNING HANDS' 'COLOUR SPRAY' FIREBALL 'LIGHTNING BOLT'\n\n\n\n\n\n\n\n\n  'MAGIC MISSILE' 'SHOCKING GRASP'",
+      "text": "Syntax: cast 'acid blast'     &lt;victim&gt;<br>Syntax: cast 'burning hands'  &lt;victim&gt;<br>Syntax: cast 'colour spray'   &lt;victim&gt;<br>Syntax: cast 'fireball'       &lt;victim&gt;<br>Syntax: cast 'lightning bolt' &lt;victim&gt;<br>Syntax: cast 'magic missile'  &lt;victim&gt;<br>Syntax: cast 'shocking grasp' &lt;victim&gt;<br><br>These spells inflict damage on the victim.  The higher-level spells do<br>more damage.<br>"
+    },
+    {
+      "id": 67,
+      "level": 0,
+      "keyword": "'CALL LIGHTNING'",
+      "text": "Syntax: cast 'call lightning'<br><br>This spell works only out of doors, and only when the weather is bad.<br>It calls down lightning bolts from Mota.<br>"
+    },
+    {
+      "id": 68,
+      "level": 0,
+      "keyword": "'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSE CRITICAL' HARM",
+      "text": "Syntax: cast 'cause light'    &lt;victim&gt;<br>Syntax: cast 'cause serious'  &lt;victim&gt;<br>Syntax: cast 'cause critical' &lt;victim&gt;<br>Syntax: cast harm             &lt;victim&gt;<br><br>These spells inflict damage on the victim.  The higher-level spells do<br>more damage.<br>"
+    },
+    {
+      "id": 69,
+      "level": 0,
+      "keyword": "'CHARM PERSON'",
+      "text": "Syntax: cast 'charm person' &lt;victim&gt;<br><br>This spell, if successful, causes the victim to follow you and to take orders<br>from you.  Use ORDER to order your charmed followers.<br><br>You are responsible for the actions of your followers.  Conversely, other<br>people who attack your followers will be penalized as if they attacked you.<br>"
+    },
+    {
+      "id": 70,
+      "level": 0,
+      "keyword": "'CHILL TOUCH'",
+      "text": "Syntax: cast 'chill touch' &lt;victim&gt;<br><br>This spell inflicts damage on the victim and also reduces the victim's<br>strength by one.<br>"
+    },
+    {
+      "id": 71,
+      "level": 0,
+      "keyword": "'CONTINUAL LIGHT'",
+      "text": "Syntax: cast 'continual light'<br>Syntax: cast 'continual light' &lt;object&gt;<br><br>This spell creates a ball of light, which you can hold as a light source.<br>The ball of light will last indefinitely. It may also be used on an object<br>to give it an enchanted glow.<br>"
+    },
+    {
+      "id": 72,
+      "level": 0,
+      "keyword": "'CONTROL WEATHER'",
+      "text": "Syntax: cast 'control weather' better<br>Syntax: cast 'control weather' worse<br><br>This spell makes the weather either better or worse.<br>"
+    },
+    {
+      "id": 73,
+      "level": 0,
+      "keyword": "CREATE FOOD",
+      "text": "Syntax: cast 'create food'<br> <br>A Magic Mushroom will magically appear.<br>"
+    },
+    {
+      "id": 74,
+      "level": 0,
+      "keyword": "'CREATE SPRING'",
+      "text": "Syntax: cast 'create spring'<br><br>This spell brings forth a magical spring from the ground, which has the<br>same properties as a fountain.<br>"
+    },
+    {
+      "id": 75,
+      "level": 0,
+      "keyword": "'CREATE WATER'",
+      "text": "Syntax: cast 'create water' &lt;drink-container&gt;<br><br>This spell replenishes a drink container with water.<br>"
+    },
+    {
+      "id": 76,
+      "level": 0,
+      "keyword": "'CURE BLINDNESS'",
+      "text": "Syntax: cast 'cure blindness' &lt;character&gt;<br><br>This spell cures blindness in one so unfortunate.<br>"
+    },
+    {
+      "id": 77,
+      "level": 0,
+      "keyword": "'CURE POISON'",
+      "text": "Syntax: cast 'cure poison' &lt;character&gt;<br><br>This spell cures poison in one so unfortunate.<br>"
+    },
+    {
+      "id": 78,
+      "level": 0,
+      "keyword": "'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL",
+      "text": "Syntax: cast 'cure light'    &lt;character&gt;<br>Syntax: cast 'cure serious'  &lt;character&gt;<br>Syntax: cast 'cure critical' &lt;character&gt;<br>Syntax: cast 'heal'          &lt;character&gt;<br><br>These spells cure damage on the target character.  The higher-level spells<br>heal more damage.<br><br>(see 'help healer' for details on the heal command)<br>"
+    },
+    {
+      "id": 79,
+      "level": 0,
+      "keyword": "CURSE",
+      "text": "Syntax: cast 'curse' &lt;character&gt;<br><br>This spell reduces the character's to-hit roll and save versus spells.<br>It also renders the character unclean in the eyes of Mota and<br>unable to RECALL. Curse may be used to fill equipment with evil power,<br>allowing (for example) weapons to do more damage to particularly holy<br>opponents.<br>"
+    },
+    {
+      "id": 80,
+      "level": 0,
+      "keyword": "'DETECT EVIL'",
+      "text": "Syntax: cast 'detect evil'<br><br>This spell enables the caster to detect evil characters, which will<br>reveal a characteristic red aura.<br>"
+    },
+    {
+      "id": 81,
+      "level": 0,
+      "keyword": "'DETECT HIDDEN'",
+      "text": "Syntax: cast 'detect hidden'<br><br>This spell enables the caster to detect hidden creatures.<br>"
+    },
+    {
+      "id": 82,
+      "level": 0,
+      "keyword": "'DETECT INVIS'",
+      "text": "Syntax: cast 'detect invis'<br><br>This spell enables the caster to detect invisible objects and characters.<br>"
+    },
+    {
+      "id": 83,
+      "level": 0,
+      "keyword": "'DETECT MAGIC'",
+      "text": "Syntax: cast 'detect magic'<br><br>This spell enables the caster to detect magical objects.<br>"
+    },
+    {
+      "id": 84,
+      "level": 0,
+      "keyword": "'DETECT POISON'",
+      "text": "Syntax: cast 'detect poison' &lt;object&gt;<br><br>This spell detects the presence of poison in food or drink.<br>"
+    },
+    {
+      "id": 85,
+      "level": 0,
+      "keyword": "'DISPEL EVIL'",
+      "text": "Syntax: cast 'dispel evil' &lt;victim&gt;<br><br>This spell invokes the wrath of Mota on an evil victim. It can be very<br>dangerous for casters who are not pure of heart.<br>"
+    },
+    {
+      "id": 86,
+      "level": 0,
+      "keyword": "'DISPEL MAGIC' CANCELLATION",
+      "text": "Syntax: cast 'dispel magic' &lt;character&gt;<br>        cast 'cancellation' &lt;characte&gt;<br> <br>Both of these spells remove magical effects from the target.  Dispel magic<br>has a reduced chance of working, and is considering an attack spell.<br>Cancellation can only be used on allies, but is much more effective and does<br>not provoke attack.  Unfortunately, the spells do not discriminate between<br>harmful and benign spells.<br> <br>The chance of dispelling is based on the level of the spell. Permanent spells<br>(such as mobile sanctuary) are much harder to remove.  Not all spells may<br>be dispelled, notable examples are poison and plague.<br>"
+    },
+    {
+      "id": 87,
+      "level": 0,
+      "keyword": "EARTHQUAKE",
+      "text": "Syntax: cast 'earthquake'<br><br>This spell inflicts damage on every enemy character in the room.<br>Beware that other characters who are not yet fighting may attack<br>you as a result!<br>"
+    },
+    {
+      "id": 88,
+      "level": 0,
+      "keyword": "'ENCHANT WEAPON'",
+      "text": "Syntax: cast 'enchant weapon' &lt;weapon&gt;<br><br>This spell magically enchants a weapon, increasing its to-hit and to-dam<br>bonuses by one or two points.  Multiple enchants may be cast, but as the<br>weapon grows more and more powerful, it is more likely to be drained or<br>destroyed by the magic.  Also, every successful enchant increases the level<br>of the weapon by one...and there is no turning back.<br>"
+    },
+    {
+      "id": 89,
+      "level": -1,
+      "keyword": "'ENCHANT ARMOR'",
+      "text": "The enchant armor spell imbues armor with powerful protective magics. It is<br>not nearly as reliable as enchant weapon, being far more prone to destructive<br>effects.  Each succesful enchant increases the plus of the armor by 1 or 2<br>points, and raises its level by one.<br>"
+    },
+    {
+      "id": 90,
+      "level": 0,
+      "keyword": "'ENERGY DRAIN'",
+      "text": "Syntax: cast 'energy drain' &lt;victim&gt;<br><br>This spell saps the experience points, mana, and movement points of its<br>target.<br>"
+    },
+    {
+      "id": 91,
+      "level": 0,
+      "keyword": "'FAERIE FIRE'",
+      "text": "Syntax: cast 'faerie fire' &lt;victim&gt;<br><br>This spell increases (makes worse) the armor class of its victim.  For each<br>level of the caster, the victim's armor class is increased by two points.<br>"
+    },
+    {
+      "id": 92,
+      "level": 0,
+      "keyword": "'FAERIE FOG'",
+      "text": "Syntax: cast 'faerie fog'<br><br>This spell reveals all manner of invisible, hidden, and sneaking creatures in<br>the same room as you.<br>"
+    },
+    {
+      "id": 93,
+      "level": 0,
+      "keyword": "FLAMESTRIKE",
+      "text": "Syntax: cast 'flamestrike' &lt;victim&gt;<br><br>This spell inflicts damage on the victim.<br>"
+    },
+    {
+      "id": 94,
+      "level": 0,
+      "keyword": "FLY",
+      "text": "Syntax: cast 'fly' &lt;character&gt;<br><br>This spell enables the target character to fly.<br>"
+    },
+    {
+      "id": 95,
+      "level": 0,
+      "keyword": "IDENTIFY",
+      "text": "Syntax: cast identify &lt;object&gt;<br><br>This spell reveals information about the object.<br>"
+    },
+    {
+      "id": 96,
+      "level": 0,
+      "keyword": "INFRAVISION",
+      "text": "Syntax: cast infravision &lt;character&gt;<br><br>This spell enables the target character to see warm-blooded creatures even<br>while in the dark, and exits of a room as well.<br>"
+    },
+    {
+      "id": 97,
+      "level": 0,
+      "keyword": "INVIS 'MASS INVIS' INVISIBLITY",
+      "text": "Syntax: cast 'invisibility' &lt;character&gt;<br>Syntax: cast 'invisibility' &lt;object&gt;<br>Syntax: cast 'mass invis'<br><br>The INVIS spell makes the target character invisible.  Invisible characters<br>will become visible when they attack. It may also be cast on an object<br>to render the object invisible.<br><br>The MASS INVIS spell makes all characters in the caster's group invisible,<br>including the caster.<br>"
+    },
+    {
+      "id": 98,
+      "level": 0,
+      "keyword": "'KNOW ALIGNMENT'",
+      "text": "Syntax: cast 'know alignment' &lt;character&gt;<br><br>This spell reveals the alignment of the target character.<br>"
+    },
+    {
+      "id": 99,
+      "level": 0,
+      "keyword": "'LOCATE OBJECT'",
+      "text": "Syntax: cast 'locate object' &lt;name&gt;<br><br>This spell reveals the location of all objects with the given name.<br>"
+    },
+    {
+      "id": 100,
+      "level": 0,
+      "keyword": "'PASS DOOR'",
+      "text": "Syntax: cast 'pass door'<br><br>This spell enables the caster to pass through closed doors.<br>"
+    },
+    {
+      "id": 101,
+      "level": 0,
+      "keyword": "POISON",
+      "text": "Syntax: cast poison &lt;victim&gt;<br>Syntax: cast poison &lt;object&gt;<br><br>This spell reduces the strength of the victim by two, as well as reducing the<br>victim's regeneration rate. It may also be used to poison food, drink, or<br>a weapon in a fashion similar to envenom ('help envenom'), but with <br>drastically reduced effectiveness.<br>"
+    },
+    {
+      "id": 102,
+      "level": 0,
+      "keyword": "SANCTUARY",
+      "text": "Syntax: cast sanctuary  &lt;character&gt;<br><br>The SANCTUARY spell reduces the damage taken by the character from any attack<br>by one half.<br>"
+    },
+    {
+      "id": 103,
+      "level": 0,
+      "keyword": "REFRESH",
+      "text": "Syntax: cast refresh &lt;character&gt;<br><br>This spell refreshes the movement points of a character who is out of movement<br>points.<br>"
+    },
+    {
+      "id": 104,
+      "level": 0,
+      "keyword": "'REMOVE CURSE'",
+      "text": "Syntax: cast 'remove curse' &lt;character&gt;<br>Syntax: cast 'remove curse' &lt;object&gt;<br><br>This spell removes a curse from a character, and might possibly uncurse<br>a cursed object.  It may also be targeted on an object in the caster's<br>inventory, in which case it's chance of success is significantly higher.<br>"
+    },
+    {
+      "id": 105,
+      "level": 0,
+      "keyword": "SHIELD 'STONE SKIN'",
+      "text": "Syntax: cast shield<br>Syntax: cast 'stone skin'<br><br>These spells protect the caster by decreasing (improving) the caster's armor<br>class.  SHIELD provides 20 points of armor.  STONE SKIN provides 40 points of<br>armor.<br>"
+    },
+    {
+      "id": 106,
+      "level": 0,
+      "keyword": "SLEEP",
+      "text": "Syntax: cast sleep &lt;victim&gt;<br><br>This spell puts its victim to sleep.<br>"
+    },
+    {
+      "id": 107,
+      "level": 0,
+      "keyword": "SUMMON",
+      "text": "Syntax: cast summon &lt;character&gt;<br><br>This spell summons a character from anywhere else in the world into your room.<br>Characters who are fighting may not be summoned.<br>"
+    },
+    {
+      "id": 108,
+      "level": 0,
+      "keyword": "TELEPORT",
+      "text": "Syntax: cast &lt;teleport&gt;<br><br>This spell takes you from your current location to a random location somewhere<br>in the world.<br>"
+    },
+    {
+      "id": 109,
+      "level": 0,
+      "keyword": "VENTRILOQUATE",
+      "text": "Syntax: cast ventriloquate &lt;speaker&gt; &lt;message&gt;<br><br>This spell throws your voice, making it appear that some other object or<br>character in the room is saying your message.  Victims who make their saving<br>throw will know that someone is using ventriloquism, but not who.  Victims who<br>fail their saving throw will think that the object or character really did say<br>your message.<br>"
+    },
+    {
+      "id": 110,
+      "level": 0,
+      "keyword": "WEAKEN",
+      "text": "Syntax: cast weaken &lt;victim&gt;<br><br>This spell reduces the strength of the victim by two points.<br>"
+    },
+    {
+      "id": 111,
+      "level": 0,
+      "keyword": "'WORD OF RECALL'",
+      "text": "Syntax: cast 'word of recall'<br><br>This spell duplicates the built-in RECALL ability.  It is provided solely for<br>Merc-based muds which wish to eliminate the built-in ability while still<br>providing the spell.<br>"
+    },
+    {
+      "id": 112,
+      "level": 0,
+      "keyword": "'ACID BREATH' 'FIRE BREATH' 'FROST BREATH' 'GAS BREATH' 'LIGHTNING BREATH'",
+      "text": "Syntax: cast 'acid breath'      &lt;victim&gt;<br>Syntax: cast 'fire breath'      &lt;victim&gt;<br>Syntax: cast 'frost breath'     &lt;victim&gt;<br>Syntax: cast 'gas breath'<br>Syntax: cast 'lightning breath' &lt;victim&gt;<br><br>These spells are for the use of dragons.  Acid, fire, frost, and lightning<br>damage one victim, whereas gas damages every PC in the room.  Fire and<br>frost can break objects, and acid can damage armor.<br><br>High level mages may learn and cast these spells as well.<br>"
+    },
+    {
+      "id": 113,
+      "level": 0,
+      "keyword": "EXIT",
+      "text": "For exits, type the direction (north/s/e/w) followed by:<br><br>dig &lt;vnum&gt;         - creates the room and makes a two way link<br>link &lt;room vnum&gt;   - make a two way link<br>room &lt;room vnum&gt;   - make a one way link (use with caution)<br>key &lt;object vnum&gt;  - makes specified object the vnum of the key required<br>name &lt;door name&gt;   - makes the door's name/keywords = to the given name<br>desc               - edit the description of the exit<br>delete             - delete this exit<br>&lt;exit-flags&gt;       - type ? EXIT for a list(make exit door, locked etc.)<br><br>The exit flags are presented in the following manner.  The capitalized<br>flags are ones not included in the reset info.  i.e. closed is due to<br>a player closing the door and not due to the door being set to be closed.<br><br>-South to [ 3744] Key: [   -1] Exit flags: [door CLOSED bashed pickproof]<br>"
+    },
+    {
+      "id": 114,
+      "level": 0,
+      "keyword": "ITEM_SCROLL_POTION_PILL",
+      "text": ".   value 0    level<br>   value 1    spell name 1<br>   value 2    spell name 2<br>   value 3    spell name 3<br>   value 4    unused<br><br>An up-to-date list of spells can be obtained by typing:<br>? SPELLS [ignore/attack/defend/self/object/all]<br>"
+    },
+    {
+      "id": 115,
+      "level": -1,
+      "keyword": "NEWBIE INFO",
+      "text": "Ah! Another mortal, seeking adventure.  You should go through mudschool first,<br>to gain experience to face the trials outside.  Be sure to practice a weapon<br>in the guild room, or your stay with us shall be very short indeed.  Type<br>'equipment' to see what your are wielding, 'spells' to see your spells,<br>'skills' to see your skills, and 'commands' for a list of commands. Help is<br>available on most commands and abilities.<br><br>Please type 'help rules' to see the Rules of ROM.<br>"
+    },
+    {
+      "id": 116,
+      "level": -1,
+      "keyword": "LAG",
+      "text": "Twas dial-up, and the failing mudders did toil and struggle in the fray<br>All checksummed were the compressed files<br>And the man pages, outdate<br>Beware the Internet my son,<br>The noise that hangs, the lag that kills<br>Beware the Usenet news, and shun the frivolous mud with frills<br>So took his his mudding client in hand<br>Longtime the virtual foe he sought<br>So rested he by the T1s three and paused a while in swap<br>And as in disk-drive swap he stayed,<br>The Internet, with lags of fame<br>Came packetwise through the T1 line<br>And error-checked as it came<br>One two one two and through and through, the mudding client went kill -9<br>He left it dead and with it's core he went a tracing back<br>And hath thou slain the Internet?<br>Come to my arms my disk-based bot!<br>Oh lag-free day, callooh callay, he chortled in his joy<br>Twas dial-up, and the failing mudders did toil and struggle in the fray<br>All checksummed were the compressed files<br>And the man pages, outdate.<br>"
+    },
+    {
+      "id": 117,
+      "level": -1,
+      "keyword": "WIZLIST",
+      "text": ".<br>        ________            *********************           ________<br>      /+_+_+_+_+_\\          ** The Gods of ROM **         /+_+_+_+_+_\\<br>      \\__________/          *********************         \\__________/<br>        |::XXXX|                                            |::XXXX|<br>        |X::XXX|              Implementors [160]             |X::XXX|<br>        |XX::XX|              *****************             |XX::XX|<br>        |XXX::X|     \t\t\t\t            |XXX::X|<br>        |XXXX::|                                            |XXXX::|<br>        |::XXXX|                                            |::XXXX|<br>        |X::XXX|                Creators [159]               |X::XXX|<br>        |XX::XX|                *************               |XX::XX|<br>        |XXXX::|         \t\t\t            |XXXX::|<br>        |::XXXX|                                            |::XXXX|<br>/&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\                            /&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\/&lt;&lt;&gt;&gt;\\<br>\\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/      Supremacies [158]      \\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/\\&lt;&lt;&gt;&gt;/<br>       |.  /  . |             ****************             |.  /  . |<br>       | .//\\.  |            \t\t                   | .//\\.  |<br>       |.  /  . |            \t\t                   |.  /  . |<br>       | .//\\.  |                                          | .//\\.  |<br>       |.  /  . |               Deities [157]               |.  /  . |<br>       | .//\\.  |               ************               | .//\\.  |<br>       |.  /  . |           \t\t      \t           |.  /  . |<br>       | .//\\.  |                                          | .//\\.  |<br>       | .//\\.  |                Gods [156]                 | .//\\.  |<br>       |.  /  . |                *********                 |.  /  . |<br>       | .//\\.  |              \t                           | .//\\.  |<br>       | .//\\.  |                                          | .//\\.  |<br>       |.  /\\ . |              Immortals [155]              |.  /  . |<br>       | .//\\.  |              **************              | .//\\.  |<br>       |.  /  . |              \t\t                   |.  /  . |<br>       | .//\\.  |                                          | .//\\.  |<br>       |.  /  . |               DemiGods [154]              |.  /  . |<br>       | .//\\.  |               *************              | .//\\.  |<br>       |.  /\\ . |                  \t  \t           |.  /  . |<br>       |.  /  . |                                          |.  /  . |<br>       | .//\\.  |               Angels [153]                | .//\\.  |<br>       |.  /  . |               ***********                |.  /  . |<br>       |.  /  . |             \t   \t                   |.  /  . |<br>       | .//\\.  |             \t\t                   | .//\\.  |<br>       | .//\\.  |                                          | .//\\.  |<br>       |.  /  . |               Avatars [152]               |.  /  . |<br>       | .//\\.  |               ************               | .//\\.  |<br>       |.  /  . |                 \t                   |.  /  . |<br>       |.  /  . |                  \t                   |.  /  . |<br>        \\ //\\. /                                            \\ //\\. /<br>         \\ /. /                                              \\ /. /<br>          \\ //                                                \\ //<br>           \\/                                                  \\/<br>-By Liralen<br>"
+    },
+    {
+      "id": 118,
+      "level": -1,
+      "keyword": "ROM",
+      "text": "ROM started in early February 1993, using Merc 1.0 code. In July of 1993,  <br>ROM II was started, eventually replacing the original ROM.  ROM was up for<br>a little over a year, after which the code (version 2.3) was released,<br>and various other ROM muds were started, including Rivers of Mud under<br>a new management (Zump's ROM), at rom.org 9000.<br><br>Alander's current project is Athen, the sequel to the ROM code. It can<br>be found on Rehobaom's Legacy, at hypercube.org 9000.<br><br>The following people contributed to the ROM flavor of the merc base code:<br><br>Socials --<br>    Kelsey and Liralen<br><br>New, Improved Valhalla --<br>    Liralen<br><br>Puff's new special proc and improved poofin/poofout code --<br>    Seth<br><br>Maps and map shop --<br>    Ezra, Regnan (Olympus)<br><br>Nirvana zone --<br>    Forstall (mobiles rewritten by Alander)<br><br>Mob Factory --<br>    Pinkfloyd (originally written for ROM, mobiles rewritten by Alander)<br><br>Geographically correct Midgaard (tm) --<br>    Alander<br><br>Ideas and playtesting --<br>    Thousands of dedicated mudders around the world<br><br>The New Thalos area was donated by Onivel of Jedi, who was also the originator<br>of the ASCII flags used in the zone files<br><br>Beta testing --<br>    Ken Blosser, Doug Araya, and Sherene Neil all helped with bugs reports<br>    and suggestions, saving a lot of headaches<br><br>Bug reports --<br>    Thanks to Shad Muegge, Jerome Despret, Phoenix, Will Hongach,<br>    Erwin S. Andreasen, Adam Debus and especially Gary Turkington<br>    (author of the ROM FAQ) for help spotting bugs<br><br>ROM 2.4 was developed during my time with Moosehead mud, and the release<br>shares many of the features I wrote while I was there.  Additional code<br>was written by Seth Scott (the new poofin/poofout), and many contributions<br>and ideas from the Merc list were used.  Portions of Rusty's work on<br>Moosehead also remain.<br><br>The new features of 2.4 were largely produced in bull sessions with<br>Gabrielle Taylor and Brian Moore, without whom this release wouldn't<br>have happened.  In particular, the new privacy code, furniture, and<br>wiznet are the results of Gabrielle's ideas.<br><br>Changes to the standard diku mob and object format, as well as the changes<br>to Merc 2.1 source code, were done by Alander over many a late night of<br>hair-pulling. Hope you enjoy it.<br><br>(my apologies if anyone was forgotten in this list)<br>"
+    },
+    {
+      "id": 119,
+      "level": -1,
+      "keyword": "IMMORTAL IMMORT GOD WIZARD WIZ",
+      "text": "'Immortal' (often, simply, 'immort') refers to players who have reached<br>the highest attainable levels in the game.  Here, anyone of level 152<br>or higher is an 'immortal.'  Immortals are capable of exceeding the<br>usual game rules, in more drastic and pervasive ways as levels increase;<br>examples range from teleportation and invisibility to mortal sight to<br>creation of objects, removal of a player's privileges (channels,<br>ability to move, or even ability to log in), and ability to promote<br>players to immortality.<br><br>Since immortals can wreak havoc with game balance, they are (ideally)<br>a carefully-chosen and policed group.  An absolute rule of immortal<br>behavior is that no immortal can aid or assist any player without<br>explicit permission from the higher ranks; in other words, please<br>don't ask an immortal to help you kill a mob, gather EQ, etc, or<br>you'll likely be either politely or rudely refused, or referred to<br>this file.<br><br>The duties of immortals, and even the very reasons for their existence,<br>are topics of continual and heated debate in various MUD forums, and are<br>fraught with misconceptions, poor examples, and outrageous hypocrisies. :)<br>"
+    },
+    {
+      "id": 120,
+      "level": -1,
+      "keyword": "SOCIALS",
+      "text": "This is a complete list of socials for this MUD:<br>Compiled originally by: Sara<br>accuse       adjust      air          apologize     applaud     babble<br>bark         bcatch      beckon       beer          bearhug     beg<br>bird         bkiss       bleed        blink         blush       boast<br>boggle       bonk        bounce       bow           brb         burp<br>cackle       caress      charge       cheer         chuckle     clap<br>claw         collapse    comfort      comb          cough       cover<br>cower        cringe      criticize    cry           cuddle      curse<br>curtsey      dance       daydream     drool         duck        embrace<br>explode      eyebrow     faint        fart          flare       flash<br>flex         flinch      flip         flirt         flutter     fondle<br>french       frown       fume         gasp          giggle      glare<br>goose        grimace     grin         groan         grope       grovel<br>growl        grumble     hand         head          hiccup      highfive<br>hop          howl        hug          hush          ignore      innocent<br>insane       judge       kiss         knee          laugh       lick<br>love         lust        massage      meditate      moan        moon<br>mosh         mutter      nibble       nod           nudge       nuzzle<br>pant         passout     pat          peck          pie         pinch<br>pissed       plead       point        poke          ponder      pout<br>pray         propose     puke         punch         purr        ramble<br>raspberry    rofl        roll         rub           ruffle      run<br>scratch      scream      serenade     shake         shiver      shrug<br>sigh         sing        slap         slobber       smile       smirk<br>snap         snarl       sneeze       snicker       sniff       snore<br>snort        snowball    snuggle      sob           spam        spank<br>spit         squeal      squeeze      squirm        stare       stretch<br>strip        stroke      strut        sulk          swoon       tackle<br>tease        thank       threaten     tickle        tip         tongue<br>twiddle      type        undress      view          wave        whine<br>whistle      wiggle      wince        wink          wonder      worry<br>worship      yawn        yeehaw       yodel         rose\tlaces<br>tank\t     starve\t aargh\t      homework\t    puff\tdiffer<br>yae\t     lightbulb   voodoo       ogg\t    confused\tbeam<br>bite\t     discodance  scuff        whap\t    lag\t\tchortle<br>zerbert      twitch<br> <br>"
+    },
+    {
+      "id": 121,
+      "level": -1,
+      "keyword": "MERC",
+      "text": "This mud is based on Merc 2.1, created by Furey, Hatchet, and Kahn.  <br>Merc 2.1 is available as Merc_21.tar.gz from ftp.tcp.com and <br>ftp.math.okstate.edu.<br>E-mail to 'majordomo@webnexus.com' to join the merc mailing list.<br><br>Thanks to ...<br>  ... Diku Mud for starting it all.<br>  ... The Free Software Foundation and DJ Delorie for kick-ass tools.<br>  ... Copper Mud and Alfa Mud for releasing their code and worlds.<br>  ... Aod of Generic for ... well, everything.  You're a hoopy frood, Aod.<br>  ... Alander for many ideas and contributions.<br>  ... John Brothers of Silly for permission to use Silly code and worlds.<br>  ... Zrin for administering the mailing list.<br>  ... Abaddon for proofreading our comm.c.<br>  ... Hind, Quin, Vic, Diavolo, Oleg, Trienne, and others for porting help.<br>  ... Diavolo, Grodyn, Morgenes, and others for code and bug fixes.<br>  ... Raff, Doctor, VampLestat, Nirrad, Tyrst, PinkF, Chris, Glop for worlds.<br>  ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers<br>      of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,<br>      and hours of enjoyment.<br><br>Also see &quot;help ROM&quot; for information about the Rivers of Mud code base.<br>"
+    },
+    {
+      "id": 122,
+      "level": -1,
+      "keyword": "MAP MAPS",
+      "text": "Thanks to Ezra for drawing the originals of several maps on ROM.<br>"
+    },
+    {
+      "id": 123,
+      "level": -1,
+      "keyword": "greeting1",
+      "text": "<font color='#00FF00'>.                    ,     \\    /      ,<br>                    / \\    )\\__/(     / \\<br>                   /   \\  (_\\  /_)   /   \\<br><font color='#0000FF'>__________________<font color='#00FF00'>/<font color='#0000FF'>_____<font color='#00FF00'>\\<font color='#0000FF'>__<font color='#00FF00'>\\@  @/<font color='#0000FF'>___<font color='#00FF00'>/<font color='#0000FF'>_____<font color='#00FF00'>\\<font color='#0000FF'>_________________<br><font color='#0000FF'>| <font color='#00FF00'>                         |\\../|                          <font color='#0000FF'>|<br><font color='#0000FF'>|<font color='#00FF00'>                           \\VV/                           <font color='#0000FF'>|<br>|                                                          <font color='#0000FF'>|<br>|  <font color='#00FFFF'>  ___________.__       .___           .__               <font color='#0000FF'>|<br>|  <font color='#00FFFF'>  \\_   _____/|  |    __| _/___________|__|____          <font color='#0000FF'>|<br>|  <font color='#00FFFF'>  |    __)_ |  |   / __ |/  _ \\_  __ \\  \\__  \\          <font color='#0000FF'>|<br>|  <font color='#00FFFF'>  |        \\|  |__/ /_/ (  &lt;_&gt; )  | \\/  |/ __ \\_        <font color='#0000FF'>|<br>|  <font color='#00FFFF'>  /_______  /|____/\\____ |\\____/|__|  |__(____  /       <font color='#0000FF'>|<br>|  <font color='#00FFFF'>          \\/            \\/                    \\/        <font color='#0000FF'>|<br>|                                                          |<br>|                                                          |<br><font color='#0000FF'>|__________________________________________________________|<br> <font color='#00FF00'>             |    /\\ /      \\\\       \\ /\\    |<br>              |  /   V        ))       V   \\  |<br>              |/     `       //        '     \\|<br>              `              V                ' </font>Brian Young<br>  Modified Rom2.4b6 Codebase. Original DikuMud by Hans Staerfeldt, Katja Nyboe,<br>                Tom Madsen, Michael Seifert, and Sebastian Hammer<br>                  Based on MERC 2.1 by Hatchet, Furey, and Kahn.<br>                     Rom 2.4 Copyright 1993-1996 Russ Taylor.<br></font>By what name are you known?"
+    },
+    {
+      "id": 124,
+      "level": -1,
+      "keyword": "greeting2",
+      "text": ".<font color='#00FF00'>                ___====-_  _-====___<br>           _--^^^#####//      \\\\#####^^^--_<br>        _-^##########// (    ) \\\\##########^-_<br>       -############//  |\\^^/|  \\\\############-<br>     _/############//   (@::@)   \\\\############\\_<br>    /#############((     \\\\//     ))#############\\<br>   -###############\\\\    (oo)    //###############-<br>  -#################\\\\  / VV \\  //#################-<br> -###################\\\\/      \\//###################-<br>_#/|##########/\\######(   /\\   )######/\\##########|\\#_<br>|/ |#/\\#/\\#/\\/  \\#/\\##\\  |  |  /##/\\#/  \\/\\#/\\#/\\#| \\|<br>`  |/  V  V  `   V  \\#\\| |  | |/#/  V   '  V  V  \\|  '<br>   `   `  `      `   / | |  | | \\   '      '  '   '<br>                    (  | |  | |  )<br>                   __\\ | |  | | /__<br>                  (vvv(VVV)(VVV)vvv)<br><font color='#FF00FF'>--------------------------------------------------------<br><font color='#00FFFF'>   ___________.__       .___           .__<br>   \\_   _____/|  |    __| _/___________|__|____<br>    |    __)_ |  |   / __ |/  _ \\_  __ \\  \\__  \\<br>    |        \\|  |__/ /_/ (  &lt;_&gt; )  | \\/  |/ __ \\_<br>   /_______  /|____/\\____ |\\____/|__|  |__(____  /<br>           \\/            \\/                    \\/<br>  Modified Rom2.4b6 Codebase. Original DikuMud by Hans Staerfeldt, Katja Nyboe,<br>                Tom Madsen, Michael Seifert, and Sebastian Hammer<br>                  Based on MERC 2.1 by Hatchet, Furey, and Kahn.           <br>                     Rom 2.4 Copyright 1993-1996 Russ Taylor.<br>By what name are you known?<br>"
+    },
+    {
+      "id": 125,
+      "level": -1,
+      "keyword": "greeting3",
+      "text": "<font color='#00FFFF'>                          ^                       ^<br><font color='#00FFFF'>                         (_)                     (_)<br><font color='#00FFFF'>  /\\    /\\    /\\    /\\   /X\\                     /X\\   /\\    /\\    /\\    /\\<br><font color='#00FFFF'>  XX____XX____XX____XX___XXX<font color='#00FFFF'>  <font color='#808000'>_________________  <font color='#00FFFF'>XXX___XX____XX____XX____XX<br><font color='#00FFFF'>  XXXXXXXXXXXXXXXXXXXXXXXXXX<font color='#808000'> <font color='#808000'>|.................| <font color='#00FFFF'>XXXXXXXXXXXXXXXXXXXXXXXXXX<br><font color='#00FFFF'>  XX    XX    XX    XX   XXX<font color='#808000'> <font color='#808000'>|.    <font color='#00FFFF'>ELDORIA<font color='#808000'>    .| <font color='#00FFFF'>XXX   XX    XX    XX    XX<br><font color='#00FFFF'>  XX    XX    XX    XX   XX<font color='#FFFF00'>/#<font color='#808000'>|:      <font color='#00FFFF'>___<font color='#808000'>      .| <font color='#00FFFF'>XXX   XX    XX    XX    XX<br><font color='#00FFFF'>  XX    XX<font color='#FF0000'> |\\_<font color='#00FFFF'>XX<font color='#FF0000'> __/|<font color='#00FFFF'>X   XX<font color='#FFFF00'>\\#<font color='#808000'>|:.....<font color='#00FFFF'>I I I<font color='#808000'>......| <font color='#00FFFF'>XXX   X<font color='#00FF00'>|\\__ <font color='#00FFFF'>XX<font color='#00FF00'>_/| <font color='#00FFFF'>XX    XX<br><font color='#00FFFF'>  XX    XX<font color='#FF0000'> \\ _ \\/ _ /<font color='#00FFFF'>X   XXX<font color='#808000'> <font color='#808000'>|.    .<font color='#00FFFF'>I_I_I<font color='#808000'>.    .| <font color='#00FFFF'>XXX   X<font color='#00FF00'>\\ _ \\/ _ / <font color='#00FFFF'>XX    XX<br><font color='#00FFFF'>  XX    XX<font color='#FF0000'>  (<font color='#FFFF00'>I<font color='#FF0000'>)\\/(<font color='#FFFF00'>I<font color='#FF0000'>)<font color='#00FFFF'>XX   XXX<font color='#808000'> <font color='#808000'>|.       .       .|<font color='#FFFF00'>_<font color='#00FFFF'>XXX   XX<font color='#00FF00'>(<font color='#FFFF00'>I<font color='#00FF00'>)\\/(<font color='#FFFF00'>I<font color='#00FF00'>)  <font color='#00FFFF'>XX    XX<br><font color='#00FFFF'>  XX    XX<font color='#FF0000'>  \\/(oo)\\/<font color='#00FFFF'>XX   XXX<font color='#808000'> <font color='#808000'>|...............:<font color='#FFFF00'>(==)<font color='#00FFFF'>XX   XX<font color='#00FF00'>\\/(oo)\\/  <font color='#00FFFF'>XX    XX<br><font color='#00FFFF'>  XX    XX<font color='#FF0000'>   |V,,V| <font color='#00FFFF'>XX   XXX<font color='#808000'> <font color='#808000'>|.       .       .| <font color='#00FFFF'>XXX   XX <font color='#00FF00'>|V,,V|   <font color='#00FFFF'>XX    XX<br><font color='#00FFFF'>  XX____XX<font color='#FF0000'>  /|A^^A|\\<font color='#00FFFF'>XX __XXX<font color='#808000'> <font color='#808000'>|.       .       .| <font color='#00FFFF'>XXX_ _XX<font color='#00FF00'>/|A^^A|\\  <font color='#00FFFF'>XX____XX<br><font color='#00FFFF'>  XXXXXX<font color='#FF0000'>/ \\/  TTTT  \\/\\<font color='#00FFFF'>XXXXX<font color='#808000'> <font color='#808000'>|.................| <font color='#00FFFF'>XXXXX<font color='#00FF00'>/\\/  TTTT  \\/ \\<font color='#00FFFF'>XXXXXX<br><font color='#00FFFF'>  XX  X<font color='#FF0000'>/    (  ||  )   \\ <font color='#00FFFF'>XX<font color='#FFFF00'>/#<font color='#808000'>|:       .       .| <font color='#00FFFF'>XXX <font color='#00FF00'>/   (  ||  )    \\<font color='#00FFFF'>X  XX<br><font color='#00FFFF'>  XX_ X_<font color='#FF0000'>\\    \\ || /   /<font color='#00FFFF'>__XX<font color='#FFFF00'>\\#<font color='#808000'>|:       .       .| <font color='#00FFFF'>XXX__<font color='#00FF00'>\\   \\ || /    /<font color='#00FFFF'>_X _XX<br><font color='#00FFFF'>  XXX/   <font color='#FF0000'>\\   \\||||/  /<font color='#00FFFF'>   \\XX<font color='#808000'> <font color='#808000'>|.................| <font color='#00FFFF'>XX/   <font color='#00FF00'>\\  \\||||/   / <font color='#00FFFF'>  \\XXX<br><font color='#00FFFF'>  XX/   <font color='#FF0000'>oooo_/||||\\_ooo<font color='#00FFFF'>   \\X<font color='#808000'> <font color='#808000'>|_________________| <font color='#00FFFF'>X/   <font color='#00FF00'>ooo_/||||\\_oooo <font color='#00FFFF'>  \\XX<br><font color='#00FFFF'>   /     <font color='#FF0000'>    oooooo    <font color='#00FFFF'>    \\                <font color='#00FFFF'>     /    <font color='#00FF00'>    oooooo       <font color='#00FFFF'>  \\<br><font color='#00FFFF'>  /_________________________\\                   /_________________________\\<br><font color='#00FFFF'>  |_________________________|                   |_________________________|<br><font color='#800000'>   |___I___I___I___I__I___|                       |___I__I___I___I___I___|<br><font color='#800000'>   |_I___I___I___I__I___I_|   Enter, Ye Who Dare <font color='#800000'> |_I__I___I___I___I___I_|<br><br>  Modified Rom2.4b6 Codebase. Original DikuMud by Hans Staerfeldt, Katja Nyboe,<br>                Tom Madsen, Michael Seifert, and Sebastian Hammer<br>                  Based on MERC 2.1 by Hatchet, Furey, and Kahn.           <br>                     Rom 2.4 Copyright 1993-1996 Russ Taylor.<br>By what name are you known?<br>"
+    },
+    {
+      "id": 126,
+      "level": -1,
+      "keyword": "GREETING4",
+      "text": ".<font color='#00FFFF'>                ___________.__       .___           .__<br>               \\_   _____/|  |    __| _/___________|__|____<br>                |    __)_ |  |   / __ |/  _ \\_  __ \\  \\__  \\<br>                |        \\|  |__/ /_/ (  &lt;_&gt; )  | \\/  |/ __ \\_<br>               /_______  /|____/\\____ |\\____/|__|  |__(____  /<br>                       \\/            \\/                    \\/ <br>                                 <font color='#0000FF'>       _________,---------.____------.___<br>                                 <font color='#0000FF'>      /_______    `--._______  `--.____ \\\\<br>    Modified Rom2.4b6 Codebase.  <font color='#0000FF'>      /__.-' `-----.____    `--.____\\\\`_/_<br>     Original DikuMud by Hans    <font color='#0000FF'>     ,'       ___      `---.___ ___//    `-.<br>   Staerfeldt, Katja Nyobe, Tom  <font color='#0000FF'>   /     _.-'   )'           ``---'     \\  \\<br>   Madsen, Michael Seifert, and  <font color='#0000FF'>  |     /       |           . '             |<br>  Sebastian Hammer Based on MERC <font color='#0000FF'> /    /     /   |          '    ___  )   |  |<br>  2.1 by Hatchet Furey and Kahn. <font color='#0000FF'> |   |     |  _/` _        ` _,' _ `/) '    |<br> Rom 2.4 Copyright 1993-1996 Russ<font color='#0000FF'>  \\_  `--._\\__`--'_\\-___ _,-'   '-`  ___   _/<br>              Taylor.            <font color='#0000FF'>     `---.____ `--.__-_  /_)____,  __/  ,`-'<br>                                 <font color='#0000FF'>             `------__&gt;  `-------(/(/-'-\\)\\)<br>By what name are you known?<br>"
+    },
+    {
+      "id": 127,
+      "level": -1,
+      "keyword": "GREETING5",
+      "text": "<font color='#00FFFF'>                *   '''`````'''<br><font color='#00FFFF'>             *<br><font color='#00FFFF'>          *<br><font color='#00FFFF'>        *  <font color='#00FF00'>         ..i'             q.<br><font color='#00FFFF'>       * <font color='#00FF00'>        .poj;                \\*.<br><font color='#00FFFF'>      .<font color='#00FF00'>         oKPO                   THk<br><font color='#00FF00'>     .k        Hk`                    THH,<br>     dH,       ;YJH.                     YHHk<br>    Hk       :lHHk                     jHHH}<br>     THHk      `NJHH,                   .HHHl'<br>      THHk,     lHHHHk                 jHHHHP<br>       THHHi:,  `GHHHHH,.            .'HHHHH<br>        `THHHHHHi\\WHHHHHkoo....ooooojHHHHHHF<br>          `*THHHH`THHHHHHHHHHHHHHHHHHHHHHHHl<br>             `*THHHYHHHHHHHHHHHHHHHHHHHHHHHI<br>                `*THHYHHHHHHHHHHHHHHHHHHHHHH}<br>                  `*THHHHHHHHHHHHHHHHHHHHHH}<br>                     `THHHHHHHHHHHHHHHHHHHP<br>                       `THHHHHHHHHHHHHHHHHH|  Snafu<br></font><br>  Modified Rom2.4b6 Codebase. Original DikuMud by Hans Staerfeldt, Katja Nyboe,<br>                Tom Madsen, Michael Seifert, and Sebastian Hammer<br>                  Based on MERC 2.1 by Hatchet, Furey, and Kahn.           |<br>                     Rom 2.4 Copyright 1993-1996 Russ Taylor.<br>By what name are you known?<br>"
+    },
+    {
+      "id": 128,
+      "level": -1,
+      "keyword": "OLDGREETING",
+      "text": ".      <br>                       $*$Lze@*$C2$b*b$CC$*$bc@$r<br>                    $#.e$$&quot;W$$B$B$**&quot;&quot;##d?$Bd$$$Nc. .<br>                4$kd*Cr$6F#&quot;`  **      # '&quot;**F#$I$b$*<br>                d$5N@$$&quot;   ....eu$$$zbeuu      #$d$$$$b.<br>            . z$Ted*&quot;$P zue$*9d$$$@ #W$e@B$$L.    &quot;#@$E$b@o<br>           #d$Id*P#  'Nd$$B$**&quot;         &quot;#*N$$b$c    $$$*$$c#<br>       ..u$l4@&quot;`&quot;zJ$7W*&quot;                         $@$$$r R&quot;$$E$@B&gt;<br>       *@$l$P&quot; Rd$$N#&quot;                             &quot;$$$c..  ?E$*bo<br>       z$ &quot;*.  .Jz$&quot;                                   @N$b  `d**Nbe<br>     .z$JBR'bs@$$#\t\t\t\t          l9N   N$Nee<br>    4$$.C*   dB@&quot;            Owner and Creator             $$z  3$b$$#<br>     $&quot;$e$  @*$&quot;                                            $$$u.`*$N$c<br>  :e$&quot;*$  :et$                     Synon                    `  $$E $N$be<br>  ')$ud&quot;  @6$                   Davion Silent                  $$$ $*@$&quot;<br>   @F*$   *4P                 Agl       Lostsoul             '$m#   .$$.<br>*&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;h**********************************************&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;*<br>H+e      ueH$*          <font color='#FF0000'>WELCOME</font> TO SHADOWSTORM             *Fec       e+H<br>e$@e....z6+$u**********************************************uY+e$u....$$e<br>   $ `&quot;&quot; 4F&quot;  ze=eu                                   z***hc` &quot;$&quot;&quot;*&quot;&quot; $<br>   $     `F :*    3r                                 @&quot;  e &quot;b  $      $<br>   $      N $  'be$L...                           ...?be@F  $F $      $<br>   $      $ $.  zm$*****h.                     ue&quot;&quot;&quot;&quot;*h6   J$&quot; $      $<br>   $      $ $$u5e&quot; .     &quot;k                   d&quot;       #$bu$F  $      H<br>   $      $ `d%P  dF      $  .            .e  $     -c  &quot;N$F  .$      $<br>   h      $  $4*. &quot;N.    zP  3r ..    ..  $c  *u     $  u$K$  4F      $<br>   N$e.   3  F$k*. &quot;*C$$$# .z$&quot; '$    4L  &quot;$c.'#$eeedF  $$$9r JF      $<br>   $'&quot;$u. 4  F3&quot;K$ .e=*CB$$$$L .e$    '$bc.u$***hdC&quot;&quot;  4kF$4F $F    u@$<br>   $   *$*@u N'L$B*&quot;z*&quot;&quot;     &quot;$F&quot; 4k 4c '7$&quot;      &quot;*$u 4'L$J&quot; $  .e$*&quot;H<br>   $    '&quot;hC*$ &quot;$#.P&quot;          $me$&quot;  #$*$       .  `*IJL$&quot;$  $e$$*'  $<br>   $       $b&quot;h &quot;.F     $&quot;     `F        $       9r   #L$FJE #C@&quot;     $<br>   $       $Jb   J&quot;..  4b      uF        *k      J%    #c $&quot; d$       $<br>   $       $k9   $ $%4c $Bme.ze$         '*$+eee@*$&quot;  r$    @L$       $<br>   $       $$Jr  $d&quot; '$r &quot;*==*&quot;            &quot;#**&quot;&quot; $r  43r  db$F       $<br>   $       $'*F  $&quot;   '$                          $    *L  $$$F       $<br>   *e.     $ 4&gt;  $  ue $                          'L c  $ .L$d       .$<br>   b.&quot;*    4 4   $  $%db=eL                     e*+$/$r $  '$&quot;$   .umd$<br>   $`#+*mu 4r4   4r:6@F  $$                   &lt;$. &quot;N?N  F   $ $  ud'$*$<br>   $   *eJ&quot;@L4   4k*3Ic.*&quot;                     #*5.J$$..F   $ $ue#2*&quot; $<br>   $     &quot;N.&quot;@r  4Fd&quot; '$r                       4$ '&quot;N*d&quot;  9.$#Ce*&quot;   $<br>   $_____ ________ _  _______________   _____  _  _  _     ___________$<br><br>   Modified Rom2.4b6 Codebase. Original DikuMud by<br>   Hans Staerfeldt, Katja Nyobe, Tom Madsen, Michael Seifert, <br>   and Sebastian Hammer Based on MERC 2.1 by Hatchet Furey and Kahn.<br>   Rom 2.4 Copyright 1993-1996 Russ Taylor.<br><br><br>By what name do you wish to be known? "
+    },
+    {
+      "id": 129,
+      "level": -1,
+      "keyword": "MOTD",
+      "text": "<font color='#00FF00'>             _,-`(,-``-,                      ,-``-,)`-,_<br><font color='#00FF00'>          ,/`   _( ,``( ;)   <font color='#C0C0C0'>I          I   <font color='#00FF00'>(; )``; )_ , `\\,<br><font color='#00FF00'>         /--,/-` `\\ \\ {<font color='#FF0000'>vv<font color='#00FF00'>}  <font color='#00FFFF'>(`)--------(`)  <font color='#00FF00'>&lt;<font color='#FF0000'>\\/<font color='#00FF00'>&gt; / /` `-\\,--\\<br><font color='#800000'>-----------<font color='#00FF00'>``-,    ) ) }{   <font color='#00FFFF'>| |  <font color='#FFFFFF'>MOTD<font color='#00FFFF'>  | |   <font color='#00FF00'>}{ ( (    ,-``<font color='#800000'>-----------<br><font color='#800000'>\\__|___|__/<font color='#00FF00'>``-,````,/ (^^)  <font color='#00FFFF'>(_)--------(_)  <font color='#00FF00'>/^^\\ \\,````,-``<font color='#800000'>\\__|___|__/<br><font color='#800000'>|___|___|_|<font color='#00FF00'>    ````   )  (   <font color='#C0C0C0'>I          I<font color='#00FF00'>          ````    <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#C0C0C0'>                                                <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#C0C0C0'>   You are responsible for knowing the rules,   <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#C0C0C0'>     ignorance is no excuse. (type 'rules')     <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#C0C0C0'>                                                <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#C0C0C0'>   Important commands:                          <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#C0C0C0'>     Help, Commands, News, Notes                <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#C0C0C0'>                                                <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#C0C0C0'>   Use the 'delete' command to erase unwanted   <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#C0C0C0'>     characters                                 <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#C0C0C0'>                                                <font color='#800000'>|___|___|_|<br><font color='#800000'>|__|___|__|<font color='#00FF00'>          (,,)   <font color='#C0C0C0'>I             I<font color='#00FF00'>  (,,)          <font color='#800000'>|__|___|__|<br><font color='#800000'>|___|___|_|<font color='#00FF00'>          {<font color='#FF0000'>..<font color='#00FF00'>}  <font color='#00FFFF'>(`)-----------(`) <font color='#00FF00'>&lt;<font color='#FF0000'>\\/<font color='#00FF00'>&gt;          <font color='#800000'>|___|___|_|<br><font color='#800000'>/         \\<font color='#00FF00'>_,-&quot;&quot;-,_,/ }{   <font color='#00FFFF'>| |  Eldoria  | |<font color='#00FF00'>  }{ \\,_,-``-__<font color='#800000'>/         \\<br><font color='#800000'>-----------<font color='#00FF00'>_,-&quot;&quot;-,_,/(^^)  <font color='#00FFFF'>(_)-----------(_)<font color='#00FF00'> /^^\\\\._,-``-__<font color='#800000'>-----------<br><font color='#00FF00'>                     )  (   <font color='#C0C0C0'>I             I</font><br>[Hit Return to continue]"
+    },
+    {
+      "id": 130,
+      "level": -1,
+      "keyword": "PKILL PKILLING PKILLER 'PLAYER KILLING' PSTEAL PSTEALING 'PLAYER STEALING'",
+      "text": "Player killing and player stealing are allowed to all clan members <br>(including loners), provided the victim is is within 8 levels of the<br>character and is also in a clan.  This will flag you as a &quot;killer&quot; or<br>&quot;thief&quot;, allowing any character to attack, and also provoking action<br>from the city guard.<br>"
+    },
+    {
+      "id": 131,
+      "level": -1,
+      "keyword": "RULES",
+      "text": "These are the rules of ROM.  For other matters, use common sense.<br><br>* Limited player stealing or player killing.<br><br>* Your presence here is a privilege not a right. Obey any orders from gods, and<br>  you will be fine.  Deletion does not require a reason, appeals are to be sent<br>  to the implementors.<br> <br>* Sitting around idle with a client is hazardous to your health. If we catch<br>  you doing it, you will lose half your playing time.<br><br>* No multiple logins, multiple playing, or helping your own characters with <br>  other characters you own -- by any arrangment.<br> <br>* No kill stealing.  This means you cannot attack a mob someone else is <br>  fighting, unless they ask you to. Also avoid attacking fleeing mobs.<br><br>* Cheating will not be tolerated.  This includes accepting favors from gods<br>  and exploiting bugs. If you find a bug, report it, then do not use it.<br><br>* Changes to these rules are at the discretion of the immortals, and may be<br>done without warning, notice, or even evidence of sanity. Walk softly,<br>and carry a black stick.<br>"
+    },
+    {
+      "id": 132,
+      "level": 0,
+      "keyword": "SUICIDE DELETE",
+      "text": "Use the delete command to erase unwanted characters, so the name will be<br>available for use.  This command must be typed twice to delete a character,<br>and you cannot be forced to delete.  Typing delete with an argument will<br>return your character to 'safe' status if you change your mind after the<br>first delete.<br>"
+    },
+    {
+      "id": 133,
+      "level": 0,
+      "keyword": "HEALER",
+      "text": "The healer decided to grab a quick buck, and now charges for his heals.  Some<br>services are still free to players of level 10 or below, however.  To see<br>a full listing of the healer's services, type 'heal' at his residence. To<br>receive healing, bring plenty of money, and type 'heal &lt;spell&gt;'.<br>"
+    },
+    {
+      "id": 134,
+      "level": -1,
+      "keyword": "GAIN",
+      "text": "The gain command is used to learn new skills, once the proper trainer has <br>been found. (Check New Thalos) The following options can be used with gain:<br><br>gain list:    list all groups and skills that can be learned<br>gain points:  lower your creation points by 1 (costs two sessions)<br>gain &lt;name&gt;:  add a skill or skill group, at the listed cost<br>gain convert: turns 10 practices into one training session<br>gain revert:  turns 1 training session into 10 practices<br><br>Gain uses training sessions, not practices. (see 'help train')<br>Gained skills and groups do NOT increase your experience per level or total<br>number of creation points. <br>"
+    },
+    {
+      "id": 135,
+      "level": 0,
+      "keyword": "SKILLS SPELLS",
+      "text": "The skills and spells commands are used to display your character's list<br>of available skills (or spells, as the case may be).  They are listed in<br>order of level, with mana cost (for spells) or percentage (for skills)<br>listed where applicable.<br>"
+    },
+    {
+      "id": 136,
+      "level": 0,
+      "keyword": "OUTFIT",
+      "text": "The outfit command, usable by levels 5 and below, equips your character with<br>a new set of sub issue gear (banner, weapon, helmet, shield, and vest), <br>courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.<br>"
+    },
+    {
+      "id": 137,
+      "level": 0,
+      "keyword": "AUTO AUTOLIST AUTOLOOT AUTOGOLD AUTOSAC AUTOEXIT AUTOASSIST AUTOSPLIT AUTODAMAGE",
+      "text": "ROM uses varies automatic actions, to ease the boredom of always splitting<br>gold and sacrificing corpses.  The commands are as follows:<br><br>autolist  : list all automatic actions<br>autoloot  : take all equipment from dead mobiles<br>autogold  : take all gold from dead mobiles<br>autosac\t  : sacrifice dead monsters (if autoloot is on, only empty corpes)<br>autoexit  : display room exits upon entering a room<br>autosplit : split up spoils from combat among your group members<br>autoassit : makes you help group members in combat<br>autodamage: makes it so you see the damage done to yourself, and your enimy in combat<br> <br>Typing a command sets the action , typing it again removes it.<br>"
+    },
+    {
+      "id": 138,
+      "level": -1,
+      "keyword": "CLAN",
+      "text": "A Clan is a collection of players, united to  follow and further<br>a common cause.   Each clan has rules and  regulations, to find out<br>more about clans and their 'beliefs' type &quot;help &lt;clan name&gt;&quot;.  Only<br>Clan  members can kill or steal from other players.  To join a Clan<br>you  must be level 5 or above and level 25 or below.   Speak to the<br>Clan Leader about joining.  If you go Loner before level 25 you may <br>join a Clan later.<br>   Joining  a  Clan is a dangerous step.   Many adventurers live to <br>kill and torture others and chances are that your paths will cross.<br>Remember, attacking or killing fellow clan members *IS* illegal except to <br>mutiny your Clan leader.<br>   Existing  Clans may buy  special rooms and  mobiles by acquiring <br>diamonds as payment.   To see room prices, type &quot;help prices&quot;.  New<br>Clans  may be formed by  petitioning the immortals.   Please  remember that <br>their word is final on all matters not covered by this help.<br>"
+    },
+    {
+      "id": 139,
+      "level": -1,
+      "keyword": "PRICES PRICE",
+      "text": "New Clan Hall Rooms cost 50 diamonds.<br>Boosting the mana or healing gains for a room costs 250 diamonds.<br>Both in the same room costs double.<br>Making the Healer or Store prices lower costs 1,000 diamonds.<br>"
+    },
+    {
+      "id": 140,
+      "level": -1,
+      "keyword": "COUNT",
+      "text": "The count command displays the number of people (that you can see) logged<br>into the mud.  It also displays the highest number observed that day, if<br>it is higher.<br>"
+    },
+    {
+      "id": 141,
+      "level": -1,
+      "keyword": "GATE",
+      "text": "The gate spell is a powerful transportation magic that opens up a portal <br>between your character and another person or creature somewhere else in the<br>world.  This portal will transport you and any pet you might have, but not<br>other members of your group.  Monsters recieve a save against gate, and<br>monster or players more than 3 levels higher than you can not be gated to at <br>all.  God rooms, private rooms, and no recall rooms cannot be gated to, and<br>no recall rooms cannot be gated out of.  Finally, any god or hero is also <br>immune to gate, as well as in player who has no summon set.  Clan members <br>may not be gated to except by their fellow Clan members.<br>"
+    },
+    {
+      "id": 142,
+      "level": -1,
+      "keyword": "AFFECTS AFFECT",
+      "text": "This command is used to show all the spells affecting your character. At<br>low levels, only the spell name will be displayed, at higher levels the<br>effects and duration of the spell will also be shown.  Spell effects<br>are no longer shown on score (this can be changed by using 'show' command).<br>"
+    },
+    {
+      "id": 143,
+      "level": -1,
+      "keyword": "'RACE HELP' 'RACE' 'RACES'",
+      "text": "ROM has the following races for player characters:<br>  Human  the standard race<br>  Dwarf  good warriors and priests, cost 8 creation points<br>  Elf    good thieves and mages, cost 5 creation points<br>  Giant  huge, tough warriors, cost 6 creation points<br><br>Different races have different starting statistics, and also different<br>stat maximums for magic items and training.<br><br>Creation points increase the amount of experience it takes to gain a level.<br>For more information, see the help files for each race (i.e. 'help dwarf')<br>"
+    },
+    {
+      "id": 144,
+      "level": -1,
+      "keyword": "DWARF DWARVES",
+      "text": "Dwarves are short, stocky demi-humans, known for foul temper and great<br>stamina.  Dwarves have high strength and constitution, but poor dexterity.<br>They are not as smart as humans, but are usually wiser due to their long <br>lifespans.  Dwarves make excellent fighters and priests, but are very poor<br>mages or thieves.  <br><br>Dwarves are very resistant to poison and disease, but cannot swim, and so<br>are very vulnerable to drowning.  They recieve the berserk skill for free<br>(if warriors), and can see in the dark with infravision.<br>"
+    },
+    {
+      "id": 145,
+      "level": -1,
+      "keyword": "ELF ELVES",
+      "text": "Elves are slightly taller than humans, but have a much lighter build.  They<br>lack the strength and stamina of the other races, but are for more agile,<br>both in body and mind.  Elves are superb mages and thieves, but have at<br>best fair talent as warriors or priests.<br><br>Elves resist charm spells most effectively, due to their magical nature.<br>However, they are burned by the touch of iron, and so are barred from the<br>use of iron or steel in their adventuring careers.  Elves are notoriously <br>hard to spot, and so elven warriors and thieves recieve the sneak and hiding<br>automatically. They may see in the dark with infravision.<br>"
+    },
+    {
+      "id": 146,
+      "level": -1,
+      "keyword": "HUMAN HUMANS MAN",
+      "text": "Humans are the most common race in the world, and make up the majority of<br>adventurers. Although they have no special talents like the other races,<br>they are more versitile, being skilled in all four classes. Humans may<br>also train their primary stat higher than any other race, and are able to<br>gain more benefit from magical devices.<br>"
+    },
+    {
+      "id": 147,
+      "level": -1,
+      "keyword": "GIANT GIANTS",
+      "text": "Giants are the largest of the races, ranging from 9-12 feet in height.  They<br>are stronger than any other race, and almost as durable as the dwarves.  <br>They aren't too bright, however, and their huge size makes them more clumsy<br>than the other races.  Giants make the best warriors of any race, but are<br>ill-suited for any other profession.<br><br>Giants resist heat and cold with nary a mark, due to their huge mass.  However,<br>their slow minds make them extremely vulnerable to mental attacks.  Giants,<br>due to their size and stamina, receive the fast healing and bash skills for<br>free. (Only giant warriors recive bash).<br>"
+    },
+    {
+      "id": 148,
+      "level": -1,
+      "keyword": "WANDS STAVES SCROLLS",
+      "text": "Magical items require training to use properly.  If your character lacks the<br>necessary skill to use an item, he will fail, possibly destroying it.  The<br>item skills are as follows:<br><br>scrolls\t\tThe reading of magical scrolls and books (see 'help recite')<br>staves\t\tThe use of staves and similar devices (see 'help brandish')<br>wands\t\tThe use of wands and similar items (see 'help zap') <br>"
+    },
+    {
+      "id": 149,
+      "level": -1,
+      "keyword": "'GROUP HEADER'",
+      "text": "The following skills and groups are available to your chacter:<br>(this list may be seen again by typing list)<br>"
+    },
+    {
+      "id": 150,
+      "level": -1,
+      "keyword": "'GROUP HELP'",
+      "text": "The following commands are available:<br>list         display all groups and skills not yet bought<br>learned      show all groups and skills bought <br>premise      brief explanation of creation points and skill groups<br>add &lt;name&gt;   buy a skill or group<br>drop &lt;name&gt;  discard a skill or group<br>info &lt;name&gt;  list the skills or spells contained within a group<br>help &lt;name&gt;  help on skills and groups, or other help topics<br>done\t     exit the character generation process<br>"
+    },
+    {
+      "id": 151,
+      "level": -1,
+      "keyword": "'MENU CHOICE'",
+      "text": "Choice (add,drop,list,help)?"
+    },
+    {
+      "id": 152,
+      "level": -1,
+      "keyword": "'GROUPS' 'INFO' 'PREMISE'",
+      "text": "The ROM skill system allows you to fully customize your new character, making<br>him or her skilled in the skills you choose.  But beware, the skills you pick<br>at character creation are the only skills you will ever learn.  Skills are <br>paid for with creation points, and the more creation points you have, the<br>harder it is to gain a level.  Furthermore, higher-cost skills are harder to<br>practice.<br><br>Skill groups are like package deals for characters -- sets of skills or spells<br>that are closely related, and hence can be learned as a unit.  There is a <br>default skill group for each class, which can be selected for a balanced <br>selection of skills at a somewhat reduced cost.<br><br>The experience breakdown is as follows: <br>points   exp/level     points   exp/level<br>40        1000         90        6000<br>50        1500         100       8000<br>60\t  2000         110      12000<br>70        3000         120      16000 <br>80        4000         130      24000<br>The table continues in a similar manner for higher point totals.<br>"
+    },
+    {
+      "id": 153,
+      "level": -1,
+      "keyword": "BASICS 'ROM BASICS'",
+      "text": "The basic skills:<br><br>Every character starts with two skill groups, one for their class and a default<br>set that all characters receive.  The default skills are:<br><br>recall  \tessential escape skill (see help recall)<br>scrolls\t\treading of scrolls and other magical volumes<br>staves\t\tuse of magical staves<br>wands\t\tuse of magical wands<br><br>for class defaults, check the classes themselves.<br>"
+    },
+    {
+      "id": 154,
+      "level": -1,
+      "keyword": "MAGE 'MAGIC-USER' 'MAGE BASICS' 'MAGE DEFAULT'",
+      "text": "Mages specialize in the casting of spells, offensive ones in particular.<br>Mages have the highest-powered magic of any class, and are the only classes<br>able to use the draconian and enchanting spell groups.  They are also very<br>skilled at the use of magical items, though their combat skills are the <br>weakest of any class.<br><br>All mages begin with skill in the dagger. Any other weapon skills must be<br>purchased, at a very high rate.  The default skill selection for mages is<br>as follows:<br><br>skills:<br>lore\t\tthe lore of magical items<br><br>spell groups:<br>beguiling\tspells that control the mind<br>combat\t\toffensive magics, such as fireball and chill touch<br>detection\tinformational magics, such as detect magic and identify<br>enhancement\tspells that maximize physical potential, such as haste<br>illusion\tmagics for concealing and deceiving<br>maladictions\ta selection of curses fit for any witch<br>protective\tdefensive magics, ranging from armor to stone skin<br>transporation\tspells for getting from here to there<br>weather\t\tspells for conjuring and mastering the elements<br>"
+    },
+    {
+      "id": 155,
+      "level": -1,
+      "keyword": "CLERIC 'CLERIC BASICS' 'CLERIC DEFAULT'",
+      "text": "Clerics are the most defensively orientated of all the classes.  Most of their<br>spells focus on healing or defending the faithful, with their few combat spells<br>being far less powerful than those of mages. However, clerics are the best <br>class by far at healing magics, and they posess an impressive area of<br>protective magics, as well as fair combat prowess.<br><br>All clerics begin with skill in the mace.  Other weapon or shield skills must<br>be purchased, many at a very dear cost.  The default skill selection for <br>clerics is as follows:<br><br>skills:<br>flail\t\tthe proper use of flails<br><br>spell groups:<br>attack\t\ta selection of offensive magics<br>creation\tthe making of physical objects, such as food and water<br>curative\tspells that cure the sick and feeble of their ailments<br>benedictions\tpowerful magics that grant the blessings of the gods<br>detection\tinformational magics, such as detect magic and identify<br>healing\t\tspells for treating wounds, from scratches to death blows<br>maladictions\tan assortment of curses<br>protective\tdefensive magics, including the powerful sanctuary spell<br>transportation\tspells for getting from here to there<br>weather         spells for conjuring and mastering the elements<br>"
+    },
+    {
+      "id": 156,
+      "level": -1,
+      "keyword": "THIEF 'THIEF BASICS' 'THIEF DEFAULT'",
+      "text": "Thieves are a marginal class. They do few things better than any other class,<br>but have the widest range of skills available.  Thieves are specialists at<br>thievery and covert actions, being capable of entering areas undetected where<br>more powerful adventurers would fear to tread.  They are better fighters than<br>clerics, but lack the wide weapon selection of warriors.<br><br>All thieves begin with the dagger combat skill, and are learned in steal as <br>well.  Any other weapon skills must be purchased, unless the default selection<br>is chosen.  This default skill package includes:<br><br>skills:<br>mace\t\tthe use of maces and other blunt weapons<br>sword\t\tswordplay and fencing<br>backstab\tthe art of hitting your opponent by surprise<br>disarm\t\tused to deprive your opponent of his weapon<br>dodge\t\tthe best way to take a punch is not to be there<br>second attack\twith training, the skilled thief can hit twice as fast<br>trip\t\ta good way to introduce an opponent to the floor<br>hide\t\tthe art of remaining undetected in a room<br>peek\t\tused to look into a person's belongings<br>pick lock\ta useful skill for breaking and entering<br>sneak\t\twith this skill, a thief can walk into a room undetected<br>"
+    },
+    {
+      "id": 157,
+      "level": -1,
+      "keyword": "WARRIOR 'WARRIOR BASICS' 'WARRIOR DEFAULT'",
+      "text": "Warriors live for combat and the thrill of battle. They are the best fighters<br>of all the classes, but lack the subtle skills of thieves and the magical<br>talents of mages and priests.  Warriors are best for those who don't mind<br>taking the direct approach, even when another method might be called for.<br><br>Warriors begin with skill in the sword, and gain a second attack in combat.<br>Other weapon skills may be purchased cheaply, or gained in the default skill<br>package, which includes the following:<br><br>skills:<br>weaponsmaster\tthis group provides knowledge of all weapon types<br>shield block\tthe art of parrying with a shield<br>bash\t\ta forceful rush with the body, designed to flatten your foes<br>enhanced damage\tthis skill multiplies your damage in battle<br>parry\t\tthe art of parrying with weapons<br>rescue\t\tallows you to take the blows aimed for a companion<br>third attack\tallows the skilled warrior to land three blows in one round<br>"
+    },
+    {
+      "id": 158,
+      "level": -1,
+      "keyword": "EXOTIC WEAPONS WEAPON WEAPONSMASTER AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP",
+      "text": "Each weapon skill applies to a specific group of armaments, and determines how<br>well a character fights with a particular weapon.  The weaponsmaster group<br>provides talent in all weapons (save exotics), from chair legs to halberds.<br>If the character has the parry skill as well, he can parry incoming attacks.<br>The chance of parrying is best if the character in question is skilled at <br>both his weapon and his opponent's.<br><br>The weapon skills consist of the following:<br><br>weaponsmaster\tskill group of all weapons listed below (save exotic weaponry)<br>axe\t\tthe use of axes, ranging from hand to great (but not halberds)<br>dagger\t\tthe use of knives and daggers, and other stabbing weapons<br>flail\t\tskill in ball-and-chain type weapons<br>mace\t\tthis skill includes clubs and hammers as well as maces<br>polearm\t\tthe use of pole weapons (except spears), including halberds<br>spear\t\tthis skill covers both spears and staves, but not polearms<br>sword\t\tthe warrior's standby, from rapier to claymore<br>whip\t\tthe use of whips, chains, and bullwhips<br>exotic\t\tthe use of strange magical weapons<br><br>The exotic skill cannot be purchased, and is dependent solely upon level.<br>"
+    },
+    {
+      "id": 159,
+      "level": -1,
+      "keyword": "'SHIELD BLOCK'",
+      "text": "Shield block is a rather fancy name for the art of parrying with a shield.<br>Characters with no shield block skill will not be able to defend themselves<br>well with a shield.  All classes may learn shield block, but only warriors and<br>clerics are good at it.  Beware, flails ignore shield blocking attempts, and<br>whips have an easier time getting around them.  Axes may split shields in two.<br>"
+    },
+    {
+      "id": 160,
+      "level": -1,
+      "keyword": "ATTACK",
+      "text": "The attack spells are essentially powerful curses, fueled by divine energy<br>rather than magical power (like the combat spells are). They are less powerful<br>than the combat spells, but can still deal out a stinging blow.  Mages and <br>thieves cannot use this group.  The attack spell group consists of the <br>following spells:<br><br>demonfire\ta powerful, but very evil, spell<br>dispel evil\ttorments evil foes<br>dispel good\tcalls down unholy power on good creatures<br>earthquake\tbrings the power of earth to bear against your foes<br>flamestrike\tsends a column of flame from the heavens<br>heat metal\theats metal equipment to searing tempatures<br>ray of truth\tsends forth a blinding ray of holy energy<br>"
+    },
+    {
+      "id": 161,
+      "level": -1,
+      "keyword": "BEGUILING",
+      "text": "This insideous spell group is used to invade the minds of others.  It consists<br>of various charming magics, well suited for turning your foes to your cause.<br>Only mages and thieves have access to the beguiling magics, which consist of<br>the following:<br><br>calm            if successful, stops all fighting in the room<br>charm person\tturns an enemy into a trusted friend<br>sleep\t\tputs a foe into enchanted slumber<br>"
+    },
+    {
+      "id": 162,
+      "level": -1,
+      "keyword": "BENEDICTIONS",
+      "text": "Benedictions are priestly spells, used to bestow divine favor upon your allies.<br>They are often restricted to those of like alignment.  Only clerics and <br>warriors may use these spells.  The benedictions spell group consists of the<br>following:<br><br>bless\t\tbestows divine favor upon the target<br>calm\t\tif successful, stops all fighting in the room<br>frenzy\t\tputs the recipient into beserker rage<br>holy word\taids your allies while calling divine wrath upon your foes<br>remove curse\tremoves malevolent magic from players and items<br>"
+    },
+    {
+      "id": 163,
+      "level": -1,
+      "keyword": "COMBAT",
+      "text": "These sorcerous spells are, in the words of one famous mage, just 'more ways to<br>toss energy around'.  They are the most powerful of the damaging spells, and<br>considered an essential part of most wizards' collections. Clerics and thieves<br>do not have access to these spells.  In order of power, the combat spell group<br>contains the following magics:<br><br>magic missile\tsend a weak energy bolt into a foe<br>chill touch\tweakens your enemy with a frigid grasp<br>burning hands\tsends a blast of fire into your foe<br>shocking grasp\tsends a powerful jolt into a foe<br>lightning bolt\tsends forth a single bolt of lightning into an enemy<br>colour spray\tblasts your opponent with a rainbow spray, which may blind him<br>fireball\ta powerful spell, great for burning your enemy to ashes<br>acid blast\tsends forth a stream of acid to eradicate your foes<br>chain lightning\tsends lightning bolts arcing through foes <br>"
+    },
+    {
+      "id": 164,
+      "level": -1,
+      "keyword": "CREATION",
+      "text": "The creation spell group is used to create objects, of temporary or permanent<br>duration.  Skill creators can travel without food or drink, and use their <br>powers to create nourishment as required.  All classes may become learned in<br>this group, which contains these spells:<br><br>continual light\tcreates an eternal light source<br>create food\tproduces a nourishing mushroom<br>create rose\tcreates a beautiful red rose<br>create spring\tcalls forth a small but pure spring from the ground<br>create water\tfills any available container with water<br>floating disc\tcreates a floating disc of force perfect for hauling treasure<br>"
+    },
+    {
+      "id": 165,
+      "level": -1,
+      "keyword": "CURATIVE",
+      "text": "The curative spells are used to heal various unpleasant conditions that can<br>befall an adventurer.   For healing of damage, see the healing spell group.<br>Curative spells cannot be used by mages or thieves.<br><br>cure blindness\trestored sight to the blind<br>cure disease\theals the plague<br>cure poison\tremoves the harmful effects of poison<br>"
+    },
+    {
+      "id": 166,
+      "level": -1,
+      "keyword": "DETECTION",
+      "text": "The detection spells have may uses, all related to gathering information. They<br>can be used to see hidden objects, give information about treasure, or even<br>scry out the true nature of your foe.  All classes except warriors can use <br>detection spells.<br><br>detect evil\treveals the aura of evil monsters<br>detect good\tsimilar to above, only for good monsters<br>detect hidden\tshows the whereabouts of hidden foes<br>detect invis\tallows the caster to see the unseeable<br>detect magic\treveals magical auras to the caster<br>detect poison\tdetermines if food is safe to eat<br>farsight\tsearches for living beings near the caster<br>identify\tgives information about the nature of an object<br>know alignment\tdetermines the moral character of a monster or person<br>locate object\tfinds a specific item<br>"
+    },
+    {
+      "id": 167,
+      "level": -1,
+      "keyword": "DRACONIAN",
+      "text": "The Draconian spell group deals with the magic of dragons -- in this case, <br>bringing forth the devastating power of their breath weapons upon your foes.<br>Only mages have the mental training necessary to cast these spells, and few<br>of them ever reach the level of mastery required to use them.<br><br>acid breath\t uses the black dragon's attack upon an enemy<br>fire breath\t calls forth the flames of a red dragon<br>frost breath\t drains the life from a foe with the power a white dragon<br>gas breath\t suffocates your enemies with poison gas<br>lightning breath summons the electrical fury of a blue dragon <br>"
+    },
+    {
+      "id": 168,
+      "level": -1,
+      "keyword": "ENCHANTMENT",
+      "text": "The enchantment spell group is used to imbue items with magical properties.<br>Currently, this spell group consists of enchant weapon and enchant armor, <br>although more will be added in the future.  Only mages may enchant.<br><br>enchant weapon\tincreases the hit and damage bonuses of a weapon<br>enchant armor\tincreases the protective value of armor<br>fireproof       shields items from the harmful effects of fire and acid<br>recharge\trestores power to a depleted wand or staff<br>"
+    },
+    {
+      "id": 169,
+      "level": -1,
+      "keyword": "ENHANCEMENT",
+      "text": "The enhancement spells improve upon the body's pontential, allowing feats of<br>superhuman strength and speed.  However, these spells may often have harmful<br>effects upon the recipient.<br><br>giant strength\tgrants increased strength<br>haste\t\tdoubles the speed of the target, but slows down healing<br>infravision\tallows monsters to be seen in the dark<br>refresh\t\trestores energy to tired adventurers<br>"
+    },
+    {
+      "id": 170,
+      "level": -1,
+      "keyword": "HARMFUL",
+      "text": "This spell group is the opposite of healing.  The harmful spells are designed<br>to tear flesh from bone, rupture arteries, and generally turn the body against<br>itself.  Only priests and warriors may use this spell group.<br>In order of power, the harmful spells are:<br><br>cause light\tinflicts minor wounds on an enemy<br>cause serious\tinflicts wounds on a foe<br>cause critical  causes major damage to the target<br>harm\t\tthe most deadly harmful spell<br>"
+    },
+    {
+      "id": 171,
+      "level": -1,
+      "keyword": "HEALING",
+      "text": "The healing spells are used to cure the wounds that adventurers inevitably<br>suffer in battle.  For curing other conditions, such as poison, see the<br>curative spell group.  Only warriors and priests have access to this group.<br>In order of power, the healing spells are:<br><br>cure light\theals minor wounds<br>refresh\t\trestores vigor to a tired adventurer<br>cure serious\theals wounds<br>cure critical\tcloses all but the worst wounds<br>heal\t\tthe most powerful healing spell<br>mass healing\tcasts a heal spell on each player in the room<br>"
+    },
+    {
+      "id": 172,
+      "level": -1,
+      "keyword": "ILLUSION",
+      "text": "The illusions spells are dedicated to deception and trickery.  They can be<br>used to mask appearances, or create distractions for the party.  Currently,<br>the illusion group is very small, but it will be expanded in the future.<br>Only thieves and mages can cast illusion spells, which consist of the <br>following:<br><br>invis\t\tturns the target invisible<br>mass invis\tturns the caster's group invisible<br>ventriloquate\tallows the caster to put words in someone's mouth<br>"
+    },
+    {
+      "id": 173,
+      "level": -1,
+      "keyword": "SOCKETS",
+      "text": "Syntax: Inlay (gemstone) (target) <br><br>The gemstone used MUST be a &quot;settable&quot; gemstone, as can be identified <br>using <br>various means.  The target MUST be a weapon or a piece of armor. <br><br>The type of gemstone used will determine the affect the inlay had upon the <br>target item. <br><br>Different Gem types do different things, and the closer to perfect the gem <br>is <br>the more it adds.  Below is a table: <br><br>Sapphire: <br>       chip:         add 75 mana to the target item. <br>       flawed:       add 105 mana to the target item. <br>       flawless:     add 135 mana to the target item. <br>       perfect:      add 165 mana to the target item. <br>Rubies: <br>       chip:         add 75 hit points to the target item. <br>       flawed:       add 105 hit points to the target item. <br>       flawless:     add 135 hit points to the target item. <br>       perfect:      add 165 hit points to the target item. <br>Emeralds: <br>       chip:         add 75 moves to the target item. <br>       flawed:       add 105 moves to the target item. <br>       flawless:     add 135 moves to the target item. <br>       perfect:      add 165 moves to the target item. <br>Diamonds: <br>       chip:         add 10 hitroll to the target item. <br>       flawed:       add 15 hitroll to the target item. <br>       flawless:     add 20 hitroll to the target item. <br>       perfect:      add 25 hitroll to the target item. <br>Topazes: <br>       chip:         add -125 AC to the target item. <br>       flawed:       add -175 AC to the target item. <br>       flawless:     add -225 AC to the target item. <br>       perfect:      add -275 AC to the target item. <br>Skulls: <br>       chip:         add 10 damroll to the target item. <br>       flawed:       add 15 damroll to the target item. <br>       flawless:     add 20 damroll to the target item. <br>       perfect:      add 25 damroll to the target item. <br><br>For now, an item may only be inlayed twice. <br>"
+    },
+    {
+      "id": 174,
+      "level": 0,
+      "keyword": "",
+      "text": ""
+    },
+    {
+      "id": 175,
+      "level": 0,
+      "keyword": "TRADE",
+      "text": "The secure trading interface allows you to transfer goods with<br>complete safety, no-one can pinch your stuff unless you let them.  If<br>you don't trust someone completely, using this interface can ensure<br>that they don't cheat you.<br><br>To start a trading session the first player must offer to trade.<br><br>        trade offer [player]<br><br>The player target is optional, if you leave this off, any other player<br>may join the session.  To join a session type:<br><br>        trade join &lt;player&gt;<br><br>At any time you may leave a trade by typing:<br><br>        trade withdraw<br><br>Once the session has started you may type 'trade' or 'trade examine'<br>to view the current state of the trade.  To view details on any item<br>in the trade, type:<br><br>        trade examine &lt;object&gt;<br><br>To add gold or items to the trade type:<br><br>        trade add &lt;object&gt;|&lt;gold amount&gt;<br><br>If you enter a number it will subtract the gold from what you carry,<br>this will be returned to you if you withdraw.<br><br>Objects and gold may be removed by using:<br><br>        trade remove &lt;object&gt;|&lt;gold amount&gt;<br><br>In order to ensure that no changes are made you may lock the session.<br>Once locked neither party may change what is on offer, while locked<br>you may both examine the goods carefully.<br><br>        trade lock<br><br>This command toggles the lock setting, you can check if the trade is<br>locked by typing 'trade'.  Use the trade lock in order to give yourself<br>time to examine the other party's offer.  In order to finalise the deal<br>both parties must have locked the session, you cannot affect the lock<br>set by the other party.  Both parties must also accept the deal by<br>typing:<br><br>        trade accept<br><br>Once both parties have accepted the trade, the items are transferred<br>and the trade is over.<br>"
+    },
+    {
+      "id": 176,
+      "level": 0,
+      "keyword": "PLAYER MARRIAGES",
+      "text": "Two players can get married.The immortal that does these ceremonies is called Gretago.The weddings cost the players 35,000 gold each.This includes outfits for the bride and the groom and the wedding ring.Also some invitations can be purchased to send to players inviting them to your wedding at an additional price of 10 gold each.  A player cannot attend your wedding unless they were sent an invitation.  The weddings will take place in The Temple of Matrimony and Gretago will transfer the players that were invited to the temple on the day of the wedding.  To request a wedding please send a note to Gretago stating the names of the people getting married, how many players you wish to invite and there names.  <br> <br>Players can also get divorced. The immortal that divorces players is also Gretago. The cost of a divorce is 35,000 gold per player. However you must wait 1 real life month after marriage before divorcing. If your wife/husband deletes or is away for a long period of time and you wish to marry someone else then please send a note to Gretago. But please do not pester him, he will read your note and get back to you as soon as he can. After divorce you must wait 1 real life month before marrying again.<br> <br>Last altered by Gretago 29/5/04<br>"
+    },
+    {
+      "id": 177,
+      "level": 0,
+      "keyword": "",
+      "text": ""
+    },
+    {
+      "id": 178,
+      "level": 0,
+      "keyword": "bridgewater",
+      "text": "Bridgewater is a starting town <br>"
+    },
+    {
+      "id": 179,
+      "level": 0,
+      "keyword": "SHADOWSTORM DAVION SYNON",
+      "text": "This MUD is based on ShadowStorm by Synon and Davion<br>There have been many changes and improvements behind<br>the scenes, but the base code is theirs and I wanted<br>to give credit where its due.<br>"
+    }
+  ],
+  "total": 180
+}

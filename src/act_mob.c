@@ -895,6 +895,7 @@ void do_bounty(CHAR_DATA *ch, char *argument)
   /* Check for the bounty collector */
   for(vch = ch->in_room->people; vch ; vch = vch->next_in_room)
   {
+      if(!same_room(ch, vch, NULL)) continue;
     if(IS_NPC(vch) && IS_SET(vch->act, ACT_BOUNTY))
       break;
   }
@@ -1929,6 +1930,7 @@ void do_convert( CHAR_DATA *ch, char *argument )
 
   for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
   {
+      if(!same_room(ch, mob, NULL)) continue;
        if ( IS_NPC(mob) && IS_SET(mob->act, ACT_TRAIN) )
 	   break;
   }

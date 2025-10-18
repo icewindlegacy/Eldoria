@@ -249,6 +249,7 @@ DECLARE_OLC_FUN( oedit_value5        ); //worldmap.c
 DECLARE_OLC_FUN( oedit_value6        ); //worldmap.c
 DECLARE_OLC_FUN( oedit_weight		);
 DECLARE_OLC_FUN( oedit_cost		);
+DECLARE_OLC_FUN( oedit_qcost		);
 DECLARE_OLC_FUN( oedit_ed		);
 
 DECLARE_OLC_FUN( oedit_extra            );  /* ROM */
@@ -277,6 +278,7 @@ DECLARE_OLC_FUN( medit_name		);
 DECLARE_OLC_FUN( medit_short		);
 DECLARE_OLC_FUN( medit_long		);
 DECLARE_OLC_FUN( medit_shop		);
+DECLARE_OLC_FUN( medit_qshop		);
 DECLARE_OLC_FUN( medit_desc		);
 DECLARE_OLC_FUN( medit_level		);
 DECLARE_OLC_FUN( medit_experience       );
@@ -423,6 +425,8 @@ AFFECT_DATA	*new_affect		args ( ( void ) );
 void		free_affect		args ( ( AFFECT_DATA* pAf ) );
 SHOP_DATA	*new_shop		args ( ( void ) );
 void		free_shop		args ( ( SHOP_DATA *pShop ) );
+QSHOP_DATA	*new_qshop		args ( ( void ) );
+void		free_qshop		args ( ( QSHOP_DATA *pQShop ) );
 OBJ_INDEX_DATA	*new_obj_index		args ( ( void ) );
 void		free_obj_index		args ( ( OBJ_INDEX_DATA *pObj ) );
 MOB_INDEX_DATA	*new_mob_index		args ( ( void ) );

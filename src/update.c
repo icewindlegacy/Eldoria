@@ -50,6 +50,7 @@ void	mobile_update	args( ( void ) );
 void	weather_update	args( ( void ) );
 void	char_update	args( ( void ) );
 void	obj_update	args( ( void ) );
+void	falling_obj_update	args( ( void ) );
 void	aggr_update	args( ( void ) );
 void    quest_update    args( ( void ) );
 bool    in_donation_room args( (OBJ_DATA *obj) );    
@@ -60,6 +61,7 @@ void    gquest_update   args( ( void ) );
 void    olcautosave     args( ( void ) );
 void    who_html_update args( ( void ) );
 void    help_json_update args( ( void ) );
+void    skills_json_update args( ( void ) );
 void    save_area       args( ( AREA_DATA *pArea ) );      
 void    save_area_list  args( ( void ) );
 void    save_donation_pits args( ( void ) );
@@ -1393,6 +1395,60 @@ void obj_update( void )
     return;
 }
 
+// Separate update for falling objects - runs every 4 seconds instead of 60
+void falling_obj_update( void )
+{
+    OBJ_DATA *obj;
+    OBJ_DATA *obj_next;
+    CHAR_DATA *rch;
+    
+    for ( obj = object_list; obj != NULL; obj = obj_next )
+    {
+        obj_next = obj->next;
+        
+        if ( !obj || !obj->in_room )
+            continue;
+        
+        // Make objects fall through AIR sectors until hitting ground
+        if (obj->in_room->sector_type == SECT_AIR && CAN_WEAR(obj, ITEM_TAKE))
+        {
+            bool fell = FALSE;
+            
+            // Keep falling while in AIR and there's a down exit
+            while (obj->in_room->sector_type == SECT_AIR &&
+                   obj->in_room->exit[5] &&
+                   obj->in_room->exit[5]->u1.to_room)
+            {
+                ROOM_INDEX_DATA *old_room = obj->in_room;
+                ROOM_INDEX_DATA *new_room = obj->in_room->exit[5]->u1.to_room;
+                
+                if (!fell && (rch = old_room->people) != NULL)
+                {
+                    act( "$p falls away.", rch, obj, NULL, TO_ROOM );
+                    act( "$p falls away.", rch, obj, NULL, TO_CHAR );
+                    fell = TRUE;
+                }
+                
+                obj_from_room(obj);
+                obj_to_room(obj, new_room);
+                
+                // Prevent infinite loops
+                if (old_room == new_room)
+                    break;
+            }
+            
+            // Announce landing
+            if (fell && (rch = obj->in_room->people) != NULL)
+            {
+                act( "$p lands with a thud.", rch, obj, NULL, TO_ROOM );
+                act( "$p lands with a thud.", rch, obj, NULL, TO_CHAR );
+            }
+        }
+    }
+    
+    return;
+}
+
 
 void room_update( AREA_DATA *pArea )
 {
@@ -1702,6 +1758,7 @@ void update_handler( void )
 	song_update();
         who_html_update();
         help_json_update();
+        skills_json_update();
     }
 
     if (--pulse_trivia <= 0)
@@ -1736,6 +1793,7 @@ void update_handler( void )
     {
 	pulse_mobile	= PULSE_MOBILE;
 	mobile_update	( );
+	falling_obj_update( );  /* Check for falling objects every 4 seconds */
     }
 
     if ( --pulse_violence <= 0 )

@@ -153,7 +153,7 @@ void save_pits(void)
         
         /* Save each object IN the pit, with room info */
         OBJ_DATA *obj;
-        for (obj = pit->contains; obj; obj = obj->next_content)
+                for (obj = pit->contains; obj; obj = obj->next_content)
         {
             OBJ_DATA *obj_next;
             pit_count++;
@@ -371,7 +371,7 @@ void save_tokens(void)
             /* Restore the link */
             obj->next_content = saved_next;
             
-            token_count++;
+                token_count++;
             sprintf(buf, "save_tokens: Saved token from room %d", obj->in_room->vnum);
             log_string(buf);
         }

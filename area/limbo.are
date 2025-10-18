@@ -250,9 +250,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 200
-AffectObj
 19 200
+AffectObj
+18 200
 EndObj
 
 #OBJ
@@ -555,6 +555,26 @@ Xp_tolevel 0
 Condition P
 EndObj
 
+#OBJ
+Vnum 26
+Name test portal wilderness~
+Short a test portal to the wilderness~
+Desc A swirling vortex shows a spawling vista on the other side~
+Material unknown~
+Item_type portal
+Extra 0
+Extra2 0
+Wear 0
+Values ABCDIJKN 0 0 EFIKMNO 0
+Level 0
+Weight 0
+Cost 0
+Plevel 0
+Exp 0
+Xp_tolevel 0
+Condition P
+EndObj
+
 #END
 
 
@@ -605,6 +625,11 @@ S
 
 
 #SHOPS
+0
+
+
+
+#QSHOPS
 0
 
 

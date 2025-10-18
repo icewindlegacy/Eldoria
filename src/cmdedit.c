@@ -486,6 +486,7 @@ CMDEDIT( cmdedit_new )
 	free_string(cmd->name );
 	cmd->name = str_dup(argument);
 	ch->desc->pEdit = (void *) cmd;
+	ch->desc->editor = ED_COMMAND;
 	send_to_char("Command created.\n\r",ch);
 	return TRUE;
 }
@@ -916,6 +917,9 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     { "gquest",     do_gquest		},
     { "qpgive",     do_qpgive		},
     { "quest",      do_quest		},
+    { "qlist",      do_qlist		},
+    { "qbuy",       do_qbuy			},
+    { "qsell",      do_qsell		},
     { "tpgive",     do_tpgive		},
     { "tpspend",    do_tpspend		},
     { "restring",   do_restring		},
@@ -1156,6 +1160,8 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     {"wedit", do_wedit},
     {"wmapshow", do_wmap_show},
     {"zoomwmap", do_zoomwmap},
+    {"explored", do_explored},
+    {"webupdate", do_webupdate},
 	{ NULL,			NULL	    },
 
 };

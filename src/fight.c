@@ -2261,6 +2261,7 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
     group_levels = 0;
     for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     {
+        if(!same_room(ch, gch, NULL)) continue;
 	if ( is_same_group( gch, ch ) )
         {
 	    members++;
@@ -2279,6 +2280,7 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
 
     for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
     {
+        if(!same_room(ch, gch, NULL)) continue;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 
@@ -6194,6 +6196,7 @@ void do_rally(CHAR_DATA *ch, char *argument)
 
      for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
      {
+         if(!same_room(ch, gch, NULL)) continue;
           if ( gch != ch && is_same_group(ch, gch) && !IS_AFFECTED(gch, AFF_CALM) )
           {
                if ( !is_affected(gch,skill_lookup("rally") ) )

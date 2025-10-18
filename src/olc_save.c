@@ -444,6 +444,10 @@ void save_object( FILE *fp, OBJ_INDEX_DATA *pObjIndex )
     else                                   letter = 'R';
 
     fprintf( fp, "%c\n", letter );
+    
+    /* Quest point cost for quest shops */
+    if ( pObjIndex->qcost > 0 )
+        fprintf( fp, "Q\n%d\n", pObjIndex->qcost );
 
     for( pAf = pObjIndex->affected; pAf; pAf = pAf->next )
     {
@@ -936,6 +940,37 @@ void save_shops( FILE *fp, AREA_DATA *pArea )
     return;
 }
 
+/*****************************************************************************
+ Name:		save_qshops
+ Purpose:	Saves the #QSHOPS section of an area file.
+ Called by:	fwrite_area(olc_save_new.c)
+ ****************************************************************************/
+void save_qshops( FILE *fp, AREA_DATA *pArea )
+{
+    QSHOP_DATA *pQShopIndex;
+    MOB_INDEX_DATA *pMobIndex;
+    int iHash;
+    
+    fprintf( fp, "#QSHOPS\n" );
+
+    for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
+    {
+        for( pMobIndex = mob_index_hash[iHash]; pMobIndex; pMobIndex = pMobIndex->next )
+        {
+            if ( pMobIndex && pMobIndex->area == pArea && pMobIndex->pQShop )
+            {
+                pQShopIndex = pMobIndex->pQShop;
+
+                fprintf( fp, "%d ", pQShopIndex->keeper );
+                fprintf( fp, "%d\n", pQShopIndex->profit_sell );
+            }
+        }
+    }
+
+    fprintf( fp, "0\n\n\n\n" );
+    return;
+}
+
 
 void save_help_new()
 {
@@ -986,6 +1021,7 @@ void save_area( AREA_DATA *pArea )
     save_specials( fp, pArea );
     save_resets( fp, pArea );
     save_shops( fp, pArea );
+    save_qshops( fp, pArea );
     save_mobprogs( fp, pArea );
     save_objprogs( fp, pArea );
     save_roomprogs( fp, pArea );

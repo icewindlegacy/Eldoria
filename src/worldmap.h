@@ -160,3 +160,4 @@ int wmap_new_x args((CHAR_DATA *ch, int dir));
 int wmap_new_y args((CHAR_DATA *ch, int dir));
 void do_savemap args((CHAR_DATA *ch, char *argument));
 bool has_key args((CHAR_DATA *ch, int key)); //worldmap.c
+void display_wmap args((CHAR_DATA *ch, bool alook));

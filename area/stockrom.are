@@ -2146,7 +2146,7 @@ Material unknown~
 Item_type trash
 Extra 0
 Extra2 0
-Wear 0
+Wear A
 Values 0 0 0 0 0
 Level 0
 Weight 0
@@ -4050,6 +4050,11 @@ S
 
 
 #SHOPS
+0
+
+
+
+#QSHOPS
 0
 
 

@@ -208,10 +208,10 @@ void who_html_update (void)
           fprintf(fp, "<span style=\"color:#ffff00\">[AFK]</span> ");
       
       fprintf(fp, "<span class=\"name\">%s</span>", wch->name);
-      
+
       buf2[0] = '\0';
       sprintf(buf2, "%s", (IS_NPC(wch) ? "" : wch->pcdata->title));
-      html_colourconv( buf, buf2, wch );
+	html_colourconv( buf, buf2, wch );
       fprintf(fp, "%s", buf);
       
       fprintf(fp, "</div>\n");

@@ -54,6 +54,7 @@
 void    save_donation_pits args( ( void ) );
 void    save_pits args( ( void ) );
 void    save_tokens args( ( void ) );
+void    save_qshops args( ( FILE *fp, AREA_DATA *pArea ) );
 int const_lookup args ( (const char *name ) );
 
 #define DIF(a,b) (~((~a)|(b)))
@@ -295,6 +296,8 @@ void fwrite_objects( FILE *fp, AREA_DATA *pArea )
 			fprintf( fp, "Level %d\n", pObjIndex->level );
 			fprintf( fp, "Weight %d\n", pObjIndex->weight );
 			fprintf( fp, "Cost %d\n", pObjIndex->cost );
+			if ( pObjIndex->qcost > 0 )
+			    fprintf( fp, "Qcost %d\n", pObjIndex->qcost );
                         fprintf( fp, "Plevel %d\n", pObjIndex->plevel );
                         fprintf( fp, "Exp %d\n", pObjIndex->exp );
                         fprintf( fp, "Xp_tolevel %d\n", pObjIndex->xp_tolevel );
@@ -501,6 +504,7 @@ void fwrite_area( AREA_DATA *pArea )
     save_specials( fp, pArea );
     save_resets( fp, pArea );
     save_shops( fp, pArea );
+    save_qshops( fp, pArea );
     save_mobprogs( fp, pArea );
     save_objprogs( fp, pArea );
     save_roomprogs( fp, pArea );
