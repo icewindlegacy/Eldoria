@@ -265,3 +265,19 @@ AREA_DATA *area_lookup ( const char *name )
     return NULL;
 }
 
+
+
+//worldmap.c
+int sector_lookup (const char *name)
+{
+    int sector;
+
+    for (sector = 0; sector < SECT_MAX; sector++)
+    {
+        if (LOWER (name[0]) == LOWER (sector_flags[sector].name[0])
+            && !str_prefix (name, sector_flags[sector].name))
+            return sector;
+    }
+
+    return -1;
+}

@@ -37,10 +37,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include "include.h"
+#include "worldmap.h" //worldmap.c
 
 char *	const	dir_name	[]		=
 {
-    "north", "east", "south", "west", "up", "down"
+    "north", "east", "south", "west", "up", "down", "northeast", "southeast", "southwest", "northwest" //worldmap.c
 };
 
 int find_path(ROOM_INDEX_DATA *from, ROOM_INDEX_DATA *to, int max_depth);
@@ -51,10 +52,13 @@ const	sh_int	rev_dir		[]		=
     2, 3, 0, 1, 5, 4
 };
 
+//worldmap.c - movement_loss is now handled by sector_flags table in worldmap.c
+/*
 const	sh_int	movement_loss	[SECT_MAX]	=
 {
     1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6, 2
 };
+*/
 
 char *  const   rev_move        []              =
 {
@@ -81,10 +85,19 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     EXIT_DATA *pexit;
     char buf[MAX_STRING_LENGTH];
 
-    if ( door < 0 || door > 5 )
+    if ( door < 0 || door > DIR_NORTHWEST ) //worldmap.c
     {
 	bug( "Do_move: bad door %d.", door );
 	return;
+    }
+
+    //worldmap.c
+    if(is_wmap(ch,NULL))
+    {
+        if(!can_leave(ch,ch->in_room,TRUE))
+            return;
+        wmap_movement(ch,door,follow);
+        return;
     }
 
     if ( !IS_NPC(ch)

@@ -47,3 +47,4 @@ int mineral_lookup args( (const char *name ) );
 RELIGION *religion_lookup args( ( const char *name ) );
 AREA_DATA *area_lookup args( ( const char *name ) );
 RELIGION *faction_lookup args( ( const char *name ) );
+int         sector_lookup    args( (const char *name) ); //worldmap.c

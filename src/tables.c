@@ -483,6 +483,8 @@ const struct flag_type room_flags[] =
 
 
 
+//worldmap.c - sector_flags table moved to worldmap.c as sec_type structure
+/*
 const struct flag_type sector_flags[] =
 {
     {	"inside",	SECT_INSIDE,		TRUE	},
@@ -499,6 +501,7 @@ const struct flag_type sector_flags[] =
     {   "farmland",	SECT_FARM,		TRUE	},
     {	NULL,		0,			0	}
 };
+*/
 
 
 
