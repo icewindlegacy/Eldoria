@@ -28,6 +28,7 @@
 #include "tables.h"
 #include "olc.h"
 #include "lookup.h"
+#include "worldmap.h" //worldmap.c
 #include "const.h"
 
 /*
@@ -47,6 +48,9 @@ bool run_olc_editor( DESCRIPTOR_DATA *d )
 		case ED_ROOM:
 			redit( d->character, d->incomm );
 			break;
+        case ED_WMAP: //worldmap.c
+            wedit (d->character, d->incomm);
+            break;
 		case ED_OBJECT:
 			oedit( d->character, d->incomm );
 			break;
@@ -97,6 +101,9 @@ char *olc_ed_name( CHAR_DATA *ch )
 		case ED_ROOM:
 			sprintf( buf, "REdit" );
 			break;
+        case ED_WMAP: //worldmap.c
+            sprintf (buf, "WEdit");
+            break;
 		case ED_OBJECT:
 			sprintf( buf, "OEdit" );
 			break;
@@ -159,6 +166,12 @@ char *olc_ed_vnum( CHAR_DATA *ch )
 	pRoom = ch->in_room;
 	sprintf( buf, "%d", pRoom ? pRoom->vnum : 0 );
 	break;
+    case ED_WMAP: //worldmap.c
+        {
+        WMAPTILE_DATA *tile = find_wmap_tile(wmap_num(ch,NULL),wmap_x(ch,NULL),wmap_y(ch,NULL),wmap_z(ch,NULL));
+        sprintf (buf, "%s", is_wmap(ch,NULL) ? wmap_name(ch,NULL) : "");
+        }
+        break;
     case ED_OBJECT:
 	pObj = (OBJ_INDEX_DATA *)ch->desc->pEdit;
 	sprintf( buf, "%d", pObj ? pObj->vnum : 0 );
@@ -239,6 +252,9 @@ bool show_commands( CHAR_DATA *ch, char *argument )
 	case ED_ROOM:
 	    show_olc_cmds( ch, redit_table );
 	    break;
+        case ED_WMAP: //worldmap.c
+            show_olc_cmds (ch, wedit_table);
+            break;
 	case ED_OBJECT:
 	    show_olc_cmds( ch, oedit_table );
 	    break;
@@ -377,6 +393,8 @@ const struct olc_cmd_type oedit_table[] =
     {   "v2",		oedit_value2	},
     {   "v3",		oedit_value3	},
     {   "v4",		oedit_value4	},  /* ROM */
+    {   "v5",        oedit_value5},        //worldmap.c
+    {   "v6",        oedit_value6},        //worldmap.c
     {   "weight",	oedit_weight	},
 
     {   "extra",        oedit_extra     },  /* ROM */
@@ -453,6 +471,29 @@ const struct olc_cmd_type medit_table[] =
     {   "version",	show_version	},
 
     {	NULL,		0,		}
+};
+
+//worldmap.c
+const struct olc_cmd_type wedit_table[] = {
+/*  {   command        function    }, */
+    {"show",        wedit_show},
+    {"tile",        wedit_tile}, //create, delete, save
+    {"sector",      wedit_sector},
+    {"symbol",      wedit_symbol},
+    {"name",        wedit_name},
+    {"desc",        wedit_desc},
+    {"visibility",  wedit_visibility},
+    {"passable",    wedit_passable},
+    {"exit",        wedit_exit}, //vnum, save, delete
+    {"wlist",       wedit_wlist}, //tiles, exits
+    {"save",        wedit_save}, //wmap, tile, exits
+    {"reset",       wedit_reset}, //list (all), tile, add, delete
+    {"clear",       wedit_clear}, //deletes tiles, exits, and resets
+    {"reload",      wedit_reload},
+    {"?",           show_help},
+    {"version",     show_version},
+
+    {NULL, 0,}
 };
 
 /* Guild edit command table */
@@ -581,6 +622,7 @@ bool edit_done( CHAR_DATA *ch )
     ch->desc->pEdit = NULL;
     ch->desc->editor = 0;
     ch->desc->walkabout = FALSE;
+    ch->pcdata->wmap_sec = -1; //worldmap.c
     return FALSE;
 }
 
@@ -966,6 +1008,7 @@ const struct editor_cmd_type editor_table[] =
     {   "skills",	do_skedit	},
     {   "commands",     do_cmdedit	},
 	{	"religions",	do_rlgedit },
+    {"wedit", do_wedit}, //worldmap.c
     {	NULL,		0,		}
 };
 
@@ -1166,6 +1209,12 @@ void do_redit( CHAR_DATA *ch, char *argument )
     argument = one_argument( argument, arg1 );
 
     pRoom = ch->in_room;
+
+    if(is_wmap(ch,NULL)) //worldmap.c
+    {
+        send_to_char("Cannot use REdit on a world map room.\r\n",ch);
+        return;
+    }
 
     if ( !str_cmp( arg1, "reset" ) )	/* redit reset */
     {
@@ -1662,6 +1711,19 @@ void do_resets( CHAR_DATA *ch, char *argument )
     char arg6[MAX_INPUT_LENGTH];
     char arg7[MAX_INPUT_LENGTH];
     RESET_DATA *pReset = NULL;
+
+    if(is_wmap(ch,NULL)) //worldmap.c
+    {
+        if(ch->desc->editor != ED_WMAP)
+        {
+            do_function(ch, &do_wedit, "");
+            if(ch->desc->editor == ED_WMAP)
+                wedit_reset(ch,argument);
+            else
+                send_to_char("Cannot modify resets on a world map room.\r\n",ch);
+        }
+        return;
+    }
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -2272,4 +2334,85 @@ void do_rlgedit( CHAR_DATA *ch, char *argument )
 	ch->desc->editor = ED_RELIGION;
 	printf_to_char(ch, "Entering the Religion editor for %s\n\r",relg->name );
 	return;
+}
+
+//worldmap.c
+void do_wedit (CHAR_DATA * ch, char *argument)
+{
+    WMAPTILE_DATA *tile;
+    char arg1[MAX_STRING_LENGTH];
+
+    argument = one_argument (argument, arg1);
+
+    if (IS_NPC (ch))
+        return;
+
+    if (!is_wmap(ch, NULL))
+    {
+        send_to_char("You are not in a valid map location.\r\n", ch);
+        return;
+    }
+
+    if (arg1[0] != '\0' && !str_cmp (arg1, "create"))
+    {
+        if (wedit_tile (ch, "create"))
+            ch->desc->editor = ED_WMAP;
+        return;
+    }
+
+    tile = find_wmap_tile(wmap_num(ch,NULL),wmap_x(ch,NULL),wmap_y(ch,NULL),wmap_z(ch,NULL));
+
+    if(tile == NULL)
+    {
+        ch->desc->editor = ED_WMAP;
+        //send_to_char ("WEdit:  There is no default wmap tile to edit.\r\n", ch);
+    }
+    else
+    {
+        ch->desc->pEdit = (void *) tile;
+        ch->desc->editor = ED_WMAP;
+    }
+    return;
+}
+
+//worldmap.c
+/* Wmap Interpreter, called by do_wedit. */
+void wedit (CHAR_DATA * ch, char *argument)
+{
+    WMAPTILE_DATA *tile;
+    char command[MAX_INPUT_LENGTH];
+    char arg[MAX_STRING_LENGTH];
+    int cmd;
+
+    smash_tilde (argument);
+    strcpy (arg, argument);
+    argument = one_argument (argument, command);
+
+    EDIT_WMAP (ch, tile);
+
+    if (!str_cmp (command, "done"))
+    {
+        edit_done (ch);
+        return;
+    }
+
+    if (command[0] == '\0')
+    {
+        wedit_show (ch, argument);
+        return;
+    }
+
+    /* Search Table and Dispatch Command. */
+    for (cmd = 0; wedit_table[cmd].name != NULL; cmd++)
+    {
+        if (!str_prefix (command, wedit_table[cmd].name))
+        {
+            if((*wedit_table[cmd].olc_fun) (ch, argument))
+                return;
+            return;
+        }
+    }
+    /* Default to Standard Interpreter. */
+    interpret (ch, arg);
+    return;
 }

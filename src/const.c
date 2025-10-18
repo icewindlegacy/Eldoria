@@ -121,6 +121,7 @@ const   struct wiznet_type      wiznet_table    []              =
    {	"switches",	WIZ_SWITCHES,	L2 },
    {	"secure",	WIZ_SECURE,	L1 },
    {    "olc",          WIZ_OLC,        L4 },
+   {    "bugs",         WIZ_BUGS,       L1 }, //worldmap.c
    {	NULL,		0,		0  }
 };
 

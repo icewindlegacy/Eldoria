@@ -64,6 +64,7 @@ DECLARE_SPELL_FUN( spell_null );
 #define ED_OPCODE       7
 #define ED_RPCODE       8
 #define ED_GUILD        9
+#define ED_WMAP        10 //worldmap.c
 #define ED_SKILL	11
 #define ED_COMMAND      12
 #define ED_RELIGION		13
@@ -75,6 +76,7 @@ void    aedit           args( ( CHAR_DATA *ch, char *argument ) );
 void    redit           args( ( CHAR_DATA *ch, char *argument ) );
 void    medit           args( ( CHAR_DATA *ch, char *argument ) );
 void    oedit           args( ( CHAR_DATA *ch, char *argument ) );
+void    wedit           args( ( CHAR_DATA *ch, char *argument ) ); //worldmap.c
 void	mpedit		args( ( CHAR_DATA *ch, char *argument ) );
 void	hedit		args( ( CHAR_DATA *, char * ) );
 void    opedit          args( ( CHAR_DATA *ch, char *argument ) );
@@ -134,6 +136,7 @@ extern const struct olc_cmd_type	aedit_table[];
 extern const struct olc_cmd_type	redit_table[];
 extern const struct olc_cmd_type	oedit_table[];
 extern const struct olc_cmd_type	medit_table[];
+extern const struct olc_cmd_type    wedit_table[]; //worldmap.c
 extern const struct olc_cmd_type	mpedit_table[];
 extern const struct olc_cmd_type	hedit_table[];
 extern const struct olc_cmd_type        opedit_table[];
@@ -150,6 +153,7 @@ DECLARE_DO_FUN( do_aedit        );
 DECLARE_DO_FUN( do_redit        );
 DECLARE_DO_FUN( do_oedit        );
 DECLARE_DO_FUN( do_medit        );
+DECLARE_DO_FUN( do_wedit    ); //worldmap.c
 DECLARE_DO_FUN( do_mpedit	);
 DECLARE_DO_FUN( do_hedit	);
 DECLARE_DO_FUN( do_opedit       );
@@ -241,6 +245,8 @@ DECLARE_OLC_FUN( oedit_value1		);
 DECLARE_OLC_FUN( oedit_value2		);
 DECLARE_OLC_FUN( oedit_value3		);
 DECLARE_OLC_FUN( oedit_value4		);  /* ROM */
+DECLARE_OLC_FUN( oedit_value5        ); //worldmap.c
+DECLARE_OLC_FUN( oedit_value6        ); //worldmap.c
 DECLARE_OLC_FUN( oedit_weight		);
 DECLARE_OLC_FUN( oedit_cost		);
 DECLARE_OLC_FUN( oedit_ed		);
@@ -396,6 +402,7 @@ DECLARE_OLC_FUN( rlgedit_message	);
 #define EDIT_SKILL(Ch, Sn)	( Sn = (long int) Ch->desc->pEdit )
 #define EDIT_COMMAND( Ch, Cmd ) ( Cmd = (CMD_DATA *) Ch->desc->pEdit )
 #define EDIT_RELIGION( ch, rlg )  ( rlg = (RELIGION *) ch->desc->pEdit )
+#define EDIT_WMAP(Ch, Tile)    ( Tile = find_wmap_tile(wmap_num(ch,NULL),wmap_x(ch,NULL),wmap_y(ch,NULL),wmap_z(ch,NULL)) ) //worldmap.c
 
 /*
  * Prototypes

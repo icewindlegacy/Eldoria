@@ -1,0 +1,152 @@
+#AREADATA
+Name Eldoria World Maps~
+Builders Synon Davion~
+VNUMs 30000 30499
+Credits Joseph Benfield (Hades_Kane) Matt Fillinger (Grieffels)~
+Security 9
+Soundfile ~
+Continent 0
+End
+
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#0
+
+
+#ROOMS
+#30000
+Eldoria - World Map One~
+You are standing on the world map.  The terrain stretches out in all directions.
+~
+0 0 1
+D0
+~
+~
+0 0 0
+D1
+~
+~
+0 0 0
+D2
+~
+~
+0 0 0
+D3
+~
+~
+0 0 0
+S
+
+#30001
+Eldoria - World Map Two~
+You are standing on the second world map.  The terrain stretches out in all directions.
+~
+0 0 1
+D0
+~
+~
+0 0 0
+D1
+~
+~
+0 0 0
+D2
+~
+~
+0 0 0
+D3
+~
+~
+0 0 0
+S
+
+#30002
+Eldoria - World Map Three~
+You are standing on the third world map.  The terrain stretches out in all directions.
+~
+0 0 1
+D0
+~
+~
+0 0 0
+D1
+~
+~
+0 0 0
+D2
+~
+~
+0 0 0
+D3
+~
+~
+0 0 0
+S
+
+#30003
+Eldoria - World Map Four~
+You are standing on the fourth world map.  The terrain stretches out in all directions.
+~
+0 0 1
+D0
+~
+~
+0 0 0
+D1
+~
+~
+0 0 0
+D2
+~
+~
+0 0 0
+D3
+~
+~
+0 0 0
+S
+
+#30004
+Eldoria - World Map Five~
+You are standing on the fifth world map.  The terrain stretches out in all directions.
+~
+0 0 1
+D0
+~
+~
+0 0 0
+D1
+~
+~
+0 0 0
+D2
+~
+~
+0 0 0
+D3
+~
+~
+0 0 0
+S
+
+#0
+
+
+#RESETS
+S
+
+
+#SHOPS
+0
+
+
+#SPECIALS
+S
+
+
+#$
+

@@ -26,6 +26,7 @@
 #include <time.h>
 #include <math.h>
 #include "include.h"
+#include "worldmap.h" //worldmap.c
 char * prog_type_to_name ( int type );
 
 #define ALT_FLAGVALUE_SET( _blargh, _table, _arg )		\
@@ -48,6 +49,10 @@ char * prog_type_to_name ( int type );
 #define AEDIT( fun )		bool fun( CHAR_DATA *ch, char *argument )
 #define GEDIT( fun )            bool fun( CHAR_DATA *ch, char *argument )
 #define SKEDIT(fun )		bool fun( CHAR_DATA *ch, char *argument )
+#define WEDIT( fun )        bool fun( CHAR_DATA *ch, char *argument ) //worldmap.c
+
+extern WMAP_RESET_DATA     *wmap_reset_list[]; //worldmap.c
+void save_wmap_resets(int wmap_index); //worldmap.c
 
 struct olc_help_type
 {
@@ -118,6 +123,7 @@ const struct olc_help_type help_table[] =
     {	"apptype",	apply_types,	 "Apply types."			 },
     {	"weapon",	attack_table,	 "Weapon types."		 },
     {	"mprog",	mprog_flags,	 "MobProgram flags."		 },
+    {"wedit", wmap_table, "WEdit commands."}, //worldmap.c
     {	NULL,		NULL,		 NULL				 }
 };
 
@@ -319,6 +325,31 @@ bool show_help( CHAR_DATA *ch, char *argument )
 		    
 		return FALSE;
 	    }
+            //worldmap.c
+            else if (help_table[cnt].structure == sector_flags)
+            {
+                show_seclist (ch);
+                return FALSE;
+            }
+            else if (help_table[cnt].structure == wmap_table) //worldmap.c
+            {
+                send_to_char("WEdit commands\r\n"
+                             " show\r\n"
+                             " tile <create|delete|save>\r\n"
+                             " sector <type> | sector fill <type> | sector walk <type>\r\n"
+                             " sector circle/square/fractal <type> <distance> <true|false>\r\n"
+                             " symbol <X>\r\n"
+                             " name <text>\r\n"
+                             " desc (enters into append mode)\r\n"
+                             " visibility <#>\r\n"
+                             " passable <yes/true | no/false>\r\n"
+                             " exit <vnum|save|delete>\r\n"
+                             " wlist tiles [all] | wlist exits\r\n"
+                             " reset [all|wmap#] | reset [modify|mob|obj|delete]>\r\n"
+                             " reload\r\n"
+                             " save <wmap|tile|exits>\r\n",ch);
+                return FALSE;
+            }
 	    else
 	    {
 		show_flag_cmds( ch, (flag_type *)help_table[cnt].structure );
@@ -1143,9 +1174,10 @@ REDIT( redit_show )
 	    pRoom->name, pRoom->area->vnum, pRoom->area->name );
     strcat( buf1, buf );
 
-    sprintf( buf, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
-	    pRoom->vnum, flag_string( sector_flags, pRoom->sector_type ) );
-    strcat( buf1, buf );
+    //worldmap.c
+    sprintf (buf, "Vnum:       [%5d]\r\nSector:     [%s]\r\n",
+             pRoom->vnum, sector_flags[pRoom->sector_type].name);
+    strcat (buf1, buf);
 
     sprintf( buf, "Room flags: [%s]\n\r",
 	    flag_string( room_flags, pRoom->room_flags ) );
@@ -2855,6 +2887,18 @@ bool set_obj_values( CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, int value_num, char *a
 	    	    send_to_char( "EXIT VNUM SET.\n\r\n\r", ch);
 	    	    pObj->value[3] = atoi ( argument );
 	    	    break;
+                case 4: //worldmap.c
+                    send_to_char ("WMAP VNUM SET.\r\n\r\n", ch);
+                    pObj->value[4] = atoi (argument);
+                    break;
+                case 5: //worldmap.c
+                    send_to_char ("X COORD SET.\r\n\r\n", ch);
+                    pObj->value[5] = atoi (argument);
+                    break;
+                case 6: //worldmap.c
+                    send_to_char ("Y COORD SET.\r\n\r\n", ch);
+                    pObj->value[6] = atoi (argument);
+                    break;
 	   }
 	   break;
 
@@ -3615,7 +3659,21 @@ OEDIT( oedit_value4 )
     return FALSE;
 }
 
+OEDIT (oedit_value5) //worldmap.c
+{
+    if (oedit_values (ch, argument, 5))
+        return TRUE;
 
+    return FALSE;
+}
+
+OEDIT (oedit_value6) //worldmap.c
+{
+    if (oedit_values (ch, argument, 6))
+        return TRUE;
+
+    return FALSE;
+}
 
 OEDIT( oedit_weight )
 {
@@ -7901,3 +7959,1123 @@ AEDIT ( aedit_music )
      return TRUE;
 }
 
+//worldmap.c
+void show_seclist (CHAR_DATA * ch)
+{
+    int sec;
+    BUFFER *buffer;
+    char buf[MAX_STRING_LENGTH];
+
+    buffer = new_buf ();
+
+    for (sec = 0; sec < SECT_MAX; sec++)
+    {
+        if ((sec % 21) == 0)
+            add_buf (buffer,
+                     "Name           mv    r    g    b  walls floor w.map\r\n");
+
+        sprintf (buf, "%-14s %2d  %3d  %3d  %3d    %s{x     %s{x     %s{x\r\n",
+                sector_flags[sec].name, sector_flags[sec].move,
+                sector_flags[sec].red, sector_flags[sec].blue, sector_flags[sec].green,
+                sector_flags[sec].wall, sector_flags[sec].floor, sector_flags[sec].wmap_symb);
+
+        add_buf (buffer, buf);
+    }
+
+    page_to_char (buf_string (buffer), ch);
+    free_buf (buffer);
+
+    return;
+}
+
+WEDIT (wedit_show)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        send_to_char("No tile present.\r\n",ch);
+        return FALSE;
+    }
+
+    printf_to_char(ch,"Coords:     %d %d %d\r\n"
+                      "Visibility: %d\r\n"
+                      "Passable:   %s\r\n"
+                      "Symbol:     %s{x\r\n"
+                      "Name:       %s\r\n"
+                      "Desc:\r\n%s\r\n",
+    tile->x, tile->y, tile->z, tile->vis, tile->pass == 0 ? "TRUE" : "FALSE",
+    tile->symb, tile->name, tile->desc);
+    return FALSE;
+}
+
+WEDIT (wedit_tile) //create, delete, save
+{
+    WMAPTILE_DATA *tile;
+
+    if (argument[0] == '\0')
+    {
+        send_to_char ("Syntax:  create|delete|save\r\n", ch);
+        return FALSE;
+    }
+
+    if (!str_cmp(argument, "save"))
+    {
+        save_wmap_tiles(wmap_num(ch,NULL));
+        send_to_char("Map tiles saved.\r\n", ch);
+        return TRUE;
+    }
+
+    if (!str_cmp(argument, "create"))
+    {
+        int x = wmap_x(ch, NULL);
+        int y = wmap_y(ch, NULL);
+        int z = wmap_z(ch, NULL);
+        int wmap_index = wmap_num(ch, NULL);
+
+        //tile = find_wmap_tile(wmap_index,x,y,z);
+        if(find_wmap_tile(wmap_index,x,y,z) != NULL)
+        {
+            send_to_char("Map tile already present.\r\n", ch);
+            return FALSE;
+        }
+
+        CREATE( tile, WMAPTILE_DATA, 1 );
+        LINK( tile, first_wmaptile, last_wmaptile, next, prev );
+        tile->wmap_index = wmap_index;
+        tile->x = x;
+        tile->y = y;
+        tile->z = z;
+        tile->vis = 0;
+        tile->pass = 0;
+        send_to_char("Map tile created.\r\n", ch);
+        return TRUE;
+    }
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        send_to_char("No tile present.\r\n",ch);
+        return FALSE;
+    }
+
+    if (!str_cmp(argument, "delete"))
+    {
+        free_string( tile->name );
+        free_string( tile->desc );
+        free_string(tile->symb);
+        UNLINK( tile, first_wmaptile, last_wmaptile, next, prev );
+        free(tile);
+        send_to_char("World Map Tile deleted.\r\n", ch);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void flood_fill args((CHAR_DATA *ch, int wmap_index, int x, int y, int replacement));
+void fractal_fill args((CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int sector, bool use_decay));
+void square_fill args((CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int sector, bool font));
+void circle_fill args((CHAR_DATA *ch, int wmap_index, int x, int y, int distance, int sector, bool font));
+
+WEDIT (wedit_sector)
+{
+    char arg1[MAX_INPUT_LENGTH];
+    argument = one_argument(argument, arg1);
+    int value;
+
+    if (arg1[0] == '\0')
+    {
+        send_to_char ("Syntax:  sector [type]\r\n", ch);
+        send_to_char ("Syntax:  sector fill [type]  --flood fill with sector\r\n", ch);
+        send_to_char ("Syntax:  sector square [type] [distance] [true|false]  --draw square filled with sector, adjust for font height?\r\n", ch);
+        send_to_char ("Syntax:  sector circle [type] [distance] [true|false]  --draw circle filled with sector, adjust for font height?\r\n", ch);
+        send_to_char ("Syntax:  sector fractal [type] [distance] [true|false]  --draw fractal filled with sector, more filled center?\r\n", ch);
+        send_to_char ("Syntax:  sector walk [type]  --use without 'type' to toggle off\r\n", ch);
+        return FALSE;
+    }
+
+    if(!str_cmp(arg1,"walk"))
+    {
+        if(argument[0] == '\0')
+        {
+            ch->pcdata->wmap_sec = -1;
+            send_to_char("Sector walk OFF.\r\n",ch);
+            return FALSE;
+        }
+        if ((value = sector_lookup(argument)) < 0 || value >= SECT_MAX)
+        {
+            send_to_char("That isn't a valid sector!\r\n",ch);
+            return FALSE;
+        }
+        wmap_table[wmap_num(ch,NULL)].grid[wmap_x(ch, NULL)][wmap_y(ch, NULL)] = value;
+        send_to_char("Map tile terrain set.\r\n", ch);
+        ch->pcdata->wmap_sec = value;
+        send_to_char("Sector walk ON.\r\n",ch);
+        return TRUE;
+    }
+
+    if(!str_cmp(arg1,"fill"))
+    {
+        if(argument[0] == '\0')
+        {
+            send_to_char("Syntax:  fill [type]\r\n",ch);
+            return FALSE;
+        }
+        if ((value = sector_lookup(argument)) < 0 || value >= SECT_MAX)
+        {
+            send_to_char("That isn't a valid sector!\r\n",ch);
+            return FALSE;
+        }
+        flood_fill(ch, wmap_num(ch,NULL), wmap_x(ch,NULL), wmap_y(ch,NULL), value);
+        send_to_char("Map tile terrain set.\r\n", ch);
+        return TRUE;
+    }
+
+    if(!str_cmp(arg1,"square"))
+    {
+        char arg2[MAX_INPUT_LENGTH];
+        char arg3[MAX_INPUT_LENGTH];
+        argument = one_argument(argument, arg2);
+        argument = one_argument(argument, arg3);
+        int dist;
+        bool font = FALSE;
+
+        if(arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0' || !is_number(arg3)
+        || (str_cmp(argument,"true") && str_cmp(argument,"false") ))
+        {
+            send_to_char("Syntax:  sector quare [type] [distance] [true|false]\r\n",ch);
+            return FALSE;
+        }
+        if ((value = sector_lookup(arg2)) < 0 || value >= SECT_MAX)
+        {
+            send_to_char("That isn't a valid sector!\r\n",ch);
+            return FALSE;
+        }
+        dist = atoi(arg3);
+        if(!str_cmp(argument,"true"))
+            font = TRUE;
+        square_fill(ch, wmap_num(ch,NULL), wmap_x(ch,NULL), wmap_y(ch,NULL), dist, value, font);
+        send_to_char("Map tile terrain set.\r\n", ch);
+        return TRUE;
+    }
+
+    if(!str_cmp(arg1,"circle"))
+    {
+        char arg2[MAX_INPUT_LENGTH];
+        char arg3[MAX_INPUT_LENGTH];
+        argument = one_argument(argument, arg2);
+        argument = one_argument(argument, arg3);
+        int dist;
+        bool font = FALSE;
+
+        if(arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0' || !is_number(arg3)
+        || (str_cmp(argument,"true") && str_cmp(argument,"false") ))
+        {
+            send_to_char("Syntax:  sector circle [type] [distance] [true|false]\r\n",ch);
+            return FALSE;
+        }
+        if ((value = sector_lookup(arg2)) < 0 || value >= SECT_MAX)
+        {
+            send_to_char("That isn't a valid sector!\r\n",ch);
+            return FALSE;
+        }
+        dist = atoi(arg3);
+        if(!str_cmp(argument,"true"))
+            font = TRUE;
+        circle_fill(ch, wmap_num(ch,NULL), wmap_x(ch,NULL), wmap_y(ch,NULL), dist, value, font);
+        send_to_char("Map tile terrain set.\r\n", ch);
+        return TRUE;
+    }
+
+    if(!str_cmp(arg1,"fractal"))
+    {
+        char arg2[MAX_INPUT_LENGTH];
+        char arg3[MAX_INPUT_LENGTH];
+        argument = one_argument(argument, arg2);
+        argument = one_argument(argument, arg3);
+        int dist;
+        bool decay = FALSE;
+
+        if(arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0' || !is_number(arg3)
+        || (str_cmp(argument,"true") && str_cmp(argument,"false") ))
+        {
+            send_to_char("Syntax:  sector fractal [type] [distance] [true|false]\r\n",ch);
+            return FALSE;
+        }
+        if ((value = sector_lookup(arg2)) < 0 || value >= SECT_MAX)
+        {
+            send_to_char("That isn't a valid sector!\r\n",ch);
+            return FALSE;
+        }
+        dist = atoi(arg3);
+        if(!str_cmp(argument,"true"))
+            decay = TRUE;
+        fractal_fill(ch, wmap_num(ch,NULL), wmap_x(ch,NULL), wmap_y(ch,NULL), dist, value, decay);
+        send_to_char("Map tile terrain set.\r\n", ch);
+        return TRUE;
+    }
+
+    if ((value = sector_lookup(arg1)) < 0 || value >= SECT_MAX)
+    {
+        send_to_char("That isn't a valid sector!\r\n",ch);
+        return FALSE;
+    }
+
+    wmap_table[wmap_num(ch,NULL)].grid[wmap_x(ch, NULL)][wmap_y(ch, NULL)] = value;
+    send_to_char("Map tile terrain set.\r\n", ch);
+    return TRUE;
+}
+
+WEDIT (wedit_symbol)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        wedit_tile(ch,"create");
+        EDIT_WMAP (ch, tile);
+    }
+
+    if (argument[0] == '\0')
+    {
+        send_to_char ("Syntax:  symbol <X> \r\n", ch);
+        return FALSE;
+    }
+
+    free_string(tile->symb);
+    if(!str_cmp(argument,"none"))
+        tile->symb = str_dup(""); 
+    else
+        tile->symb = str_dup(argument);
+
+    send_to_char ("Map tile custom symbol set.\r\n", ch);
+    return TRUE;
+}
+
+WEDIT (wedit_name)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        wedit_tile(ch,"create");
+        EDIT_WMAP (ch, tile);
+    }
+
+    if (argument[0] == '\0')
+    {
+        send_to_char ("Syntax:  name <text>\r\n", ch);
+        return FALSE;
+    }
+
+    free_string(tile->name);
+    if(!str_cmp(argument,"none"))
+        tile->name = str_dup(""); 
+    else
+        tile->name = str_dup(argument);
+    send_to_char ("Map tile name set.\r\n", ch);
+    return TRUE;
+}
+
+WEDIT (wedit_desc)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        wedit_tile(ch,"create");
+        EDIT_WMAP (ch, tile);
+    }
+
+    if (argument[0] == '\0')
+    {
+        string_append (ch, &tile->desc);
+        return TRUE;
+    }
+
+    send_to_char ("Syntax:  desc\r\n", ch);
+    return FALSE;
+}
+
+WEDIT (wedit_visibility)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        send_to_char("No tile present.\r\n",ch);
+        return FALSE;
+    }
+
+    if (argument[0] == '\0' || !is_number(argument) || atoi(argument) > MAX_WMAP_SCAN)
+    {
+        printf_to_char (ch,"Syntax:  visibility <1-%d>\r\n", MAX_WMAP_SCAN);
+        return FALSE;
+    }
+
+    tile->vis = atoi(argument);
+    send_to_char ("Map tile visibility set.\r\n", ch);
+    return TRUE;
+}
+
+WEDIT (wedit_passable)
+{
+    WMAPTILE_DATA *tile;
+
+    EDIT_WMAP (ch, tile);
+
+    if(tile == NULL)
+    {
+        send_to_char("No tile present.\r\n",ch);
+        return FALSE;
+    }
+
+    if (argument[0] == '\0')
+    {
+        send_to_char ("Syntax:  passable <yes/true | no/false>\r\n", ch);
+        return FALSE;
+    }
+
+    if (!str_cmp(argument,"yes") ||  !str_cmp(argument,"true"))
+        tile->pass = 0;
+    else if (!str_cmp(argument,"no") ||  !str_cmp(argument,"false"))
+        tile->pass = 1;
+    else
+    {
+        send_to_char ("Syntax:  passable <yes/true | no/false>\r\n", ch);
+        return FALSE;
+    }
+    send_to_char ("Map tile passability set.\r\n", ch);
+    return TRUE;
+}
+
+WEDIT (wedit_exit) //vnum, save, delete
+{
+    char arg1[MAX_INPUT_LENGTH];
+    int x = wmap_x(ch, NULL);
+    int y = wmap_y(ch, NULL);
+    int z = wmap_z(ch, NULL);
+    int wmap_index = wmap_num(ch, NULL);
+    WMAP_EXIT *exit;
+
+    argument = one_argument(argument, arg1);
+
+    if (arg1[0] == '\0')
+    {
+        send_to_char ("Syntax:  <vnum>\r\n"
+                      "Syntax:  list [all]\r\n"
+                      "Syntax:  save|delete\r\n", ch);
+        return FALSE;
+    }
+
+    if (is_number(arg1))
+    {
+        int room_vnum = atoi(arg1);
+
+        if (room_vnum < 1 || !get_room_index(room_vnum))
+        {
+            send_to_char("Invalid room vnum.\r\n", ch);
+            return FALSE;
+        }
+
+        if((exit = find_wmap_exit(wmap_index,x,y,z)) != NULL)
+        {
+            send_to_char("Map exit already present.\r\n",ch);
+            return FALSE;
+        }
+
+        add_wmap_exit(wmap_index, wmap_x(ch,NULL), wmap_y(ch,NULL), wmap_z(ch,NULL), room_vnum);
+        send_to_char("Map exit created.\r\n", ch);
+        return TRUE;
+    }
+
+    if (!str_cmp(arg1, "save"))
+        save_wmap_exits();
+
+    if (!str_cmp(arg1, "list"))
+    {
+        bool exits_found = false;
+
+        for( exit = first_wmapexit; exit != NULL; exit = exit->next )
+        {
+            if(str_cmp(argument,"all") && exit->wmap_index != wmap_index) continue;
+            if (!exits_found)
+            {
+                send_to_char("Map Exits:\r\n", ch);
+                send_to_char("--------------------------\r\n", ch);
+                exits_found = true;
+            }
+
+            printf_to_char(ch, "Wmap %s(%d) (X: %d, Y: %d, Z: %d) -> Room %d\r\n", 
+                    wmap_table[exit->wmap_index].name, exit->wmap_index, exit->x, exit->y, exit->z, exit->room_vnum);
+        }
+
+        if (!exits_found)
+            send_to_char("No map exits are currently set.\r\n", ch);
+    }
+
+    if (!str_cmp(arg1, "delete"))
+    {
+        exit = find_wmap_exit(wmap_index,x,y,z);
+        if (exit != NULL)
+        {
+            UNLINK( exit, first_wmapexit, last_wmapexit, next, prev );
+            free(exit);
+            send_to_char("Map exit removed.\r\n", ch);
+            return TRUE;
+        }
+        else
+            send_to_char("No map exit found at that location.\r\n", ch);
+    }
+    return FALSE;
+}
+
+WEDIT (wedit_wlist) //tiles, exits
+{
+    WMAPTILE_DATA *tile;
+    char arg1[MAX_INPUT_LENGTH];
+    argument = one_argument(argument, arg1);
+
+    if (arg1[0] == '\0')
+        send_to_char ("Syntax:  list <tiles|exits>\r\n", ch);
+    else if (!str_cmp(arg1,"tiles"))
+    {
+        for( tile = first_wmaptile; tile != NULL; tile = tile->next )
+        {
+            if(str_cmp(argument,"all") && tile->wmap_index != wmap_num(ch,NULL)) continue;
+            printf_to_char(ch, "Coords %s(%d) %d %d %d %d %d\n", wmap_table[tile->wmap_index].name, tile->wmap_index, tile->x, tile->y, tile->z, tile->vis, tile->pass);
+        }
+    }
+    else if (!str_cmp(arg1,"exits"))
+    {
+        WMAP_EXIT *exit;
+        bool exits_found = false;
+
+        for( exit = first_wmapexit; exit != NULL; exit = exit->next )
+        {
+            if(str_cmp(argument,"all") && exit->wmap_index != wmap_num(ch,NULL)) continue;
+            if (!exits_found)
+            {
+                send_to_char("Map Exits:\r\n", ch);
+                send_to_char("--------------------------\r\n", ch);
+                exits_found = true;
+            }
+
+            printf_to_char(ch, "%s(%d) (X: %d, Y: %d, Z: %d) -> Room %d\r\n", 
+                    wmap_table[exit->wmap_index].name, exit->wmap_index, exit->x, exit->y, exit->z, exit->room_vnum);
+        }
+
+        if (!exits_found)
+            send_to_char("No map exits are currently set.\r\n", ch);
+    }
+    else
+        send_to_char ("Syntax:  list <tiles|exits>\r\n", ch);
+
+    return FALSE;
+}
+
+WEDIT (wedit_save) //wmap, tile, exits
+{
+    int wmap_index = -1;
+
+    if (argument[0] == '\0')
+    {
+        send_to_char (    "Syntax:  save wmap   -- saves PNG map file\r\n"
+                        "Syntax:  save tiles  -- saves maptile file\r\n"
+                        "Syntax:  save exits  -- saves exits file\r\n", ch);
+    }
+    else if (!str_cmp(argument,"wmap"))
+    {
+        WMAP_TYPE* current_wmap = get_wmap_ch(ch, &wmap_index);
+        if (save_image(current_wmap->filename, wmap_index)) 
+            printf_to_char(ch,"The map '%s' has been saved!\r\n", current_wmap->name);
+        else
+            send_to_char("Failed to save the map.\r\n",ch);
+    }
+    else if (!str_cmp(argument,"tiles"))
+    {
+        WMAP_TYPE* current_wmap = get_wmap_ch(ch, &wmap_index);
+        save_wmap_tiles(wmap_index);
+        printf_to_char(ch,"Maptiles for '%s' has been saved!\r\n", current_wmap->name);
+    }
+    else if (!str_cmp(argument,"exits"))
+    {
+        save_wmap_exits();
+        send_to_char("Map exits have been saved.\r\n",ch);
+    }
+    else
+    {
+        send_to_char ("Syntax:  save wmap   -- saves PNG map file\r\n"
+                      "Syntax:  save tiles  -- saves maptile file\r\n"
+                      "Syntax:  save exits  -- saves exits file\r\n", ch);
+    }
+     return FALSE;
+}
+
+WEDIT (wedit_reset)
+{
+    char arg1[MAX_INPUT_LENGTH];
+    char arg2[MAX_INPUT_LENGTH];
+    char arg3[MAX_INPUT_LENGTH];
+    char arg4[MAX_INPUT_LENGTH];
+    char arg5[MAX_INPUT_LENGTH];
+    char arg6[MAX_INPUT_LENGTH];
+
+    argument = one_argument(argument, arg1); // mob / obj / delete / wmap / all/wmap#
+    argument = one_argument(argument, arg2); // vnum
+    argument = one_argument(argument, arg3); // mob: max, obj: on
+    argument = one_argument(argument, arg4); // mob: x, obj: mob_vnum
+    argument = one_argument(argument, arg5); // mob: y, obj: wear|hold
+    argument = one_argument(argument, arg6); // mob: z, obj: max
+
+    int wmap_index = wmap_num(ch, NULL);
+    int x = wmap_x(ch, NULL);
+    int y = wmap_y(ch, NULL);
+    int z = wmap_z(ch, NULL);
+
+    if (wmap_index == -1)
+    {
+        send_to_char("You must be on a valid map to set a reset.\r\n", ch);
+        return FALSE;
+    }
+
+    if(arg1[0] == '\0' || !str_cmp(arg1,"all") || is_number(arg1))
+    {
+        bool found = FALSE, all = FALSE;
+
+        if (arg1[0] != '\0' && !is_number(arg1))
+        {
+            if(!str_cmp(arg1,"all"))
+                all = TRUE;
+            else
+            {
+                send_to_char("Syntax:  reset (all|wmap#)\r\n", ch);
+                return FALSE;
+            }
+        }
+        else if(arg1[0] != '\0')
+        {
+            wmap_index = atoi(arg1);
+            if (wmap_index < 0 || wmap_index >= MAX_WMAP)
+            {
+                send_to_char("Invalid wmap index. Use 'wmaptable' for information.\r\n", ch);
+                return FALSE;
+            }
+            all = TRUE;
+        }
+
+
+        send_to_char("Num  WMap        Type Name            Vnum  Max   X    Y    Z    Extra\r\n", ch);
+        send_to_char("----------------------------------------------------------------------\r\n", ch);
+
+        WMAP_RESET_DATA *reset;
+        int reset_count = 0;
+        for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset->next)
+        {
+            if(!all && (reset->x != x || reset->y != y || reset->z != z)) continue;
+
+            const char *name = "Unknown";
+            char extra[50];
+            if (reset->reset_type == RESET_TYPE_MOB)
+            {
+                MOB_INDEX_DATA *mob = get_mob_index(reset->vnum);
+                if (mob)
+                    name = mob->short_descr;
+                sprintf(extra, "Mob");
+            }
+            else if (reset->reset_type == RESET_TYPE_OBJ)
+            {
+                OBJ_INDEX_DATA *obj = get_obj_index(reset->vnum);
+                if (obj)
+                    name = obj->short_descr;
+                sprintf(extra, "Obj");
+            }
+            else if (reset->reset_type == RESET_TYPE_OBJ_ON_MOB)
+            {
+                OBJ_INDEX_DATA *obj = get_obj_index(reset->vnum);
+                if (obj)
+                    name = obj->short_descr;
+                sprintf(extra, "Obj on Mob %d (%s)", reset->mob_vnum, reset->wear ? "wear" : "hold");
+            }
+
+            if(!all)
+                printf_to_char(ch, "%-4d %-10s: %-20.20s %-5d [%-2d] [%-4d %-4d %-4d] %s\r\n",
+                    reset_count++, wmap_table[wmap_index].name, name, reset->vnum, reset->max, reset->x, reset->y, reset->z, extra);
+            else
+                printf_to_char(ch, "     %-10s: %-20.20s %-5d [%-2d] [%-4d %-4d %-4d] %s\r\n",
+                    wmap_table[wmap_index].name, name, reset->vnum, reset->max, reset->x, reset->y, reset->z, extra);
+            found = true;
+        }
+
+        if (!found)
+            send_to_char("No map resets found.\r\n", ch);
+        return FALSE;
+    }
+    else if((!str_cmp(arg1,"mob") || !str_cmp(arg1,"obj")) && arg2[0] != '\0')
+    {
+        int reset_type;
+        if (!str_prefix(arg1, "mob"))
+            reset_type = RESET_TYPE_MOB;
+        else if (!str_prefix(arg1, "obj"))
+            reset_type = RESET_TYPE_OBJ;
+        else
+        {
+            send_to_char("Type must be 'mob' or 'obj'.\r\n", ch);
+            return FALSE;
+        }
+
+        if (!is_number(arg2))
+        {
+            send_to_char("Vnum must be numerical.\r\n", ch);
+            return FALSE;
+        }
+
+        int vnum = atoi(arg2);
+        int max = 1;
+
+        //regular mob|obj in room reset
+        if (arg3[0] != '\0' && str_cmp(arg3, "on") && is_number(arg3))
+        {
+            if ((max = atoi(arg3)) < 1)
+            {
+                send_to_char("Maximum must be at least 1.\r\n", ch);
+                return FALSE;
+            }
+
+
+            if (arg4[0] != '\0' || arg5[0] != '\0' || arg6[0] != '\0'
+            || !is_number(arg4) || !is_number(arg5) || !is_number(arg6))
+            {
+                send_to_char("Syntax:  reset <mob|obj> <vnum> [max] [x][y][z]\r\n", ch);
+                return FALSE;
+            }
+            x = atoi(arg4);
+            y = atoi(arg5);
+            z = atoi(arg6);
+
+            if (x < 0 || x >= wmap_table[wmap_index].max_x || 
+                y < 0 || y >= wmap_table[wmap_index].max_y)
+            {
+                send_to_char("Coordinates are out of map bounds.\r\n", ch);
+                return FALSE;
+            }
+        }
+
+        if (reset_type == RESET_TYPE_MOB)
+        {
+            if (!get_mob_index(vnum))
+            {
+                printf_to_char(ch, "Mob vnum %d does not exist.\r\n", vnum);
+                return FALSE;
+            }
+        }
+        else if (reset_type == RESET_TYPE_OBJ && str_cmp(arg3, "on"))
+        {
+            if (!get_obj_index(vnum))
+            {
+                printf_to_char(ch, "Object vnum %d does not exist.\r\n", vnum);
+                return FALSE;
+            }
+        }
+
+        //reset obj onto a mob
+        if (reset_type == RESET_TYPE_OBJ && !str_cmp(arg3, "on"))
+        {
+            if (arg4[0] == '\0' || arg5[0] == '\0')
+            {
+                send_to_char("Syntax:  reset obj <vnum> on <mob_vnum> <wear|hold> [max]\r\n", ch);
+                return FALSE;
+            }
+
+            if (!is_number(arg4))
+            {
+                send_to_char("Mob vnum must be a number.\r\n", ch);
+                return FALSE;
+            }
+
+            int mob_vnum = atoi(arg4);
+            if (!get_mob_index(mob_vnum))
+            {
+                printf_to_char(ch, "Mob vnum %d does not exist.\r\n", mob_vnum);
+                return FALSE;
+            }
+
+            OBJ_INDEX_DATA *pObjIndex = get_obj_index(vnum);
+            if (!pObjIndex)
+            {
+                printf_to_char(ch, "Object vnum %d does not exist.\r\n", vnum);
+                return FALSE;
+            }
+
+            bool wear = !str_cmp(arg5, "wear");
+            bool hold = !str_cmp(arg5, "hold");
+            if (!wear && !hold)
+            {
+                send_to_char("Argument must be 'wear' or 'hold'.\r\n", ch);
+                return FALSE;
+            }
+
+            if (arg6[0] != '\0' && is_number(arg6))
+            {
+                if ((max = atoi(arg6)) < 1)
+                {
+                    send_to_char("Maximum must be at least 1.\r\n", ch);
+                    return FALSE;
+                }
+            }
+
+            WMAP_RESET_DATA *mob_reset = NULL;
+            for (WMAP_RESET_DATA *r = wmap_reset_list[wmap_index]; r != NULL; r = r->next)
+            {
+                if (r->reset_type == RESET_TYPE_MOB && r->vnum == mob_vnum)
+                {
+                    mob_reset = r;
+                    break;
+                }
+            }
+
+            if (!mob_reset)
+            {
+                printf_to_char(ch, "No reset found for mob vnum %d on this map.\r\n", mob_vnum);
+                return FALSE;
+            }
+
+            x = mob_reset->x;
+            y = mob_reset->y;
+            z = mob_reset->z;
+
+            reset_type = RESET_TYPE_OBJ_ON_MOB;
+        }
+
+        WMAP_RESET_DATA *reset = malloc(sizeof(WMAP_RESET_DATA));
+        if (!reset)
+        {
+            send_to_char("Memory allocation failed!\r\n", ch);
+            return FALSE;
+        }
+
+        reset->reset_type = reset_type;
+        reset->vnum = vnum;
+        reset->wmap_index = wmap_index;
+        reset->x = x;
+        reset->y = y;
+        reset->z = z;
+        reset->max = max;
+        reset->mob_vnum = (reset_type == RESET_TYPE_OBJ_ON_MOB) ? atoi(arg4) : -1;
+        reset->wear = (reset_type == RESET_TYPE_OBJ_ON_MOB && !str_cmp(arg5, "wear"));
+        reset->next = wmap_reset_list[wmap_index];
+        wmap_reset_list[wmap_index] = reset;
+
+        save_wmap_resets(wmap_index);
+
+        if (reset_type == RESET_TYPE_OBJ_ON_MOB)
+        {
+            printf_to_char(ch, "Reset added: Object %d [max %d] on mob %d (%s) at [X %d Y %d Z %d] on wmap %s\r\n",
+                    vnum, max, reset->mob_vnum, reset->wear ? "wear" : "hold", x, y, z, wmap_table[wmap_index].name);
+        }
+        else
+        {
+            printf_to_char(ch, "Reset added: %s %d [max %d] at [X %d Y %d Z %d] on wmap %s\r\n",
+                    reset_type == RESET_TYPE_MOB ? "Mob" : "Object", vnum, max, x, y, z, wmap_table[wmap_index].name);
+        }
+    }
+    else if(!str_cmp(arg1,"delete") && arg2[0] != '\0' && (is_number(arg2) || !str_cmp(arg2,"all")))
+    {
+        WMAP_RESET_DATA *reset;
+        WMAP_RESET_DATA *reset_next;
+        WMAP_RESET_DATA *reset_nest;
+        WMAP_RESET_DATA *prev = NULL;
+        int reset_num = atoi(arg2);
+        int current_num = 0;
+
+        if(is_number(arg2))
+        {
+            int obj_reset = 0;
+            for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset_next)
+            {
+                reset_next = reset->next;
+
+                if(reset->x != x || reset->y != y || reset->z != z) continue;
+                if (current_num == reset_num)
+                {
+                    if (prev)
+                        prev->next = reset->next;
+                    else
+                        wmap_reset_list[wmap_index] = reset->next;
+
+                    if (reset->reset_type == RESET_TYPE_OBJ_ON_MOB)
+                        printf_to_char(ch, "Reset #%d removed: Object %d on mob %d at (%d, %d, %d).\r\n",
+                                reset_num, reset->vnum, reset->mob_vnum, reset->x, reset->y, reset->z);
+                    else
+                    {
+                        if (reset->reset_type == RESET_TYPE_MOB)
+                        {
+                            for (reset_nest = wmap_reset_list[wmap_index]; reset_nest != NULL; reset_nest = reset_nest->next)
+                            {
+                                if(reset_nest->x != x || reset_nest->y != y || reset_nest->z != z) continue;
+                                if(reset_nest->reset_type == RESET_TYPE_OBJ_ON_MOB && reset_nest->mob_vnum == reset->vnum)
+                                {
+                                    obj_reset = reset->vnum;
+                                    break;
+                                }
+                            }
+                        }
+
+                        printf_to_char(ch, "Reset #%d removed: %s %d at (%d, %d, %d).\r\n",
+                                reset_num, reset->reset_type == RESET_TYPE_MOB ? "Mob" : "Object",
+                                reset->vnum, reset->x, reset->y, reset->z);
+
+                        free(reset);
+                        if(obj_reset == 0)
+                        {
+                            save_wmap_resets(wmap_index);
+                            return TRUE;
+                        }
+                        else
+                            break;
+                    }
+                }
+                if(obj_reset == 0)
+                {
+                    prev = reset;
+                    current_num++;
+                }
+            }
+            if(obj_reset > 0)
+            {
+                prev = NULL;
+                for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset_next)
+                {
+                    reset_next = reset->next;
+
+                    if(reset->x == x && reset->y == y && reset->z == z
+                    && reset->reset_type == RESET_TYPE_OBJ_ON_MOB
+                    && reset->mob_vnum == obj_reset)
+                    {
+                        if (prev)
+                            prev->next = reset->next;
+                        else
+                            wmap_reset_list[wmap_index] = reset->next;
+                        free(reset);
+                        continue;
+                    }
+                    prev = reset;
+                }
+                save_wmap_resets(wmap_index);
+                return TRUE;
+            }
+            printf_to_char(ch, "No reset found with number %d.\r\n", reset_num);
+            return FALSE;
+        }
+        if(!str_cmp(arg2,"all"))
+        {
+            for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset->next)
+            {
+                if(reset->x != x || reset->y != y || reset->z != z) continue;
+                free(reset);
+            }
+            return TRUE;
+        }
+    }
+    //reset modify <#> <vnum>
+    else if(!str_cmp(arg1,"modify"))
+    {
+        if(arg2[0] == '\0' || arg3[0] == '\0' || !is_number(arg2) || !is_number(arg3))
+        {
+            send_to_char("Syntax:  modify <#> <nvum>\r\n",ch);
+            return FALSE;
+        }
+
+        WMAP_RESET_DATA *reset;
+        WMAP_RESET_DATA *reset_next;
+        WMAP_RESET_DATA *reset_nest;
+        int reset_num = atoi(arg2);
+        int new_vnum = atoi(arg3);
+        int current_num = 0;
+        int obj_reset = 0;
+
+        for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset_next)
+        {
+            reset_next = reset->next;
+
+            if(reset->x != x || reset->y != y || reset->z != z) continue;
+            if (current_num == reset_num)
+            {
+                if (reset->reset_type == RESET_TYPE_MOB)
+                {
+                    if (!get_mob_index(new_vnum))
+                    {
+                        printf_to_char(ch, "Mob vnum %d does not exist.\r\n", new_vnum);
+                        return FALSE;
+                    }
+                }
+                else
+                {
+                    if (!get_obj_index(new_vnum))
+                    {
+                        printf_to_char(ch, "Object vnum %d does not exist.\r\n", new_vnum);
+                        return FALSE;
+                    }
+                }
+
+                if (reset->reset_type == RESET_TYPE_OBJ_ON_MOB)
+                {
+                    reset->vnum = new_vnum;
+                    printf_to_char(ch, "Reset #%d modified: Object %d on mob %d at (%d, %d, %d).\r\n",
+                            reset_num, reset->vnum, reset->mob_vnum, reset->x, reset->y, reset->z);
+                }
+                else
+                {
+                    if (reset->reset_type == RESET_TYPE_MOB)
+                    {
+                        for (reset_nest = wmap_reset_list[wmap_index]; reset_nest != NULL; reset_nest = reset_nest->next)
+                        {
+                            if(reset_nest->x != x || reset_nest->y != y || reset_nest->z != z) continue;
+                            if(reset_nest->reset_type == RESET_TYPE_OBJ_ON_MOB && reset_nest->mob_vnum == reset->vnum)
+                            {
+                                obj_reset = reset->vnum;
+                                reset->vnum = new_vnum;
+                                break;
+                            }
+                        }
+                    }
+
+                    reset->vnum = new_vnum;
+
+                    printf_to_char(ch, "Reset #%d modified: %s %d at (%d, %d, %d).\r\n",
+                            reset_num, reset->reset_type == RESET_TYPE_MOB ? "Mob" : "Object",
+                            reset->vnum, reset->x, reset->y, reset->z);
+
+                    if(obj_reset == 0)
+                    {
+                        save_wmap_resets(wmap_index);
+                        return TRUE;
+                    }
+                    else
+                        break;
+                }
+            }
+            if(obj_reset == 0)
+                current_num++;
+        }
+        if(obj_reset > 0)
+        {
+            for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset_next)
+            {
+                reset_next = reset->next;
+
+                if(reset->x == x && reset->y == y && reset->z == z
+                && reset->reset_type == RESET_TYPE_OBJ_ON_MOB
+                && reset->mob_vnum == obj_reset)
+                {
+                    reset->mob_vnum = new_vnum;
+                    continue;
+                }
+            }
+            save_wmap_resets(wmap_index);
+            return TRUE;
+        }
+        printf_to_char(ch, "No reset found with number %d.\r\n", reset_num);
+        return FALSE;
+    }
+    else if(!str_cmp(arg1,"wmap"))
+    {
+        process_wmap_resets();
+        send_to_char("World Map reset.\r\n",ch);
+        return FALSE;
+    }
+    else
+    {
+        send_to_char("Syntax:  reset (all|wmap#)\r\n"
+                     "Syntax:  reset wmap  --loads wmap resets\r\n"
+                     "Syntax:  reset modify <#> <vnum>  --changes vnum of reset\r\n"
+                     "Syntax:  reset <mob|obj> <vnum> [max] [x][y][z]\r\n"
+                     "Syntax:  reset obj <vnum> on <mob_vnum> <wear|hold> [max]\r\n"
+                     "Syntax:  reset delete <#>\r\n", ch);
+        return FALSE;
+    }
+    return TRUE;
+}
+
+//clears a tile of exit data, tiles, and resets
+WEDIT (wedit_clear)
+{
+    int wmap_index = wmap_num(ch, NULL);
+    int x = wmap_x(ch, NULL);
+    int y = wmap_y(ch, NULL);
+    int z = wmap_z(ch, NULL);
+    bool save_reset = FALSE, save_exit = FALSE, save_tile = FALSE;
+
+    if (wmap_index == -1)
+    {
+        send_to_char("You must be on a valid map to set a reset.\r\n", ch);
+        return FALSE;
+    }
+
+    //resets
+    WMAP_RESET_DATA *reset;
+    for (reset = wmap_reset_list[wmap_index]; reset != NULL; reset = reset->next)
+    {
+        if(reset->x != x || reset->y != y || reset->z != z) continue;
+        free(reset);
+        save_reset = TRUE;
+    }
+
+    //exits
+    WMAP_EXIT *exit;
+    for( exit = first_wmapexit; exit != NULL; exit = exit->next )
+    {
+        if(exit->x != x || exit->y != y || exit->z != z) continue;
+        UNLINK( exit, first_wmapexit, last_wmapexit, next, prev );
+        free(exit);
+        save_exit = TRUE;
+    }
+
+    //tiles
+    WMAPTILE_DATA *tile;
+    for( tile = first_wmaptile; tile != NULL; tile = tile->next )
+    {
+        if(tile->x != x || tile->y != y || tile->z != z) continue;
+        free_string(tile->symb);
+        free_string(tile->name);
+        free_string(tile->desc);
+        tile->symb = str_dup("");
+        tile->name = str_dup("");
+        tile->desc = str_dup("");
+        UNLINK( tile, first_wmaptile, last_wmaptile, next, prev );
+        free(tile);
+        save_tile = TRUE;
+    }
+
+    if(save_reset) save_wmap_resets(wmap_index);
+    if(save_exit) save_wmap_exits();
+    if(save_tile) save_wmap_tiles(wmap_index);
+    send_to_char("Resets, exits, and tile data cleared.  Any changes saved.\r\n",ch);
+    return TRUE;
+}
+
+//reloads the map from last saved PNG file
+WEDIT (wedit_reload)
+{
+    int wmap_index = wmap_num(ch, NULL);
+
+    if (wmap_index == -1)
+    {
+        send_to_char("You must be on a valid map to reload it.\r\n", ch);
+        return FALSE;
+    }
+    load_wmap(wmap_index);
+    send_to_char("Wmap reloaded.\r\n",ch);
+    return TRUE;
+}

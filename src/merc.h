@@ -1984,6 +1984,11 @@ struct wearloc_type
 #define DIR_WEST		      3
 #define DIR_UP			      4
 #define DIR_DOWN		      5
+//worldmap.c
+#define DIR_NORTHEAST    6
+#define DIR_SOUTHEAST    7
+#define DIR_SOUTHWEST    8
+#define DIR_NORTHWEST    9
 
 
 
@@ -2021,7 +2026,16 @@ struct wearloc_type
 #define SECT_AIR		      9
 #define SECT_DESERT		     10
 #define SECT_FARM		     11
-#define SECT_MAX		     12
+//worldmap.c
+#define SECT_ROCK_MOUNTAIN 12
+#define SECT_SNOW_MOUNTAIN 13
+#define SECT_BEACH         14
+#define SECT_DEEP_WATER    15
+#define SECT_ROUGH_WATER   16
+#define SECT_TRAIL         17
+#define SECT_ROAD          18
+#define SECT_SWAMP         19
+#define SECT_MAX		     20
 
 
 /*
@@ -2274,6 +2288,7 @@ struct wearloc_type
 #define WIZ_PREFIX		(S)
 #define WIZ_SPAM		(T)
 #define WIZ_OLC                 (U)
+#define WIZ_BUGS                (V) //worldmap.c
 
 #define SUPPRESS_FLAGS          (A)
 #define SUPPRESS_FLAG_EFFECTS   (B)
@@ -2537,6 +2552,9 @@ struct	char_data
     int                 fquit;
     int                 levelflux;
     char *              powner;
+    //worldmap.c
+    sh_int             wmap[4]; //wmap index, x, y, z
+    sh_int             reset_wmap[4]; //wmap index, x, y, z
 };
 
 #define CHOSE_RACE 0
@@ -2709,6 +2727,8 @@ struct	pc_data
     int detail_map_y;
     EXPLORE_DATA *explored;
     ROOM_INDEX_DATA *map_point;
+    int                wmap_sec;    //worldmap.c
+    sh_int            doorbump[2]; //bump exits repeatedly to unlock/open... [0] = direction, [1] = count   //worldmap.c
 };
 
 #define CORD_X 	0
@@ -2781,7 +2801,7 @@ struct	obj_index_data
     sh_int		weight;
     sh_int              size;
     int			cost;
-    int			value[5];
+    int			value[7]; //worldmap.c
     int                 valueorig[5];
     PROG_LIST *		oprogs;
     long		oprog_flags;
@@ -2825,7 +2845,7 @@ struct	obj_data
     sh_int 		condition;
     char *		material;
     sh_int		timer;
-    int			value	[5];
+    int			value	[7]; //worldmap.c
     int                 valueorig [5];
     sh_int		oprog_delay;
     sh_int              size;
@@ -2837,6 +2857,9 @@ struct	obj_data
     int                 exp;
     sh_int              plevel;
     int                 xp_tolevel;
+    //worldmap.c
+    sh_int              wmap[4]; //wmap index, x, y, z
+    sh_int              reset_wmap[4]; //wmap index, x, y, z
 };
 
 /*
@@ -2957,6 +2980,22 @@ struct	room_index_data
     AFFECT_DATA         *affected;
     long                affected_by;
     int                 moisture;
+};
+
+//worldmap.c
+struct sec_type
+{
+    char *  name;
+    char *  desc;
+    int     bit;
+    int     move;
+    int     red;
+    int     green;
+    int     blue;
+    char *  wall;
+    char *  floor;
+    char *  wmap_symb;
+    char *  pass;
 };
 
 
@@ -3109,6 +3148,7 @@ struct prog_code
 #define IS_WEREWOLF(ch)    ( (ch)->iswere && (ch)->wereform == MOON_FULL )
 #define IS_VAMPIRE(ch)     ( (ch)->isvamp == TRUE )
 #define IS_NPC(ch)		(IS_SET((ch)->act, ACT_IS_NPC))
+#define IS_HOLYLIGHT(ch)    (!IS_NPC(ch) && IS_SET(ch->act,PLR_HOLYLIGHT)) //worldmap.c
 #define IS_IMP(ch)	        (get_trust(ch) == MAX_LEVEL)
 #define IS_IMMORTAL(ch)		(get_trust(ch) >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(get_trust(ch) >= LEVEL_HERO)
@@ -3132,8 +3172,8 @@ struct prog_code
 				    (ch)->in_room->room_flags,		    \
 				    ROOM_INDOORS))
 #define ON_GQUEST(ch)           (!IS_NPC(ch) && IS_SET((ch)->act, PLR_GQUEST) && gquest_info.running != GQUEST_OFF)
-#define WAIT_STATE(ch, npulse)	((ch)->wait = UMAX((ch)->wait, (npulse)))
-#define DAZE_STATE(ch, npulse)  ((ch)->daze = UMAX((ch)->daze, (npulse)))
+//#define WAIT_STATE(ch, npulse)	((ch)->wait = UMAX((ch)->wait, (npulse))) //worldmap.c
+//#define DAZE_STATE(ch, npulse)  ((ch)->daze = UMAX((ch)->daze, (npulse))) //worldmap.c
 #define get_carry_weight(ch)	((ch)->carry_weight + (ch)->silver/10 +  \
 						      (ch)->gold * 2 / 5)
 #define MOUNTED(ch) \
@@ -3194,7 +3234,63 @@ struct prog_code
                                 (a) = (b);                              \
                                 if ( (a) < 0 )                          \
                                 bug( "CHECK_POS : " c " == %d < 0", a );\
-                                }                                           
+                                }
+
+//worldmap.c
+#define CREATE(result, type, number)                                           \
+do                                                                             \
+{                                                                              \
+    if (!((result) = (type *) calloc ((number), sizeof(type))))                \
+    {                                                                          \
+        perror("malloc failure");                                                  \
+        fprintf(stderr, "Malloc failure @ %s:%d\n", __FILE__, __LINE__ );          \
+        abort();                                                                   \
+    }                                                                          \
+} while(0)
+//worldmap.c
+#define LINK(link, first, last, next, prev)                                    \
+    do                                                                         \
+    {                                                                          \
+        if (!(first))                                                          \
+        {                                                                      \
+            (first) = (link);                                                  \
+            (last) = (link);                                                   \
+        }                                                                      \
+        else                                                                   \
+            (last)->next = (link);                                             \
+        (link)->next = NULL;                                                   \
+        if ((first) == (link))                                                 \
+            (link)->prev = NULL;                                               \
+        else                                                                   \
+            (link)->prev = (last);                                             \
+        (last) = (link);                                                       \
+    } while (0)
+//worldmap.c
+#define UNLINK(link, first, last, next, prev)                                  \
+    do                                                                         \
+    {                                                                          \
+        if (!(link)->prev)                                                     \
+        {                                                                      \
+            (first) = (link)->next;                                            \
+            if ((first))                                                       \
+                (first)->prev = NULL;                                          \
+        }                                                                      \
+        else                                                                   \
+        {                                                                      \
+            (link)->prev->next = (link)->next;                                 \
+        }                                                                      \
+        if (!(link)->next)                                                     \
+        {                                                                      \
+            (last) = (link)->prev;                                             \
+            if ((last))                                                        \
+                (last)->next = NULL;                                           \
+        }                                                                      \
+        else                                                                   \
+        {                                                                      \
+            (link)->next->prev = (link)->prev;                                 \
+        }                                                                      \
+    } while (0)
+
 #define EDIT_GUILD(Ch, Clan)    ( Clan = (CLAN_DATA *)Ch->desc->pEdit )
 
 /*
@@ -3242,6 +3338,8 @@ extern  const	struct	spec_type	spec_table	[];
 extern	const	struct	liq_type	liq_table	[];
 extern		struct	skill_type	*skill_table;
 extern  const   struct  group_type      group_table	[MAX_GROUP];
+//worldmap.c
+extern    const    struct    sec_type      sector_flags[SECT_MAX];
 extern  const   struct  eye_type        eye_table       [];
 extern  const   struct  hair_type       hair_table      [];
 extern  const   struct  height_type     height_table    [];
@@ -3670,12 +3768,12 @@ extern int   mudinfo[MUDINFO_MAX];
 extern int   total_output;
 
 /* effect.c */
-void	acid_effect	args( (void *vo, int level, int dam, int target) );
-void	cold_effect	args( (void *vo, int level, int dam, int target) );
-void	fire_effect	args( (void *vo, int level, int dam, int target) );
-void	poison_effect	args( (void *vo, int level, int dam, int target) );
-void	shock_effect	args( (void *vo, int level, int dam, int target) );
-void    sand_effect     args( (void *vo, int level, int dam, int target) );
+void	acid_effect	args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
+void	cold_effect	args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
+void	fire_effect	args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
+void	poison_effect	args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
+void	shock_effect	args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
+void    sand_effect     args( (CHAR_DATA *ch, void *vo, int level, int dam, int target) ); //worldmap.c
 
 /* fight.c */
 bool 	is_safe		args( (CHAR_DATA *ch, CHAR_DATA *victim ) );
@@ -3691,6 +3789,8 @@ void	stop_fighting	args( ( CHAR_DATA *ch, bool fBoth ) );
 void	check_killer	args( ( CHAR_DATA *ch, CHAR_DATA *victim) );
 
 /* handler.c */
+void    WAIT_STATE            args( ( CHAR_DATA *ch, int npulse ) ); //worldmap.c
+void    DAZE_STATE            args( ( CHAR_DATA *ch, int npulse ) ); //worldmap.c
 int prime_class		args( (CHAR_DATA * ch) );
 char *  material_name   args( ( sh_int num ) ); /* OLC */
 AD  	*affect_find args( (AFFECT_DATA *paf, int sn));
@@ -4323,3 +4423,25 @@ bool compressEnd(DESCRIPTOR_DATA *desc);
 bool processCompressed(DESCRIPTOR_DATA *desc);
 bool writeCompressed(DESCRIPTOR_DATA *desc, char *txt, int length);
 #endif
+
+/* worldmap.c */
+bool same_room args((CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj));
+int wmap_vnum args((CHAR_DATA *ch, OBJ_DATA *obj));
+int wmap_x args((CHAR_DATA *ch, OBJ_DATA *obj));
+int wmap_y args((CHAR_DATA *ch, OBJ_DATA *obj));
+int wmap_z args((CHAR_DATA *ch, OBJ_DATA *obj));
+int wmap_num args((CHAR_DATA *ch, OBJ_DATA *obj));
+int wmap_vnum_index args((int vnum));
+bool is_wmap_vnum args((int vnum));
+bool is_wmap args((CHAR_DATA *ch, OBJ_DATA *obj));
+void set_x args((CHAR_DATA *ch, OBJ_DATA *obj, int value));
+void set_y args((CHAR_DATA *ch, OBJ_DATA *obj, int value));
+void set_z args((CHAR_DATA *ch, OBJ_DATA *obj, int value));
+void set_wmap args((CHAR_DATA *ch, OBJ_DATA *obj, int value));
+void set_coords args((CHAR_DATA *ch, OBJ_DATA *obj, int x, int y));
+void clone_coords args((CHAR_DATA *tch, OBJ_DATA *tobj, CHAR_DATA *sch, OBJ_DATA *sobj));
+int wmax_y args((CHAR_DATA *ch));
+int wmax_x args((CHAR_DATA *ch));
+char *wmap_name args((CHAR_DATA *ch, OBJ_DATA *obj));
+void process_wmap_resets args((void));
+int get_sector args((CHAR_DATA *ch, int wmap_index, int x, int y));

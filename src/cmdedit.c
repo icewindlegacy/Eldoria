@@ -651,6 +651,15 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     { "west",		do_west			},
     { "up",			do_up			},
     { "down",		do_down			},
+    //worldmap.c
+    {"northeast", do_northeast},
+    {"ne",        do_northeast},
+    {"northwest", do_northwest},
+    {"nw",        do_northwest},
+    {"southeast", do_southeast},
+    {"se",        do_southeast},
+    {"southwest", do_southwest},
+    {"sw",        do_southwest},
     { "at",         do_at			},
     { "cast",		do_cast			},
     { "buy",		do_buy			},
@@ -1141,6 +1150,12 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     { "target",	    do_target	    },
     { "untarget",	    do_untarget	    },
     { "savepits",	    do_savepits	    },
+    //worldmap.c
+    {"showsectors",  do_show_sectors},
+    {"wmaptable", do_wmaptable},
+    {"wedit", do_wedit},
+    {"wmapshow", do_wmap_show},
+    {"zoomwmap", do_zoomwmap},
 	{ NULL,			NULL	    },
 
 };

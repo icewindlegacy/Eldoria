@@ -343,7 +343,9 @@ void save_object( FILE *fp, OBJ_INDEX_DATA *pObjIndex )
 	    fprintf( fp, "%s ",  fwrite_flag( pObjIndex->value[1], buf ) );
 	    fprintf( fp, "%s ",  fwrite_flag( pObjIndex->value[2], buf ) );
 	    fprintf( fp, "%s ",  fwrite_flag( pObjIndex->value[3], buf ) );
-	    fprintf( fp, "%s\n", fwrite_flag( pObjIndex->value[4], buf ) );
+	    fprintf( fp, "%s ",  fwrite_flag( pObjIndex->value[4], buf ) );
+            fprintf (fp, "%s ", fwrite_flag (pObjIndex->value[5], buf)); //worldmap.c
+            fprintf (fp, "%s\n", fwrite_flag (pObjIndex->value[6], buf)); //worldmap.c
 	    break;
 
         case ITEM_DRINK_CON:
@@ -1035,6 +1037,8 @@ void do_asave( CHAR_DATA *ch, char *argument )
 		send_to_char( "  asave area     - saves the area being edited\n\r",	ch );
 		send_to_char( "  asave changed  - saves all changed zones\n\r",	ch );
 		send_to_char( "  asave world    - saves the world! (db dump)\n\r",	ch );
+                send_to_char
+                ("  asave wmap     - saves the world map being edited\r\n", ch); //worldmap.c
 		send_to_char( "\n\r", ch );
 	}
 
@@ -1201,6 +1205,21 @@ void do_asave( CHAR_DATA *ch, char *argument )
 	REMOVE_BIT( pArea->area_flags, AREA_CHANGED );
 	send_to_char( "Area saved.\n\r", ch );
 	return;
+    }
+
+    //worldmap.c
+    /* Save worldmaps */
+    /* ----------------------- */
+    if (!str_cmp (arg1, "wmap"))
+    {
+        if(ch->desc->editor == ED_WMAP)
+        {
+            do_function(ch, &do_savemap, "");
+            save_wmap_exits();
+        }
+        else
+            send_to_char("You must be editing a worldmap for this.\r\n",ch);
+        return;
     }
 
     /* Show correct syntax. */

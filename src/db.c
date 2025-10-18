@@ -3446,6 +3446,7 @@ void bug( const char *str, int param )
 
     strcpy( buf, "[*****] BUG: " );
     sprintf( buf + strlen(buf), str, param );
+    wiznet( buf,NULL,NULL,WIZ_BUGS,0,0); //worldmap.c
     log_string( buf );
 /* RT removed due to bug-file spamming 
     fp = file_open(BUF_FILE,"a");

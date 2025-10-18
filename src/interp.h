@@ -101,6 +101,11 @@ DECLARE_DO_FUN(	do_disarm	);
 DECLARE_DO_FUN(	do_disconnect	);
 DECLARE_DO_FUN(	do_display	);
 DECLARE_DO_FUN(	do_down		);
+//worldmap.c
+DECLARE_DO_FUN( do_northeast    );
+DECLARE_DO_FUN( do_northwest    );
+DECLARE_DO_FUN( do_southeast    );
+DECLARE_DO_FUN( do_southwest    );
 DECLARE_DO_FUN(	do_drink	);
 DECLARE_DO_FUN(	do_drop		);
 DECLARE_DO_FUN( do_dump		);
@@ -546,4 +551,11 @@ DECLARE_DO_FUN( do_mxp		);
 DECLARE_DO_FUN( do_target );
 DECLARE_DO_FUN( do_untarget );
 DECLARE_DO_FUN( do_savepits    );
+//worldmap.c
+DECLARE_DO_FUN( do_savemap      );
+DECLARE_DO_FUN( do_show_sectors );
+DECLARE_DO_FUN( do_wmaptable    );
+DECLARE_DO_FUN( do_wedit        );
+DECLARE_DO_FUN( do_wmap_show    );
+DECLARE_DO_FUN( do_zoomwmap     );
 
