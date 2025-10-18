@@ -755,3 +755,646 @@ size_t strlcat(char *dst, const char *src, size_t siz)
      *d = '\0';
      return(dlen + (s - src));       /* count does not include NUL */
 }
+-string.c, add these functions.  These could probably be written better, but they are functional.
+//worldmap.c
+char *fade_color16(const char *string)
+{
+    if (!string)
+    {
+        return NULL;
+    }
+
+    size_t len = strlen(string);
+    char *result = (char *)malloc(len + 1);
+
+    if (!result)
+    {
+        return NULL;
+    }
+
+    size_t i, j = 0;
+    for (i = 0; i < len; i++)
+    {
+        if (string[i] == '{' && isupper(string[i + 1]) && string[i + 1] != 'D')
+        {
+            result[j++] = '{';
+            result[j++] = tolower(string[i + 1]);
+            i++; 
+        }
+        else
+        {
+            result[j++] = string[i];
+        }
+    }
+
+    result[j] = '\0';
+    return result;
+}
+
+char *fade_color(const char *string, int fade)
+{
+    char buf[MAX_STRING_LENGTH];
+    char *newstr;
+    int count = 0;
+    char temp;
+    int r = 0, g = 0, b = 0;
+    bool bg = FALSE;
+
+    if(fade > 5)
+        fade = 5;
+
+    newstr = buf;
+    while (*string && count < (MAX_STRING_LENGTH - 1))
+    {
+        temp = *string++;
+        if (temp == '{')
+        {
+            temp = *string++;
+            if (temp == '[')
+            {
+                temp = *string++;
+                if (temp == 'F' || temp == 'f' || temp == 'B' || temp == 'b')
+                {
+                    if(temp == 'B' || temp == 'b')
+                        bg = TRUE;
+                    else
+                        bg = FALSE;
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                    temp = *string++;
+                    if (temp == 'G' || temp == 'g')
+                    {
+                        buf[count++] = '{';
+                        buf[count++] = '[';
+                        buf[count++] = 'F';
+                        buf[count++] = 'G';
+
+                        temp = *string++;;
+                        if(temp == '0')
+                            g = 0;
+                        else if(temp == '1')
+                            g = 1;
+                        else
+                            g = 2;
+
+                        temp = *string++;;
+                        if(temp == '0')
+                            b = 0;
+                        else if(temp == '1')
+                            b = 1;
+                        else if(temp == '2')
+                            b = 2;
+                        else if(temp == '3')
+                            b = 3;
+                        else if(temp == '4')
+                            b = 4;
+                        else if(temp == '5')
+                            b = 5;
+                        else if(temp == '6')
+                            b = 6;
+                        else if(temp == '7')
+                            b = 7;
+                        else if(temp == '8')
+                            b = 8;
+                        else
+                            b = 9;
+
+                        if(fade == 5)
+                        {
+                            buf[count++] = '0';
+                            buf[count++] = '2';
+                        }
+                        else
+                        {
+                            int sum = g * 10 + b;
+
+                            if(fade == 1)
+                            {
+                                sum = sum * 83 / 100;
+
+                                g = (sum / 10) % 10;
+                                b = sum  % 10;
+                            }
+                            else if(fade == 2)
+                            {
+                                sum = sum * 66 / 100;
+
+                                g = (sum / 10) % 10;
+                                b = sum  % 10;
+                            }
+                            else if(fade == 3)
+                            {
+                                sum = sum * 49 / 100;
+
+                                g = (sum / 10) % 10;
+                                b = sum  % 10;
+                            }
+                            else if(fade == 4)
+                            {
+                                sum = sum * 32 / 100;
+
+                                g = (sum / 10) % 10;
+                                b = sum  % 10;
+                            }
+
+
+                            if(g == 2)
+                                buf[count++] = '2';
+                            else if(g == 1)
+                                buf[count++] = '1';
+                            else if(g == 0)
+                                buf[count++] = '0';
+
+                            if(b == 9)
+                                buf[count++] = '9';
+                            else if(b == 8)
+                                buf[count++] = '8';
+                            else if(b == 7)
+                                buf[count++] = '7';
+                            else if(b == 6)
+                                buf[count++] = '6';
+                            else if(b == 5)
+                                buf[count++] = '5';
+                            else if(b == 4)
+                                buf[count++] = '4';
+                            else if(b == 3)
+                                buf[count++] = '3';
+                            else if(b == 2)
+                                buf[count++] = '2';
+                            else if(b == 1)
+                                buf[count++] = '1';
+                            else if(b == 0)
+                            {
+                                if(g == 0)
+                                    buf[count++] = '1';
+                                else
+                                    buf[count++] = '0';
+                            }
+                        }
+                    }
+                    else
+                    {
+                        buf[count++] = '{';
+                        buf[count++] = '[';
+                        if(!bg)
+                            buf[count++] = 'F';
+                        else
+                            buf[count++] = 'B';
+
+                        if(temp == '0')
+                            r = 0;
+                        else if(temp == '1')
+                            r = 1;
+                        else if(temp == '2')
+                            r = 2;
+                        else if(temp == '3')
+                            r = 3;
+                        else if(temp == '4')
+                            r = 4;
+                        else
+                            r = 5;
+
+                        temp = *string++;;
+                        if(temp == '0')
+                            g = 0;
+                        else if(temp == '1')
+                            g = 1;
+                        else if(temp == '2')
+                            g = 2;
+                        else if(temp == '3')
+                            g = 3;
+                        else if(temp == '4')
+                            g = 4;
+                        else
+                            g = 5;
+
+                        temp = *string++;;
+                        if(temp == '0')
+                            b = 0;
+                        else if(temp == '1')
+                            b = 1;
+                        else if(temp == '2')
+                            b = 2;
+                        else if(temp == '3')
+                            b = 3;
+                        else if(temp == '4')
+                            b = 4;
+                        else
+                            b = 5;
+
+                        if(fade == 5)
+                        {
+                            buf[count++] = 'G';
+                            buf[count++] = '0';
+                            buf[count++] = '2';
+                        }
+                        else
+                        {
+                            if(fade == 1)
+                            {
+                                if(r > 2)
+                                    r -= 1;
+                                if(g > 2)
+                                    g -= 1;
+                                if(b > 2)
+                                    b -= 1;
+                            }
+                            else if(fade == 2)
+                            {
+                                if(r == 0)
+                                    r = 0;
+                                else if(r == 1)
+                                    r = 1;
+                                else if(r == 2)
+                                    r -= 1;
+                                else
+                                    r -= fade;
+
+                                if(g == 0)
+                                    g = 0;
+                                else if(g == 1)
+                                    g = 1;
+                                else if(g == 2)
+                                    g -= 1;
+                                else
+                                    g -= fade;
+
+                                if(b == 0)
+                                    b = 0;
+                                else if(b == 1)
+                                    b = 1;
+                                else if(b == 2)
+                                    b -= 1;
+                                else
+                                    b -= fade;
+                            }
+                            else if(fade == 3)
+                            {
+                                if(r == 0)
+                                    r = 0;
+                                else if(r == 1)
+                                    r = 1;
+                                else if(r == 2)
+                                    r -= 1;
+                                else if(r == 3)
+                                    r -= 2;
+                                else
+                                    r -= fade;
+
+                                if(g == 0)
+                                    g = 0;
+                                else if(g == 1)
+                                    g = 1;
+                                else if(g == 2)
+                                    g -= 1;
+                                else if(g == 3)
+                                    g -= 2;
+                                else
+                                    g -= fade;
+
+                                if(b == 0)
+                                    b = 0;
+                                else if(b == 1)
+                                    b = 1;
+                                else if(b == 2)
+                                    b -= 1;
+                                else if(b == 3)
+                                    b -= 2;
+                                else
+                                    b -= fade;
+                            }
+                            else if(fade == 4)
+                            {
+                                if(r > 0)
+                                    r = 1;
+                                if(g > 0)
+                                    g = 1;
+                                if(b > 0)
+                                    b = 1;
+                            }
+
+                            if(r == 5)
+                                buf[count++] = '5';
+                            else if(r == 4)
+                                buf[count++] = '4';
+                            else if(r == 3)
+                                buf[count++] = '3';
+                            else if(r == 2)
+                                buf[count++] = '2';
+                            else if(r == 1)
+                                buf[count++] = '1';
+                            else if(r == 0)
+                                buf[count++] = '0';
+
+                            if(g == 5)
+                                buf[count++] = '5';
+                            else if(g == 4)
+                                buf[count++] = '4';
+                            else if(g == 3)
+                                buf[count++] = '3';
+                            else if(g == 2)
+                                buf[count++] = '2';
+                            else if(g == 1)
+                                buf[count++] = '1';
+                            else if(g == 0)
+                                buf[count++] = '0';
+
+                            if(b == 5)
+                                buf[count++] = '5';
+                            else if(b == 4)
+                                buf[count++] = '4';
+                            else if(b == 3)
+                                buf[count++] = '3';
+                            else if(b == 2)
+                                buf[count++] = '2';
+                            else if(b == 1)
+                                buf[count++] = '1';
+                            else if(b == 0)
+                                buf[count++] = '0';
+                        }
+
+                    }
+                    //buf[count++] = ']';
+                }
+            }
+            else if (temp == '{')
+            {
+                buf[count++] = '{';
+                buf[count++] = temp;
+            }
+            else
+            {
+                buf[count++] = '{';
+
+                if (temp == 'r' || temp == 'R' || temp == 'g' || temp == 'G' || temp == 'y' || temp == 'Y' || temp == 'b' || temp == 'B'
+                ||  temp == 'm' || temp == 'M' || temp == 'c' || temp == 'C' || temp == 'w' || temp == 'W' || temp == 'a' || temp == 'A'
+                ||  temp == 'j' || temp == 'J' || temp == 'l' || temp == 'L' || temp == 'o' || temp == 'O' || temp == 'p' || temp == 'P'
+                ||  temp == 't' || temp == 'T' || temp == 'v' || temp == 'V' || temp == 'D')
+                {
+                    r = 0;
+                    g = 0;
+                    b = 0;
+                    buf[count++] = '[';
+                    buf[count++] = 'F';
+
+                    if(fade == 5)
+                    {
+                        buf[count++] = 'G';
+                        buf[count++] = '0';
+                        buf[count++] = '2';
+                        buf[count++] = ']';
+                    }
+                    else
+                    {
+                        switch ( temp )
+                        {
+                            case 'r': // dark red F200
+                                r = 2; g = 0; b = 0;
+                                break;
+                            case 'R': // light red F500
+                                r = 5; g = 0; b = 0;
+                                break;
+                            case 'g': // dark green F020
+                                r = 0; g = 2; b = 0;
+                                break;
+                            case 'G': // light green F050
+                                r = 0; g = 5; b = 0;
+                                break;
+                            case 'y': // dark yellow F220
+                                r = 2; g = 2; b = 0;
+                                break;
+                            case 'Y': // light yellow F550
+                                r = 5; g = 5; b = 0;
+                                break;
+                            case 'b': // dark blue F002
+                                r = 0; g = 0; b = 2;
+                                break;
+                            case 'B': // light blue F005
+                                r = 0; g = 0; b = 5;
+                                break;
+                            case 'm': // dark magenta F202
+                                r = 2; g = 0; b = 2;
+                                break;
+                            case 'M': // light magenta F505
+                                r = 5; g = 0; b = 5;
+                                break;
+                            case 'c': // dark cyan F022
+                                r = 0; g = 2; b = 2;
+                                break;
+                            case 'C': // light cyan F055
+                                r = 0; g = 5; b = 5;
+                                break;
+                            case 'w': // dark white F333
+                                r = 3; g = 3; b = 3;
+                                break;
+                            case 'W': // light white F555
+                                r = 5; g = 5; b = 5;
+                                break;
+                            case 'a': // dark azure F014
+                                r = 0; g = 1; b = 4;
+                                break;
+                            case 'A': // light azure F025
+                                r = 0; g = 2; b = 5;
+                                break;
+                            case 'j': // dark jade F031
+                                r = 0; g = 3; b = 1;
+                                break;
+                            case 'J': // light jade F052
+                                r = 0; g = 5; b = 2;
+                                break;
+                            case 'l': // dark lime F140
+                                r = 1; g = 4; b = 0;
+                                break;
+                            case 'L': // light lime F250
+                                r = 2; g = 5; b = 0;
+                                break;
+                            case 'o': // dark orange F310
+                                r = 3; g = 1; b = 0;
+                                break;
+                            case 'O': // light orange F520
+                                r = 5; g = 2; b = 0;
+                                break;
+                            case 'p': // dark pink F301
+                                r = 3; g = 0; b = 1;
+                                break;
+                            case 'P': // light pink F502
+                                r = 5; g = 0; b = 2;
+                                break;
+                            case 't': // dark tan F210
+                                r = 2; g = 1; b = 0;
+                                break;
+                            case 'T': // light tan F321
+                                r = 3; g = 2; b = 1;
+                                break;
+                            case 'v': // dark violet F104
+                                r = 1; g = 0; b = 4;
+                                break;
+                            case 'V': // light violet F205
+                                r = 2; g = 0; b = 5;
+                                break;
+                        }
+
+                        if(temp == 'D')
+                        {
+                            buf[count++] = 'G';
+                            if(fade == 1)
+                            {
+                                buf[count++] = '1';
+                                buf[count++] = '0';
+                            }
+                            else if(fade == 2)
+                            {
+                                buf[count++] = '0';
+                                buf[count++] = '8';
+                            }
+                            else if(fade == 3)
+                            {
+                                buf[count++] = '0';
+                                buf[count++] = '6';
+                            }
+                            else
+                            {
+                                buf[count++] = '0';
+                                buf[count++] = '4';
+                            }
+                        }
+                        else
+                        {
+                            if(fade == 1)
+                            {
+                                if(r > 2)
+                                    r -= 1;
+                                if(g > 2)
+                                    g -= 1;
+                                if(b > 2)
+                                    b -= 1;
+                            }
+                            else if(fade == 2)
+                            {
+                                if(r == 0)
+                                    r = 0;
+                                else if(r == 1)
+                                    r = 1;
+                                else if(r == 2)
+                                    r -= 1;
+                                else
+                                    r -= fade;
+
+                                if(g == 0)
+                                    g = 0;
+                                else if(g == 1)
+                                    g = 1;
+                                else if(g == 2)
+                                    g -= 1;
+                                else
+                                    g -= fade;
+
+                                if(b == 0)
+                                    b = 0;
+                                else if(b == 1)
+                                    b = 1;
+                                else if(b == 2)
+                                    b -= 1;
+                                else
+                                    b -= fade;
+                            }
+                            else if(fade == 3)
+                            {
+                                if(r == 0)
+                                    r = 0;
+                                else if(r == 1)
+                                    r = 1;
+                                else if(r == 2)
+                                    r -= 1;
+                                else if(r == 3)
+                                    r -= 2;
+                                else
+                                    r -= fade;
+
+                                if(g == 0)
+                                    g = 0;
+                                else if(g == 1)
+                                    g = 1;
+                                else if(g == 2)
+                                    g -= 1;
+                                else if(g == 3)
+                                    g -= 2;
+                                else
+                                    g -= fade;
+
+                                if(b == 0)
+                                    b = 0;
+                                else if(b == 1)
+                                    b = 1;
+                                else if(b == 2)
+                                    b -= 1;
+                                else if(b == 3)
+                                    b -= 2;
+                                else
+                                    b -= fade;
+                            }
+                            else if(fade == 4)
+                            {
+                                if(r > 0)
+                                    r = 1;
+                                if(g > 0)
+                                    g = 1;
+                                if(b > 0)
+                                    b = 1;
+                            }
+
+                            if(r == 5)
+                                buf[count++] = '5';
+                            else if(r == 4)
+                                buf[count++] = '4';
+                            else if(r == 3)
+                                buf[count++] = '3';
+                            else if(r == 2)
+                                buf[count++] = '2';
+                            else if(r == 1)
+                                buf[count++] = '1';
+                            else if(r == 0)
+                                buf[count++] = '0';
+
+                            if(g == 5)
+                                buf[count++] = '5';
+                            else if(g == 4)
+                                buf[count++] = '4';
+                            else if(g == 3)
+                                buf[count++] = '3';
+                            else if(g == 2)
+                                buf[count++] = '2';
+                            else if(g == 1)
+                                buf[count++] = '1';
+                            else if(g == 0)
+                                buf[count++] = '0';
+
+                            if(b == 5)
+                                buf[count++] = '5';
+                            else if(b == 4)
+                                buf[count++] = '4';
+                            else if(b == 3)
+                                buf[count++] = '3';
+                            else if(b == 2)
+                                buf[count++] = '2';
+                            else if(b == 1)
+                                buf[count++] = '1';
+                            else if(b == 0)
+                                buf[count++] = '0';
+                        }
+
+                        buf[count++] = ']';
+                    }
+                }
+                else
+                    buf[count++] = temp;
+            }
+            continue;
+        }
+        buf[count++] = temp;
+    }
+    buf[count] = '\0';
+    return newstr;
+}
+

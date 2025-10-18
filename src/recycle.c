@@ -299,6 +299,15 @@ CHAR_DATA *new_char (void)
     for (i = 0; i < 4; i++)
         ch->armor[i]            = 100;
     ch->position                = POS_STANDING;
+    //worldmap.c
+    ch->wmap[0] = -1;  //map
+    ch->wmap[1] = -1;  //x
+    ch->wmap[2] = -1;  //y
+    ch->wmap[3] = 0;   //z
+    ch->reset_wmap[0] = -1;  //map
+    ch->reset_wmap[1] = -1;  //x
+    ch->reset_wmap[2] = -1;  //y
+    ch->reset_wmap[3] = 0;  //z
     ch->hit                     = 20;
     ch->max_hit                 = 20;
     ch->mana                    = 100;
@@ -381,6 +390,10 @@ PC_DATA *new_pcdata(void)
     }
 
     *pcdata = pcdata_zero;
+
+    pcdata->doorbump[0]    = -1; //worldmap.c
+    pcdata->doorbump[1]    = 0; //worldmap.c
+    pcdata->wmap_sec    = -1; //worldmap.c
 
     for (alias = 0; alias < MAX_ALIAS; alias++)
     {
