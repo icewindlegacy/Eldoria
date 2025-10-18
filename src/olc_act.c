@@ -6420,8 +6420,8 @@ GEDIT( gedit_show )
   
   sprintf(buf, "Name     : %s %s %s\n\rWho Name : %-10s\n\r",
                pClan->name, 
-               IS_SET(pClan->flags, GUILD_CHANGED) ? "`c[`B*`c]`w" : "",
-               IS_SET(pClan->flags, GUILD_DELETED) ? "`RMarked for Deletion!`w" : "",
+               IS_SET(pClan->flags, GUILD_CHANGED) ? "{c[{B*{c]{x" : "",
+               IS_SET(pClan->flags, GUILD_DELETED) ? "{RMarked for Deletion!{x}" : "",
                pClan->who_name);
   add_buf(buffer, buf);
 
