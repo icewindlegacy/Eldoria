@@ -202,10 +202,22 @@ void who_html_update (void)
       fprintf(fp, "<span class=\"bracket\">]</span> ");
       
       if (clan_table[wch->clan].who_name[0] != '\0')
-          fprintf(fp, "<span class=\"clan\">%s</span> ", clan_table[wch->clan].who_name);
+      {
+          buf2[0] = '\0';
+          html_colourconv( buf, clan_table[wch->clan].who_name, wch );
+          fprintf(fp, "<span class=\"clan\">%s</span> ", buf);
+      }
       
       if (IS_SET(wch->comm, COMM_AFK))
           fprintf(fp, "<span style=\"color:#ffff00\">[AFK]</span> ");
+      
+      /* Display pretitle if set */
+      if (!IS_NPC(wch) && wch->pcdata->pretitle != NULL && wch->pcdata->pretitle[0] != '\0')
+      {
+          buf2[0] = '\0';
+          html_colourconv( buf, wch->pcdata->pretitle, wch );
+          fprintf(fp, "%s ", buf);
+      }
       
       fprintf(fp, "<span class=\"name\">%s</span>", wch->name);
 
@@ -246,10 +258,22 @@ void who_html_update (void)
       fprintf(fp, "<span class=\"bracket\">]</span> ");
       
       if (clan_table[wch->clan].who_name[0] != '\0')
-          fprintf(fp, "<span class=\"clan\">%s</span> ", clan_table[wch->clan].who_name);
+      {
+          buf2[0] = '\0';
+          html_colourconv( buf, clan_table[wch->clan].who_name, wch );
+          fprintf(fp, "<span class=\"clan\">%s</span> ", buf);
+      }
       
       if (IS_SET(wch->comm, COMM_AFK))
           fprintf(fp, "<span style=\"color:#ffff00\">[AFK]</span> ");
+      
+      /* Display pretitle if set */
+      if (!IS_NPC(wch) && wch->pcdata->pretitle != NULL && wch->pcdata->pretitle[0] != '\0')
+      {
+          buf2[0] = '\0';
+          html_colourconv( buf, wch->pcdata->pretitle, wch );
+          fprintf(fp, "%s ", buf);
+      }
       
       fprintf(fp, "<span class=\"name\">%s</span>", wch->name);
       
