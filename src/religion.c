@@ -569,7 +569,7 @@ RLGEDIT( rlgedit_faction )
 		ch->desc->pEdit = (void *) pRlg;
 		return TRUE;
 	}
-	rlgedit_faction(ch, NULL);
+	rlgedit_faction(ch, "");
 	return FALSE;
 }
 
@@ -1400,6 +1400,66 @@ struct sex_type god_table[] =
 	{ "Hephaestus"   },
 	{ "Ares"   },
 	{ "Dionysus"   },
+	{ "WeaverEternal" },
+{ "KheranSpindle" },
+{ "TirielThread" },
+{ "VaelithEye" },
+{ "SennNeedle" },
+
+{ "PyraDawnflame" },
+{ "AzelForgeheart" },
+{ "VathorCinderKing" },
+{ "SaalisSmokeDancer" },
+{ "RuunAshfather" },
+
+{ "VeiledMother" },
+{ "NyssraWhisperer" },
+{ "KorthalDreamEater" },
+{ "MelyneSilentStep" },
+{ "OrrenLanternBearer" },
+
+{ "ThalmarisDeep" },
+{ "EiraWaves" },
+{ "VorrakUndertow" },
+{ "SeralDriftwoodKing" },
+{ "LunethMirrorTide" },
+
+{ "KraedonGodsmith" },
+{ "MoraAnvilMother" },
+{ "ItharShard" },
+{ "BelkaFlamechild" },
+{ "DurnHammerhand" },
+
+{ "SolenneWordless" },
+{ "CalorCandlebearer" },
+{ "EshraRadiantHand" },
+{ "VeynEcho" },
+{ "ArthisGlassSaint" },
+
+{ "OrothWorldSerpent" },
+{ "VelissMolter" },
+{ "KaarnVenomKing" },
+{ "NaithraBurrower" },
+{ "ZerethDevourer" },
+
+{ "AurelionDawnfather" },
+{ "SeraphaSilverVoice" },
+{ "CaelusGoldenScale" },
+{ "ImeraMorningBell" },
+{ "DarethDiscordant" },
+
+{ "NultharHollowSun" },
+{ "VeshEclipse" },
+{ "TalanShadowProphet" },
+{ "KaraeAshMaiden" },
+{ "DravonDrownedStar" },
+
+{ "Greenmother" },
+{ "OrunThornKing" },
+{ "VelaraBloomingHand" },
+{ "ThessRotfather" },
+{ "LyssWanderingSeed" },
+
 	{ NULL	   },
 };
 
