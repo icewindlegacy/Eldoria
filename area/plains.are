@@ -611,15 +611,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-leather~
-The leather wrapped around the potion is old and decayed, originating
-from an, to you, unknown creature.~
-ExtraDesc
 potion clear~
 As you examine the potion more, you notice the oddities of this
 potion. When you look through it you notice strange things...
 The clear potion is certainly not of this world.
 ~
+ExtraDesc
+leather~
+The leather wrapped around the potion is old and decayed, originating
+from an, to you, unknown creature.~
 EndObj
 
 #OBJ
@@ -641,16 +641,16 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-ritual men drawings~
-The drawing pictures people gathered round giant stone formations,
-worshipping a giant worm like creature.
-It seems they are sacrificing some of their own species.
-~
-ExtraDesc
 scroll jhyfrdow~
 The scroll is titled 'jhyfrdow' and looks very old.
 As you examine it closer you notice primitive drawings of
 men doing some kind of a ritual.
+~
+ExtraDesc
+ritual men drawings~
+The drawing pictures people gathered round giant stone formations,
+worshipping a giant worm like creature.
+It seems they are sacrificing some of their own species.
 ~
 EndObj
 
@@ -1520,13 +1520,13 @@ Room_flags 0
 Sector_type 4
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-pine tree trees pines~
-The all too quiet trees suggest that something roams these woods.
-~
-ExtraDesc
 mountains~
 The mountains seems dark and all most alive, as they contrast against
 the sky.
+~
+ExtraDesc
+pine tree trees pines~
+The all too quiet trees suggest that something roams these woods.
 ~
 Exit
 0
@@ -1949,10 +1949,10 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-death rituals worms engraving picture~
-The pictures are depicting evil rituals.
-You see druids pouring blood over herbs on an altar like this one.
-There are people calling giant worms into existence with dark spells.
+stones g'harne monolith~
+The stones of G'harne tower fifteen feet over you.
+The giant stones are made of a material you haven't seen before.
+It resembles black marble, but somehow feels different.
 ~
 ExtraDesc
 altar sacrifice~
@@ -1961,10 +1961,10 @@ The altar is about 3 feet high, 10 feet long and 4 feet wide.
 It has engraved pictures of death rituals and horrifying worms.
 ~
 ExtraDesc
-stones g'harne monolith~
-The stones of G'harne tower fifteen feet over you.
-The giant stones are made of a material you haven't seen before.
-It resembles black marble, but somehow feels different.
+death rituals worms engraving picture~
+The pictures are depicting evil rituals.
+You see druids pouring blood over herbs on an altar like this one.
+There are people calling giant worms into existence with dark spells.
 ~
 Exit
 3

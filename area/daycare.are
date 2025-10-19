@@ -401,9 +401,9 @@ How strange...it's made of ice, but it doesn't melt. It feels pleasantly
 cool to the touch.
 ~
 AffectObj
-13 4
-AffectObj
 1 1
+AffectObj
+13 4
 EndObj
 
 #OBJ
@@ -429,9 +429,9 @@ robe linen~
 It radiates an aura of peace and wisdom.  The perfect garb for a teacher.
 ~
 AffectObj
-12 5
-AffectObj
 4 1
+AffectObj
+12 5
 EndObj
 
 #OBJ
@@ -457,9 +457,9 @@ broom~
 It's worn and tired, probably from swatting too many children.
 ~
 AffectObj
-18 -1
-AffectObj
 17 -1
+AffectObj
+18 -1
 EndObj
 
 #OBJ
@@ -930,13 +930,6 @@ Room_flags 9
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-~
-~
--1
-6614
-0
-Exit
 2
 ~
 ~
@@ -949,6 +942,13 @@ Exit
 ~
 -1
 6612
+0
+Exit
+1
+~
+~
+-1
+6614
 0
 EndRoom
 
@@ -1016,18 +1016,18 @@ Exit
 6614
 0
 Exit
-3
-~
-~
--1
-6615
-0
-Exit
 2
 ~
 ~
 -1
 6624
+0
+Exit
+3
+~
+~
+-1
+6615
 0
 EndRoom
 

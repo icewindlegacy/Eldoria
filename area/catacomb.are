@@ -715,9 +715,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
 17 -1
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -739,9 +739,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -763,9 +763,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 18 3
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -891,15 +891,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 -1
-AffectObj
-18 -2
-AffectObj
-13 10
+17 -2
 AffectObj
 12 10
 AffectObj
-17 -2
+13 10
+AffectObj
+18 -2
+AffectObj
+19 -1
 EndObj
 
 #OBJ

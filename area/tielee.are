@@ -2372,16 +2372,16 @@ Room_flags 1024
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-east~
-To the east is a small beautiful lake.
+north~
+A large and magnificent castle is in the north.
 ~
 ExtraDesc
 south~
 To the south is a huge expanse of lush forest.
 ~
 ExtraDesc
-north~
-A large and magnificent castle is in the north.
+east~
+To the east is a small beautiful lake.
 ~
 Exit
 5

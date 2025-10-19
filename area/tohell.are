@@ -2720,11 +2720,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
+2 1
 AffectObj
 18 2
 AffectObj
-2 1
+19 2
 EndObj
 
 #OBJ
@@ -2768,11 +2768,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
+12 40
 AffectObj
 13 20
 AffectObj
-12 40
+18 2
 EndObj
 
 #OBJ
@@ -2808,11 +2808,11 @@ Upon the blade is engraved a poem:
 
 ~
 AffectObj
-19 5
+13 50
 AffectObj
 18 2
 AffectObj
-13 50
+19 5
 EndObj
 
 #OBJ
@@ -2874,11 +2874,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 4
-AffectObj
-19 4
-AffectObj
 18 4
+AffectObj
+19 4
+AffectObj
+19 4
 EndObj
 
 #OBJ
@@ -2900,9 +2900,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 1 1
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -2924,11 +2924,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
+1 1
 AffectObj
 2 1
 AffectObj
-1 1
+4 1
 EndObj
 
 #OBJ
@@ -3012,9 +3012,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 4
-AffectObj
 17 -2
+AffectObj
+18 4
 EndObj
 
 #OBJ
@@ -3222,9 +3222,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 3 -1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -3246,9 +3246,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 2
-AffectObj
 3 2
+AffectObj
+4 2
 EndObj
 
 #OBJ
@@ -3312,9 +3312,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 1
-AffectObj
 2 1
+AffectObj
+3 1
 EndObj
 
 #OBJ
@@ -3336,9 +3336,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 12 30
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -3360,9 +3360,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 4 -1
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -3404,9 +3404,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 4
-AffectObj
 13 20
+AffectObj
+19 4
 EndObj
 
 #OBJ
@@ -3612,11 +3612,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
+12 -20
 AffectObj
 18 4
 AffectObj
-12 -20
+19 2
 EndObj
 
 #OBJ
@@ -3703,9 +3703,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 17 -5
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -3727,9 +3727,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 3 -1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -3751,9 +3751,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -4
-AffectObj
 12 30
+AffectObj
+20 -4
 EndObj
 
 #OBJ
@@ -3775,9 +3775,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 18 2
+AffectObj
+19 3
 EndObj
 
 #OBJ

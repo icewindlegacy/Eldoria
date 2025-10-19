@@ -1810,11 +1810,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -2
+20 -1
 AffectObj
 13 5
 AffectObj
-20 -1
+17 -2
 EndObj
 
 #OBJ
@@ -1836,9 +1836,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 10
-AffectObj
 20 -1
+AffectObj
+13 10
 EndObj
 
 #OBJ
@@ -1860,9 +1860,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -1884,9 +1884,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -1908,9 +1908,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -1932,9 +1932,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -1956,9 +1956,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -1980,9 +1980,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -2004,9 +2004,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -2028,9 +2028,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 5
-AffectObj
 20 -1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -2052,9 +2052,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 5
-AffectObj
 18 -2
+AffectObj
+19 5
 EndObj
 
 #OBJ
@@ -2076,9 +2076,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 12 10
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -2100,9 +2100,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
-AffectObj
 12 5
+AffectObj
+2 1
 EndObj
 
 #OBJ
@@ -2124,9 +2124,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 1
-AffectObj
 12 5
+AffectObj
+3 1
 EndObj
 
 #OBJ
@@ -2148,9 +2148,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
 12 5
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -2172,9 +2172,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 1
-AffectObj
 12 5
+AffectObj
+5 1
 EndObj
 
 #OBJ
@@ -2196,9 +2196,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 12 5
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2220,9 +2220,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -3
-AffectObj
 12 5
+AffectObj
+17 -3
 EndObj
 
 #OBJ
@@ -2244,9 +2244,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 12 5
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -2268,9 +2268,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 2
-AffectObj
 13 15
+AffectObj
+5 2
 EndObj
 
 #OBJ
@@ -2292,9 +2292,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 2
-AffectObj
 12 10
+AffectObj
+4 2
 EndObj
 
 #OBJ
@@ -2316,9 +2316,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 2
-AffectObj
 13 10
+AffectObj
+2 2
 EndObj
 
 #OBJ
@@ -2340,9 +2340,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 25
-AffectObj
 13 10
+AffectObj
+14 25
 EndObj
 
 #OBJ
@@ -2364,9 +2364,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 13 10
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2388,9 +2388,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 2
-AffectObj
 13 10
+AffectObj
+1 2
 EndObj
 
 #OBJ
@@ -2412,9 +2412,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 13 10
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -2436,9 +2436,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 13 10
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -2460,9 +2460,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 6
-AffectObj
 18 1
+AffectObj
+19 6
 EndObj
 
 #OBJ
@@ -2564,11 +2564,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 2
+17 -3
 AffectObj
 12 10
 AffectObj
-17 -3
+4 2
 EndObj
 
 #OBJ
@@ -2590,9 +2590,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 -1
-AffectObj
 18 3
+AffectObj
+19 -1
 EndObj
 
 #OBJ
@@ -2614,9 +2614,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 17 -5
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2638,9 +2638,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2662,9 +2662,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2686,9 +2686,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2710,9 +2710,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2734,9 +2734,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2758,9 +2758,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2782,9 +2782,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 17 -3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2828,9 +2828,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 2
-AffectObj
 3 1
+AffectObj
+4 2
 EndObj
 
 #OBJ
@@ -2894,9 +2894,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 -3
-AffectObj
 18 3
+AffectObj
+19 -3
 EndObj
 
 #OBJ

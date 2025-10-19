@@ -1318,9 +1318,9 @@ arm~
 These mighty armors have been worn by this immortal, since the ancient time.
 ~
 AffectObj
-1 1
-AffectObj
 19 2
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1419,9 +1419,9 @@ hoof~
 It is with these hooves that Taurus can stand against Orion's attacks.
 ~
 AffectObj
-14 20
-AffectObj
 19 1
+AffectObj
+14 20
 EndObj
 
 #OBJ
@@ -1448,9 +1448,9 @@ You notice the mask has got two faces, one smiling and the other crying.
 You don't know which way you should wear it.
 ~
 AffectObj
-1 1
-AffectObj
 2 2
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1553,9 +1553,9 @@ scale~
 It is a shield of justice, used in the ancient battle against injustice.
 ~
 AffectObj
-17 -3
-AffectObj
 13 5
+AffectObj
+17 -3
 EndObj
 
 #OBJ
@@ -1581,9 +1581,9 @@ scale~
 It is a shield of injustice, it picks on the innocent.
 ~
 AffectObj
-17 6
-AffectObj
 13 -30
+AffectObj
+17 6
 EndObj
 
 #OBJ
@@ -1609,9 +1609,9 @@ sting~
 This dreadful weapon put a lot of mortals to death before Scorpio was banished.
 ~
 AffectObj
-18 3
-AffectObj
 19 1
+AffectObj
+18 3
 EndObj
 
 #OBJ
@@ -1661,9 +1661,9 @@ bow~
 The gigantic bow used by the Archer; it is a very powerful weapon.
 ~
 AffectObj
-18 1
-AffectObj
 19 3
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1690,9 +1690,9 @@ These strange horns are the work of gods, shaped to fit on hands.
 They look powerful indeed.
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1744,9 +1744,9 @@ This tail can actually be worn by mortals somehow as leggings ... another
 work of the gods.
 ~
 AffectObj
-17 -2
-AffectObj
 2 -2
+AffectObj
+17 -2
 EndObj
 
 #OBJ
@@ -1773,9 +1773,9 @@ This ring belongs to Cassiopeia, queen of the Universe.
 Mortals, do not touch!
 ~
 AffectObj
-12 25
-AffectObj
 3 2
+AffectObj
+12 25
 EndObj
 
 #OBJ
@@ -1801,9 +1801,9 @@ sceptre~
 You'd better give it back, or the king of the Universe will punish you.
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1829,9 +1829,9 @@ ring~
 It conceals the power of the universe.
 ~
 AffectObj
-12 10
-AffectObj
 13 30
+AffectObj
+12 10
 EndObj
 
 #OBJ
@@ -1853,9 +1853,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
