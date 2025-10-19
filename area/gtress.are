@@ -202,23 +202,23 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 3
-AffectObj
-2 10
-AffectObj
-5 2
-AffectObj
-3 -6
-AffectObj
-26 12000
-AffectObj
-18 1200
-AffectObj
-19 1275
+12 24000
 AffectObj
 13 12000
 AffectObj
-12 24000
+19 1275
+AffectObj
+18 1200
+AffectObj
+26 12000
+AffectObj
+3 -6
+AffectObj
+5 2
+AffectObj
+2 10
+AffectObj
+1 3
 EndObj
 
 #OBJ
@@ -240,13 +240,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32000
-AffectObj
-18 10
+12 25000
 AffectObj
 19 25
 AffectObj
-12 25000
+18 10
+AffectObj
+13 32000
 EndObj
 
 #OBJ
@@ -268,19 +268,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32000
-AffectObj
-12 32000
-AffectObj
-1 10
-AffectObj
-2 10
-AffectObj
-5 25
+27 100
 AffectObj
 26 100
 AffectObj
-27 100
+5 25
+AffectObj
+2 10
+AffectObj
+1 10
+AffectObj
+12 32000
+AffectObj
+13 32000
 EndObj
 
 #OBJ
@@ -302,13 +302,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-27 75
-AffectObj
-26 100
+13 32000
 AffectObj
 12 32000
 AffectObj
-13 32000
+26 100
+AffectObj
+27 75
 EndObj
 
 #OBJ
@@ -330,23 +330,23 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 7
-AffectObj
-2 10
-AffectObj
-1 5
-AffectObj
-27 12
-AffectObj
-26 10
-AffectObj
-19 35
-AffectObj
-18 25
+13 32000
 AffectObj
 12 32000
 AffectObj
-13 32000
+18 25
+AffectObj
+19 35
+AffectObj
+26 10
+AffectObj
+27 12
+AffectObj
+1 5
+AffectObj
+2 10
+AffectObj
+5 7
 EndObj
 
 #OBJ
@@ -368,21 +368,21 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 2
-AffectObj
-1 3
-AffectObj
-27 12
-AffectObj
-26 10
-AffectObj
-19 8
-AffectObj
-18 5
+13 32000
 AffectObj
 12 32000
 AffectObj
-13 32000
+18 5
+AffectObj
+19 8
+AffectObj
+26 10
+AffectObj
+27 12
+AffectObj
+1 3
+AffectObj
+2 2
 EndObj
 
 #OBJ
@@ -404,17 +404,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-27 55
-AffectObj
-26 12000
-AffectObj
-19 45
-AffectObj
-18 25
+13 32500
 AffectObj
 12 32500
 AffectObj
-13 32500
+18 25
+AffectObj
+19 45
+AffectObj
+26 12000
+AffectObj
+27 55
 EndObj
 
 #OBJ
@@ -436,19 +436,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 10
-AffectObj
-2 25
-AffectObj
-1 15
-AffectObj
-27 100
-AffectObj
-26 12000
+13 32500
 AffectObj
 12 32500
 AffectObj
-13 32500
+26 12000
+AffectObj
+27 100
+AffectObj
+1 15
+AffectObj
+2 25
+AffectObj
+5 10
 EndObj
 
 #END

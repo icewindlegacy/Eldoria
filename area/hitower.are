@@ -2754,9 +2754,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 18 2
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -2818,9 +2818,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -2842,9 +2842,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -3188,9 +3188,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
 3 1
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -3232,9 +3232,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 -1
-AffectObj
 4 2
+AffectObj
+5 -1
 EndObj
 
 #OBJ
@@ -3318,9 +3318,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -3
-AffectObj
 17 -5
+AffectObj
+20 -3
 EndObj
 
 #OBJ
@@ -3342,9 +3342,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -3
-AffectObj
 2 2
+AffectObj
+17 -3
 EndObj
 
 #OBJ
@@ -3488,9 +3488,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 -82
-AffectObj
 12 -100
+AffectObj
+14 -82
 EndObj
 
 #OBJ
@@ -3884,9 +3884,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 2 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -3948,9 +3948,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -6
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4012,9 +4012,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -6
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4036,9 +4036,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -7
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4126,9 +4126,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -5
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4172,9 +4172,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -7
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4218,9 +4218,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -5
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4264,9 +4264,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -7
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4288,9 +4288,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -4312,9 +4312,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 17 -2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -4336,9 +4336,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -4
-AffectObj
 17 -12
+AffectObj
+20 -4
 EndObj
 
 #OBJ
@@ -4382,9 +4382,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 1
-AffectObj
 17 -5
+AffectObj
+3 1
 EndObj
 
 #OBJ
@@ -4406,9 +4406,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -10
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -4430,9 +4430,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 5
-AffectObj
 2 2
+AffectObj
+19 5
 EndObj
 
 #OBJ
@@ -4458,9 +4458,9 @@ green scale shirt~
 Green dragon scale shirt was made from a poor unfortunate green dragon.
 ~
 AffectObj
-17 -5
-AffectObj
 2 3
+AffectObj
+17 -5
 EndObj
 
 #OBJ
@@ -4569,14 +4569,6 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The shadows cloud your vision.
-~
-~
--1
-1304
-0
-Exit
 1
 The shadows cloud your vision.
 ~
@@ -4585,20 +4577,28 @@ The shadows cloud your vision.
 1302
 0
 Exit
-0
-The shadows cloud your vision.
-~
-~
--1
-1307
-0
-Exit
 3
 The shadows cloud your vision.
 ~
 ~
 -1
 1303
+0
+Exit
+2
+The shadows cloud your vision.
+~
+~
+-1
+1304
+0
+Exit
+0
+The shadows cloud your vision.
+~
+~
+-1
+1307
 0
 EndRoom
 
@@ -4614,12 +4614,12 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-You see a small clearing in the shadows.
+3
+The shadows cloud your vision.
 ~
 ~
 -1
-1311
+1301
 0
 Exit
 1
@@ -4630,20 +4630,20 @@ The shadows cloud your vision.
 1303
 0
 Exit
-3
-The shadows cloud your vision.
-~
-~
--1
-1301
-0
-Exit
 2
 The shadows cloud your vision.
 ~
 ~
 -1
 1305
+0
+Exit
+0
+You see a small clearing in the shadows.
+~
+~
+-1
+1311
 0
 EndRoom
 
@@ -4659,12 +4659,12 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+1
 The shadows cloud your vision.
 ~
 ~
 -1
-1302
+1301
 0
 Exit
 0
@@ -4675,20 +4675,20 @@ The shadows cloud your vision.
 1309
 0
 Exit
-1
-The shadows cloud your vision.
-~
-~
--1
-1301
-0
-Exit
 2
 The shadows cloud your vision.
 ~
 ~
 -1
 1306
+0
+Exit
+3
+The shadows cloud your vision.
+~
+~
+-1
+1302
 0
 EndRoom
 
@@ -4703,6 +4703,14 @@ sounds of moaning and growling come from all directions.
 Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+1
+The shadows cloud your vision.
+~
+~
+-1
+1305
+0
 Exit
 0
 The shadows cloud your vision.
@@ -4727,14 +4735,6 @@ Dark gates loom in the mist.
 -1
 2201
 0
-Exit
-1
-The shadows cloud your vision.
-~
-~
--1
-1305
-0
 EndRoom
 
 #ROOM
@@ -4749,20 +4749,12 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
+3
 The shadows cloud your vision.
 ~
 ~
 -1
-1302
-0
-Exit
-1
-The shadows cloud your vision.
-~
-~
--1
-1306
+1304
 0
 Exit
 2
@@ -4773,12 +4765,20 @@ The shadows cloud your vision.
 1308
 0
 Exit
-3
+1
 The shadows cloud your vision.
 ~
 ~
 -1
-1304
+1306
+0
+Exit
+0
+The shadows cloud your vision.
+~
+~
+-1
+1302
 0
 EndRoom
 
@@ -4839,12 +4839,12 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+0
 The shadows cloud your vision.
 ~
 ~
 -1
-1309
+1304
 0
 Exit
 2
@@ -4863,12 +4863,12 @@ The shadows cloud your vision.
 1308
 0
 Exit
-0
+3
 The shadows cloud your vision.
 ~
 ~
 -1
-1304
+1309
 0
 EndRoom
 
@@ -4884,14 +4884,6 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The shadows cloud your vision.
-~
-~
--1
-1309
-0
-Exit
 2
 The shadows cloud your vision.
 ~
@@ -4906,6 +4898,14 @@ The shadows cloud your vision.
 ~
 -1
 1307
+0
+Exit
+1
+The shadows cloud your vision.
+~
+~
+-1
+1309
 0
 Exit
 0
@@ -4929,6 +4929,14 @@ Room_flags 8193
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+0
+The shadows cloud your vision.
+~
+~
+-1
+1306
+0
+Exit
 1
 The shadows cloud your vision.
 ~
@@ -4951,14 +4959,6 @@ The shadows cloud your vision.
 ~
 -1
 1308
-0
-Exit
-0
-The shadows cloud your vision.
-~
-~
--1
-1306
 0
 EndRoom
 
@@ -7179,18 +7179,11 @@ Room_flags 8200
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+1
 ~
 ~
 0
-7428
-0
-Exit
-4
-~
-~
-0
-938
+5113
 0
 Exit
 2
@@ -7200,11 +7193,11 @@ Exit
 9141
 0
 Exit
-1
+3
 ~
 ~
 0
-5113
+7428
 0
 Exit
 5
@@ -7212,6 +7205,13 @@ Exit
 ~
 0
 3460
+0
+Exit
+4
+~
+~
+0
+938
 0
 EndRoom
 

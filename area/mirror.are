@@ -1704,9 +1704,9 @@ You see a sword of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1733,9 +1733,9 @@ You see a mace of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2032,9 +2032,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -4
-AffectObj
 20 -1
+AffectObj
+17 -4
 EndObj
 
 #OBJ
@@ -2060,9 +2060,9 @@ banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
 AffectObj
-20 -2
-AffectObj
 17 -2
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -2084,9 +2084,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 3
+AffectObj
+18 2
 EndObj
 
 #END
@@ -4425,14 +4425,6 @@ You see stars.
 5376
 0
 Exit
-1
-You see stars.
-~
-~
-0
-5378
-0
-Exit
 2
 You see a fuzzy portal of some sort and a little green.
 ~
@@ -4442,6 +4434,14 @@ You see a fuzzy portal of some sort and a little green.
 0
 Exit
 3
+You see stars.
+~
+~
+0
+5378
+0
+Exit
+1
 You see stars.
 ~
 ~
@@ -4471,28 +4471,20 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-You see stars.
-~
-~
-0
-5376
-0
-Exit
-0
-You see stars.
-~
-~
-0
-5377
-0
-Exit
 2
 You see stars.
 ~
 ~
 0
 5377
+0
+Exit
+1
+You see stars.
+~
+~
+0
+5376
 0
 Exit
 4
@@ -4511,7 +4503,15 @@ You see stars.
 5375
 0
 Exit
-1
+0
+You see stars.
+~
+~
+0
+5377
+0
+Exit
+3
 You see stars.
 ~
 ~
@@ -4533,6 +4533,30 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+3
+You see stars.
+~
+~
+0
+5377
+0
+Exit
+1
+You see stars.
+~
+~
+0
+5377
+0
+Exit
+5
+You see stars.
+~
+~
+0
+5378
+0
+Exit
 4
 You see stars.
 ~
@@ -4549,36 +4573,12 @@ You see stars.
 5376
 0
 Exit
-1
-You see stars.
-~
-~
-0
-5377
-0
-Exit
 2
 You see stars.
 ~
 ~
 0
 5376
-0
-Exit
-3
-You see stars.
-~
-~
-0
-5377
-0
-Exit
-5
-You see stars.
-~
-~
-0
-5378
 0
 EndRoom
 
@@ -4596,14 +4596,6 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-You see a fuzzy portal of some sort and a little green.
-~
-~
-0
-8903
-0
-Exit
 3
 You see stars.
 ~
@@ -4618,6 +4610,14 @@ You see stars.
 ~
 0
 5377
+0
+Exit
+2
+You see a fuzzy portal of some sort and a little green.
+~
+~
+0
+8903
 0
 Exit
 1
@@ -4803,9 +4803,14 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -4814,14 +4819,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 1
@@ -4851,9 +4851,14 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ExtraDesc
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 ExtraDesc
 gate~
@@ -4862,14 +4867,9 @@ reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
 ExtraDesc
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-ExtraDesc
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 Exit
 1
@@ -4899,16 +4899,16 @@ Room_flags 1032
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
-~
-ExtraDesc
 statue odin king god~
 The statue represents the one-eyed Odin sitting on a his throne.  He has
 long, grey hair and beard and a strict look on his face.  On top of the
 throne, just above his shoulders, his two ravens Hugin and Munin are sitting
 and at his feet are his wolves Gere and Freke.
+~
+ExtraDesc
+altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
 ~
 Exit
 2

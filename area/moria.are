@@ -1556,9 +1556,9 @@ Its blade is double-edged and very thin ... this looks like a good
 thieves weapon.
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1635,9 +1635,9 @@ It's a stout wooden rod with two spiked balls attached, each weighing over 2
 pounds.  It's a little worn for wear, but looks most painful.
 ~
 AffectObj
-19 2
-AffectObj
 17 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -1761,9 +1761,9 @@ Exp 0
 Xp_tolevel 0
 Condition G
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1907,12 +1907,12 @@ Exp 0
 Xp_tolevel 0
 Condition G
 ExtraDesc
-staff oak~
-You see it has some sort of runes on it.
-~
-ExtraDesc
 runes~
 The runes says : Funthark.
+~
+ExtraDesc
+staff oak~
+You see it has some sort of runes on it.
 ~
 AffectObj
 12 -20
@@ -1941,9 +1941,9 @@ dagger light silver~
 It looks like an excellent weapon for thieves.
 ~
 AffectObj
-18 1
-AffectObj
 17 -1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1970,9 +1970,9 @@ It's a huge length of wood studded with iron spikes and bands. You wouldn't
 want to meet this in a dark alley...
 ~
 AffectObj
-19 1
-AffectObj
 2 -1
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -3751,10 +3751,6 @@ Room_flags 4
 Sector_type 4
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bushes~
-Small crippled bushes desperately trying to grow south.
-~
-ExtraDesc
 sign~
 The sign says:
 
@@ -3771,6 +3767,10 @@ The sign says:
                  | |
                  | |
                  | |
+~
+ExtraDesc
+bushes~
+Small crippled bushes desperately trying to grow south.
 ~
 Exit
 0

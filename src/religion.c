@@ -754,8 +754,14 @@ void load_religion()
 	    return;
 	}
 	
-	for( word = fread_word(rList); str_cmp(word, "$" ); word = fread_word(rList) )
-	{	sprintf(buf, "%s%s", RELG_DIR, word);
+	/* Read each religion name from religion.lst (one per line, handles multi-word names) */
+	for( ; ; )
+	{
+		word = fread_string_eol(rList);
+		if( word[0] == '$' )
+			break;
+		
+		sprintf(buf, "%s%s", RELG_DIR, word);
 		if(!file_exists(buf ) )
 		{	logf2("%s religious file missing.",word);
 			continue;
@@ -769,7 +775,8 @@ void load_religion()
 		    continue;
 		}
 		
-		for(string = fread_word(fp); str_cmp(word, "$" ); word = fread_word(fp) )
+		/* Read religion file keywords (fixed: was checking 'word' instead of 'string') */
+		for(string = fread_word(fp); str_cmp(string, "$" ); string = fread_word(fp) )
 		{
 			if(!str_cmp(string, "Name" ) )
 			{	pRlg = new_religion();

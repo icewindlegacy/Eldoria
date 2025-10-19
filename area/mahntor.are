@@ -1336,9 +1336,9 @@ These gloves are plated with metal plates that provide strength and
 protection.
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1422,9 +1422,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 3
-AffectObj
 19 3
+AffectObj
+18 3
 EndObj
 
 #OBJ
@@ -1524,9 +1524,9 @@ shield shadow~
 You look into the depths of the shield and shiver at the evil it contains.
 ~
 AffectObj
-17 -2
-AffectObj
 20 -2
+AffectObj
+17 -2
 EndObj
 
 #OBJ
@@ -1552,9 +1552,9 @@ nightbringer short sword shortsword~
 The runes "NiGHtBrINgeR" are scrawled along the blade.
 ~
 AffectObj
-18 3
-AffectObj
 19 3
+AffectObj
+18 3
 EndObj
 
 #OBJ
@@ -1576,9 +1576,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
 3 1
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -1670,9 +1670,9 @@ dawnbringer mace huge~
 The runes "DAwNbRIngER" are scrawled along the handle.
 ~
 AffectObj
-18 3
-AffectObj
 19 3
+AffectObj
+18 3
 EndObj
 
 #OBJ
@@ -1776,11 +1776,11 @@ staff gnarled magius~
 It appears to be simply a gnarled old limb. It feels powerful though.
 ~
 AffectObj
-18 3
+20 -2
 AffectObj
 19 3
 AffectObj
-20 -2
+18 3
 EndObj
 
 #OBJ
@@ -1892,9 +1892,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2036,9 +2036,9 @@ staff ice~
 The runes "FrIgID" are inscribed in the icy staff.
 ~
 AffectObj
-18 2
-AffectObj
 12 20
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2060,9 +2060,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2156,9 +2156,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2272,9 +2272,9 @@ sword wicked short shortsword~
 It looks just perfect for backstabbing.
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2322,9 +2322,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 5 1
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -2368,9 +2368,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 17 -3
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -2416,9 +2416,9 @@ axe great~
 The runes "DeAtH" are scrawled along the blade.
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -2494,9 +2494,9 @@ blade ethereal~
 You can almost see through it.
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2909,9 +2909,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -2993,9 +2993,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -3077,9 +3077,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -3165,9 +3165,9 @@ star morning morningstar~
 It looks damaging.
 ~
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -3381,9 +3381,9 @@ gauntlets ogre power~
 They look very "handy".
 ~
 AffectObj
-1 2
-AffectObj
 19 2
+AffectObj
+1 2
 EndObj
 
 #OBJ
@@ -4262,13 +4262,13 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-small inscriptions inscription~
-"Enter all ye who wish to join the Brotherhood!"
-~
-ExtraDesc
 portal blue~
 You see a swirling blue portal of light. You think you can see glimpses of
 something moving on the "other side".
+~
+ExtraDesc
+small inscriptions inscription~
+"Enter all ye who wish to join the Brotherhood!"
 ~
 Exit
 0
@@ -6224,12 +6224,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-gold~
-Looks like the back of a secret door of sorts.
-~
-ExtraDesc
 huge stone~
 A very formidable looking door.
+~
+ExtraDesc
+gold~
+Looks like the back of a secret door of sorts.
 ~
 Exit
 1
@@ -6324,12 +6324,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-red~
-You see a red door. It has the name "Gorak" written on it.
-~
-ExtraDesc
 yellow~
 You see a yellow door. It has the name "Sumaron" written on it.
+~
+ExtraDesc
+red~
+You see a red door. It has the name "Gorak" written on it.
 ~
 Exit
 0
@@ -6372,12 +6372,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-black~
-You see a black door. It has the name "Darkoth" inscribed on it.
-~
-ExtraDesc
 maroon~
 You see a maroon door here. It has the name "Amyrok" written on it.
+~
+ExtraDesc
+black~
+You see a black door. It has the name "Darkoth" inscribed on it.
 ~
 Exit
 0
@@ -6468,12 +6468,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-white~
-You see a white door here. It has the name "Tyrgoth" inscribed on it.
-~
-ExtraDesc
 green~
 You see a green door here. It has the name "Nasturn" written on it.
+~
+ExtraDesc
+white~
+You see a white door here. It has the name "Tyrgoth" inscribed on it.
 ~
 Exit
 0
@@ -6618,12 +6618,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-brown~
-You see a brown door here. It has the name "Belrak" written on it.
-~
-ExtraDesc
 grey~
 You see a grey door here. It has the name "Dorgar" written on it.
+~
+ExtraDesc
+brown~
+You see a brown door here. It has the name "Belrak" written on it.
 ~
 Exit
 0

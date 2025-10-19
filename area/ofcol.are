@@ -231,10 +231,9 @@ Room_flags 4
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-pictures picture decoration~
-These pictures show the friend's and foe's of Ravan.
-They are easy to separate, as most of the foe's have the letters
-R.I.P. inscripted underneath them.
+friend friends~
+The list include such prominent names as : God, Lottie, Kurgan,
+Ezzard, Mike, Sprocket and Stormbringer.
 ~
 ExtraDesc
 foe foes enemies~
@@ -243,9 +242,10 @@ It pictures him hanging from a gallow, north of the town.
 It has the letters R.I.P. inscripted underneath.
 ~
 ExtraDesc
-friend friends~
-The list include such prominent names as : God, Lottie, Kurgan,
-Ezzard, Mike, Sprocket and Stormbringer.
+pictures picture decoration~
+These pictures show the friend's and foe's of Ravan.
+They are easy to separate, as most of the foe's have the letters
+R.I.P. inscripted underneath them.
 ~
 EndRoom
 

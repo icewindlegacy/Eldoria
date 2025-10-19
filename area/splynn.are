@@ -33,13 +33,13 @@ Room_flags 0
 Sector_type 8
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-hedges~
-Thick hedges surround the entire garden making it hard to see though.  
-~
-ExtraDesc
 flowers~
 Small flowers line the pathway through the garden and make it smell nice
 too.  
+~
+ExtraDesc
+hedges~
+Thick hedges surround the entire garden making it hard to see though.  
 ~
 Exit
 0

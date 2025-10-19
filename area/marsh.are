@@ -675,9 +675,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 2 1
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -702,9 +702,9 @@ ExtraDesc
 horns horn~
 These horns appear to be made of adamantite.~
 AffectObj
-19 1
-AffectObj
 3 -3
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -746,9 +746,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 3
-AffectObj
 19 3
+AffectObj
+18 3
 EndObj
 
 #OBJ
@@ -880,13 +880,13 @@ Room_flags 1
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+pieces~
+You see severed limbs and spongy intestines.
+~
+ExtraDesc
 humanoid corpse~
 He looks mangled and shredded.  You see one large gash mark that looks
 like it came from the claw of some huge beast.
-~
-ExtraDesc
-pieces~
-You see severed limbs and spongy intestines.
 ~
 Exit
 1
@@ -1034,12 +1034,12 @@ Room_flags 1
 Sector_type 6
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-lights ~
-From the stories you have heard, you recognize them as will-o-wisps.
-~
-ExtraDesc
 quicksand~
 It looks deadly to the foolish.
+~
+ExtraDesc
+lights ~
+From the stories you have heard, you recognize them as will-o-wisps.
 ~
 Exit
 1
@@ -1119,12 +1119,8 @@ Room_flags 1
 Sector_type 6
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-clouds~
-The clouds look dark and foreboding.
-~
-ExtraDesc
-beast~
-It looks to be a demon of some foul breed.
+vegetation~
+It looks sentient.
 ~
 ExtraDesc
 fortress~
@@ -1132,8 +1128,12 @@ It is surrounded by walls nearly 20 meters high.  In a tall tower on the
 northeast side, a window glows blue with magical energy.
 ~
 ExtraDesc
-vegetation~
-It looks sentient.
+beast~
+It looks to be a demon of some foul breed.
+~
+ExtraDesc
+clouds~
+The clouds look dark and foreboding.
 ~
 Exit
 0
