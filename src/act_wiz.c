@@ -57,6 +57,12 @@ void who_html_update(void);
 void help_json_update(void);
 void skills_json_update(void);
 
+/* Religion functions */
+void join_religion args( (CHAR_DATA *ch, RELIGION *pRlg) );
+void denounce_faith args( (CHAR_DATA *ch, bool force) );
+RELIGION *religion_lookup args( (const char *name) );
+RELIGION *faction_lookup args( (const char *name) );
+
 /*
  * Local functions.
  */
@@ -3718,7 +3724,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	send_to_char( "    race group gold silver hp mana move prac\n\r",ch);
 	send_to_char( "    align train thirst hunger drunk full\n\r", ch );
         send_to_char( "    questpoints trivia pckill pcdeath mobkill\n\r", ch );
-        send_to_char( "    mobdeath email iqp ttrivia waypoint", ch );
+        send_to_char( "    mobdeath email iqp ttrivia waypoint religion", ch );
 	send_to_char("\n\r",ch);
 	return;
     }
@@ -4309,6 +4315,61 @@ void do_mset( CHAR_DATA *ch, char *argument )
                 send_to_char("Waypoint set.\r\n",ch);
                 return;
         }
+
+    if (!str_prefix(arg2, "religion"))
+    {
+        RELIGION *pRlg;
+        
+        if (IS_NPC(victim))
+        {
+            send_to_char("Not on mobiles.\n\r", ch);
+            return;
+        }
+        
+        /* Allow "none" to clear religion */
+        if (!str_cmp(arg3, "none"))
+        {
+            if (victim->pcdata->religion)
+            {
+                printf_to_char(ch, "%s has been removed from %s.\n\r", 
+                    victim->name, victim->pcdata->religion->name);
+                denounce_faith(victim, TRUE);
+            }
+            else
+            {
+                send_to_char("They don't have a religion.\n\r", ch);
+            }
+            return;
+        }
+        
+        /* Try to find the religion or faction */
+        if ((pRlg = religion_lookup(arg3)) == NULL)
+        {
+            if ((pRlg = faction_lookup(arg3)) == NULL)
+            {
+                send_to_char("No such religion or faction.\n\r", ch);
+                send_to_char("Use 'rlgedit list' to see available religions.\n\r", ch);
+                return;
+            }
+        }
+        
+        /* Remove old religion if they have one */
+        if (victim->pcdata->religion)
+        {
+            printf_to_char(ch, "Removing %s from %s.\n\r", 
+                victim->name, victim->pcdata->religion->name);
+            denounce_faith(victim, TRUE);
+        }
+        
+        /* Set new religion */
+        join_religion(victim, pRlg);
+        printf_to_char(ch, "%s has joined %s (God: %s).\n\r", 
+            victim->name, pRlg->name, pRlg->god ? pRlg->god : "Unknown");
+        printf_to_char(victim, "You have been initiated into %s by divine decree.\n\r", 
+            pRlg->name);
+        
+        return;
+    }
 
     /*
      * Generate usage message.
