@@ -859,7 +859,13 @@ void load_religion()
 			}
 			logf2("Invalid string in Religion. %s", word );
 		}
+		
+		/* Close the religion file after reading it */
+		file_close(fp);
 	}
+	
+	/* Close the religion list file */
+	file_close(rList);
 }
 		
 /*End of File I/O */
