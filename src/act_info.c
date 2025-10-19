@@ -2563,7 +2563,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 	/*
 	 * Format it up.
 	 */
-	snprintf( buf, MAX_STRING_LENGTH, "%s %s%s%s%s%s%s%s%s%s%s%s%s\n\r", buf3,
+	snprintf( buf, MAX_STRING_LENGTH, "%s %s%s%s%s %s%s%s%s%s%s%s%s\n\r", buf3,
 	    olc,
 	    wch->incog_level >= LEVEL_HERO ? "{W({cIncog{W){X ": "",
  	     wch->invis_level >= LEVEL_HERO ? "{W({MWizi{W){X " : "",
@@ -5646,4 +5646,47 @@ void do_untarget(CHAR_DATA *ch, char *argument)
    send_to_char("You remove your current target.\n\r", ch);
    ch->pcdata->target = strdup("");
    return;
+}
+
+void do_pretitle( CHAR_DATA *ch, char *argument )
+{
+    char buf[MAX_STRING_LENGTH];
+   int value;
+
+    if ( IS_NPC(ch) )
+    {
+        send_to_char( "Not on NPC's.\n\r", ch );
+        return;
+    }
+
+    if ( ch->pcdata->pretitle == NULL || ch->pcdata->pretitle[0] == '\0' )
+        ch->pcdata->pretitle = str_dup("{x");
+
+    if ( argument[0] == '\0' )
+    {
+        sprintf(buf, "Your current pretitle is '%s'.{x\n\r",ch->pcdata->pretitle);
+        send_to_char(buf,ch);
+        return;
+    }
+
+
+    if ( strlen(argument) > 45 )
+    {
+        argument[45] = '{';
+        argument[46] = 'x';
+        argument[47] = '\0';
+    }
+    else
+    {
+        value = strlen(argument);
+        argument[value] = '{';
+        argument[value+1] = 'x';
+        argument[value+2] = '\0';
+    }
+
+
+    ch->pcdata->pretitle = str_dup( argument );
+    send_to_char("Done.\n\r",ch);
+    return;
+
 }
