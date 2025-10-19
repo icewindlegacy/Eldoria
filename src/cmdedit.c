@@ -1162,6 +1162,7 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     {"zoomwmap", do_zoomwmap},
     {"explored", do_explored},
     {"webupdate", do_webupdate},
+    {"pretitle", do_pretitle},
 	{ NULL,			NULL	    },
 
 };
