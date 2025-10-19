@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Explorer - Eldoria MUD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .explorer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .explorer-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .explorer-header h1 {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            font-size: 36px;
+        }
+        .explorer-header p {
+            color: #0f0;
+            font-size: 16px;
+        }
+        .starting-rooms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .room-card {
+            background: linear-gradient(135deg, #001a00, #003300);
+            border: 2px solid #0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+            border-color: #00ffff;
+        }
+        .room-card h3 {
+            color: #00ffff;
+            margin-top: 0;
+            font-size: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+        .room-card p {
+            color: #fff;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .room-card .vnum {
+            color: #ffff00;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .custom-room {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 50, 50, 0.5);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+        }
+        .custom-room h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+        }
+        .custom-room input {
+            background: #000;
+            border: 2px solid #0f0;
+            color: #0f0;
+            padding: 10px 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        .custom-room button {
+            background: linear-gradient(145deg, #003300, #006600);
+            border: 2px solid #0f0;
+            color: #0f0;
+            padding: 10px 25px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .custom-room button:hover {
+            background: linear-gradient(145deg, #006600, #009900);
+            box-shadow: 0 0 15px #0f0;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .iframe-container {
+            margin-top: 30px;
+            background: #000;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+        #roomFrame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            background: #000;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .tab-btn {
+            background: linear-gradient(145deg, #003300, #006600);
+            border: 2px solid #0f0;
+            color: #0f0;
+            padding: 10px 20px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: linear-gradient(145deg, #006600, #009900);
+            box-shadow: 0 0 15px #0f0;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="explorer-container">
+        <div class="explorer-header">
+            <h1>🧭 Eldoria Room Explorer 🧭</h1>
+            <p>Virtually explore the world of Eldoria from your browser!</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('browse')">🏛️ Browse Rooms</button>
+            <button class="tab-btn" onclick="showTab('explore')">🗺️ Interactive Explorer</button>
+        </div>
+
+        <!-- Browse Tab -->
+        <div id="browse-tab" class="tab-content active">
+            <div class="starting-rooms">
+                <a href="explore/3001.html" class="room-card">
+                    <h3>🏛️ Temple of Midgaard</h3>
+                    <p>The central temple and recall point. A safe haven for all adventurers.</p>
+                    <div class="vnum">Room: 3001</div>
+                </a>
+
+                <a href="explore/3700.html" class="room-card">
+                    <h3>🏫 Mud School</h3>
+                    <p>Where new adventurers learn the ways of the MUD.</p>
+                    <div class="vnum">Room: 3700</div>
+                </a>
+
+                <a href="explore/3054.html" class="room-card">
+                    <h3>🏰 Midgaard Square</h3>
+                    <p>The bustling center of Midgaard, gateway to adventure.</p>
+                    <div class="vnum">Room: 3054</div>
+                </a>
+
+                <a href="explore/21001.html" class="room-card">
+                    <h3>🌳 Grove</h3>
+                    <p>A peaceful grove surrounded by ancient trees.</p>
+                    <div class="vnum">Room: 21001</div>
+                </a>
+
+                <a href="explore/10001.html" class="room-card">
+                    <h3>⚡ Olympus</h3>
+                    <p>The realm of the gods and immortals.</p>
+                    <div class="vnum">Room: 10001</div>
+                </a>
+
+                <a href="explore/3152.html" class="room-card">
+                    <h3>🧙 Mage Tower</h3>
+                    <p>The tower of mystical knowledge and arcane power.</p>
+                    <div class="vnum">Room: 3152</div>
+                </a>
+            </div>
+
+            <div class="custom-room">
+                <h3>🔍 Go to Specific Room</h3>
+                <p>Enter a room vnum to explore:</p>
+                <input type="number" id="customVnum" placeholder="Enter vnum" min="1">
+                <button onclick="goToRoom()">Explore!</button>
+            </div>
+        </div>
+
+        <!-- Interactive Explorer Tab -->
+        <div id="explore-tab" class="tab-content">
+            <div class="iframe-container">
+                <iframe id="roomFrame" src="explore/3001.html"></iframe>
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button class="tab-btn" onclick="goHome()">🏠 Back to Temple</button>
+                <button class="tab-btn" onclick="document.getElementById('roomFrame').contentWindow.location.reload()">🔄 Reload</button>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html" class="retro-button" style="text-decoration: none; display: inline-block;">
+                ← Back to Main Page
+            </a>
+        </div>
+    </div>
+
+    <!-- Starfield background -->
+    <canvas id="starfield"></canvas>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            if (tabName === 'browse') {
+                document.getElementById('browse-tab').classList.add('active');
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            } else {
+                document.getElementById('explore-tab').classList.add('active');
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            }
+        }
+
+        function goToRoom() {
+            const vnum = document.getElementById('customVnum').value;
+            if (vnum && vnum > 0) {
+                window.location.href = 'explore/' + vnum + '.html';
+            } else {
+                alert('Please enter a valid room vnum!');
+            }
+        }
+
+        function goHome() {
+            document.getElementById('roomFrame').src = 'explore/3001.html';
+        }
+
+        // Handle Enter key in custom vnum input
+        document.addEventListener('DOMContentLoaded', function() {
+            const vnumInput = document.getElementById('customVnum');
+            if (vnumInput) {
+                vnumInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        goToRoom();
+                    }
+                });
+            }
+        });
+
+        // Starfield effect
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function drawStars() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'white';
+            stars.forEach(star => {
+                ctx.fillRect(star.x, star.y, star.size, star.size);
+                star.y += star.speed;
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            });
+            
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+

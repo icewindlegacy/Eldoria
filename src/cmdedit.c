@@ -1163,6 +1163,7 @@ const	struct	cmdfun_type	cmdfun_table	[] =
     {"explored", do_explored},
     {"webupdate", do_webupdate},
     {"pretitle", do_pretitle},
+    {"webroom", do_webroom},
 	{ NULL,			NULL	    },
 
 };

@@ -564,3 +564,4 @@ DECLARE_DO_FUN( do_zoomwmap     );
 DECLARE_DO_FUN( do_explored     );
 DECLARE_DO_FUN( do_webupdate );
 DECLARE_DO_FUN( do_pretitle     );
+DECLARE_DO_FUN( do_webroom      );
