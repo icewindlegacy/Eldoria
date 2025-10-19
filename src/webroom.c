@@ -224,43 +224,24 @@ void do_webroom(CHAR_DATA *ch, char *argument)
         /* Compass Rose Navigation */
         fprintf(fp, "<div class=\"compass\">\n");
         
-        /* Row 1: NW, N, NE (or UP) */
-        for (door = 0; door < 3; door++)
-        {
-            int actual_door = (door == 0) ? DIR_NORTHWEST : 
-                             (door == 1) ? DIR_NORTH : 
-                             DIR_UP;
-            
-            if (actual_door == DIR_NORTHWEST || actual_door == DIR_NORTHEAST)
-                continue; /* Skip diagonals for standard ROM */
-                
-            pExit = location->exit[actual_door];
-            
-            if (door == 0) /* NW position - show UP if available */
-            {
-                pExit = location->exit[DIR_UP];
-                if (pExit && pExit->u1.to_room)
-                    fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">⬆️<br>UP</a>\n",
-                        pExit->u1.to_room->vnum);
-                else
-                    fprintf(fp, "<div class=\"exit-btn disabled\">⬆️<br>UP</div>\n");
-            }
-            else if (door == 1) /* N position */
-            {
-                pExit = location->exit[DIR_NORTH];
-                if (pExit && pExit->u1.to_room)
-                    fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">⬆️<br>NORTH</a>\n",
-                        pExit->u1.to_room->vnum);
-                else
-                    fprintf(fp, "<div class=\"exit-btn disabled\">⬆️<br>NORTH</div>\n");
-            }
-            else /* NE position - empty */
-            {
-                fprintf(fp, "<div class=\"exit-btn disabled\"></div>\n");
-            }
-        }
+        /* Row 1: Empty, NORTH, UP */
+        fprintf(fp, "<div class=\"exit-btn disabled\"></div>\n");
         
-        /* Row 2: W, CENTER, E */
+        pExit = location->exit[DIR_NORTH];
+        if (pExit && pExit->u1.to_room)
+            fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">⬆️<br>NORTH</a>\n",
+                pExit->u1.to_room->vnum);
+        else
+            fprintf(fp, "<div class=\"exit-btn disabled\">⬆️<br>NORTH</div>\n");
+        
+        pExit = location->exit[DIR_UP];
+        if (pExit && pExit->u1.to_room)
+            fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">🔼<br>UP</a>\n",
+                pExit->u1.to_room->vnum);
+        else
+            fprintf(fp, "<div class=\"exit-btn disabled\">🔼<br>UP</div>\n");
+        
+        /* Row 2: WEST, CENTER, EAST */
         pExit = location->exit[DIR_WEST];
         if (pExit && pExit->u1.to_room)
             fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">⬅️<br>WEST</a>\n",
@@ -278,13 +259,8 @@ void do_webroom(CHAR_DATA *ch, char *argument)
         else
             fprintf(fp, "<div class=\"exit-btn disabled\">➡️<br>EAST</div>\n");
         
-        /* Row 3: SW (or DOWN), S, SE */
-        pExit = location->exit[DIR_DOWN];
-        if (pExit && pExit->u1.to_room)
-            fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">⬇️<br>DOWN</a>\n",
-                pExit->u1.to_room->vnum);
-        else
-            fprintf(fp, "<div class=\"exit-btn disabled\">⬇️<br>DOWN</div>\n");
+        /* Row 3: Empty, SOUTH, DOWN */
+        fprintf(fp, "<div class=\"exit-btn disabled\"></div>\n");
         
         pExit = location->exit[DIR_SOUTH];
         if (pExit && pExit->u1.to_room)
@@ -293,8 +269,12 @@ void do_webroom(CHAR_DATA *ch, char *argument)
         else
             fprintf(fp, "<div class=\"exit-btn disabled\">⬇️<br>SOUTH</div>\n");
         
-        /* SE position - empty */
-        fprintf(fp, "<div class=\"exit-btn disabled\"></div>\n");
+        pExit = location->exit[DIR_DOWN];
+        if (pExit && pExit->u1.to_room)
+            fprintf(fp, "<a href=\"%d.html\" class=\"exit-btn\">🔽<br>DOWN</a>\n",
+                pExit->u1.to_room->vnum);
+        else
+            fprintf(fp, "<div class=\"exit-btn disabled\">🔽<br>DOWN</div>\n");
         
         fprintf(fp, "</div>\n"); /* End compass */
         
