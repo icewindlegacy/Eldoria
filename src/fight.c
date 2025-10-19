@@ -908,6 +908,56 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary )
 	}
     }
 
+    /* Vorpal weapon - instant decapitation (PVE only) */
+    if (ch->fighting == victim 
+        && wield != NULL
+        && IS_WEAPON_STAT(wield, WEAPON_VORPAL)
+        && IS_NPC(victim)
+        && !IS_NPC(ch)
+        && number_range(1, 100000) == 1
+        && IS_SET(victim->parts, PART_HEAD)
+        && check_immune(victim, dam_type) != IS_IMMUNE
+        && !IS_IMMORTAL(victim)
+        && !is_safe(ch, victim))
+    {
+        char buf[MAX_STRING_LENGTH];
+        OBJ_DATA *head;
+        char *name;
+
+        name = IS_NPC(victim) ? victim->short_descr : victim->name;
+        head = create_object(get_obj_index(OBJ_VNUM_SEVERED_HEAD), 0);
+        head->timer = number_range(20, 30);
+
+        sprintf(buf, head->short_descr, name);
+        free_string(head->short_descr);
+        head->short_descr = str_dup(buf);
+
+        sprintf(buf, head->description, name);
+        free_string(head->description);
+        head->description = str_dup(buf);
+
+        /* Make the head edible if victim was edible */
+        if (head->item_type == ITEM_FOOD)
+        {
+            if (IS_SET(victim->form, FORM_POISON))
+                head->value[3] = 1;
+            else if (!IS_SET(victim->form, FORM_EDIBLE))
+                head->item_type = ITEM_TRASH;
+        }
+
+        obj_to_room(head, ch->in_room);
+
+        /* Dramatic death messages */
+        act("{R$n's head is severed from $s body by $p!{x", victim, wield, NULL, TO_ROOM);
+        act("{RYour vision spins as $p cleanly severs your head from your body!{x", victim, wield, NULL, TO_CHAR);
+
+        /* Deal lethal damage - this will trigger normal death handling */
+        damage(ch, victim, victim->hit + 100, dt, dam_type, TRUE);
+        
+        tail_chain();
+        return;
+    }
+
     tail_chain( );
     return;
 }
