@@ -2417,14 +2417,23 @@ void do_track( CHAR_DATA *ch, char *argument )
   int direction;
   bool fArea;
   int skill = 100;
+  int sn;
 
   skill /= 4;
   skill += ch->level/5;
   
   one_argument( argument, arg );
+  
+  sn = skill_lookup("hunt");
+  
+  if (sn < 0)
+  {
+      send_to_char("The hunt skill is not available.\n\r", ch);
+      return;
+  }
 
   if (IS_NPC(ch)
-  ||  !can_use_skpell( ch, skill_lookup("hunt")) )
+  ||  !can_use_skpell( ch, sn) )
   {
 	send_to_char("Who do you want to track?\n\r",ch);
 	return;
@@ -2468,7 +2477,7 @@ void do_track( CHAR_DATA *ch, char *argument )
   }
 
   act( "$n carefully sniffs the air.", ch, NULL, NULL, TO_ROOM );
-  WAIT_STATE( ch, skill_table[skill_lookup("hunt")].beats );
+  WAIT_STATE( ch, skill_table[sn].beats );
 
   direction = find_path(ch->in_room, victim->in_room, skill);
 
@@ -2490,7 +2499,7 @@ void do_track( CHAR_DATA *ch, char *argument )
    */
   if( ( IS_NPC (ch) && number_percent () > 75)        /* NPC @ 25% */
      || (!IS_NPC (ch) && number_percent () >          /* PC @ norm */
-	 ch->pcdata->learned[skill_lookup("hunt")] ) )
+	 ch->pcdata->learned[sn] ) )
     {
       do
 	{
@@ -2505,7 +2514,7 @@ void do_track( CHAR_DATA *ch, char *argument )
    */
   sprintf( buf, "$N is %s from here.", dir_name[direction] );
   act( buf, ch, NULL, victim, TO_CHAR );
-  check_improve(ch,skill_lookup("hunt"),TRUE,1);
+  check_improve(ch,sn,TRUE,1);
   return;
 }
 
