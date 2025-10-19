@@ -157,13 +157,22 @@ void do_objbuy(CHAR_DATA *ch, char *argument)
                      ch->pcdata->horesets++;
                      ch->gold -= house_table[i].cost;  
                      sprintf(buf,"%d", house_table[i].vnum);
-                     redit_oreset(ch,buf);
-                     sprintf(buf," ");
-                     save_area(ch->in_room->area);
-          
-                     obj = create_object( get_obj_index( house_table[i].vnum ), ch->level );
-          
-                     for ( hOuse = house_list; hOuse != NULL; hOuse = hOuse->next )
+                    redit_oreset(ch,buf);
+                    sprintf(buf," ");
+                    save_area(ch->in_room->area);
+         
+                    {
+                        OBJ_INDEX_DATA *pObjIndex = get_obj_index( house_table[i].vnum );
+                        if (pObjIndex == NULL)
+                        {
+                            bug("do_buy_house: house_table has invalid vnum", 0);
+                            send_to_char("Error creating house object.\n\r", ch);
+                            return;
+                        }
+                        obj = create_object( pObjIndex, ch->level );
+                    }
+         
+                    for ( hOuse = house_list; hOuse != NULL; hOuse = hOuse->next )
                      {                                                     
                           if ( !str_cmp( obj->name, hOuse->objname ) ) 
                               break;

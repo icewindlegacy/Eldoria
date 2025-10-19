@@ -5930,6 +5930,10 @@ bool check_static_shield( CHAR_DATA *ch, CHAR_DATA *victim )
 
     
 	sn = skill_lookup( "static shield" );
+	
+	if (sn < 0)
+	    return FALSE;
+	    
 	shock = affect_find (victim->affected, sn);
 	
 	if(shock != NULL)
@@ -5974,6 +5978,10 @@ bool check_flame_shield( CHAR_DATA *ch, CHAR_DATA *victim )
         return FALSE;
 
 	sn = skill_lookup( "flame shield" );
+	
+	if (sn < 0)
+	    return FALSE;
+	    
 	burn = affect_find (victim->affected, sn);
 	
 	if(burn != NULL)

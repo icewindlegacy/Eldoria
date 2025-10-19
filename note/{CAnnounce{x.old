@@ -1,0 +1,32 @@
+Sender  Om~
+Date    Sat Oct 18 18:24:38 2025~
+Stamp   1760826313
+Expire  -1670227409
+To      all~
+Subject Changes~
+Text
+Changes:
+1) You can now pour out a drink container (pour <container> out) and
+then pour a potion into a drink container. You may pour several of the
+same potion type into the container, and each time you drink from the
+container it is the same as quaffing the potion.
+ 
+2) Questmasters now operate more like shopkeepers, in that not every
+questmaster will have the same inventory so it's worthwhile to check
+every questmaster you see, you never know which one might have something
+unique and unusual.
+ 
+3) World Maps. We now have the world map system by Hades Kane, and I intend
+on using it quite a lot to make the travel from one area to another more
+interesting and potentially eventful.
+ 
+4) Donation pits and donation rooms now persist through reboots.
+This will be expanded to include clan vaults, and personal chests
+in player homes.
+ 
+5) Quest tokens will be scattered all over the world, of different
+values. These also persist through reboots.
+ 
+6) We have a website! https://reaux.vineyard.haus !
+~
+

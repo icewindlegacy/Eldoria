@@ -483,6 +483,12 @@ void fwrite_area( AREA_DATA *pArea )
 	wiznet(buf,NULL,NULL,0,0,0);
 
     fp = file_open( buf, "w" );
+    
+    if (!fp)
+    {
+	bug("save_area_new: could not open area file for writing", 0);
+	return;
+    }
 
     fprintf( fp, "#AREADATA\n" );
     fprintf( fp, "Name %s~\n",        pArea->name );
@@ -564,6 +570,12 @@ void load_const()
     }
 
     fp = file_open("../data/const.txt", "r" );
+    
+    if (!fp)
+    {
+	bug("load_const: could not open const.txt for reading", 0);
+	return;
+    }
 
     for(;;)
     {  word = fread_word(fp);

@@ -384,8 +384,15 @@ void append_new_save( char *file, char *str )
     else
     {
 	fp = file_open(file, "a");
-	/*fprintf(fp, "%s\n", str);*/
-	file_close(fp);
+	if (fp)
+	{
+	    /*fprintf(fp, "%s\n", str);*/
+	    file_close(fp);
+	}
+	else
+	{
+	    bug("append_file_obj: could not open file for appending", 0);
+	}
     }
 
     return;

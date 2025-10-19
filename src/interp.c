@@ -520,6 +520,12 @@ char *one_argument( char *argument, char *arg_first )
 {
     char cEnd;
 
+    if (argument == NULL)
+    {
+	*arg_first = '\0';
+	return "";
+    }
+
     while ( isspace(*argument) )
 	argument++;
 

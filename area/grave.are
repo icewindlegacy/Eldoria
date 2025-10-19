@@ -466,9 +466,9 @@ pendant silver~
 It resembles Thor's hammer and appears to be made of solid silver.
 ~
 AffectObj
-1 1
-AffectObj
 17 -1
+AffectObj
+1 1
 EndObj
 
 #OBJ

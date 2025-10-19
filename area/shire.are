@@ -1391,10 +1391,10 @@ Plevel 0
 Exp 0
 Xp_tolevel 0
 Condition P
-F
-Faff 0 0 B
 AffectObj
 1 -1
+F
+Faff 0 0 B
 EndObj
 
 #OBJ
@@ -1626,9 +1626,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #OBJ

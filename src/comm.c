@@ -396,9 +396,17 @@ int main( int argc, char **argv )
         first_boot_time = current_time;
     else
     {   FILE *fp = file_open(BOOT_FILE, "r" );
-	first_boot_time = fread_number(fp);
-	file_close(fp);
-	unlink(BOOT_FILE);
+	if (fp)
+	{
+	    first_boot_time = fread_number(fp);
+	    file_close(fp);
+	    unlink(BOOT_FILE);
+	}
+	else
+	{
+	    bug("main: could not read BOOT_FILE", 0);
+	    first_boot_time = current_time;
+	}
     }
     /*
      * Macintosh console initialization.
@@ -3909,6 +3917,13 @@ void copyover_recover ()
 	
 	logf2 ("Copyover recovery initiated");
 	fp = file_open(COPYOVER_FILE, "r");
+	
+	if (!fp)
+	{
+	    bug("copyover_recover: could not open COPYOVER_FILE", 0);
+	    logf2("Copyover file not found - starting normally");
+	    return;
+	}
 
 	unlink (COPYOVER_FILE); 
 
@@ -3979,9 +3994,16 @@ void copyover_recover ()
 
         if(file_exists("../data/crash.time" ) )
 	{  fpCrash = file_open("../data/crash.time", "r" );
- 	   last_crash_time = fread_number(fpCrash);
-	   file_close(fpCrash);
-	   unlink("../data/crash.time" );
+	   if (fpCrash)
+	   {
+ 	       last_crash_time = fread_number(fpCrash);
+	       file_close(fpCrash);
+	       unlink("../data/crash.time" );
+	   }
+	   else
+	   {
+	       bug("copyover_recover: could not read crash.time", 0);
+	   }
 	}
 
 	load_copyover_obj();

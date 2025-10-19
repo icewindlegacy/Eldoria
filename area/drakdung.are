@@ -116,21 +116,21 @@ enigma~
 ed add enigma
 ~
 AffectObj
-13 20000
-AffectObj
-19 350
-AffectObj
-25 0
-AffectObj
-19 14
-AffectObj
-18 14
-AffectObj
-16 600
+18 -5536
 AffectObj
 18 200
 AffectObj
-18 -5536
+16 600
+AffectObj
+18 14
+AffectObj
+19 14
+AffectObj
+25 0
+AffectObj
+19 350
+AffectObj
+13 20000
 EndObj
 
 #END

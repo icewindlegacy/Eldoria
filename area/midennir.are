@@ -1731,6 +1731,11 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+sign~
+The sign reads:
+   The Woodsman
+~
+ExtraDesc
 credits credit author~
 +-------------------------------------------------+
 | This zone originally written for Copper II DIKU |
@@ -1738,11 +1743,6 @@ credits credit author~
 | Modification and alterations for MERCmud DIKU   |
 |   by VampLestat                        1 JAN 93 |
 +-------------------------------------------------+
-~
-ExtraDesc
-sign~
-The sign reads:
-   The Woodsman
 ~
 Exit
 0

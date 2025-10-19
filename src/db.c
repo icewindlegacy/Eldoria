@@ -392,6 +392,12 @@ void boot_db()
 	FILE *fpList;
 
 	fpList = file_open(AREA_LIST, "r");
+	
+	if (!fpList)
+	{
+	    bug("boot_db: could not open AREA_LIST for reading", 0);
+	    exit(1);
+	}
 
 	for ( ; ; )
 	{
@@ -402,7 +408,15 @@ void boot_db()
 	    if ( strArea[0] == '-' )
 		fpArea = stdin;
 	    else
+	    {
 		fpArea = file_open(strArea,"r");
+		if (!fpArea)
+		{
+		    bug("boot_db: could not open area file for reading", 0);
+		    logf2("ERROR: Could not load %s", strArea);
+		    continue; /* Skip this area */
+		}
+	    }
 
             current_area = NULL;
 	    logf2("Loading %s", strArea);
@@ -2978,6 +2992,13 @@ void do_dump( CHAR_DATA *ch, char *argument )
 
     /* open file */
     fp = file_open("mem.dmp","w");
+    
+    if (!fp)
+    {
+	bug("do_dump: could not open mem.dmp for writing", 0);
+	send_to_char("Error: could not create mem.dmp file.\n\r", ch);
+	return;
+    }
 
     /* report use of data structures */
     
@@ -3069,6 +3090,13 @@ void do_dump( CHAR_DATA *ch, char *argument )
 
     /* start printing out mobile data */
     fp = file_open("mob.dmp","w");
+    
+    if (!fp)
+    {
+	bug("do_dump: could not open mob.dmp for writing", 0);
+	send_to_char("Error: could not create mob.dmp file.\n\r", ch);
+	return;
+    }
 
     fprintf(fp,"\nMobile Analysis\n");
     fprintf(fp,  "---------------\n");
@@ -3085,6 +3113,13 @@ void do_dump( CHAR_DATA *ch, char *argument )
 
     /* start printing out object data */
     fp = file_open("obj.dmp","w");
+    
+    if (!fp)
+    {
+	bug("do_dump: could not open obj.dmp for writing", 0);
+	send_to_char("Error: could not create obj.dmp file.\n\r", ch);
+	return;
+    }
 
     fprintf(fp,"\nObject Analysis\n");
     fprintf(fp,  "---------------\n");
@@ -3445,6 +3480,13 @@ void append_file( CHAR_DATA *ch, char *file, char *str )
 	return;
 
     fp = file_open(file, "a");
+    
+    if (!fp)
+    {
+	bug("append_file: could not open file for appending", 0);
+	send_to_char("Error: could not append to file.\n\r", ch);
+	return;
+    }
 
     fprintf( fp, "[%5d] %s: %s\n",
 	ch->in_room ? ch->in_room->vnum : 0, ch->name, str );
@@ -4320,6 +4362,12 @@ void load_helps_new()
     }
 
     fp = file_open(buf,"r");
+    
+    if (!fp)
+    {
+	bug("load_helps: could not open help.dat for reading", 0);
+	return;
+    }
 
     for ( ; ; )
     {

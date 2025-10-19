@@ -1346,12 +1346,21 @@ void do_drink( CHAR_DATA *ch, char *argument )
 
     if( obj->value[4] != 0 )
     { /* we are drinking some potion stored in the container */
-         potion = create_object( get_obj_index( obj->value[4]) , 0 );
-         if( !auto_quaff(ch,potion) )
-          {
-            extract_obj(potion);
-            split = TRUE;
-          }
+         OBJ_INDEX_DATA *pObjIndex = get_obj_index( obj->value[4] );
+         if (pObjIndex == NULL)
+         {
+             bug("do_drink: invalid potion vnum in container", 0);
+             send_to_char("The liquid seems to have vanished.\n\r", ch);
+         }
+         else
+         {
+             potion = create_object( pObjIndex, 0 );
+             if( !auto_quaff(ch,potion) )
+             {
+                extract_obj(potion);
+                split = TRUE;
+             }
+         }
     }
     else
     {
@@ -3989,7 +3998,17 @@ void do_donate( CHAR_DATA *ch, char *argument)
    
    obj_from_char(obj);
 
-   obj_to_room(obj, get_room_index(hometown_table[ch->hometown].donation));
+   {
+       ROOM_INDEX_DATA *donation_room = get_room_index(hometown_table[ch->hometown].donation);
+       if (donation_room == NULL)
+       {
+           bug("do_donate: invalid donation room for hometown", 0);
+           extract_obj(obj);
+           send_to_char("The donation failed.\n\r", ch);
+           return;
+       }
+       obj_to_room(obj, donation_room);
+   }
 
    return;
 }
@@ -4106,8 +4125,18 @@ void do_insert(CHAR_DATA *ch, char *argument)
              case 1:
              send_to_char("Omigod, you just won an experience token!\n\r", ch );
              act( "$n just won an experience token!", ch, NULL, NULL, TO_ROOM);
-             obj = create_object( get_obj_index( OBJ_VNUM_EXPERIENCE), 0 );
-             obj_to_char( obj, ch );
+             {
+                 OBJ_INDEX_DATA *pObjIndex = get_obj_index( OBJ_VNUM_EXPERIENCE );
+                 if (pObjIndex)
+                 {
+                     obj = create_object( pObjIndex, 0 );
+                     obj_to_char( obj, ch );
+                 }
+                 else
+                 {
+                     bug("do_gamble: OBJ_VNUM_EXPERIENCE not found", 0);
+                 }
+             }
              break;
           }
        }
@@ -4117,10 +4146,19 @@ void do_insert(CHAR_DATA *ch, char *argument)
              printf_to_char( ch, "You just won the Supreme jackpot! Here is your unique item!\n\r" );
              info( ch, 0, "{G[INFO]:{x %s just won the {cSup{wreme {cjack{wpot{x and a unique piece of equipment!\n\r", ch->name );
              num = ( number_range( 0, MAX_ITEM -1 ) );
-             obj = create_object( get_obj_index(gamble_table[num].vnum ), ch->level );
-             obj->level = ch->level;
-             obj_to_char( obj, ch );
-             printf_to_char( ch, "The innkeeper hands you %s as your prize.\n\r", obj->name );
+             OBJ_INDEX_DATA *pObjIndex = get_obj_index(gamble_table[num].vnum );
+             if (pObjIndex)
+             {
+                 obj = create_object( pObjIndex, ch->level );
+                 obj->level = ch->level;
+                 obj_to_char( obj, ch );
+                 printf_to_char( ch, "The innkeeper hands you %s as your prize.\n\r", obj->name );
+             }
+             else
+             {
+                 bug("do_gamble: invalid gamble_table vnum", 0);
+                 send_to_char("The innkeeper looks confused and hands you nothing.\n\r", ch);
+             }
              return;
        }
 

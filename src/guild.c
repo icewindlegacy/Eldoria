@@ -102,6 +102,12 @@ void load_guilds(void)
     int i;
 
     fpList = file_open("../data/guild/guild.lst", "r");
+    
+    if (!fpList)
+    {
+	bug("load_clans: could not open guild.lst for reading", 0);
+	return;
+    }
 
     for (i=0; i < MAX_CLAN; i++)
     {
@@ -128,8 +134,15 @@ void load_guilds(void)
 
       sprintf(buf, "%s/guild/%s", DATA_DIR, strClan);
 	fp = file_open(buf, "r");
-	load_guild(fp, i);
-	file_close(fp);
+	if (fp)
+	{
+	    load_guild(fp, i);
+	    file_close(fp);
+	}
+	else
+	{
+	    bug("load_clans: could not open guild file for reading", 0);
+	}
   }
 
 

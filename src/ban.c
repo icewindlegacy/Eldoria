@@ -45,6 +45,12 @@ void save_bans(void)
     bool found = FALSE;
 
     fp = file_open(BAN_FILE, "w");
+    
+    if (!fp)
+    {
+	bug("save_bans: could not open BAN_FILE for writing", 0);
+	return;
+    }
 
     for (pban = ban_list; pban != NULL; pban = pban->next)
     {
@@ -71,6 +77,12 @@ void load_bans(void)
 	return;
 
     fp = file_open( BAN_FILE, "r" );
+    
+    if (!fp)
+    {
+	bug("load_bans: could not open BAN_FILE for reading", 0);
+	return;
+    }
  
     ban_last = NULL;
     for ( ; ; )

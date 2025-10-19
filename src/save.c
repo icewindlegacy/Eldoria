@@ -135,14 +135,28 @@ void save_char_obj( CHAR_DATA *ch )
     {
 	sprintf(strsave, "%s%s",GOD_DIR, capitalize(ch->name));
 	fp = file_open(strsave,"w");
-	fprintf(fp,"Lev %2d Trust %2d  %s%s\n",
-	    ch->level, get_trust(ch), ch->name, ch->pcdata->title);
-	file_close( fp );
+	if (fp)
+	{
+	    fprintf(fp,"Lev %2d Trust %2d  %s%s\n",
+		ch->level, get_trust(ch), ch->name, ch->pcdata->title);
+	    file_close( fp );
+	}
+	else
+	{
+	    bug("save_char_obj: could not write god file", 0);
+	}
     }
 #endif
 
     sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
     fp = file_open( TEMP_FILE, "w" );
+    
+    if (!fp)
+    {
+	bug("save_char_obj: could not open TEMP_FILE for writing", 0);
+	return;
+    }
+    
     fwrite_char( ch, fp );
     if ( ch->carrying != NULL )
 	fwrite_obj( ch, ch->carrying, fp, 0 );
@@ -1156,6 +1170,12 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	int iNest;
 
 	fp = file_open( strsave, "r" );
+	
+	if (!fp)
+	{
+	    bug("load_char_obj: could not open player file for reading", 0);
+	    return FALSE;
+	}
 
 	for ( iNest = 0; iNest < MAX_NEST; iNest++ )
 	    rgObjNest[iNest] = NULL;

@@ -2641,6 +2641,13 @@ void do_wpoint( CHAR_DATA *ch, char *argument )
       {
          location = get_room_index( ch->wpoint[a] );
 
+         if( location == NULL ) 
+         {
+            send_to_char("You remember no such location.\n\r", ch );
+            ch->wpoint[a] = 0;
+            return;
+         }
+
          if ( ch->in_room == location )
          {
              send_to_char( "You are already there!\n\r", ch );
@@ -2650,13 +2657,6 @@ void do_wpoint( CHAR_DATA *ch, char *argument )
          if( IS_SET( ch->in_room->room_flags, ROOM_NO_RECALL ) ) 
          {
             send_to_char("The room glows for a moment, then fades.\n\r", ch);
-            return;
-         }
-
-         if( location == NULL ) 
-         {
-            send_to_char("You remember no such location.\n\r", ch );
-            ch->wpoint[a] = 0;
             return;
          }
             

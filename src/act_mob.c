@@ -811,6 +811,12 @@ void save_bounties()
   bool found = FALSE;
 
   fp = file_open( BOUNTY_FILE, "w" );
+  
+  if (!fp)
+  {
+      bug("save_bounties: could not open BOUNTY_FILE for writing", 0);
+      return;
+  }
 
   for( bounty = bounty_list; bounty != NULL; bounty = bounty->next)
   {
@@ -833,6 +839,12 @@ void load_bounties()
 	return;
 
   fp = file_open( BOUNTY_FILE, "r" );
+  
+  if (!fp)
+  {
+      bug("load_bounties: could not open BOUNTY_FILE for reading", 0);
+      return;
+  }
 
   blist = NULL;
   for( ; ; )
@@ -1088,6 +1100,13 @@ void do_bounty(CHAR_DATA *ch, char *argument)
   }
 
   fp = file_open( strsave, "r" );
+  
+  if (!fp)
+  {
+      bug("do_clanwho: could not open clan file for reading", 0);
+      send_to_char("Error reading clan file.\n\r", ch);
+      return;
+  }
 
   strcpy(arg,capitalize(arg));
 
@@ -2399,6 +2418,12 @@ void load_pets()
   if (file_exists(PET_FILE))
   {
       fp = file_open( PET_FILE, "r" );
+      
+      if (!fp)
+      {
+          bug("load_pets: could not open PET_FILE for reading", 0);
+          return;
+      }
 
       plist = NULL;
 

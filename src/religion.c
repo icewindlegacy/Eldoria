@@ -665,10 +665,24 @@ void save_religion()
 	int rank, iClass;
 
 	rList = file_open(RELG_LIST, "w");
+	
+	if (!rList)
+	{
+	    bug("save_relgs: could not open RELG_LIST for writing", 0);
+	    return;
+	}
+	
 	for(pRlg = religion_list ; pRlg ; pRlg = pRlg->next )
 	{	fprintf(rList, "%s\n", pRlg->name );
 		sprintf(buf, "%s%s",RELG_DIR, pRlg->name);
 		fp = file_open(buf, "w");
+		
+		if (!fp)
+		{
+		    bug("save_relgs: could not open religion file for writing", 0);
+		    continue;
+		}
+		
 		fprintf(fp, "Name %s~\n", pRlg->name );
 		fprintf(fp, "God %s~\n", pRlg->god );
 		fprintf(fp, "Temple %s~\n", pRlg->temple ? pRlg->temple->name : "None" );
@@ -734,6 +748,12 @@ void load_religion()
 
 	rList = file_open(RELG_LIST, "r" );
 	
+	if (!rList)
+	{
+	    bug("load_religion: could not open RELG_LIST for reading", 0);
+	    return;
+	}
+	
 	for( word = fread_word(rList); str_cmp(word, "$" ); word = fread_word(rList) )
 	{	sprintf(buf, "%s%s", RELG_DIR, word);
 		if(!file_exists(buf ) )
@@ -742,6 +762,13 @@ void load_religion()
 		}
 		rank = 0; iClass = rank;
 		fp = file_open(buf, "r" );
+		
+		if (!fp)
+		{
+		    bug("load_religion: could not open religion file for reading", 0);
+		    continue;
+		}
+		
 		for(string = fread_word(fp); str_cmp(word, "$" ); word = fread_word(fp) )
 		{
 			if(!str_cmp(string, "Name" ) )
@@ -1218,6 +1245,11 @@ void denounce_faith(CHAR_DATA *ch, bool force )
 	ch->pcdata->bless = 0;
 	for( rank = ch->pcdata->rank; rank >= 0; rank-- )
 	{	sn = skill_lookup(ch->pcdata->religion->skpell[prime_class(ch)][rank]);
+		if (sn < 0)
+		{
+		    bug("do_denounce: invalid skill in religion table", 0);
+		    continue;
+		}
 		if( ch->pcdata->learned[sn] >= 1 )
 		{	printf_to_char(ch, "You loose your %s ability.\n\r", skill_table[sn].name );
 			ch->pcdata->learned[sn] = 0;
@@ -1459,7 +1491,7 @@ struct sex_type god_table[] =
 { "VelaraBloomingHand" },
 { "ThessRotfather" },
 { "LyssWanderingSeed" },
-
+  
 	{ NULL	   },
 };
 

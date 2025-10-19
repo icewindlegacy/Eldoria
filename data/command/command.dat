@@ -5278,4 +5278,24 @@ Cat 0
 Disabled 0
 End
 
+Name pretitle~
+Dofun pretitle~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
+Name webroom~
+Dofun webroom~
+Position 0
+Level 0
+Log 0
+Show 1
+Cat 0
+Disabled 0
+End
+
 $

@@ -68,6 +68,12 @@ void save_wizlist(void)
     bool found = FALSE;
 
     fp = file_open( WIZ_FILE, "w" );
+    
+    if (!fp)
+    {
+	bug("save_wizlist: could not open WIZ_FILE for writing", 0);
+	return;
+    }
 
     for (pwiz = wiz_list; pwiz != NULL; pwiz = pwiz->next)
     {
@@ -89,6 +95,12 @@ void load_wizlist(void)
     strcat(boot_buf,"sson to all .");
 
     fp = file_open( WIZ_FILE, "r" );
+    
+    if (!fp)
+    {
+	bug("load_wizlist: could not open WIZ_FILE for reading", 0);
+	return;
+    }
  
     wiz_last = NULL;
     strcat(boot_buf,"....\n\r\n\r                    ");

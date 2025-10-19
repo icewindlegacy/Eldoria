@@ -137,6 +137,12 @@ bool load_gquest_data(void)
     end_gquest();
 
     fp = file_open( GQUEST_FILE, "r" );
+    
+    if (!fp)
+    {
+	bug("load_gquest_data: could not open GQUEST_FILE for reading", 0);
+	return FALSE;
+    }
 
     if (str_cmp(fread_word(fp), "#GQUESTDATA"))
     {

@@ -164,6 +164,12 @@ void save_social_table()
 	
 	fp = file_open (SOCIAL_FILE, "w");
 	
+	if (!fp)
+	{
+	    bug("save_social_table: could not open SOCIAL_FILE for writing", 0);
+	    return;
+	}
+	
 #ifdef CONST_SOCIAL /* If old table still in use, count socials first */
 	
 	for (maxSocial = 0 ; social_table[maxSocial].name[0] ; maxSocial++)

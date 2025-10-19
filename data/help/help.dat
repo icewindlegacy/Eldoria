@@ -3031,7 +3031,7 @@ character and is also in a clan.  This will flag you as a "killer" or
 from the city guard.
 ~
 
-152 COMMANDMENTS LAWS 'GOD RULES' GODS~
+152 COMMANDMENTS LAWS 'GOD RULES'~
 .
                          **********************
                          ** The Rules of ROM **
@@ -3815,6 +3815,156 @@ This MUD is based on ShadowStorm by Synon and Davion
 There have been many changes and improvements behind
 the scenes, but the base code is theirs and I wanted
 to give credit where its due.
+~
+
+0 COSMOLOGY~
+====================================================================
+                    >>>  COSMOLOGY OF ELDORIA  <<<
+====================================================================
+Legend:
+  |--  denotes descent, creation, or divine aspect
+  <>   denotes opposition or balance
+  ()   denotes shared influence or union
+====================================================================
+                         [ THE VEIL ]
+                             |
+                             |
+                         [ AURELION ]
+                             |   \
+                             |    \
+                             |     \____ [ UMBRA ]
+                             |           "The Eater of Dawn"
+                             |______________________<>
+                             |
+                   The Clash of Light and Shadow
+                             |
+               ________________________________________
+              /          |           |           |     \
+             /           |           |           |      \
+      [SOLARI]     [TIDESWORN]  [VERDANT]   [FORGEBOUND]   [UMBRACULT]
+        (Light)        (Water)      (Nature)      (Earth)       (Shadow)
+====================================================================
+  Prime:  Aurelion  Light, Order, Creation
+  |-- Seraphis  Justice, War
+  |-- Velara  Flame, Passion, Renewal
+  |-- Thane  Sun, Valor, Kingship
+  |-- Eryndor  Dawn, Inspiration, Prophecy
+  Factions:
+    * Dawnwardens (Aurelion)
+    * Ember Choir (Velara)
+--------------------------------------------------------------------
+  Prime:  Nerathis  Deep Mother, Change, Moon
+  |-- Thalor  Storms, Trade, Travel
+  |-- Syrune  Tides, Fate, Dreams
+  |-- Coren  Tempest, Wrath, Sea-Serpents
+  |-- Lethara  Tranquility, Mercy, Reflection
+  Factions:
+    * Abyssal Choir (Nerathis)
+    * Wavebound Order (Thalor)
+--------------------------------------------------------------------
+  Prime:  Sylara  Lifeweaver, Growth, Renewal
+  |-- Druven  Beasts, Instinct, Hunt
+  |-- Faelen  Forests, Spirits, Seasons
+  |-- Mirae  Flowers, Fertility, Grace
+  |-- Korren  Decay, Fungus, Rebirth
+  Factions:
+    * Circle of Roots (Sylara)
+    * Thornbound (Korren)
+--------------------------------------------------------------------
+  Prime:  Ornak  Maker, Forge, Earth
+  |-- Tavros  Fire, Strength, Guardianship
+  |-- Helra  Stone, Patience, Architecture
+  |-- Brunn  Metal, Labor, Endurance
+  |-- Ildra  Invention, Craft, Innovation
+  Factions:
+    * Iron Covenant (Ornak)
+    * Emberforged (Ildra)
+--------------------------------------------------------------------
+  Prime:  Umbra  Shadow, Death, Rebirth
+  |-- Nethra  Secrets, Twilight, Illusion
+  |-- Veyne  Night, Silence, Assassins
+  |-- Korran  Entropy, Ruin, Decay
+  |-- Lirath  Ghosts, Memory, Passage
+  Factions:
+    * Nightveil (Umbra)
+    * Ashen Path (Lirath)
+ 
+====================================================================
+                    Divine Relationships & Balance
+====================================================================
+  Aurelion <> Umbra      Eternal counterforces: Light and Shadow.
+  Nerathis () Sylara     Life and Water entwined; birth and flow.
+  Ornak () Aurelion      Fire of creation given form in stone.
+  Umbra () Sylara        Death feeds Life; decay renews.
+  Nerathis <> Ornak      Sea erodes Mountain, Mountain shapes River.
+  All four pantheons owe origin to Light and Shadow fragments.
+====================================================================
+When Aurelion's flame flickers, and Umbra's shadow lengthens,
+the Shards shall awaken  and Eldoria will be remade anew.
+====================================================================
+~
+
+0 GODS 'GODS OF ELDORIA'~
+====================================================================
+                             GODS OF ELDORIA
+====================================================================
+The world of Eldoria is shaped by five great pantheons, each born
+from the clash of Light and Shadow.  Their worshippers vie for
+influence across the realms, their faiths often rival yet entwined.
+--------------------------------------------------------------------
+SOLARI DOMINION  (Light, Order, Fire)
+  Prime:  Aurelion  Radiant King, Lord of Light
+  Seraphis  War, Justice
+  Velara  Flame, Passion
+  Thane  Sun, Valor
+  Eryndor  Dawn, Prophecy
+  Factions:
+    Dawnwardens (Aurelions crusaders)
+    Ember Choir (Velaras mystics)
+ 
+--------------------------------------------------------------------
+TIDESWORN FAITH  (Water, Moon, Secrets)
+  Prime:  Nerathis  Deep Mother, Keeper of the Moon
+  Thalor  Storms, Travel
+  Syrune  Dreams, Fate
+  Coren  Tempest, Wrath
+  Lethara  Calm, Mercy
+  Factions:
+    Abyssal Choir (Nerathis seers)
+    Wavebound Order (Thalors sailors)
+--------------------------------------------------------------------
+VERDANT ACCORD  (Nature, Renewal, Beasts)
+  Prime:  Sylara  Lifeweaver, Mother of Growth
+  Druven  Hunt, Beasts
+  Faelen  Forests, Spirits
+  Mirae  Fertility, Grace
+  Korren  Decay, Rebirth
+  Factions:
+    Circle of Roots (Sylaras druids)
+    Thornbound (Korrens wardens)
+--------------------------------------------------------------------
+FORGEBOUND CREED  (Earth, Craft, Fire)
+  Prime:  Ornak  The Maker, Lord of the Forge
+  Tavros  Guardianship, Fire
+  Helra  Stone, Patience
+  Brunn  Metal, Endurance
+  Ildra  Invention, Craft
+  Factions:
+    Iron Covenant (Ornaks builders)
+    Emberforged (Ildras artificers)
+--------------------------------------------------------------------
+UMBRACULT  (Shadow, Death, Rebirth)
+  Prime:  Umbra  The Eater of Dawn, Keeper of Silence
+  Nethra  Secrets, Illusion
+  Veyne  Night, Assassins
+  Korran  Entropy, Decay
+  Lirath  Ghosts, Memory
+  Factions:
+    Nightveil (Umbras monks)
+    Ashen Path (Liraths necromancers)
+====================================================================
+See also: HELP COSMOLOGY
+====================================================================
 ~
 
 -1 $~

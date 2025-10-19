@@ -2582,14 +2582,28 @@ void do_who( CHAR_DATA *ch, char *argument )
     max_on = UMAX(count,max_on);       
 
     fp = file_open(MAX_WHO_FILE, "r");
-    max = fread_number( fp );
-    file_close(fp);
+    if (fp)
+    {
+        max = fread_number( fp );
+        file_close(fp);
+    }
+    else
+    {
+        max = 0;
+    }
 
     if ( max_on > max )
     {
 	fp = file_open(MAX_WHO_FILE, "w");
-        fprintf( fp, "%d\n", max_on );
-	file_close(fp);
+	if (fp)
+	{
+            fprintf( fp, "%d\n", max_on );
+	    file_close(fp);
+	}
+	else
+	{
+	    bug("do_who: could not write to MAX_WHO_FILE", 0);
+	}
     }
 
     send_to_char("\r\n{C___________.__       .___           .__         \n\r",ch);
@@ -4088,6 +4102,14 @@ void do_finger( CHAR_DATA *ch, char *argument )
         int iNest;
 
 	fp = file_open(buf, "r");
+	
+	if (!fp)
+	{
+	    bug("do_finger: could not open player file for reading", 0);
+	    send_to_char("Error loading player data.\n\r", ch);
+	    free_char(victim);
+	    return;
+	}
 
         for ( iNest = 0; iNest < MAX_NEST; iNest++ )
             rgObjNest[iNest] = NULL;   
@@ -4925,6 +4947,12 @@ bool write_version (char *argument)	/*Returns true if sucsessful, else false */
   char buf[MAX_STRING_LENGTH];
 
   versionfp = file_open(VERSION_FILE,"w");
+  if (!versionfp)
+  {
+      bug("write_version: could not open VERSION_FILE for writing", 0);
+      return FALSE;
+  }
+  
   sprintf (buf, "%s\n", argument);
   fprintf (versionfp, "#\n");
   fprintf (versionfp, "%s", buf);
@@ -4944,6 +4972,13 @@ void read_version (char *version)	/*dumps the version No. in version */
     }
 
     versionfp = file_open(VERSION_FILE, "r") ;
+    
+    if (!versionfp)
+    {
+	bug ("read_version : could not open VERSION_FILE", 0);
+	sprintf (version, "V0.0 -- Please report!\n\r");
+	return;
+    }
 
     if (fread_letter (versionfp) != '#')
     {
@@ -5382,6 +5417,12 @@ void load_email()
      if( file_exists("../data/email.dat" ) )
      {
 	fp = file_open("../data/email.dat", "r" );
+	if (!fp)
+	{
+	    bug("load_email: could not open email.dat for reading", 0);
+	    return;
+	}
+	
 	for(;;)
  	{
 	    word = feof( fp ) ? "End" : fread_word( fp );

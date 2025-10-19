@@ -156,6 +156,12 @@ void do_post( CHAR_DATA *ch, char *argument )
         int iNest;
 
 	fp = file_open(buf, "r");
+	
+	if (!fp)
+	{
+	    bug("do_post: could not open mail file for reading", 0);
+	    return;
+	}
 
         for ( iNest = 0; iNest < MAX_NEST; iNest++ )
             rgObjNest[iNest] = NULL;   
@@ -536,6 +542,12 @@ void save_postal_table()
    int i;
 	
    fp = file_open (POSTAL_FILE, "w");
+   
+   if (!fp)
+   {
+       bug("save_postal_table: could not open POSTAL_FILE for writing", 0);
+       return;
+   }
 	
    fprintf (fp, "%d\n", maxpostal);
 	
@@ -663,6 +675,12 @@ void load_mail(FILE *fp, MAIL_DATA *mail)
     if (file_exists(MAIL_FILE) )
     {
         fp = file_open( MAIL_FILE, "r" );
+        
+        if (!fp)
+        {
+            bug("load_mail: could not open MAIL_FILE for reading", 0);
+            return;
+        }
  
         mlist = NULL;   
 

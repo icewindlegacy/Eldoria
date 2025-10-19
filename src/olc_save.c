@@ -84,6 +84,12 @@ void save_area_list()
     AREA_DATA *pArea;
 
     fp = file_open("../area/area.lst","w");
+    
+    if (!fp)
+    {
+	bug("save_area_list: could not open area.lst for writing", 0);
+	return;
+    }
 
     for( pArea = area_first; pArea; pArea = pArea->next )
     {
@@ -981,6 +987,12 @@ void save_help_new()
 	sprintf(buf, "%s/help/help.dat",DATA_DIR );
 
 	fp = file_open(buf,"w");
+	
+	if (!fp)
+	{
+	    bug("save_help_new: could not open help.dat for writing", 0);
+	    return;
+	}
 
         for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next )	
 	{
@@ -1003,6 +1015,12 @@ void save_area( AREA_DATA *pArea )
     FILE *fp;
 
     fp = file_open(pArea->file_name, "w");
+    
+    if (!fp)
+    {
+	bug("save_area: could not open area file for writing", 0);
+	return;
+    }
 
     fprintf( fp, "#AREADATA\n" );
     fprintf( fp, "Name %s~\n",        pArea->name );
@@ -1288,6 +1306,14 @@ void do_save_guilds(CHAR_DATA *ch, char *argument)
   MEMBER_DATA *pMem;
   
   fpList = file_open("../data/guild/guild.lst", "w+" );
+  
+  if (!fpList)
+  {
+      bug("do_save_guilds: could not open guild.lst for writing", 0);
+      send_to_char("Error: could not save guild list.\n\r", ch);
+      return;
+  }
+  
   for (i=1; clan_lookup(clan_table[i].name) != 0; i++)
   {
      	 
@@ -1295,6 +1321,14 @@ void do_save_guilds(CHAR_DATA *ch, char *argument)
     {
       sprintf(buf, "%s/guild/%s", DATA_DIR, clan_table[i].name);
       fp = file_open(buf, "w+");
+      
+      if (!fp)
+      {
+	  bug("do_save_guilds: could not open guild file for writing", 0);
+	  sprintf(buf, "Error: could not save guild %s.\n\r", clan_table[i].name);
+	  send_to_char(buf, ch);
+	  continue;
+      }
 
       fprintf(fpList, "%s\n", clan_table[i].name);
       fprintf(fp, "\nGuild\t%s~\n", clan_table[i].name);

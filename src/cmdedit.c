@@ -99,6 +99,13 @@ void load_cmd_list()
 	{	logf2("You got no commands now! Your screwed! Blame Davion!\n\r");
 		return;
 	}
+	
+	if (!fp)
+	{
+	    bug("load_commands: could not open command.dat for reading", 0);
+	    return;
+	}
+	
 	for( ;; )
 	{
 		word = feof (fp) ? "End" : fread_word (fp);

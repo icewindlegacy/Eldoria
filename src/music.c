@@ -167,6 +167,12 @@ void load_songs(void)
 	channel_songs[i] = -1;
 
     fp = file_open(MUSIC_FILE,"r");
+    
+    if (!fp)
+    {
+	bug("load_songs: could not open MUSIC_FILE for reading", 0);
+	return;
+    }
 
     for (count = 0; count < MAX_SONGS; count++)
     {

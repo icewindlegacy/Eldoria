@@ -5216,6 +5216,13 @@ void do_copyover (CHAR_DATA *ch, char * argument)
 	    disregard = TRUE;
  
 	fp = file_open(COPYOVER_FILE, "w");
+	
+	if (!fp)
+	{
+	    bug("do_copyover: could not open COPYOVER_FILE for writing", 0);
+	    send_to_char("Copyover file could not be written! Aborting copyover.\n\r", ch);
+	    return;
+	}
 
         while (auction_list != NULL)
            reset_auc (auction_list, TRUE);
@@ -5366,6 +5373,13 @@ void do_copyover (CHAR_DATA *ch, char * argument)
 	fclose(fpBoot);   
 
 	fpObj = file_open("../area/objcopy.txt", "w" );
+	
+	if (!fpObj)
+	{
+	    bug("do_copyover: could not open objcopy.txt for writing", 0);
+	    send_to_char("Object copy file could not be written! Aborting copyover.\n\r", ch);
+	    return;
+	}
 
     for ( obj = object_list; obj != NULL; obj = obj->next )
 	{   has_reset = FALSE;
@@ -5411,6 +5425,13 @@ void load_copyover_obj(void)
 	if(!file_exists("../area/objcopy.txt" ) )
 		return;
 	fpObj = file_open("../area/objcopy.txt", "r" );
+	
+	if (!fpObj)
+	{
+	    bug("load_copyover_obj: could not open objcopy.txt for reading", 0);
+	    return;
+	}
+	
 	unlink("../area/objcopy.txt"); //To prevent from char's doubling corpses.
 	logf2("Loading pc corpses.");
 	for(;;)
@@ -7868,6 +7889,12 @@ void do_updatechar(CHAR_DATA *ch, char *argument)
     if (file_exists(buf))
     {
 	fp = file_open(buf, "r");
+	if (!fp)
+	{
+	    bug("do_preload: could not open player file for reading", 0);
+	    printf_to_char(ch, "Error loading %s's pfile.\n\r", victim->name);
+	    return;
+	}
 	fread_char(victim, fp);
 	printf_to_char(ch, "%s has been updated.\n\r", victim->name);
 	file_close(fp);
@@ -8380,6 +8407,12 @@ void do_auto_shutdown()
  
    save_gquest_data();    
 	fpObj = file_open("../area/objcopy.txt", "w" );
+	
+	if (!fpObj)
+	{
+	    bug("do_auto_shutdown: could not open objcopy.txt for writing", 0);
+	    return;
+	}
 
     for ( obj = object_list; obj != NULL; obj = obj->next )
 	{   has_reset = FALSE;
@@ -8401,8 +8434,15 @@ void do_auto_shutdown()
 	fprintf(fpObj, "#END\n");
 	file_close(fpObj);
    fpCrash = file_open("../data/crash.time", "w" );
-   fprintf(fpCrash, "%d", (int) current_time );
-   file_close(fpCrash);
+   if (fpCrash)
+   {
+       fprintf(fpCrash, "%d", (int) current_time );
+       file_close(fpCrash);
+   }
+   else
+   {
+       bug("do_shutdown: could not write crash.time", 0);
+   }
    if( (fpBoot = file_open(BOOT_FILE, "w" ) ) )
        fprintf(fpBoot, "%d\n\r", first_boot_time );
    fclose(fpBoot);
