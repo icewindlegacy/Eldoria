@@ -2424,11 +2424,11 @@ void do_track( CHAR_DATA *ch, char *argument )
   
   one_argument( argument, arg );
   
-  sn = skill_lookup("hunt");
+  sn = skill_lookup("track");
   
   if (sn < 0)
   {
-      send_to_char("The hunt skill is not available.\n\r", ch);
+      send_to_char("The track skill is not available.\n\r", ch);
       return;
   }
 
