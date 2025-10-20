@@ -143,19 +143,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-27 100
-AffectObj
-26 25000
-AffectObj
-19 110
-AffectObj
-18 100
-AffectObj
-12 10000
+14 32500
 AffectObj
 13 32500
 AffectObj
-14 32500
+12 10000
+AffectObj
+18 100
+AffectObj
+19 110
+AffectObj
+26 25000
+AffectObj
+27 100
 EndObj
 
 #OBJ
@@ -177,13 +177,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 12
-AffectObj
-19 5
+13 10
 AffectObj
 14 20
 AffectObj
-13 10
+19 5
+AffectObj
+12 12
 EndObj
 
 #OBJ
@@ -205,19 +205,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 25
-AffectObj
-12 10
-AffectObj
-18 12
-AffectObj
-19 20
-AffectObj
-14 35
+2 6
 AffectObj
 1 3
 AffectObj
-2 6
+14 35
+AffectObj
+19 20
+AffectObj
+18 12
+AffectObj
+12 10
+AffectObj
+13 25
 EndObj
 
 #OBJ
@@ -239,15 +239,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 11
-AffectObj
-12 14
-AffectObj
-14 100
+19 13
 AffectObj
 18 12
 AffectObj
-19 13
+14 100
+AffectObj
+12 14
+AffectObj
+13 11
 EndObj
 
 #OBJ
@@ -409,8 +409,8 @@ Plevel 0
 Exp 0
 Xp_tolevel 0
 Condition P
-Oprg RANDOM 495 100~
 Oprg SPEECH 495 100~
+Oprg RANDOM 495 100~
 EndObj
 
 #OBJ

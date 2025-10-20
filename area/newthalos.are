@@ -5614,9 +5614,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
-AffectObj
 14 10
+AffectObj
+2 1
 EndObj
 
 #OBJ
@@ -5680,9 +5680,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -5785,14 +5785,9 @@ Room_flags 124
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-4.picture~
-You see a picture of Loki... at least you think it's Loki.
-He seems to be hiding from the camera.
-~
-ExtraDesc
-3.picture~
-You see a picture of Hammor on the front porch of the Danjerhaus,
-drinking a guinness stout and petting Big Guy the Cat.
+1.1picture~
+You see a picture of Felix here, standing before the arena.
+He seems to be doing a body count.
 ~
 ExtraDesc
 2.picture~
@@ -5801,9 +5796,14 @@ Through a window in the back you see a large aquarium. The newbie seems to
 be cowering in fear.
 ~
 ExtraDesc
-1.1picture~
-You see a picture of Felix here, standing before the arena.
-He seems to be doing a body count.
+3.picture~
+You see a picture of Hammor on the front porch of the Danjerhaus,
+drinking a guinness stout and petting Big Guy the Cat.
+~
+ExtraDesc
+4.picture~
+You see a picture of Loki... at least you think it's Loki.
+He seems to be hiding from the camera.
 ~
 Exit
 5
@@ -10893,13 +10893,13 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+mirror~
+You see a the fighting image of some armor clad humanoid wielding a weapon.
+~
+ExtraDesc
 window~
 Looking out this window you can see the grounds of the palace that
 seperate the walls of the palace from the building itself.
-~
-ExtraDesc
-mirror~
-You see a the fighting image of some armor clad humanoid wielding a weapon.
 ~
 Exit
 0

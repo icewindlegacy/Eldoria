@@ -1099,10 +1099,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-portal~
-An oval of shadow standing a little over 6 feet tall.  A flickering
-silver edges it, the only thing defining the shape.  Near the base of the
-oval, leaning against the shadow-shape itself, is a small sign.  
+sign~
+Written in a spidery script is the following message: This portal will
+take you to the skies near Shalindar's reflection in this world.  A sense of
+the gods of Soren remains there, suitable for exploration by the less
+experienced adventurer.  
 ~
 ExtraDesc
 oval~
@@ -1111,11 +1112,10 @@ silver edges it, the only thing defining the shape.  Near the base of the
 oval, leaning against the shadow-shape itself, is a small sign.  
 ~
 ExtraDesc
-sign~
-Written in a spidery script is the following message: This portal will
-take you to the skies near Shalindar's reflection in this world.  A sense of
-the gods of Soren remains there, suitable for exploration by the less
-experienced adventurer.  
+portal~
+An oval of shadow standing a little over 6 feet tall.  A flickering
+silver edges it, the only thing defining the shape.  Near the base of the
+oval, leaning against the shadow-shape itself, is a small sign.  
 ~
 EndObj
 
@@ -1398,27 +1398,27 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-25 0
-AffectObj
-25 0
-AffectObj
-25 0
-AffectObj
-2 1
-AffectObj
-1 1
-AffectObj
-3 1
-AffectObj
-5 1
-AffectObj
-13 50
-AffectObj
-12 50
+4 1
 AffectObj
 14 50
 AffectObj
-4 1
+12 50
+AffectObj
+13 50
+AffectObj
+5 1
+AffectObj
+3 1
+AffectObj
+1 1
+AffectObj
+2 1
+AffectObj
+25 0
+AffectObj
+25 0
+AffectObj
+25 0
 EndObj
 
 #OBJ
@@ -1440,19 +1440,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 50
-AffectObj
-12 50
-AffectObj
-14 50
-AffectObj
-2 3
-AffectObj
-5 3
+19 10
 AffectObj
 1 1
 AffectObj
-19 10
+5 3
+AffectObj
+2 3
+AffectObj
+14 50
+AffectObj
+12 50
+AffectObj
+13 50
 EndObj
 
 #OBJ
@@ -1494,17 +1494,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 50
-AffectObj
-12 50
-AffectObj
-13 50
-AffectObj
-1 5
+19 10
 AffectObj
 18 10
 AffectObj
-19 10
+1 5
+AffectObj
+13 50
+AffectObj
+12 50
+AffectObj
+14 50
 EndObj
 
 #OBJ
@@ -1546,7 +1546,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-ring~
+gold~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 ExtraDesc
@@ -1554,7 +1554,7 @@ wedding~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 ExtraDesc
-gold~
+ring~
 A thick gold wedding ring with a beautiful pattern round both edges of the ring.The ring is really shiny, as if it had been polished recently.
 ~
 EndObj
@@ -1578,15 +1578,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 2
-AffectObj
-2 5
-AffectObj
-12 50
+14 100
 AffectObj
 13 50
 AffectObj
-14 100
+12 50
+AffectObj
+2 5
+AffectObj
+5 2
 EndObj
 
 #OBJ
@@ -1628,43 +1628,43 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-27 31000
-AffectObj
-26 31000
-AffectObj
-10 10
-AffectObj
-21 31000
-AffectObj
-22 31000
-AffectObj
-20 31000
-AffectObj
-24 31000
-AffectObj
-23 31000
-AffectObj
-14 31000
-AffectObj
-20 31000
-AffectObj
-13 31000
-AffectObj
-12 31000
-AffectObj
-1 60
-AffectObj
-5 60
-AffectObj
-3 59
-AffectObj
-4 60
-AffectObj
-2 62
+19 27136
 AffectObj
 18 24253
 AffectObj
-19 27136
+2 62
+AffectObj
+4 60
+AffectObj
+3 59
+AffectObj
+5 60
+AffectObj
+1 60
+AffectObj
+12 31000
+AffectObj
+13 31000
+AffectObj
+20 31000
+AffectObj
+14 31000
+AffectObj
+23 31000
+AffectObj
+24 31000
+AffectObj
+20 31000
+AffectObj
+22 31000
+AffectObj
+21 31000
+AffectObj
+10 10
+AffectObj
+26 31000
+AffectObj
+27 31000
 EndObj
 
 #OBJ
@@ -1686,13 +1686,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 1500
-AffectObj
-13 1500
+4 1
 AffectObj
 5 3
 AffectObj
-4 1
+13 1500
+AffectObj
+12 1500
 EndObj
 
 #OBJ
@@ -1714,7 +1714,7 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-ring~
+wedding~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
@@ -1722,7 +1722,7 @@ diamond~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 ExtraDesc
-wedding~
+ring~
 A slender gold band with beautiful carvings round the edges.Held in the center by some gold claws is a sparkling diamond.As the light shines onto the diamond it is reflected round the room.
 ~
 EndObj
@@ -1746,17 +1746,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 20
-AffectObj
-18 20
-AffectObj
-12 25
-AffectObj
-13 25
+1 15
 AffectObj
 2 5
 AffectObj
-1 15
+13 25
+AffectObj
+12 25
+AffectObj
+18 20
+AffectObj
+19 20
 EndObj
 
 #OBJ
@@ -1778,25 +1778,25 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
-2 1
-AffectObj
-5 1
-AffectObj
-3 1
-AffectObj
-4 1
-AffectObj
-18 10
-AffectObj
-19 10
-AffectObj
-12 50
+14 50
 AffectObj
 13 50
 AffectObj
-14 50
+12 50
+AffectObj
+19 10
+AffectObj
+18 10
+AffectObj
+4 1
+AffectObj
+3 1
+AffectObj
+5 1
+AffectObj
+2 1
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1858,21 +1858,21 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 50
-AffectObj
-12 50
-AffectObj
-14 50
-AffectObj
-5 3
-AffectObj
-2 -1
-AffectObj
-1 1
+19 18
 AffectObj
 18 18
 AffectObj
-19 18
+1 1
+AffectObj
+2 -1
+AffectObj
+5 3
+AffectObj
+14 50
+AffectObj
+12 50
+AffectObj
+13 50
 EndObj
 
 #OBJ
@@ -1894,17 +1894,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 50
-AffectObj
-13 100
-AffectObj
-12 50
-AffectObj
-3 2
+5 3
 AffectObj
 1 2
 AffectObj
-5 3
+3 2
+AffectObj
+12 50
+AffectObj
+13 100
+AffectObj
+14 50
 EndObj
 
 #OBJ
@@ -1926,15 +1926,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 25000
-AffectObj
-13 25000
-AffectObj
-2 20
+1 10
 AffectObj
 5 10
 AffectObj
-1 10
+2 20
+AffectObj
+13 25000
+AffectObj
+12 25000
 EndObj
 
 #OBJ
@@ -2016,17 +2016,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-27 30000
-AffectObj
-26 30000
-AffectObj
-14 20000
-AffectObj
-20 10000
+13 17861
 AffectObj
 12 18691
 AffectObj
-13 17861
+20 10000
+AffectObj
+14 20000
+AffectObj
+26 30000
+AffectObj
+27 30000
 EndObj
 
 #OBJ
@@ -2128,13 +2128,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32500
-AffectObj
-12 25000
+19 2200
 AffectObj
 18 3500
 AffectObj
-19 2200
+12 25000
+AffectObj
+13 32500
 EndObj
 
 #OBJ
@@ -2176,13 +2176,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 5
-AffectObj
-13 30000
+14 30000
 AffectObj
 12 30000
 AffectObj
-14 30000
+13 30000
+AffectObj
+1 5
 EndObj
 
 #OBJ
@@ -2286,17 +2286,17 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 1
-AffectObj
-3 2
-AffectObj
-4 2
-AffectObj
-14 50
+12 100
 AffectObj
 13 50
 AffectObj
-12 100
+14 50
+AffectObj
+4 2
+AffectObj
+3 2
+AffectObj
+5 1
 EndObj
 
 #OBJ
@@ -2378,15 +2378,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 15
-AffectObj
-18 20
-AffectObj
-12 50
+1 5
 AffectObj
 13 50
 AffectObj
-1 5
+12 50
+AffectObj
+18 20
+AffectObj
+19 15
 EndObj
 
 #END

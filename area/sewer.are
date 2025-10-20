@@ -953,9 +953,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-17 -1
-AffectObj
 18 1
+AffectObj
+17 -1
 EndObj
 
 #OBJ
@@ -982,9 +982,9 @@ This is indeed a mysterious rod.  It is dark black at the base but has four
 very sharp purple tentacles at the end.
 ~
 AffectObj
-18 2
-AffectObj
 1 1
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1122,13 +1122,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
+writing text~
+You read the number '666'.
+~
+ExtraDesc
 white skull~
 The skull has two small horns in the forehead. You notice some writing on
 the inside.
-~
-ExtraDesc
-writing text~
-You read the number '666'.
 ~
 AffectObj
 2 -4
@@ -1153,13 +1153,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
+letters letter~
+It reads 'Hold me'.
+~
+ExtraDesc
 small stick~
 The small stick does not look interesting at all.  But just as you are going
 to throw it away you notice some small letters.
-~
-ExtraDesc
-letters letter~
-It reads 'Hold me'.
 ~
 EndObj
 
@@ -1257,9 +1257,9 @@ claw red redclaw~
 This big claw looks like a part of a dragon.
 ~
 AffectObj
-17 2
-AffectObj
 19 5
+AffectObj
+17 2
 EndObj
 
 #OBJ
@@ -1338,9 +1338,9 @@ gloves silvery~
 The gloves are made of silver threads.
 ~
 AffectObj
-18 2
-AffectObj
 19 1
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1583,9 +1583,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 2
-AffectObj
 4 2
+AffectObj
+3 2
 EndObj
 
 #OBJ
@@ -1607,9 +1607,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 -1
-AffectObj
 19 2
+AffectObj
+2 -1
 EndObj
 
 #OBJ
@@ -1631,9 +1631,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 -1
-AffectObj
 19 2
+AffectObj
+2 -1
 EndObj
 
 #OBJ
@@ -1677,11 +1677,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 -1
+4 2
 AffectObj
 19 2
 AffectObj
-4 2
+2 -1
 EndObj
 
 #OBJ
@@ -1725,9 +1725,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 2 -1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -1749,9 +1749,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 2 -1
+AffectObj
+19 2
 EndObj
 
 #END
@@ -1806,12 +1806,12 @@ Room_flags 12
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-door stone~
-This is a heavy black stone door it looks very solid.
-~
-ExtraDesc
 writing~
 You read the number '666'.
+~
+ExtraDesc
+door stone~
+This is a heavy black stone door it looks very solid.
 ~
 Exit
 1
@@ -1861,17 +1861,17 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Exit
 0
@@ -1909,17 +1909,17 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Exit
 0
@@ -1957,17 +1957,17 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Exit
 0
@@ -2005,17 +2005,17 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Exit
 2
@@ -2045,16 +2045,16 @@ Room_flags 12
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bones decay~
-All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+bones decay~
+All the bones are broken and old.
 ~
 Exit
 0
@@ -2092,17 +2092,17 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ExtraDesc
 slime~
 The slime is slimy and uninteresting.
 ~
 ExtraDesc
-torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Exit
 0
@@ -2382,12 +2382,12 @@ Room_flags 9
 Sector_type 4
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-water~
-The water is dirty but it looks like you would be able to swim in it.
-~
-ExtraDesc
 hole~
 Through the hole you can just make out a very small room.
+~
+ExtraDesc
+water~
+The water is dirty but it looks like you would be able to swim in it.
 ~
 Exit
 0
@@ -2830,14 +2830,14 @@ Room_flags 9
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-altar~
-This altar are very special. Faces are smiling from it. There
-is a triangle in top of it.
-~
-ExtraDesc
 triangle~
 The triangle is filled with small symbols in a language you have
 never seen before.
+~
+ExtraDesc
+altar~
+This altar are very special. Faces are smiling from it. There
+is a triangle in top of it.
 ~
 Exit
 0
@@ -2866,16 +2866,16 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-small round door~
-The door is completely round without a keyhole.
+walls~
+The walls look alive.
 ~
 ExtraDesc
 red light~
 The red light glows from the walls.
 ~
 ExtraDesc
-walls~
-The walls look alive.
+small round door~
+The door is completely round without a keyhole.
 ~
 Exit
 1
@@ -2980,14 +2980,14 @@ Room_flags 12
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skeletons~
-The skeletons looks like they had suffered the death of hunger.
-One of them looks like he has written something at the wall.
-~
-ExtraDesc
 writing wall~
 The writing says 'A pray to the GODS will not be heard, though
 the only exit is death..... Mother, I love you'.
+~
+ExtraDesc
+skeletons~
+The skeletons looks like they had suffered the death of hunger.
+One of them looks like he has written something at the wall.
 ~
 EndRoom
 
@@ -3002,15 +3002,15 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+big metal box~
+The metal box is covered with dust. You notice that is once has been
+filled with coal, as you see some of them.
+~
+ExtraDesc
 skeletons~
 When you look at the skeletons, you can see that they once had been in great 
 pain. They are hanging in their arms, and some of them has been killed
 with a sharp instrument.
-~
-ExtraDesc
-big metal box~
-The metal box is covered with dust. You notice that is once has been
-filled with coal, as you see some of them.
 ~
 Exit
 2
@@ -3065,8 +3065,10 @@ Room_flags 12
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-portcullis gate~
-This seems like an exceptionally heavy gate, made of thick iron.
+stairs staircase~
+This looks as if it has been standing here for at least 12 centuries. It's 
+Very worn and cracks in the surface mingle with the cores of mineral that
+penetrates the rock from which these steps are chiselled.
 ~
 ExtraDesc
 torch light~
@@ -3074,10 +3076,8 @@ This VERY old torch looks as if it has burned for ages, yet no traces of
 the searing flame can be seen on it!
 ~
 ExtraDesc
-stairs staircase~
-This looks as if it has been standing here for at least 12 centuries. It's 
-Very worn and cracks in the surface mingle with the cores of mineral that
-penetrates the rock from which these steps are chiselled.
+portcullis gate~
+This seems like an exceptionally heavy gate, made of thick iron.
 ~
 EndRoom
 
@@ -3208,13 +3208,13 @@ Room_flags 9
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+worms~
+The worms are purple. They do not look edible.
+~
+ExtraDesc
 mud~
 When you examine the mud, you notice small worms crawling
 around.
-~
-ExtraDesc
-worms~
-The worms are purple. They do not look edible.
 ~
 Exit
 1
@@ -3288,13 +3288,13 @@ Room_flags 8
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-socket~
-The socket looks like the work of a dwarf. It is VERY beautiful.
-~
-ExtraDesc
 crystal globe~
 The crystal globe is glowing with a pulsing light. It
 looks like there is smoke inside it.
+~
+ExtraDesc
+socket~
+The socket looks like the work of a dwarf. It is VERY beautiful.
 ~
 Exit
 0
@@ -3769,9 +3769,11 @@ Room_flags 9
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-table~
-On the table there is dust, in the center there is a small statue of a
-Dragon sleeping.
+dragon statue~
+it looks like a silver dragon. It is nailed onto the table.
+The dragon sits on a red dragon that looks dead. But the
+eyes of the red dragon is glowing pulsating red. You feel
+drained.
 ~
 ExtraDesc
 skeleton skeletons~
@@ -3779,11 +3781,9 @@ You can see that they have been killed in some sort of way. Not
 by sword or club.
 ~
 ExtraDesc
-dragon statue~
-it looks like a silver dragon. It is nailed onto the table.
-The dragon sits on a red dragon that looks dead. But the
-eyes of the red dragon is glowing pulsating red. You feel
-drained.
+table~
+On the table there is dust, in the center there is a small statue of a
+Dragon sleeping.
 ~
 Exit
 0
@@ -3899,23 +3899,23 @@ Room_flags 9
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-head heads~
-When you study the faces of the heads you see that it
-is faces of dragons. The face to the north is red, the
-face to the east is green and the face to the south is
-blue.
-~
-ExtraDesc
-green~
-This looks like a evil dragon
+blue~
+This looks like a good dragon
 ~
 ExtraDesc
 red~
 This looks like a neutral dragon
 ~
 ExtraDesc
-blue~
-This looks like a good dragon
+green~
+This looks like a evil dragon
+~
+ExtraDesc
+head heads~
+When you study the faces of the heads you see that it
+is faces of dragons. The face to the north is red, the
+face to the east is green and the face to the south is
+blue.
 ~
 Exit
 1
@@ -5023,15 +5023,15 @@ Room_flags 9
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-mud~
-It's dark as tar and looks like something out of a toilet, on top of THAT
-the smell is absolutely OVERWHELMING.
-~
-ExtraDesc
 sediment~
 It's NOT the kind of matter that would concern you too much, normally, but
 as you are in the middle of it, it just might become your main concern.
 REAL YUCKY!
+~
+ExtraDesc
+mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
 ~
 Exit
 0
@@ -7017,10 +7017,9 @@ Room_flags 13
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-edge odd-looking~
-This is truly a weird piece of craftsmanship in your eyes. The edge seems to
-form a step leading down, but WHAT a STEP DOWN. The Abyss opens down there 
-leading to seemingly total destruction.
+rock~
+It looks as if it can be opened in a door-like fashion. Maybe this will lead
+the way down.
 ~
 ExtraDesc
 step~
@@ -7028,9 +7027,10 @@ A small rock sticks out right under it, otherwise the way is DOWN, DOWN, and
 SPLAT!!!
 ~
 ExtraDesc
-rock~
-It looks as if it can be opened in a door-like fashion. Maybe this will lead
-the way down.
+edge odd-looking~
+This is truly a weird piece of craftsmanship in your eyes. The edge seems to
+form a step leading down, but WHAT a STEP DOWN. The Abyss opens down there 
+leading to seemingly total destruction.
 ~
 Exit
 0
@@ -7207,16 +7207,16 @@ Room_flags 13
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-ground ledge rock~
-The ground here seems a little different from all the other ledges along the
-Abyss. There's a kind of soft soil on this ledge, maybe you should look 
-carefully at this. It seems to be of some interest.
-~
-ExtraDesc
 soil soft earth~
 You can just make out the outline of a trapdoor here in the soil. The earth
 is probably there to conceal a secret entrance. This looks as if it leads down
 into the seemingly solid rock face of the ledge.
+~
+ExtraDesc
+ground ledge rock~
+The ground here seems a little different from all the other ledges along the
+Abyss. There's a kind of soft soil on this ledge, maybe you should look 
+carefully at this. It seems to be of some interest.
 ~
 Exit
 2

@@ -1454,16 +1454,29 @@ struct sex_type god_table[] =
 
 struct sex_type exarch_table[] = 
 {
-{"Kael"},
-{"Seraphine"},
-{"Mordain"},
-{"Lyris"},
-{"Drakken"},
-{"Elara"},
-{"Tyrus"},
-{"Nyx"},
-{ NULL	   },
+    /* Dawnfire Church */
+    {"High Exarch Solara Dawnward"},    /* Luminant Order */
+    {"High Exarch Marius Flamekeeper"}, /* Keepers of the Flame */
+
+    /* Veiled Path */
+    {"Exarch Selene Shroud"},           /* Order of the Shroud */
+    {"Exarch Kael Veilblade"},          /* Veilblade Circle */
+
+    /* Earthwarden Covenant */
+    {"Exarch Thoren Hammerfaith"},      /* Hammers of Faith */
+    {"Exarch Lyria Rootwarden"},        /* Keepers of Root */
+
+    /* Flowing Order */
+    {"Exarch Neris Currentflow"},       /* The Current */
+    {"Exarch Sylas Stillpool"},         /* The Stillpool */
+
+    /* Flamebound Legion */
+    {"Exarch Varyn Ashvanguard"},       /* Ashen Vanguard */
+    {"Exarch Cindra Forgekindled"},     /* Forgekindled */
+
+    { NULL }
 };
+
 
 /*End of Structures */
 

@@ -374,7 +374,7 @@ const	struct	hometown_type	hometown_table [] =
 {
 /*  {	"name",		recall,	school,	morgue,	death, donation, postal	},	*/
     {	"Midgaard",	3001,	3700,	3000,	3054,  3037,	 3037	},
-    {   "Bridgewater",  5600,	3700,   5619,   5752,  5737,     5738   },
+ //   {   "Bridgewater",  5600,	3700,   5619,   5752,  5737,     5738   },
     {	NULL,		0,	0,	0,	0,     0,	 0      }
 };
 

@@ -733,15 +733,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
+opening~
+The opening is far too narrow for you to squeeze through but it looks as if the
+tree is hollow.
+~
+ExtraDesc
 tree~
 This enormous tree must be a thousand years old.  Its rough bark looks grey
 and pale and is decorated with scratches and claw marks.  On its west side is a
 small opening just above ground level.
-~
-ExtraDesc
-opening~
-The opening is far too narrow for you to squeeze through but it looks as if the
-tree is hollow.
 ~
 EndObj
 
@@ -992,18 +992,18 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-substance rope ropes thread threads~
-The substance reminds you of giant threads covered with glue.  If it had not
-been for the size you could have sworn it was part of a spider web.
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 tree trees trunk trunks~
 The ancient grey giants seem to observe you silently.
 ~
 ExtraDesc
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+substance rope ropes thread threads~
+The substance reminds you of giant threads covered with glue.  If it had not
+been for the size you could have sworn it was part of a spider web.
 ~
 Exit
 2
@@ -1193,14 +1193,14 @@ Room_flags 4
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The forest trail winds westwards through the trees.
-~
-ExtraDesc
 tree trees~
 The trees are quite tall considering most of them appear to be quite young.
 On one of the trees, crude letters forming the word "Haon-Dor" have been
 carved into the bark.
+~
+ExtraDesc
+trail~
+The forest trail winds westwards through the trees.
 ~
 Exit
 0
@@ -1238,8 +1238,8 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The forest trail winds east-west through the trees.
+birds insects animals~
+Very cute little creatures, they seem to enjoy life.
 ~
 ExtraDesc
 tree trees~
@@ -1247,8 +1247,8 @@ The trees here are quite young and fresh.  They seem to accommodate many kinds
 of birds, insects and other small animals.
 ~
 ExtraDesc
-birds insects animals~
-Very cute little creatures, they seem to enjoy life.
+trail~
+The forest trail winds east-west through the trees.
 ~
 Exit
 1
@@ -1279,17 +1279,17 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
+tree trees~
+The young, slender trees look beautiful, their fresh, green leaves moving
+lightly in the wind.
 ~
 ExtraDesc
 trail~
 The forest trail winds east-west through the trees.
 ~
 ExtraDesc
-tree trees~
-The young, slender trees look beautiful, their fresh, green leaves moving
-lightly in the wind.
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 1
@@ -1327,13 +1327,13 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The forest trail seems almost fragile compared to the massive trunks.
-~
-ExtraDesc
 tree trees~
 The dense crowns of the mature trees leave only a fraction of the sky to be
 seen through the leaves.
+~
+ExtraDesc
+trail~
+The forest trail seems almost fragile compared to the massive trunks.
 ~
 Exit
 1
@@ -1364,16 +1364,16 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
+tree trees~
+The crowns of the old trees almost cut out all light.
 ~
 ExtraDesc
 trail~
 The forest trail seems almost fragile compared to the massive trunks.
 ~
 ExtraDesc
-tree trees~
-The crowns of the old trees almost cut out all light.
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 1
@@ -1412,12 +1412,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1448,12 +1448,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1484,12 +1484,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 1
@@ -1528,17 +1528,8 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-log logs~
-Even though the logs have been chopped to shorter pieces, they are quite heavy
-as they are fresh and still filled with sap.
-~
-ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
-stake stakes~
-The stakes keep the logs from rolling down.
+tree trees~
+The trees are mostly old beeches and oaks.
 ~
 ExtraDesc
 stump stumps~
@@ -1546,8 +1537,17 @@ There are more stumps than logs and some of the stumps are partly covered in
 moss.
 ~
 ExtraDesc
-tree trees~
-The trees are mostly old beeches and oaks.
+stake stakes~
+The stakes keep the logs from rolling down.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+ExtraDesc
+log logs~
+Even though the logs have been chopped to shorter pieces, they are quite heavy
+as they are fresh and still filled with sap.
 ~
 Exit
 0
@@ -1585,17 +1585,17 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-cabin logs~
-It looks simple but comfortable and the slender trees make the whole place seem
-pretty idyllic.  It's a cabin built from logs.  Wooden logs, not system logs.
+tree trees~
+The trees are fairly young, not much more than a hundred years or so.
 ~
 ExtraDesc
 path paths~
 The path is probably used by the cabin's inhabitants.
 ~
 ExtraDesc
-tree trees~
-The trees are fairly young, not much more than a hundred years or so.
+cabin logs~
+It looks simple but comfortable and the slender trees make the whole place seem
+pretty idyllic.  It's a cabin built from logs.  Wooden logs, not system logs.
 ~
 Exit
 0
@@ -1634,16 +1634,16 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bed~
-It is definitely not the most comfortable bed you have seen in your life.
+table~
+A heavy table that doesn't even appear to rock.
 ~
 ExtraDesc
 chair~
 It is made from oak and looks strong and sturdy.
 ~
 ExtraDesc
-table~
-A heavy table that doesn't even appear to rock.
+bed~
+It is definitely not the most comfortable bed you have seen in your life.
 ~
 Exit
 2
@@ -1665,12 +1665,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are fairly young, not much more than a hundred years or so.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1701,12 +1701,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1745,12 +1745,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 1
@@ -1780,13 +1780,13 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1825,12 +1825,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 2
@@ -1861,12 +1861,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1896,13 +1896,13 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1932,12 +1932,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The tall trees are young and slender, not much more than a hundred years or so.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -1975,13 +1975,13 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -2012,12 +2012,12 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-ExtraDesc
 tree trees~
 The trees are mostly old beeches and oaks.
+~
+ExtraDesc
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 2
@@ -2047,8 +2047,9 @@ Room_flags 0
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-path paths~
-The narrow path is probably used by the animals living in the forest.
+cave entrance~
+The irregular opening is eight feet wide and six feet tall.  An acrid smell
+emanates from within.
 ~
 ExtraDesc
 tree trees~
@@ -2056,9 +2057,8 @@ The crowns of the old trees leave the forest in an unreal twilight
 illumination.
 ~
 ExtraDesc
-cave entrance~
-The irregular opening is eight feet wide and six feet tall.  An acrid smell
-emanates from within.
+path paths~
+The narrow path is probably used by the animals living in the forest.
 ~
 Exit
 0
@@ -2097,16 +2097,16 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-debris~
-It consists mostly of gnawed bones mixed with small pieces of torn fur.
+air smell~
+Kind of transparent, but quite noticeable nevertheless.
 ~
 ExtraDesc
 cave walls floor stone~
 Quite uninteresting.
 ~
 ExtraDesc
-air smell~
-Kind of transparent, but quite noticeable nevertheless.
+debris~
+It consists mostly of gnawed bones mixed with small pieces of torn fur.
 ~
 Exit
 1
@@ -2130,16 +2130,16 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-grass~
-The tall grass makes a nice hiding place for animals.
+tree trees thicket~
+The trees form a close thicket.
 ~
 ExtraDesc
 path~
 The narrow path is probably used by the animals living in the forest.
 ~
 ExtraDesc
-tree trees thicket~
-The trees form a close thicket.
+grass~
+The tall grass makes a nice hiding place for animals.
 ~
 Exit
 2
@@ -2162,14 +2162,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -2200,9 +2200,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
 ~
 ExtraDesc
 path~
@@ -2210,9 +2210,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
-to catch even a glimpse of anything above the lowest branches.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -2251,9 +2251,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
 ~
 ExtraDesc
 path~
@@ -2261,9 +2261,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
-to catch even a glimpse of anything above the lowest branches.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -2294,14 +2294,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 trees trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -2340,13 +2340,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2376,13 +2376,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2412,13 +2412,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 1
@@ -2456,13 +2456,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2493,9 +2493,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
 ~
 ExtraDesc
 path~
@@ -2503,9 +2503,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
-to catch even a glimpse of anything above the lowest branches.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -2544,14 +2544,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -2582,9 +2582,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+Some of the trunks to the west are covered in a thin, almost transparent
+substance.  It looks like small threads woven carefully together.
 ~
 ExtraDesc
 path~
@@ -2592,9 +2592,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-Some of the trunks to the west are covered in a thin, almost transparent
-substance.  It looks like small threads woven carefully together.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -2632,14 +2632,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -2670,9 +2670,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
 ~
 ExtraDesc
 path~
@@ -2680,9 +2680,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
-to catch even a glimpse of anything above the lowest branches.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -2720,13 +2720,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 2
@@ -2756,13 +2756,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2801,13 +2801,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2837,13 +2837,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 1
@@ -2873,13 +2873,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 0
@@ -2917,13 +2917,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 2
@@ -2953,13 +2953,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-You feel as if they are watching you.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+You feel as if they are watching you.
 ~
 Exit
 0
@@ -2990,8 +2990,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 bank banks tree trees trunk trunks~
@@ -2999,9 +3000,8 @@ The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
 ~
 ExtraDesc
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+river~
+The river flows fast and strong.  It is black or looks so in the gloom.
 ~
 Exit
 0
@@ -3032,8 +3032,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 bank banks tree trees trunk trunks~
@@ -3041,9 +3042,8 @@ The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
 ~
 ExtraDesc
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+river~
+The river flows fast and strong.  It is black or looks so in the gloom.
 ~
 Exit
 1
@@ -3065,13 +3065,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-ExtraDesc
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+~
+ExtraDesc
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
 ~
 Exit
 1
@@ -3102,8 +3102,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+path paths~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 bank banks tree trees trunk trunks~
@@ -3111,9 +3112,8 @@ The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
 ~
 ExtraDesc
-path paths~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+river~
+The river flows fast and strong.  It is black or looks so in the gloom.
 ~
 Exit
 0
@@ -3160,8 +3160,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 bank banks tree trees trunk trunks~
@@ -3169,9 +3170,8 @@ The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
 ~
 ExtraDesc
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+river~
+The river flows fast and strong.  It is black or looks so in the gloom.
 ~
 Exit
 2
@@ -3202,8 +3202,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
 ~
 ExtraDesc
 bank banks tree trees trunk trunks~
@@ -3211,9 +3212,8 @@ The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
 ~
 ExtraDesc
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
+river~
+The river flows fast and strong.  It is black or looks so in the gloom.
 ~
 Exit
 0
@@ -3252,9 +3252,9 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
 ~
 ExtraDesc
 path~
@@ -3262,9 +3262,9 @@ The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
 ~
 ExtraDesc
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
-to catch even a glimpse of anything above the lowest branches.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 0
@@ -3302,14 +3302,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -3340,14 +3340,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -3378,14 +3378,14 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -3417,15 +3417,15 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
-~
-ExtraDesc
 substance wire wires rope ropes tree trees trunk trunks~
 The sticky substance is hanging like ropes between the ancient trees, crossing
 the path just out of reach.  It might be possible to climb one of the sticky
 trunks.
+~
+ExtraDesc
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 Exit
 1
@@ -3521,13 +3521,13 @@ Room_flags 9
 Sector_type 6
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-web~
-The immense spider web moves softly.
-~
-ExtraDesc
 cave structure~
 It covers a ground area corresponding to an irregular circle with a diameter of
 about 20 feet and is nearly 10 feet tall.  It looks very old.
+~
+ExtraDesc
+web~
+The immense spider web moves softly.
 ~
 Exit
 0
@@ -3567,13 +3567,13 @@ Room_flags 9
 Sector_type 6
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-web wall walls~
-The sticky walls are covered with open cocoons.
-~
-ExtraDesc
 cocoon cocoons~
 The cocoons are burst open as if something inside really wanted to get out.
 They are at the size of a human head.
+~
+ExtraDesc
+web wall walls~
+The sticky walls are covered with open cocoons.
 ~
 Exit
 1
@@ -3627,18 +3627,18 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-tree trees trunk trunks~
-To the east the ancient grey giants have many marks as if something with huge
-claws has been tearing at them in rage.
+trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
 ~
 ExtraDesc
 path~
 The trees standing on the sides of the path have scratch marks on them.
 ~
 ExtraDesc
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
-some places, giant grey roots have broken up through its surface.
+tree trees trunk trunks~
+To the east the ancient grey giants have many marks as if something with huge
+claws has been tearing at them in rage.
 ~
 Exit
 1
@@ -3709,13 +3709,13 @@ Room_flags 9
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+cave opening~
+The disgusting smell of a large reptile emanates from the cave opening.
+~
+ExtraDesc
 tree trees~
 The ancient grey giants have many marks as if something with huge claws has
 been tearing at them in rage.
-~
-ExtraDesc
-cave opening~
-The disgusting smell of a large reptile emanates from the cave opening.
 ~
 Exit
 0

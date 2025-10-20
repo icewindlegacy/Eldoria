@@ -881,10 +881,10 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 			if (!strcmp(arg,"help"))
 	        {	argument = one_argument(argument,arg);
 				if (argument[0] == '\0')
-					do_help(ch,"religion");
+					do_help(ch,"factions");
 	            else
 		            do_help(ch,argument);
-		        send_to_char("{CWhere do you place your faith? (help for more information)?\n\rEnter religion{W-> {x", ch);
+		        send_to_char("{CWhere do you place your faith? (type 'help' for more information)?\n\rEnter religion{W-> {x", ch);
 			    break;
 	        }
 			if(!str_cmp(argument, "None" ) )

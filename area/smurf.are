@@ -499,41 +499,41 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-sword~
-This fearsome blade looks as though it would live up to its moniker, The
-Rushing Harm, in a most deadly fashion.  If a weapon could ever truly show
-the feelings of sadness or boredom, Angvradil does when it is deprived of
-the carnage it craves.  
-~
-ExtraDesc
 angvradil~
 This fearsome blade looks as though it would live up to its moniker, The
 Rushing Harm, in a most deadly fashion.  If a weapon could ever truly show
 the feelings of sadness or boredom, Angvradil does when it is deprived of
 the carnage it craves.  
 ~
+ExtraDesc
+sword~
+This fearsome blade looks as though it would live up to its moniker, The
+Rushing Harm, in a most deadly fashion.  If a weapon could ever truly show
+the feelings of sadness or boredom, Angvradil does when it is deprived of
+the carnage it craves.  
+~
 AffectObj
-13 30000
-AffectObj
-12 30000
-AffectObj
-14 30000
-AffectObj
-19 27500
-AffectObj
-18 27500
-AffectObj
-17 -25000
-AffectObj
-1 25
-AffectObj
-3 25
-AffectObj
-5 25
+4 25
 AffectObj
 2 25
 AffectObj
-4 25
+5 25
+AffectObj
+3 25
+AffectObj
+1 25
+AffectObj
+17 -25000
+AffectObj
+18 27500
+AffectObj
+19 27500
+AffectObj
+14 30000
+AffectObj
+12 30000
+AffectObj
+13 30000
 EndObj
 
 #OBJ
@@ -555,13 +555,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-blood~
+pool~
 This pool of dark, drying blood almost appears to ripple with a life of
 its own, catching the gaze of any who glance at it with a nearly hypnotic
 effect.  
 ~
 ExtraDesc
-pool~
+blood~
 This pool of dark, drying blood almost appears to ripple with a life of
 its own, catching the gaze of any who glance at it with a nearly hypnotic
 effect.  
@@ -587,14 +587,14 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
-sign~
-This sign is very worn and the post that supports it is full of cracks. 
-There are {rwords{x written in what seem to be fresh red paint.  
-~
-ExtraDesc
 words~
 {rNo Trespassing!
 Violators will forfeit their souls.{x
+~
+ExtraDesc
+sign~
+This sign is very worn and the post that supports it is full of cracks. 
+There are {rwords{x written in what seem to be fresh red paint.  
 ~
 EndObj
 
@@ -1429,9 +1429,28 @@ Room_flags 67108872
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-book~
-This book appears to be a journal of some sort.  Perhaps reading the many
-pages would be beneficial.  (look page1, page2 etc.)  
+page4~
+Entry 4- My servants have truly outdone themselves with the restorations
+to the manor.  We feel a happiness here.  Before the front entrance lies a
+beautiful courtyard with fruit bearing trees and a magnificient fountain in
+the center.  My wife and children love feeding the fish and ducks in the
+pond on the western side.  Yes, I feel it safe to say that Lord Rhovanion
+has come home.  
+~
+ExtraDesc
+page3~
+Entry 3- I readied a horse team and carriage for my family today.  We
+journeyed to the manor in quiet anticipation.  Along the way, it seems that
+a large piece of wooded land was included in our inheritance.  Various game
+animals dart between the trees.  Hunting here should be quite interesting.  
+                               Lucas
+~
+ExtraDesc
+page2~
+Entry 2- I decided to send a group of my most trusted servants ahead to
+the manor to prepare it for our visit.  Since it has not been maintained as
+of late, I sent my groundskeeper as well to remove any overgrowth and
+unsightly weeds.  By weeks end everything should be in order.  L.  R.  
 ~
 ExtraDesc
 page1~
@@ -1444,28 +1463,9 @@ country and a change from the stale scenery of our current dwelling would
 be most welcome               Lucas Rhovanion
 ~
 ExtraDesc
-page2~
-Entry 2- I decided to send a group of my most trusted servants ahead to
-the manor to prepare it for our visit.  Since it has not been maintained as
-of late, I sent my groundskeeper as well to remove any overgrowth and
-unsightly weeds.  By weeks end everything should be in order.  L.  R.  
-~
-ExtraDesc
-page3~
-Entry 3- I readied a horse team and carriage for my family today.  We
-journeyed to the manor in quiet anticipation.  Along the way, it seems that
-a large piece of wooded land was included in our inheritance.  Various game
-animals dart between the trees.  Hunting here should be quite interesting.  
-                               Lucas
-~
-ExtraDesc
-page4~
-Entry 4- My servants have truly outdone themselves with the restorations
-to the manor.  We feel a happiness here.  Before the front entrance lies a
-beautiful courtyard with fruit bearing trees and a magnificient fountain in
-the center.  My wife and children love feeding the fish and ducks in the
-pond on the western side.  Yes, I feel it safe to say that Lord Rhovanion
-has come home.  
+book~
+This book appears to be a journal of some sort.  Perhaps reading the many
+pages would be beneficial.  (look page1, page2 etc.)  
 ~
 Exit
 3
