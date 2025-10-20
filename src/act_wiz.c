@@ -3949,8 +3949,8 @@ void do_mset( CHAR_DATA *ch, char *argument )
         }
 
         victim->pcdata->trivia += value;
-        printf_to_char(ch, "{wAdjusting %s's trivia points by {W%s{x\n\r", victim->name, value );
-        printf_to_char(victim, "{wYour trivia points have been modified by {W%s{w.{x\n\r", ch->name );
+        printf_to_char(ch, "{wAdjusting %s's trivia points by {W%d{x\n\r", victim->name, value );
+        printf_to_char(victim, "{wYour trivia points have been modified by {W%d{w.{x\n\r", value );
     }
 
     if ( !str_prefix( arg2, "level" ) )
