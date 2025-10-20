@@ -1,3 +1,17 @@
+/***************************************************
+*  ___________.__       .___           .__         *
+*  \_   _____/|  |    __| _/___________|__|____    *
+*   |    __)_ |  |   / __ |/  _ \_  __ \  \__  \   *
+*   |        \|  |__/ /_/ (  <_> )  | \/  |/ __ \_ *
+*  /_______  /|____/\____ |\____/|__|  |__(____  / *
+*          \/            \/                    \/  *
+****************************************************/
+//
+//                Eldoria MUD
+//   Bringing the magic of ROM 2.4b6 to 2025!
+//
+//            Ro Black <icewindlegacy@gmail.com>
+//
 /*This is lycanth.c, which covers not only lycanthropy but also vampirism,
    both being portrayed as transmittable afflictions on A Dark Portal. This was
    undertaken on Nov. 14, 1999 by Noximist, and has not yet been completed to 
