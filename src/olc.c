@@ -2190,15 +2190,16 @@ void do_alist (CHAR_DATA * ch, char *argument)
     send_to_char( buf->data, ch );
     buffer_clear(buf);
 
-    /*  perform sort if argment given */
-    if (!str_cmp (command, "lvnum"))
-        qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_lvnum);
-    else if (!str_cmp (command, "name"))
+    /*  perform sort - default is by vnum range (lvnum) */
+    if (!str_cmp (command, "name"))
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_name);
     else if (!str_cmp (command, "filename"))
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_filename);
     else if (!str_cmp (command, "builders") || !str_cmp (command, "builder"))
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_builders);
+    else
+        /* Default sort by vnum range (lvnum) */
+        qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_lvnum);
     /*  generate output buffer */
     desc_area = 0; top_area = 0;
 
