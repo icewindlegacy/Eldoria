@@ -713,13 +713,13 @@ Obviously of alien manufacture, this blade enhances fighting
 and survival skills.
 ~
 AffectObj
-18 2
-AffectObj
-19 2
+2 1
 AffectObj
 5 1
 AffectObj
-2 1
+19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ

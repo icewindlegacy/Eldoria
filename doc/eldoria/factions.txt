@@ -1,0 +1,70 @@
+====================================================================
+                             GODS OF ELDORIA
+====================================================================
+The world of Eldoria is shaped by five great pantheons, each born
+from the clash of Light and Shadow.  Their worshippers vie for
+influence across the realms, their faiths often rival yet entwined.
+
+--------------------------------------------------------------------
+SOLARI DOMINION  (Light, Order, Fire)
+  Prime:  Aurelion – Radiant King, Lord of Light
+  Seraphis – War, Justice
+  Velara – Flame, Passion
+  Thane – Sun, Valor
+  Eryndor – Dawn, Prophecy
+
+  Factions:
+    Dawnwardens (Aurelion’s crusaders)
+    Ember Choir (Velara’s mystics)
+
+--------------------------------------------------------------------
+TIDESWORN FAITH  (Water, Moon, Secrets)
+  Prime:  Nerathis – Deep Mother, Keeper of the Moon
+  Thalor – Storms, Travel
+  Syrune – Dreams, Fate
+  Coren – Tempest, Wrath
+  Lethara – Calm, Mercy
+
+  Factions:
+    Abyssal Choir (Nerathis’ seers)
+    Wavebound Order (Thalor’s sailors)
+
+--------------------------------------------------------------------
+VERDANT ACCORD  (Nature, Renewal, Beasts)
+  Prime:  Sylara – Lifeweaver, Mother of Growth
+  Druven – Hunt, Beasts
+  Faelen – Forests, Spirits
+  Mirae – Fertility, Grace
+  Korren – Decay, Rebirth
+
+  Factions:
+    Circle of Roots (Sylara’s druids)
+    Thornbound (Korren’s wardens)
+
+--------------------------------------------------------------------
+FORGEBOUND CREED  (Earth, Craft, Fire)
+  Prime:  Ornak – The Maker, Lord of the Forge
+  Tavros – Guardianship, Fire
+  Helra – Stone, Patience
+  Brunn – Metal, Endurance
+  Ildra – Invention, Craft
+
+  Factions:
+    Iron Covenant (Ornak’s builders)
+    Emberforged (Ildra’s artificers)
+
+--------------------------------------------------------------------
+UMBRACULT  (Shadow, Death, Rebirth)
+  Prime:  Umbra – The Eater of Dawn, Keeper of Silence
+  Nethra – Secrets, Illusion
+  Veyne – Night, Assassins
+  Korran – Entropy, Decay
+  Lirath – Ghosts, Memory
+
+  Factions:
+    Nightveil (Umbra’s monks)
+    Ashen Path (Lirath’s necromancers)
+
+====================================================================
+See also: HELP COSMOLOGY
+====================================================================

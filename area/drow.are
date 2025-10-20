@@ -479,9 +479,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -503,9 +503,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -527,9 +527,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -551,9 +551,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -575,9 +575,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -599,9 +599,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -623,9 +623,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 -1
-AffectObj
 1 -1
+AffectObj
+3 -1
 EndObj
 
 #OBJ
@@ -647,9 +647,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 -2
-AffectObj
 1 -2
+AffectObj
+3 -2
 EndObj
 
 #OBJ
@@ -777,9 +777,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 18 3
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -1638,12 +1638,12 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-hole~
-A small hole that looks to have been sealed at one time.
-~
-ExtraDesc
 gate~
 A large adamantite gate with giant spider shaped emblems stands here.
+~
+ExtraDesc
+hole~
+A small hole that looks to have been sealed at one time.
 ~
 Exit
 3

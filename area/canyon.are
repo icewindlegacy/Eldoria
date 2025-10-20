@@ -1412,9 +1412,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-3 1
-AffectObj
 4 1
+AffectObj
+3 1
 EndObj
 
 #OBJ
@@ -1436,9 +1436,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 -2
-AffectObj
 5 1
+AffectObj
+2 -2
 EndObj
 
 #OBJ
@@ -1548,9 +1548,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 -1
-AffectObj
 19 2
+AffectObj
+18 -1
 EndObj
 
 #OBJ
@@ -1572,9 +1572,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 -1
-AffectObj
 5 1
+AffectObj
+1 -1
 EndObj
 
 #OBJ
@@ -1618,9 +1618,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 25
-AffectObj
 18 -2
+AffectObj
+12 25
 EndObj
 
 #OBJ
@@ -1686,9 +1686,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 4 -2
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1710,9 +1710,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
-AffectObj
 3 -2
+AffectObj
+2 1
 EndObj
 
 #OBJ
@@ -1834,9 +1834,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 -2
-AffectObj
 19 1
+AffectObj
+18 -2
 EndObj
 
 #OBJ
@@ -1960,9 +1960,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 -20
-AffectObj
 18 2
+AffectObj
+13 -20
 EndObj
 
 #OBJ
@@ -1984,9 +1984,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 1 -1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -2030,9 +2030,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 -2
-AffectObj
 17 -3
+AffectObj
+20 -2
 EndObj
 
 #OBJ
@@ -2054,9 +2054,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 1 -2
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -3306,14 +3306,14 @@ Room_flags 0
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+bodies body dead~
+They look as if their necks have been broken and their flesh, chewed.
+~
+ExtraDesc
 heaps stones tombs~
 You are sure glad that YOU aren't under one of those piles!
 Many of the tombstones have the same name on them, 'Raff'.  He must come
 here a lot.
-~
-ExtraDesc
-bodies body dead~
-They look as if their necks have been broken and their flesh, chewed.
 ~
 Exit
 4

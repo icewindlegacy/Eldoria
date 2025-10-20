@@ -72,14 +72,14 @@ Exp 0
 Xp_tolevel 0
 Condition P
 ExtraDesc
+motto~
+'Time on the ground is time wasted.'
+~
+ExtraDesc
 bells morris~
 These are a set of sturdy leather leggings with small brass bells sewn on.
 They look like the leggings worn by Morris dancers.  There is a motto tooled
 into the leather.
-~
-ExtraDesc
-motto~
-'Time on the ground is time wasted.'
 ~
 EndObj
 
@@ -180,12 +180,12 @@ You see machine dreams and taste violet phosphor.
 8603
 0
 Exit
-0
+5
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8606
+8620
 0
 Exit
 1
@@ -196,14 +196,6 @@ You see machine dreams and taste violet phosphor.
 8601
 0
 Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8610
-0
-Exit
 3
 You see machine dreams and taste violet phosphor.
 ~
@@ -212,12 +204,20 @@ You see machine dreams and taste violet phosphor.
 8602
 0
 Exit
-5
+4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8620
+8610
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8606
 0
 EndRoom
 
@@ -232,12 +232,20 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8621
+8604
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8611
 0
 Exit
 3
@@ -246,6 +254,14 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8600
+0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8621
 0
 Exit
 0
@@ -263,22 +279,6 @@ You see machine dreams and taste violet phosphor.
 0
 8602
 0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8611
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8604
-0
 EndRoom
 
 #ROOM
@@ -292,20 +292,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+1
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8601
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8608
+8600
 0
 Exit
 4
@@ -316,6 +308,14 @@ You see machine dreams and taste violet phosphor.
 8612
 0
 Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8601
+0
+Exit
 5
 You see machine dreams and taste violet phosphor.
 ~
@@ -324,20 +324,20 @@ You see machine dreams and taste violet phosphor.
 8622
 0
 Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8608
+0
+Exit
 2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8605
-0
-Exit
-1
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8600
 0
 EndRoom
 
@@ -351,22 +351,6 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8605
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8600
-0
 Exit
 4
 You see machine dreams and taste violet phosphor.
@@ -384,6 +368,14 @@ You see machine dreams and taste violet phosphor.
 8623
 0
 Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8604
+0
+Exit
 2
 You see machine dreams and taste violet phosphor.
 ~
@@ -392,12 +384,20 @@ You see machine dreams and taste violet phosphor.
 8606
 0
 Exit
-1
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8604
+8605
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8600
 0
 EndRoom
 
@@ -412,28 +412,12 @@ Room_flags 8196
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+1
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8607
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8601
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8614
+8605
 0
 Exit
 3
@@ -444,12 +428,20 @@ You see machine dreams and taste violet phosphor.
 8603
 0
 Exit
-1
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8605
+8607
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8614
 0
 Exit
 5
@@ -458,6 +450,14 @@ You see an abandoned warehouse.
 ~
 0
 3050
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8601
 0
 EndRoom
 
@@ -471,6 +471,38 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8608
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8603
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8602
+0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8604
+0
 Exit
 5
 You see machine dreams and taste violet phosphor.
@@ -487,38 +519,6 @@ You see machine dreams and taste violet phosphor.
 0
 8615
 0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8602
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8608
-0
-Exit
-1
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8603
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8604
-0
 EndRoom
 
 #ROOM
@@ -532,28 +532,28 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8603
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8600
-0
-Exit
 4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8616
+0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8626
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8603
 0
 Exit
 1
@@ -572,12 +572,12 @@ You see machine dreams and taste violet phosphor.
 8608
 0
 Exit
-5
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8626
+8600
 0
 EndRoom
 
@@ -592,12 +592,28 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
+4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8604
+8617
+0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8601
+0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8627
 0
 Exit
 1
@@ -616,28 +632,12 @@ You see machine dreams and taste violet phosphor.
 8606
 0
 Exit
-5
+0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8627
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8601
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8617
+8604
 0
 EndRoom
 
@@ -652,20 +652,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
+1
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8605
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8602
+8606
 0
 Exit
 5
@@ -674,6 +666,14 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8628
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8605
 0
 Exit
 3
@@ -692,12 +692,12 @@ You see machine dreams and taste violet phosphor.
 8618
 0
 Exit
-1
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8606
+8602
 0
 EndRoom
 
@@ -711,6 +711,14 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8612
+0
 Exit
 1
 You see machine dreams and taste violet phosphor.
@@ -728,14 +736,6 @@ You see machine dreams and taste violet phosphor.
 8620
 0
 Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8613
-0
-Exit
 5
 You see machine dreams and taste violet phosphor.
 ~
@@ -744,20 +744,20 @@ You see machine dreams and taste violet phosphor.
 8600
 0
 Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8612
-0
-Exit
 0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8616
+0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8613
 0
 EndRoom
 
@@ -771,38 +771,6 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-1
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8612
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8614
-0
-Exit
-0
-You see the Road to Newfane.
-~
-~
-0
-8630
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8621
-0
 Exit
 5
 You see machine dreams and taste violet phosphor.
@@ -819,6 +787,38 @@ You see machine dreams and taste violet phosphor.
 0
 8610
 0
+Exit
+0
+You see the Road to Newfane.
+~
+~
+0
+8630
+0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8614
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8621
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8612
+0
 EndRoom
 
 #ROOM
@@ -831,22 +831,6 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8618
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8622
-0
 Exit
 2
 You see machine dreams and taste violet phosphor.
@@ -864,12 +848,12 @@ You see machine dreams and taste violet phosphor.
 8610
 0
 Exit
-3
+0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8611
+8618
 0
 Exit
 5
@@ -878,6 +862,22 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8602
+0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8611
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8622
 0
 EndRoom
 
@@ -891,6 +891,22 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8603
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8610
+0
 Exit
 3
 You see a road by a pond.
@@ -908,28 +924,12 @@ You see machine dreams and taste violet phosphor.
 8616
 0
 Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8603
-0
-Exit
 4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8623
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8610
 0
 Exit
 1
@@ -960,22 +960,6 @@ You see machine dreams and taste violet phosphor.
 8617
 0
 Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8604
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8613
-0
-Exit
 0
 You see machine dreams and taste violet phosphor.
 ~
@@ -984,12 +968,28 @@ You see machine dreams and taste violet phosphor.
 8611
 0
 Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8604
+0
+Exit
 4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8624
+0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8613
 0
 Exit
 1
@@ -1012,20 +1012,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8614
-0
-Exit
-1
-You see a large dance hall.
-~
-~
-0
-8632
+8625
 0
 Exit
 0
@@ -1036,6 +1028,14 @@ You see machine dreams and taste violet phosphor.
 8612
 0
 Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8618
+0
+Exit
 5
 You see machine dreams and taste violet phosphor.
 ~
@@ -1044,20 +1044,20 @@ You see machine dreams and taste violet phosphor.
 8605
 0
 Exit
-4
-You see machine dreams and taste violet phosphor.
+1
+You see a large dance hall.
 ~
 ~
 0
-8625
+8632
 0
 Exit
-2
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8618
+8614
 0
 EndRoom
 
@@ -1072,20 +1072,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8606
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8626
+8610
 0
 Exit
 0
@@ -1096,6 +1088,14 @@ You see machine dreams and taste violet phosphor.
 8613
 0
 Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8626
+0
+Exit
 3
 You see machine dreams and taste violet phosphor.
 ~
@@ -1104,12 +1104,12 @@ You see machine dreams and taste violet phosphor.
 8618
 0
 Exit
-2
+5
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8610
+8606
 0
 Exit
 1
@@ -1132,20 +1132,20 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+1
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8616
+8618
 0
 Exit
-5
+4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8607
+8627
 0
 Exit
 2
@@ -1156,12 +1156,12 @@ You see a small hall.
 8634
 0
 Exit
-1
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8618
+8616
 0
 Exit
 0
@@ -1172,12 +1172,12 @@ You see machine dreams and taste violet phosphor.
 8614
 0
 Exit
-4
+5
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8627
+8607
 0
 EndRoom
 
@@ -1192,20 +1192,20 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8628
-0
-Exit
 0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8615
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8628
 0
 Exit
 1
@@ -1216,12 +1216,12 @@ You see machine dreams and taste violet phosphor.
 8616
 0
 Exit
-2
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8612
+8617
 0
 Exit
 5
@@ -1232,12 +1232,12 @@ You see machine dreams and taste violet phosphor.
 8608
 0
 Exit
-3
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8617
+8612
 0
 EndRoom
 
@@ -1251,30 +1251,6 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-1
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8621
-0
-Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8610
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8600
-0
 Exit
 3
 You see machine dreams and taste violet phosphor.
@@ -1299,6 +1275,30 @@ You see machine dreams and taste violet phosphor.
 0
 8626
 0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8600
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8621
+0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8610
+0
 EndRoom
 
 #ROOM
@@ -1312,6 +1312,14 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8624
+0
+Exit
 5
 You see machine dreams and taste violet phosphor.
 ~
@@ -1320,12 +1328,20 @@ You see machine dreams and taste violet phosphor.
 8611
 0
 Exit
-2
+0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8624
+8627
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8601
 0
 Exit
 3
@@ -1342,22 +1358,6 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8622
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8601
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8627
 0
 EndRoom
 
@@ -1380,28 +1380,12 @@ You see machine dreams and taste violet phosphor.
 8612
 0
 Exit
-4
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8602
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8628
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8621
+8625
 0
 Exit
 1
@@ -1412,12 +1396,28 @@ You see machine dreams and taste violet phosphor.
 8620
 0
 Exit
-2
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8625
+8621
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8628
+0
+Exit
+4
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8602
 0
 EndRoom
 
@@ -1432,28 +1432,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8624
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8625
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8620
+8626
 0
 Exit
 4
@@ -1472,12 +1456,28 @@ You see machine dreams and taste violet phosphor.
 8613
 0
 Exit
-2
+0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8626
+8620
+0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8625
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8624
 0
 EndRoom
 
@@ -1492,28 +1492,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-You see machine dreams and taste violet phosphor.
+4
+You see a mountain ridge against the sky.
 ~
 ~
 0
-8627
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8623
-0
-Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8614
+8638
 0
 Exit
 1
@@ -1524,6 +1508,14 @@ You see machine dreams and taste violet phosphor.
 8625
 0
 Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8614
+0
+Exit
 0
 You see machine dreams and taste violet phosphor.
 ~
@@ -1532,12 +1524,20 @@ You see machine dreams and taste violet phosphor.
 8621
 0
 Exit
-4
-You see a mountain ridge against the sky.
+3
+You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8638
+8623
+0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8627
 0
 EndRoom
 
@@ -1551,6 +1551,38 @@ same obsidian color as the ground and you can't find a horizon.
 Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8615
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8623
+0
+Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8622
+0
+Exit
+2
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8628
+0
 Exit
 4
 You see machine dreams and taste violet phosphor.
@@ -1566,38 +1598,6 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8624
-0
-Exit
-1
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8623
-0
-Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8615
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8628
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8622
 0
 EndRoom
 
@@ -1620,12 +1620,12 @@ You see machine dreams and taste violet phosphor.
 8606
 0
 Exit
-0
+3
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8623
+8628
 0
 Exit
 2
@@ -1636,20 +1636,12 @@ You see machine dreams and taste violet phosphor.
 8620
 0
 Exit
-3
+0
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8628
-0
-Exit
-5
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8616
+8623
 0
 Exit
 1
@@ -1658,6 +1650,14 @@ You see machine dreams and taste violet phosphor.
 ~
 0
 8627
+0
+Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8616
 0
 EndRoom
 
@@ -1672,28 +1672,20 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+5
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8617
+0
+Exit
 2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8621
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8624
-0
-Exit
-4
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8607
 0
 Exit
 3
@@ -1704,6 +1696,14 @@ You see machine dreams and taste violet phosphor.
 8626
 0
 Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8624
+0
+Exit
 1
 You see machine dreams and taste violet phosphor.
 ~
@@ -1712,12 +1712,12 @@ You see machine dreams and taste violet phosphor.
 8628
 0
 Exit
-5
+4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8617
+8607
 0
 EndRoom
 
@@ -1732,28 +1732,12 @@ Room_flags 8192
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
+2
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
-8626
-0
-Exit
-0
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8625
-0
-Exit
-3
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8627
+8622
 0
 Exit
 5
@@ -1764,20 +1748,36 @@ You see machine dreams and taste violet phosphor.
 8618
 0
 Exit
+0
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8625
+0
+Exit
+1
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8626
+0
+Exit
+3
+You see machine dreams and taste violet phosphor.
+~
+~
+0
+8627
+0
+Exit
 4
 You see machine dreams and taste violet phosphor.
 ~
 ~
 0
 8608
-0
-Exit
-2
-You see machine dreams and taste violet phosphor.
-~
-~
-0
-8622
 0
 EndRoom
 

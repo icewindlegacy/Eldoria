@@ -533,9 +533,9 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 					for ( pRlg = religion_list; pRlg ; pRlg = pRlg->next )
 					{	printf_to_char(ch, "{C%s {r-{C %s\n\r{x", pRlg->name, pRlg->god );
 						if(pRlg->faction[FACTION_ONE] )
-							printf_to_char(ch, "\t{CFaction{r:{W {C%s {r- {C%s\n\r", pRlg->faction[FACTION_ONE]->name, pRlg->faction[FACTION_ONE]->deity ); 
-						if(pRlg->faction[FACTION_TWO] )
-							printf_to_char(ch, "\t{CFaction{r:{W {C%s {r- {C%s\n\r", pRlg->faction[FACTION_TWO]->name, pRlg->faction[FACTION_TWO]->deity ); 
+						printf_to_char(ch, "\t{CFaction{r:{W {C%s {r- {C%s\n\r", pRlg->faction[FACTION_ONE]->name, pRlg->faction[FACTION_ONE]->exarch ); 
+					if(pRlg->faction[FACTION_TWO] )
+						printf_to_char(ch, "\t{CFaction{r:{W {C%s {r- {C%s\n\r", pRlg->faction[FACTION_TWO]->name, pRlg->faction[FACTION_TWO]->exarch );
 					}
 					send_to_char("{CNone {r-{C None.\n\r",ch);
 
@@ -881,7 +881,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 			if (!strcmp(arg,"help"))
 	        {	argument = one_argument(argument,arg);
 				if (argument[0] == '\0')
-					do_help(ch,"gods");
+					do_help(ch,"religion");
 	            else
 		            do_help(ch,argument);
 		        send_to_char("{CWhere do you place your faith? (help for more information)?\n\rEnter religion{W-> {x", ch);

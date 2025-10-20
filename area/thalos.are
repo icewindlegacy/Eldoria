@@ -369,9 +369,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 2
-AffectObj
 19 1
+AffectObj
+1 2
 EndObj
 
 #OBJ
@@ -415,9 +415,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -439,9 +439,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #OBJ
@@ -463,9 +463,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
-AffectObj
 18 1
+AffectObj
+2 1
 EndObj
 
 #OBJ
@@ -487,9 +487,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
-AffectObj
 18 1
+AffectObj
+2 1
 EndObj
 
 #OBJ
@@ -701,9 +701,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 -8
-AffectObj
 1 -10
+AffectObj
+2 -8
 EndObj
 
 #OBJ
@@ -765,9 +765,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 18 2
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -1193,9 +1193,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 1
-AffectObj
 18 1
+AffectObj
+19 1
 EndObj
 
 #END
@@ -3284,15 +3284,15 @@ Room_flags 1
 Sector_type 3
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.
-~
-ExtraDesc
 writings writing words~
 This cave along with the valley and dwarf forest is made by Hatchet for any
 Merc Mud.
 copyright 1992
+~
+ExtraDesc
+skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
 ~
 Exit
 0

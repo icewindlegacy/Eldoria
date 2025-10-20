@@ -44,6 +44,7 @@
 
 RELIGION *new_religion	args( (void) );
 int god_lookup			args( ( const char *name ) );
+int exarch_lookup		args( ( const char *name ) );
 int relgrank_lookup		args( ( const char *name ) );
 void free_religion		args( (RELIGION *pRlg) );
 void join_religion		args( (CHAR_DATA *ch, RELIGION *pRlg ) );
@@ -53,6 +54,7 @@ bool same_main_relg		args( (CHAR_DATA *ch, CHAR_DATA *victim ) );
 /* Local structures */
 extern struct sex_type relgrank_table[];
 extern struct sex_type god_table[];
+extern struct sex_type exarch_table[];
 
 
 /*Begining of OLC Functions */
@@ -92,9 +94,9 @@ RLGEDIT(rlgedit_show)
 				pRlg->faction[FACTION_ONE]->name,
 				pRlg->faction[FACTION_TWO] ? pRlg->faction[FACTION_TWO]->name : "" );
 
-		printf_to_char(ch, "{DDeity{r:             [{W%-15s{r] [{W%-15s{r]\n\r", 
-				pRlg->faction[FACTION_ONE]->deity,
-				pRlg->faction[FACTION_TWO] ? pRlg->faction[FACTION_TWO]->deity : "");
+		printf_to_char(ch, "{DExarch{r:            [{W%-15s{r] [{W%-15s{r]\n\r", 
+				pRlg->faction[FACTION_ONE]->exarch,
+				pRlg->faction[FACTION_TWO] ? pRlg->faction[FACTION_TWO]->exarch : "");
 
 		printf_to_char(ch, "{DTemple{r:            [{W%-15s{r] [{W%-15s{r]\n\r", 
 				pRlg->faction[FACTION_ONE]->temple ? pRlg->faction[FACTION_ONE]->temple->name : "Not Set",
@@ -244,7 +246,7 @@ RLGEDIT( rlgedit_god )
 
 	free_string(pRlg->god);
 	pRlg->god = str_dup(capitalize(argument ) );
-	printf_to_char(ch, "The god for the order of %s has been set too %s.\n\r",pRlg->name, pRlg->god );
+	printf_to_char(ch, "The god for the order of %s has been set to %s.\n\r",pRlg->name, pRlg->god );
 	return TRUE;
 }
 
@@ -330,7 +332,7 @@ RLGEDIT( rlgedit_rank )
 	
 	free_string(pRlg->rank[iClass][rank]);
 	pRlg->rank[iClass][rank] = str_dup(capitalize(argument) );
-	printf_to_char(ch, "%s, %s's %s rank was changed too %s.\n\r", pRlg->name, class_table[iClass].name, relgrank_table[rank].name, argument);
+	printf_to_char(ch, "%s, %s's %s rank was changed to %s.\n\r", pRlg->name, class_table[iClass].name, relgrank_table[rank].name, argument);
 	return TRUE;
 }
 
@@ -364,7 +366,7 @@ RLGEDIT( rlgedit_skill )
 		return FALSE;
 	}
 
-	printf_to_char(ch, "%s's %s rank for %s class's ability was changed too %s.\n\r", pRlg->name, relgrank_table[rank].name, class_table[iClass].name, skill_table[sn].name );
+	printf_to_char(ch, "%s's %s rank for %s class's ability was changed to %s.\n\r", pRlg->name, relgrank_table[rank].name, class_table[iClass].name, skill_table[sn].name );
 	free_string(pRlg->skpell[iClass][rank]);
 	pRlg->skpell[iClass][rank] = str_dup(skill_table[sn].name );
 	return TRUE;
@@ -381,7 +383,7 @@ RLGEDIT( rlgedit_faction )
 	if(arg[0] == '\0' )
 	{	send_to_char("Syntax: faction create <name>\n\r",ch);
 		send_to_char("        faction <one|two> <command> <value>\n\r",ch);
-		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, Deity, message.\n\r",ch);
+		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, Exarch, message.\n\r",ch);
 		return FALSE;
 	}
 
@@ -423,18 +425,18 @@ RLGEDIT( rlgedit_faction )
 	else
 	{	send_to_char("Syntax: faction create <name>\n\r",ch);
 		send_to_char("        faction <one|two> <command> <value>\n\r",ch);
-		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, deity, message.\n\r",ch);
+		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, exarch, message.\n\r",ch);
 		return FALSE;
 	}		
 	if(arg2[0] == '\0' )
 	{	send_to_char("Syntax: faction create <name>\n\r",ch);
 		send_to_char("        faction <one|two> <command> <value>\n\r",ch);
-		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, deity, message.\n\r",ch);
+		send_to_char("Commands: Name, Donation, Skill, Rank, Temple, exarch, message.\n\r",ch);
 		return FALSE;
 	}
 	if(!str_cmp(arg2, "name" ) )
 	{	if(argument[0] == '\0' ) 
-		{	send_to_char("What would you like to change the name too?\n\r",ch);
+		{	send_to_char("What would you like to change the name to?\n\r",ch);
 			return FALSE;
 		}
 		printf_to_char(ch, "The Faction, %s, has been changed to %s.\n\r",pFct->name, capitalize(argument) );
@@ -492,20 +494,20 @@ RLGEDIT( rlgedit_faction )
 		return TRUE;
 	}
 
-	if(!str_cmp(arg2, "deity" ) )
-	{	int god;
+	if(!str_cmp(arg2, "exarch" ) )
+	{	int exarch;
 		argument = one_argument(argument, arg3);
 		if(arg3[0] == '\0' )
-		{	send_to_char("What would you like to set the factions Deity too?\n\r",ch);
+		{	send_to_char("What would you like to set the factions Exarch to?\n\r",ch);
 			return FALSE;
 		}
-		if( ( god = god_lookup(arg3) ) == -1 )
-		{	send_to_char("That isn't a valid god.\n\r",ch);
+		if( ( exarch = exarch_lookup(arg3) ) == -1 )
+		{	send_to_char("That isn't a valid exarch.\n\r",ch);
 			return FALSE;
 		}
-		printf_to_char(ch, "The Faction, %s's deity set too %s.\n\r",pFct->name, god_table[god].name );
-		free_string(pFct->deity);
-		pFct->deity = str_dup(god_table[god].name );
+		printf_to_char(ch, "The Faction, %s's exarch set to %s.\n\r",pFct->name, exarch_table[exarch].name );
+		free_string(pFct->exarch);
+		pFct->exarch = str_dup(exarch_table[exarch].name );
 		return TRUE;
 	}
 
@@ -531,7 +533,7 @@ RLGEDIT( rlgedit_faction )
 		
 		free_string(pFct->rank[iClass][rank]);
 		pFct->rank[iClass][rank] = str_dup(argument);
-		printf_to_char(ch, "The faction, %s,  %s's %s rank was changed too %s.\n\r", pFct->name, class_table[iClass].name, relgrank_table[rank].name, argument);
+		printf_to_char(ch, "The faction, %s,  %s's %s rank was changed to %s.\n\r", pFct->name, class_table[iClass].name, relgrank_table[rank].name, argument);
 		return TRUE;
 	}
 
@@ -557,7 +559,7 @@ RLGEDIT( rlgedit_faction )
 			return FALSE;
 		}
 
-		printf_to_char(ch, "The faction, %s's %s rank for %s class's ability was changed too %s.\n\r", pFct->name, relgrank_table[rank].name, class_table[iClass].name, skill_table[sn].name );
+		printf_to_char(ch, "The faction, %s's %s rank for %s class's ability was changed to %s.\n\r", pFct->name, relgrank_table[rank].name, class_table[iClass].name, skill_table[sn].name );
 		free_string(pFct->skpell[iClass][rank]);
 		pFct->skpell[iClass][rank] = str_dup(skill_table[sn].name );
 		return TRUE;
@@ -698,7 +700,7 @@ void save_religion()
 		if(pRlg->faction[FACTION_ONE] )
 		{	RELIGION *faction = pRlg->faction[FACTION_ONE];
 			fprintf(fp, "%s~\n", faction->name );
-			fprintf(fp, "%s~\n", faction->deity );
+			fprintf(fp, "%s~\n", faction->exarch );
 			fprintf(fp, "%s~\n", faction->temple ? faction->temple->name : "None" );
 			fprintf(fp, "%d\n", faction->donation_vnum );
 			
@@ -711,7 +713,7 @@ void save_religion()
 			if(pRlg->faction[FACTION_TWO] )
 			{	faction = pRlg->faction[FACTION_TWO];
 				fprintf(fp, "%s~\n", faction->name );
-				fprintf(fp, "%s~\n", faction->deity );
+				fprintf(fp, "%s~\n", faction->exarch );
 				fprintf(fp, "%s~\n", faction->temple ? faction->temple->name : "None" );
 				fprintf(fp, "%d\n", faction->donation_vnum );
 				for(rank = 0; rank < MAX_RELG_RANK ; rank++ )
@@ -818,7 +820,7 @@ void load_religion()
 				{	RELIGION *faction;
 					faction = new_religion();
 					KEYS(faction->name, fread_string(fp));
-					KEYS(faction->deity, fread_string(fp));
+					KEYS(faction->exarch, fread_string(fp));
 					if( ( pArea = area_lookup(fread_string(fp) ) ) == NULL )
 						logf2("Faction %s lacks temple.", faction->name );
 					else
@@ -839,7 +841,7 @@ void load_religion()
 				{	RELIGION *faction;
 					faction = new_religion();
 					KEYS(faction->name, fread_string(fp));
-					KEYS(faction->deity, fread_string(fp));
+					KEYS(faction->exarch, fread_string(fp));
 					if( ( pArea = area_lookup(fread_string(fp) ) ) == NULL )
 						logf2("Faction %s lacks temple.", faction->name );
 					else
@@ -1309,7 +1311,7 @@ RELIGION *new_religion(void)
 	STRING_NEW(pRlg->chan_name);
 	STRING_NEW(pRlg->sac_msg );
 	STRING_NEW(pRlg->god);
-	STRING_NEW(pRlg->deity);
+	STRING_NEW(pRlg->exarch);
 	STRING_NEW(pRlg->name );
 
 	for(rank = 0; rank < MAX_RELG_RANK ; rank++ )
@@ -1338,7 +1340,7 @@ void free_religion(RELIGION *pRlg)
 	free_string(pRlg->name);
 	
 	pRlg->isfaction = FALSE;
-	free_string(pRlg->deity);
+	free_string(pRlg->exarch);
 	free_string(pRlg->god);
 	
 	for(rank = 0; rank < MAX_RELG_RANK ; rank++ )
@@ -1367,6 +1369,19 @@ int god_lookup ( const char *name )
         if (LOWER(name[0]) == LOWER(god_table[god].name[0])
         &&  !str_prefix(name,god_table[god].name))
             return god;
+    }
+    return -1;
+}
+
+int exarch_lookup ( const char *name )
+{
+    int exarch;
+
+    for ( exarch = 0 ; exarch_table[exarch].name != NULL ; exarch++ )
+    {
+        if (LOWER(name[0]) == LOWER(exarch_table[exarch].name[0])
+        &&  !str_prefix(name,exarch_table[exarch].name))
+            return exarch;
     }
     return -1;
 }
@@ -1429,83 +1444,25 @@ struct sex_type relgrank_table[] =
 
 struct sex_type god_table[] = 
 {
-	{ "Odin" },
-	{ "Thor"  },
-	{ "Loki"   },
-	{ "Freya"   },
-	{ "Fenrir"   },
-	{ "Hera"   },
-	{ "Zeus"   },
-	{ "Athena"   },
-	{ "Apollo"   },
-	{ "Artemis"   },
-	{ "Hermes"   },
-	{ "Hades"   },
-	{ "Poseidon"   },
-	{ "Hephaestus"   },
-	{ "Ares"   },
-	{ "Dionysus"   },
-	{ "WeaverEternal" },
-{ "KheranSpindle" },
-{ "TirielThread" },
-{ "VaelithEye" },
-{ "SennNeedle" },
+{"Solarion"},
+{"Lunara"},
+{"Thalen"},
+{"Myrael"},
+{"Vorath"},
+{ NULL	   },
+};
 
-{ "PyraDawnflame" },
-{ "AzelForgeheart" },
-{ "VathorCinderKing" },
-{ "SaalisSmokeDancer" },
-{ "RuunAshfather" },
-
-{ "VeiledMother" },
-{ "NyssraWhisperer" },
-{ "KorthalDreamEater" },
-{ "MelyneSilentStep" },
-{ "OrrenLanternBearer" },
-
-{ "ThalmarisDeep" },
-{ "EiraWaves" },
-{ "VorrakUndertow" },
-{ "SeralDriftwoodKing" },
-{ "LunethMirrorTide" },
-
-{ "KraedonGodsmith" },
-{ "MoraAnvilMother" },
-{ "ItharShard" },
-{ "BelkaFlamechild" },
-{ "DurnHammerhand" },
-
-{ "SolenneWordless" },
-{ "CalorCandlebearer" },
-{ "EshraRadiantHand" },
-{ "VeynEcho" },
-{ "ArthisGlassSaint" },
-
-{ "OrothWorldSerpent" },
-{ "VelissMolter" },
-{ "KaarnVenomKing" },
-{ "NaithraBurrower" },
-{ "ZerethDevourer" },
-
-{ "AurelionDawnfather" },
-{ "SeraphaSilverVoice" },
-{ "CaelusGoldenScale" },
-{ "ImeraMorningBell" },
-{ "DarethDiscordant" },
-
-{ "NultharHollowSun" },
-{ "VeshEclipse" },
-{ "TalanShadowProphet" },
-{ "KaraeAshMaiden" },
-{ "DravonDrownedStar" },
-
-{ "Greenmother" },
-{ "OrunThornKing" },
-{ "VelaraBloomingHand" },
-{ "ThessRotfather" },
-{ "LyssWanderingSeed" },
-  
-	{ NULL	   },
+struct sex_type exarch_table[] = 
+{
+{"Kael"},
+{"Seraphine"},
+{"Mordain"},
+{"Lyris"},
+{"Drakken"},
+{"Elara"},
+{"Tyrus"},
+{"Nyx"},
+{ NULL	   },
 };
 
 /*End of Structures */
@@ -1515,7 +1472,7 @@ char *god_name(CHAR_DATA *ch )
 {	if( religion_lookup(ch->pcdata->religion->name ) != NULL )
 		return ch->pcdata->religion->god;
 	if( faction_lookup(ch->pcdata->religion->name ) != NULL )
-		return ch->pcdata->religion->deity;
+		return ch->pcdata->religion->exarch;
 	return "ShadowStorm";
 }
 /*This function was written to be able to tell if someone is in the same Religion

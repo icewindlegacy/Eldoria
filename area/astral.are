@@ -829,11 +829,11 @@ hammer sledge grey~
 This massive hammer is incredibly hard, heavy, and utterly grey and featureless.
 ~
 AffectObj
-2 -1
+19 6
 AffectObj
 18 -2
 AffectObj
-19 6
+2 -1
 EndObj
 
 #OBJ
@@ -937,9 +937,9 @@ Stenciled in the center is an unpronounceable name which it would behoove you
 not to utter aloud.
 ~
 AffectObj
-3 -1
-AffectObj
 4 -1
+AffectObj
+3 -1
 EndObj
 
 #OBJ
@@ -997,9 +997,9 @@ never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
 AffectObj
-18 1
-AffectObj
 19 1
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1027,9 +1027,9 @@ never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
 AffectObj
-18 2
-AffectObj
 19 1
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -1057,11 +1057,11 @@ across at its widest point, yet it is totally inflexible and razor-sharp.  It
 could probably cut through stone.
 ~
 AffectObj
-2 1
+19 3
 AffectObj
 18 1
 AffectObj
-19 3
+2 1
 EndObj
 
 #OBJ
@@ -1089,9 +1089,9 @@ across at its widest point, yet it is totally inflexible and razor sharp.  It
 could probably cut through stone.
 ~
 AffectObj
-18 1
-AffectObj
 19 2
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1119,9 +1119,9 @@ never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
 AffectObj
-2 2
-AffectObj
 19 2
+AffectObj
+2 2
 EndObj
 
 #OBJ
@@ -1178,13 +1178,13 @@ evil presence reaching out to consume your soul.
 Maybe picking it up wasn't such a good idea.
 ~
 AffectObj
-1 1
-AffectObj
-3 -1
+18 4
 AffectObj
 4 -1
 AffectObj
-18 4
+3 -1
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1211,9 +1211,9 @@ This stone burns with an flame that emits great heat, yet it can be held with
 ease.  The flame creates a light that allows you to see for miles.
 ~
 AffectObj
-17 -2
-AffectObj
 20 -2
+AffectObj
+17 -2
 EndObj
 
 #OBJ
@@ -1339,11 +1339,11 @@ These gauntlets have been expertly and ornately fashioned from the highest
 quality of steels.
 ~
 AffectObj
-1 1
+19 1
 AffectObj
 18 1
 AffectObj
-19 1
+1 1
 EndObj
 
 #OBJ
@@ -1370,9 +1370,9 @@ The ancient vest is barely intact.  All of the leather has cracked and dried
 to a husk.  It is covered with stains, burns, scorch marks, and blood.
 ~
 AffectObj
-17 -6
-AffectObj
 20 -2
+AffectObj
+17 -6
 EndObj
 
 #OBJ
@@ -1669,9 +1669,9 @@ Room_flags 0
 Sector_type 5
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-rainbow~
-The rainbow brilliantly glows with beams of blinding light, in colours that 
-sweep together and merge before your eyes.
+bridge~
+The colors of the rainbow seem to converge into a glowing bridge that leads
+to a massive white gate.
 ~
 ExtraDesc
 motes star stars dust~
@@ -1679,9 +1679,9 @@ The star-like motes dance before your eyes.  They are incredibly beautiful yet
 intangible -- your hand passes right through them.
 ~
 ExtraDesc
-bridge~
-The colors of the rainbow seem to converge into a glowing bridge that leads
-to a massive white gate.
+rainbow~
+The rainbow brilliantly glows with beams of blinding light, in colours that 
+sweep together and merge before your eyes.
 ~
 Exit
 4
@@ -1714,9 +1714,13 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-rainbow~
-The rainbow seems to be forming directly from the light of the bridge.  It
-drops out of sight below you.
+gate~
+The gate towers tens of feet above your heads.  Beyond it is a field of utter
+blackness, from which the motes of light seem to issue forth.
+~
+ExtraDesc
+bridge~
+The bridge glows with an unearthly light.
 ~
 ExtraDesc
 motes star stars dust~
@@ -1724,13 +1728,9 @@ The star-like motes dance before your eyes.  They are incredibly beautiful yet
 intangible -- your hand passes right through them.
 ~
 ExtraDesc
-bridge~
-The bridge glows with an unearthly light.
-~
-ExtraDesc
-gate~
-The gate towers tens of feet above your heads.  Beyond it is a field of utter
-blackness, from which the motes of light seem to issue forth.
+rainbow~
+The rainbow seems to be forming directly from the light of the bridge.  It
+drops out of sight below you.
 ~
 Exit
 0
@@ -1763,13 +1763,6 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-gate~
-You see a huge, glowing gate wrought from an incredibly hard translucent 
-material.  Each of the intricately carved bars of this mighty gate are about 
-as thick as a man's wrist, rising from the floor to a height of forty feet.  
-A plaque is inset into the wall next to one side of the gate.
-~
-ExtraDesc
 plaque~
 The plaque reads: 
 
@@ -1777,6 +1770,13 @@ Let this gate stand to protect mortal man for all time against the perils of
 the outer planes of existence and the creatures fair and foul that dwell within.
 
 (The Astral Plane and Githyanki Keep were written by Andersen.) 
+~
+ExtraDesc
+gate~
+You see a huge, glowing gate wrought from an incredibly hard translucent 
+material.  Each of the intricately carved bars of this mighty gate are about 
+as thick as a man's wrist, rising from the floor to a height of forty feet.  
+A plaque is inset into the wall next to one side of the gate.
 ~
 Exit
 0
@@ -1879,20 +1879,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7714
-0
-Exit
 3
 The astral field leads off into infinity.
 ~
 ~
 -1
 7712
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7714
 0
 Exit
 2
@@ -1903,20 +1903,20 @@ The astral field leads off into infinity.
 7707
 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7710
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7713
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7710
 0
 EndRoom
 
@@ -1940,22 +1940,6 @@ The astral field leads off into infinity.
 7711
 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7716
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7710
-0
-Exit
 3
 The astral field leads off into infinity.
 ~
@@ -1964,12 +1948,28 @@ The astral field leads off into infinity.
 7707
 0
 Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7716
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7714
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7710
 0
 EndRoom
 
@@ -1985,22 +1985,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7709
-0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7708
-0
-Exit
 0
 The astral field leads off into infinity.
 ~
@@ -2017,12 +2001,28 @@ The astral field leads off into infinity.
 7707
 0
 Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7709
+0
+Exit
 4
 The astral field leads off into infinity.
 ~
 ~
 -1
 7713
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7708
 0
 EndRoom
 
@@ -2038,12 +2038,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7712
+7707
 0
 Exit
 3
@@ -2054,20 +2054,12 @@ The astral field leads off into infinity.
 7717
 0
 Exit
-5
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7707
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7716
+7712
 0
 Exit
 4
@@ -2076,6 +2068,14 @@ The astral field leads off into infinity.
 ~
 -1
 7709
+0
+Exit
+0
+The astral field leads off into infinity.
+~
+~
+-1
+7716
 0
 EndRoom
 
@@ -2091,6 +2091,14 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7711
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
@@ -2122,14 +2130,6 @@ The astral field leads off into infinity.
 -1
 7715
 0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7711
-0
 EndRoom
 
 #ROOM
@@ -2144,12 +2144,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7708
+7720
 0
 Exit
 5
@@ -2160,20 +2160,12 @@ The astral field leads off into infinity.
 7710
 0
 Exit
-3
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7720
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7714
+7715
 0
 Exit
 0
@@ -2184,12 +2176,20 @@ The astral field leads off into infinity.
 7718
 0
 Exit
-1
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7715
+7708
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7714
 0
 EndRoom
 
@@ -2204,22 +2204,6 @@ of this environment is somewhat disorienting.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7709
-0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7713
-0
 Exit
 4
 The astral field leads off into infinity.
@@ -2245,12 +2229,28 @@ The astral field leads off into infinity.
 7718
 0
 Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7709
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7719
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7713
 0
 EndRoom
 
@@ -2267,12 +2267,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-5
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7716
+7722
 0
 Exit
 4
@@ -2283,20 +2283,20 @@ The astral field leads off into infinity.
 7712
 0
 Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7716
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7720
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7722
 0
 Exit
 2
@@ -2329,12 +2329,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7711
+7721
 0
 Exit
 5
@@ -2343,22 +2343,6 @@ The astral field leads off into infinity.
 ~
 -1
 7717
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7715
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7721
 0
 Exit
 1
@@ -2375,6 +2359,22 @@ The astral field leads off into infinity.
 ~
 -1
 7709
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7715
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7711
 0
 EndRoom
 
@@ -2399,6 +2399,14 @@ The astral field leads off into infinity.
 7722
 0
 Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7711
+0
+Exit
 4
 The astral field leads off into infinity.
 ~
@@ -2407,12 +2415,12 @@ The astral field leads off into infinity.
 7716
 0
 Exit
-2
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7712
+7714
 0
 Exit
 5
@@ -2423,20 +2431,12 @@ The astral field leads off into infinity.
 7721
 0
 Exit
-1
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7711
-0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7714
+7712
 0
 EndRoom
 
@@ -2453,36 +2453,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7709
-0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7719
-0
-Exit
-5
-You see a tangible strand of silvery light.
-~
-~
--1
-7736
-0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7713
+7714
 0
 Exit
 4
@@ -2493,12 +2469,36 @@ The astral field leads off into infinity.
 7733
 0
 Exit
-1
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7714
+7709
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7736
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7719
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7713
 0
 EndRoom
 
@@ -2515,36 +2515,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7714
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7718
-0
-Exit
 3
 The astral field leads off into infinity.
 ~
 ~
 -1
 7716
-0
-Exit
-5
-You see a tangible strand of silvery light.
-~
-~
--1
-7738
 0
 Exit
 4
@@ -2555,12 +2531,36 @@ The astral field leads off into infinity.
 7734
 0
 Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7714
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7710
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7718
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7738
 0
 EndRoom
 
@@ -2576,30 +2576,6 @@ strand of light.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7715
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7735
-0
-Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7721
-0
 Exit
 5
 You see a tangible strand of silvery light.
@@ -2617,12 +2593,36 @@ The astral field leads off into infinity.
 7713
 0
 Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7721
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7715
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7711
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7735
 0
 EndRoom
 
@@ -2639,12 +2639,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7720
+7716
 0
 Exit
 4
@@ -2655,12 +2655,20 @@ The astral field leads off into infinity.
 7717
 0
 Exit
-2
+3
+You see a tangible strand of silvery light.
+~
+~
+-1
+7742
+0
+Exit
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7716
+7720
 0
 Exit
 5
@@ -2669,14 +2677,6 @@ The astral field leads off into infinity.
 ~
 -1
 7733
-0
-Exit
-3
-You see a tangible strand of silvery light.
-~
-~
--1
-7742
 0
 Exit
 0
@@ -2701,20 +2701,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-The astral field leads off into infinity.
+4
+You see a tangible strand of silvery light.
 ~
 ~
 -1
-7712
-0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7717
+7744
 0
 Exit
 5
@@ -2733,12 +2725,20 @@ The astral field leads off into infinity.
 7715
 0
 Exit
-4
-You see a tangible strand of silvery light.
+2
+The astral field leads off into infinity.
 ~
 ~
 -1
-7744
+7717
+0
+Exit
+0
+The astral field leads off into infinity.
+~
+~
+-1
+7712
 0
 EndRoom
 
@@ -2755,28 +2755,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-You see a tangible strand of silvery light.
-~
-~
--1
-7737
-0
-Exit
-5
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7735
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7728
+7726
 0
 Exit
 4
@@ -2795,12 +2779,28 @@ The astral field leads off into infinity.
 7724
 0
 Exit
-3
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7726
+7735
+0
+Exit
+2
+You see a tangible strand of silvery light.
+~
+~
+-1
+7737
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7728
 0
 EndRoom
 
@@ -2817,20 +2817,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7723
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7729
+7733
 0
 Exit
 4
@@ -2839,6 +2831,14 @@ The astral field leads off into infinity.
 ~
 -1
 7730
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7729
 0
 Exit
 5
@@ -2857,12 +2857,12 @@ The astral field leads off into infinity.
 7725
 0
 Exit
-3
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7733
+7723
 0
 EndRoom
 
@@ -2887,12 +2887,12 @@ The astral field leads off into infinity.
 7734
 0
 Exit
-0
-You see a tangible strand of silvery light.
+2
+The astral field leads off into infinity.
 ~
 ~
 -1
-7741
+7724
 0
 Exit
 4
@@ -2903,14 +2903,6 @@ The astral field leads off into infinity.
 7728
 0
 Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7730
-0
-Exit
 1
 The astral field leads off into infinity.
 ~
@@ -2919,12 +2911,20 @@ The astral field leads off into infinity.
 7727
 0
 Exit
-2
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
+7730
+0
+Exit
+0
+You see a tangible strand of silvery light.
+~
+~
+-1
+7741
 0
 EndRoom
 
@@ -2941,12 +2941,28 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see a tangible strand of silvery light.
+1
+The astral field leads off into infinity.
 ~
 ~
 -1
-7743
+7723
+0
+Exit
+0
+The astral field leads off into infinity.
+~
+~
+-1
+7731
+0
+Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7729
 0
 Exit
 3
@@ -2965,28 +2981,12 @@ The astral field leads off into infinity.
 7727
 0
 Exit
-1
-The astral field leads off into infinity.
+4
+You see a tangible strand of silvery light.
 ~
 ~
 -1
-7723
-0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7729
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7731
+7743
 0
 EndRoom
 
@@ -3003,20 +3003,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
+2
 The astral field leads off into infinity.
 ~
 ~
 -1
-7731
-0
-Exit
-0
-The astral field leads off into infinity.
-~
-~
--1
-7726
+7733
 0
 Exit
 1
@@ -3027,20 +3019,12 @@ The astral field leads off into infinity.
 7732
 0
 Exit
-2
+4
 The astral field leads off into infinity.
 ~
 ~
 -1
-7733
-0
-Exit
-5
-You see a tangible strand of silvery light.
-~
-~
--1
-7744
+7731
 0
 Exit
 3
@@ -3049,6 +3033,22 @@ The astral field leads off into infinity.
 ~
 -1
 7725
+0
+Exit
+0
+The astral field leads off into infinity.
+~
+~
+-1
+7726
+0
+Exit
+5
+You see a tangible strand of silvery light.
+~
+~
+-1
+7744
 0
 EndRoom
 
@@ -3065,30 +3065,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7723
-0
-Exit
-4
-The astral field leads off into the depths.
-~
-~
--1
-7745
-0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7725
-0
-Exit
 1
 The astral field leads off into the depths.
 ~
@@ -3105,12 +3081,36 @@ The astral field leads off into infinity.
 7734
 0
 Exit
+5
+The astral field leads off into infinity.
+~
+~
+-1
+7725
+0
+Exit
+4
+The astral field leads off into the depths.
+~
+~
+-1
+7745
+0
+Exit
 0
 The astral field leads off into infinity.
 ~
 ~
 -1
 7709
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7723
 0
 EndRoom
 
@@ -3127,14 +3127,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7735
-0
-Exit
 5
 The astral field leads off into the depths.
 ~
@@ -3143,12 +3135,12 @@ The astral field leads off into the depths.
 7746
 0
 Exit
-3
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
+7730
 0
 Exit
 1
@@ -3167,12 +3159,20 @@ The astral field leads off into infinity.
 7726
 0
 Exit
-0
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7730
+7724
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7735
 0
 EndRoom
 
@@ -3189,36 +3189,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7729
-0
-Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7733
-0
-Exit
-0
-The astral field leads off into the depths.
-~
-~
--1
-7747
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7725
+7724
 0
 Exit
 3
@@ -3229,12 +3205,36 @@ The astral field leads off into the depths.
 7745
 0
 Exit
-5
+1
 The astral field leads off into infinity.
 ~
 ~
 -1
-7724
+7733
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7725
+0
+Exit
+0
+The astral field leads off into the depths.
+~
+~
+-1
+7747
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7729
 0
 EndRoom
 
@@ -3250,14 +3250,6 @@ keeping your sense of direction.
 Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
-Exit
-5
-The astral field leads off into infinity.
-~
-~
--1
-7727
-0
 Exit
 2
 The astral field leads off into infinity.
@@ -3275,12 +3267,12 @@ The astral field leads off into infinity.
 7734
 0
 Exit
-4
-The astral field leads off into the depths.
+0
+The astral field leads off into infinity.
 ~
 ~
 -1
-7746
+7732
 0
 Exit
 3
@@ -3291,12 +3283,20 @@ The astral field leads off into the depths.
 7748
 0
 Exit
+4
+The astral field leads off into the depths.
+~
+~
+-1
+7746
 0
+Exit
+5
 The astral field leads off into infinity.
 ~
 ~
 -1
-7732
+7727
 0
 EndRoom
 
@@ -3313,28 +3313,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7735
-0
-Exit
 5
 The astral field leads off into infinity.
 ~
 ~
 -1
 7723
-0
-Exit
-2
-The astral field leads off into infinity.
-~
-~
--1
-7731
 0
 Exit
 3
@@ -3359,6 +3343,22 @@ The astral field leads off into the depths.
 ~
 -1
 7748
+0
+Exit
+2
+The astral field leads off into infinity.
+~
+~
+-1
+7731
+0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7735
 0
 EndRoom
 
@@ -3383,12 +3383,12 @@ The astral field leads off into infinity.
 7721
 0
 Exit
-3
+0
 The astral field leads off into infinity.
 ~
 ~
 -1
-7730
+7727
 0
 Exit
 1
@@ -3399,12 +3399,12 @@ The astral field leads off into infinity.
 7724
 0
 Exit
-0
+3
 The astral field leads off into infinity.
 ~
 ~
 -1
-7727
+7730
 0
 Exit
 5
@@ -3429,22 +3429,6 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The astral field leads off into infinity.
-~
-~
--1
-7725
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7722
-0
-Exit
 3
 The astral field leads off into infinity.
 ~
@@ -3468,6 +3452,22 @@ The astral field leads off into infinity.
 -1
 7728
 0
+Exit
+1
+The astral field leads off into infinity.
+~
+~
+-1
+7725
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7722
+0
 EndRoom
 
 #ROOM
@@ -3483,28 +3483,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-The astral field leads off into infinity.
-~
-~
--1
-7732
-0
-Exit
 5
 The astral field leads off into infinity.
 ~
 ~
 -1
 7720
-0
-Exit
-4
-The astral field leads off into infinity.
-~
-~
--1
-7723
 0
 Exit
 0
@@ -3521,6 +3505,22 @@ The astral field leads off into infinity.
 ~
 -1
 7726
+0
+Exit
+4
+The astral field leads off into infinity.
+~
+~
+-1
+7723
+0
+Exit
+3
+The astral field leads off into infinity.
+~
+~
+-1
+7732
 0
 EndRoom
 
@@ -3561,20 +3561,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-2
-The strand of light twists and turns out of sight.
-~
-~
--1
-7736
-0
-Exit
 0
 You see the infinite expanse of the astral field.
 ~
 ~
 -1
 7723
+0
+Exit
+2
+The strand of light twists and turns out of sight.
+~
+~
+-1
+7736
 0
 EndRoom
 
@@ -3588,20 +3588,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-The strand of light twists and turns out of sight.
-~
-~
--1
-7739
-0
-Exit
 4
 You see the infinite expanse of the astral field.
 ~
 ~
 -1
 7719
+0
+Exit
+1
+The strand of light twists and turns out of sight.
+~
+~
+-1
+7739
 0
 EndRoom
 
@@ -3642,20 +3642,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see the infinite expanse of the astral field.
-~
-~
--1
-7720
-0
-Exit
 1
 The strand of light twists and turns out of sight.
 ~
 ~
 -1
 7741
+0
+Exit
+4
+You see the infinite expanse of the astral field.
+~
+~
+-1
+7720
 0
 EndRoom
 
@@ -3696,20 +3696,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-You see the infinite expanse of the astral field.
-~
-~
--1
-7721
-0
-Exit
 0
 The strand of light twists and turns out of sight.
 ~
 ~
 -1
 7743
+0
+Exit
+1
+You see the infinite expanse of the astral field.
+~
+~
+-1
+7721
 0
 EndRoom
 
@@ -3750,20 +3750,20 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-4
-You see the endless expanse of the astral field.
-~
-~
--1
-7727
-0
-Exit
 5
 You see the infinite expanse of the astral field.
 ~
 ~
 -1
 7722
+0
+Exit
+4
+You see the endless expanse of the astral field.
+~
+~
+-1
+7727
 0
 EndRoom
 
@@ -4074,12 +4074,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-steel~
-The door is made from a set of rusting steel plates set deep into the stone.
-~
-ExtraDesc
 door iron~
 The door is made from a set of iron plates set deep into the stone.
+~
+ExtraDesc
+steel~
+The door is made from a set of rusting steel plates set deep into the stone.
 ~
 Exit
 1
@@ -4154,12 +4154,12 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-door wooden~
-The door is thick, made from a knotted and twisted greyish wood.
-~
-ExtraDesc
 door iron~
 The door is fashioned from many iron plates and set deep into the stone wall.
+~
+ExtraDesc
+door wooden~
+The door is thick, made from a knotted and twisted greyish wood.
 ~
 Exit
 0
@@ -4478,12 +4478,12 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-door wooden~
-The door is thick, made from a knotted and twisted greyish wood.
-~
-ExtraDesc
 door iron~
 The door is made from a set of iron plates set deep into the stone.
+~
+ExtraDesc
+door wooden~
+The door is thick, made from a knotted and twisted greyish wood.
 ~
 Exit
 0
@@ -4897,18 +4897,18 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-armor suits~
-The suits of armor are very intricately and ornately fashioned splint mail.
+doors metal~
+The doors are formed from a silvery substance that feels very hard yet almost
+slippery to the touch.  They are covered in images in bas-relief, depicting
+scenes of combat between humans and strange tentacle-mouthed humanoids.
 ~
 ExtraDesc
 weapons~
 Massive pole arms, spears, mighty swords, all kinds of death-dealing devices.
 ~
 ExtraDesc
-doors metal~
-The doors are formed from a silvery substance that feels very hard yet almost
-slippery to the touch.  They are covered in images in bas-relief, depicting
-scenes of combat between humans and strange tentacle-mouthed humanoids.
+armor suits~
+The suits of armor are very intricately and ornately fashioned splint mail.
 ~
 Exit
 0
@@ -4941,16 +4941,16 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-armor suits~
-The suits of armor are very intricately and ornately fashioned splint mail.
+arch archway door~
+The archway is shrouded in a strange black mist that obscures your vision.
 ~
 ExtraDesc
 weapons~
 Massive pole arms, spears, mighty swords, all kinds of death-dealing devices.
 ~
 ExtraDesc
-arch archway door~
-The archway is shrouded in a strange black mist that obscures your vision.
+armor suits~
+The suits of armor are very intricately and ornately fashioned splint mail.
 ~
 Exit
 0
@@ -5014,16 +5014,16 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-altar~
-The altar is a huge sacrificial altar covered in bloodstains.
+hole holes~
+The holes have passed countless amounts of blood down below the altar.
 ~
 ExtraDesc
 blood bloodstains stains~
 The stains of blood run down off the altar towards your feet, oozing quietly.
 ~
 ExtraDesc
-hole holes~
-The holes have passed countless amounts of blood down below the altar.
+altar~
+The altar is a huge sacrificial altar covered in bloodstains.
 ~
 Exit
 2
@@ -5054,14 +5054,14 @@ Room_flags 9
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-blood~
-The blood drips from above your head and falls through the field...
-~
-ExtraDesc
 field gateway~
 The field pulses and feeds on the blood dripping from above.
 
 A tangible wave of hatred washes over you, striking fear into your very soul.
+~
+ExtraDesc
+blood~
+The blood drips from above your head and falls through the field...
 ~
 Exit
 4

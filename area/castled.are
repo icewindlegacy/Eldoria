@@ -300,13 +300,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 2
-AffectObj
 19 2
 AffectObj
 18 2
 AffectObj
 19 2
+AffectObj
+18 2
 EndObj
 
 #OBJ
@@ -413,9 +413,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 14
-AffectObj
 18 14
+AffectObj
+19 14
 EndObj
 
 #OBJ
@@ -517,9 +517,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -561,9 +561,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 6
-AffectObj
 18 6
+AffectObj
+19 6
 EndObj
 
 #OBJ
@@ -627,11 +627,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-2 1
+12 30
 AffectObj
 1 1
 AffectObj
-12 30
+2 1
 EndObj
 
 #OBJ
@@ -653,11 +653,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
+14 100
 AffectObj
 3 1
 AffectObj
-14 100
+4 1
 EndObj
 
 #OBJ
@@ -679,13 +679,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-5 1
-AffectObj
-1 1
+18 7
 AffectObj
 19 7
 AffectObj
-18 7
+1 1
+AffectObj
+5 1
 EndObj
 
 #OBJ
@@ -729,11 +729,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 25
+18 4
 AffectObj
 19 4
 AffectObj
-18 4
+12 25
 EndObj
 
 #OBJ
@@ -800,15 +800,15 @@ gift~
 Etched onto the chain is the name {W-=Gretago=-.{X
 ~
 AffectObj
-14 10000
-AffectObj
-12 10000
-AffectObj
-13 10000
+18 150
 AffectObj
 19 150
 AffectObj
-18 150
+13 10000
+AffectObj
+12 10000
+AffectObj
+14 10000
 EndObj
 
 #OBJ
@@ -870,13 +870,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-14 32500
+13 32500
+AffectObj
+13 32500
 AffectObj
 12 32500
 AffectObj
-13 32500
-AffectObj
-13 32500
+14 32500
 EndObj
 
 #OBJ
@@ -898,11 +898,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 32000
+14 32000
 AffectObj
 13 32000
 AffectObj
-14 32000
+12 32000
 EndObj
 
 #OBJ
@@ -924,11 +924,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-24 100
+14 32500
 AffectObj
 19 100
 AffectObj
-14 32500
+24 100
 EndObj
 
 #OBJ
@@ -950,21 +950,21 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
+13 32500
+AffectObj
+13 32500
+AffectObj
+12 32500
+AffectObj
+12 32500
+AffectObj
+12 32500
+AffectObj
+14 32500
+AffectObj
+14 32500
+AffectObj
 27 30000
-AffectObj
-14 32500
-AffectObj
-14 32500
-AffectObj
-12 32500
-AffectObj
-12 32500
-AffectObj
-12 32500
-AffectObj
-13 32500
-AffectObj
-13 32500
 EndObj
 
 #OBJ
@@ -986,11 +986,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-12 1000
+19 100
 AffectObj
 18 100
 AffectObj
-19 100
+12 1000
 EndObj
 
 #OBJ
@@ -1012,11 +1012,11 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 27000
+14 27000
 AffectObj
 12 27000
 AffectObj
-14 27000
+13 27000
 EndObj
 
 #OBJ
@@ -1038,9 +1038,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 1000
-AffectObj
 26 10000
+AffectObj
+13 1000
 EndObj
 
 #OBJ
@@ -1084,13 +1084,13 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
-13 1000
+12 1000
 AffectObj
 14 1000
 AffectObj
-12 1000
+13 1000
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -1112,15 +1112,15 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32500
-AffectObj
-12 32500
-AffectObj
-14 32500
+18 1000
 AffectObj
 19 1000
 AffectObj
-18 1000
+14 32500
+AffectObj
+12 32500
+AffectObj
+13 32500
 EndObj
 
 #OBJ
@@ -1142,19 +1142,19 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32500
-AffectObj
-13 32500
-AffectObj
-12 32500
-AffectObj
-12 32500
-AffectObj
-14 32500
-AffectObj
-14 32500
-AffectObj
 1 25
+AffectObj
+14 32500
+AffectObj
+14 32500
+AffectObj
+12 32500
+AffectObj
+12 32500
+AffectObj
+13 32500
+AffectObj
+13 32500
 EndObj
 
 #OBJ
@@ -1176,23 +1176,23 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-20 1000
+12 32500
 AffectObj
-19 10000
+12 32500
+AffectObj
+14 32500
+AffectObj
+14 32500
+AffectObj
+13 32500
+AffectObj
+13 32500
 AffectObj
 18 10000
 AffectObj
-13 32500
+19 10000
 AffectObj
-13 32500
-AffectObj
-14 32500
-AffectObj
-14 32500
-AffectObj
-12 32500
-AffectObj
-12 32500
+20 1000
 EndObj
 
 #OBJ
@@ -1214,35 +1214,35 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 32500
-AffectObj
-13 32500
-AffectObj
-12 32500
-AffectObj
-12 32500
-AffectObj
-14 32500
-AffectObj
-14 32500
-AffectObj
-19 10000
-AffectObj
-18 10000
-AffectObj
-20 1000
-AffectObj
-3 25
-AffectObj
-2 25
-AffectObj
-4 25
-AffectObj
-1 25
+17 -30784
 AffectObj
 5 25
 AffectObj
-17 -30784
+1 25
+AffectObj
+4 25
+AffectObj
+2 25
+AffectObj
+3 25
+AffectObj
+20 1000
+AffectObj
+18 10000
+AffectObj
+19 10000
+AffectObj
+14 32500
+AffectObj
+14 32500
+AffectObj
+12 32500
+AffectObj
+12 32500
+AffectObj
+13 32500
+AffectObj
+13 32500
 EndObj
 
 #END

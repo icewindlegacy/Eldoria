@@ -250,9 +250,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-18 200
-AffectObj
 19 200
+AffectObj
+18 200
 EndObj
 
 #OBJ

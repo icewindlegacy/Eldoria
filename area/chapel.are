@@ -741,9 +741,9 @@ A horrid black mass of gooey tentacles obviously ripped from the corpse
 of a nightgaunt ... disgusting.
 ~
 AffectObj
-18 1
-AffectObj
 19 2
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -869,9 +869,9 @@ It is pitch black and has beautiful swirls characteristic of marble all
 through it.
 ~
 AffectObj
-14 10
-AffectObj
 20 1
+AffectObj
+14 10
 EndObj
 
 #OBJ
@@ -897,9 +897,9 @@ thin rapier~
 It seems so thin that it would be useless but at the same time it looks deadly.
 ~
 AffectObj
-2 2
-AffectObj
 18 1
+AffectObj
+2 2
 EndObj
 
 #OBJ
@@ -1226,9 +1226,9 @@ The cape is gently flows and pulls in the light so evenly and perfectly
 that the cape seems to be simply a void of blackness. It is quite beautiful
 ~
 AffectObj
-13 10
-AffectObj
 17 10
+AffectObj
+13 10
 EndObj
 
 #OBJ
@@ -1322,12 +1322,12 @@ Room_flags 0
 Sector_type 1
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-glass windows~
-The windows must be meant to be dark.  At least they are completely clean.
-~
-ExtraDesc
 benches rows~
 The benches are not of the comfortable kind.
+~
+ExtraDesc
+glass windows~
+The windows must be meant to be dark.  At least they are completely clean.
 ~
 Exit
 0
@@ -1443,13 +1443,13 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-stain stains~
-That's odd ... they seem a little GREEN.
-~
-ExtraDesc
 door writing~
 Above the door is some strange writing!  It is worn with age, but it refers
 to an ancient ruler named 'Shohan'.
+~
+ExtraDesc
+stain stains~
+That's odd ... they seem a little GREEN.
 ~
 Exit
 1
@@ -1629,13 +1629,6 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-altar~
-It stands 2 feet high with the remnants of candle-wax on top.  There is
-an inscription on the side:  'Praise the almighty Cristis the bringer of
-good and justice to the world.  He who fought the evilest finally is at
-peace.  May the Gods remember him forever ...'
-~
-ExtraDesc
 ghost cristis~
 His rest has been disturbed by evil creatures who have invaded his domain
 and grave.  He holds up a parchment for you to read:
@@ -1649,6 +1642,13 @@ and grave.  He holds up a parchment for you to read:
      Roch'tar, the reincarnate Vampire, now rules these tombs.
    You must find and defeat him and his minions!
      May God bless you on your Quest!
+~
+ExtraDesc
+altar~
+It stands 2 feet high with the remnants of candle-wax on top.  There is
+an inscription on the side:  'Praise the almighty Cristis the bringer of
+good and justice to the world.  He who fought the evilest finally is at
+peace.  May the Gods remember him forever ...'
 ~
 Exit
 2
@@ -1728,10 +1728,23 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-stone door trapdoor~
-It's rather small and looks quite heavy but maybe with some kind of leverage
-you could move it.  It has a queerly shaped hole that looks big enough
-for an equally queerly shaped pole to fit inside.  If only you had it!
+letters graffiti~
+'Beware here all of man, because past here lies only death.'
+
+    Insho'rkthon brsskra-lehsn Roch'tar
+
+Beneath, there are two criss-crossing scratchmarks in an X formation that
+look like someone (or something) raked their claws across the wood.
+~
+ExtraDesc
+oak~
+They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
+If not for one thing they would be perfectly preserved.  There appears
+to be some letters crudely scratched into the wood.
+~
+ExtraDesc
+staircase stairs~
+Though quite cracked they do look very stable.
 ~
 ExtraDesc
 tapestry tapestries~
@@ -1741,23 +1754,10 @@ Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
 course).
 ~
 ExtraDesc
-staircase stairs~
-Though quite cracked they do look very stable.
-~
-ExtraDesc
-oak~
-They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
-If not for one thing they would be perfectly preserved.  There appears
-to be some letters crudely scratched into the wood.
-~
-ExtraDesc
-letters graffiti~
-'Beware here all of man, because past here lies only death.'
-
-    Insho'rkthon brsskra-lehsn Roch'tar
-
-Beneath, there are two criss-crossing scratchmarks in an X formation that
-look like someone (or something) raked their claws across the wood.
+stone door trapdoor~
+It's rather small and looks quite heavy but maybe with some kind of leverage
+you could move it.  It has a queerly shaped hole that looks big enough
+for an equally queerly shaped pole to fit inside.  If only you had it!
 ~
 Exit
 2

@@ -1270,7 +1270,7 @@ struct religion_type
 	char *		rank[MAX_CLASS][MAX_RELG_RANK];
 	bool		isfaction; // TRUE if faction.
 	RELIGION *	main;    // For Factions only.
-	char *		deity;   // For Factions only.
+	char *		exarch;   // For Factions only.
 	char *		god;    // Main Religion Only.
 	RELIGION *	next;
 	bool		valid;

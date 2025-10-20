@@ -820,9 +820,9 @@ The turban used to be white cloth, now it is covered with oil and dirt from
 the head and hair of its previous owner, who must not have bathed much.
 ~
 AffectObj
-13 5
-AffectObj
 2 1
+AffectObj
+13 5
 EndObj
 
 #OBJ
@@ -920,9 +920,9 @@ ball fire~
 The ball of fire is hot to the touch and very very bright.
 ~
 AffectObj
-14 20
-AffectObj
 13 10
+AffectObj
+14 20
 EndObj
 
 #OBJ
@@ -949,9 +949,9 @@ The scimitar is formed from solid stone, chipped and carved to perfection,
 with a sharp, cold blade that is marred only by a few nicks here and there.
 ~
 AffectObj
-19 2
-AffectObj
 18 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -1082,9 +1082,9 @@ The lamp is quite old and tarnished.  You rub at it to get some of the
 grime off, but it doesn't seem like anybody is home.
 ~
 AffectObj
-18 1
-AffectObj
 17 -5
+AffectObj
+18 1
 EndObj
 
 #OBJ
@@ -1111,11 +1111,11 @@ The ankh is a small brass symbol of an ancient religion.
 It glows with a soft bright light that is soothing to you.
 ~
 AffectObj
-4 1
+17 -3
 AffectObj
 3 1
 AffectObj
-17 -3
+4 1
 EndObj
 
 #OBJ
@@ -1169,11 +1169,11 @@ fit snugly over your hand.  As you put it on, it melds with your hand,
 becoming an extension of your arm.
 ~
 AffectObj
-19 2
+5 1
 AffectObj
 18 2
 AffectObj
-5 1
+19 2
 EndObj
 
 #OBJ
@@ -1275,15 +1275,15 @@ cursed for all eternity, and that the descendents of that person shall
 likewise be cursed for ten generations to follow.
 ~
 AffectObj
-14 -100
-AffectObj
-13 -50
-AffectObj
-5 -3
+1 -3
 AffectObj
 2 -3
 AffectObj
-1 -3
+5 -3
+AffectObj
+13 -50
+AffectObj
+14 -100
 EndObj
 
 #OBJ
@@ -1338,13 +1338,13 @@ and turquoise highlights even moving to match the expressions of the face
 of the wearer.
 ~
 AffectObj
-20 -1
-AffectObj
-14 30
+12 25
 AffectObj
 13 10
 AffectObj
-12 25
+14 30
+AffectObj
+20 -1
 EndObj
 
 #OBJ
@@ -1426,9 +1426,9 @@ The ring is small, smooth, sandy-colored and unremarkable, save that
 it gives off a continuous low humming noise that tickles your fingertips.
 ~
 AffectObj
-12 20
-AffectObj
 3 1
+AffectObj
+12 20
 EndObj
 
 #OBJ
@@ -1484,9 +1484,9 @@ of the mightiest of the ancient sphinxes.  You feel ancient power
 emanating from them; they seem to be almost alive.
 ~
 AffectObj
-14 30
-AffectObj
 1 2
+AffectObj
+14 30
 EndObj
 
 #END
@@ -1779,15 +1779,15 @@ Room_flags 0
 Sector_type 10
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-plaque~
-The plaque reads:
-This area (Great Pyramid) written by Andersen.
-~
-ExtraDesc
 stones~
 As you look closer you can make out a crack in the center of the stones
 beneath your feet.  With some effort you might be able to lift that 
 section up and get inside!
+~
+ExtraDesc
+plaque~
+The plaque reads:
+This area (Great Pyramid) written by Andersen.
 ~
 Exit
 0
@@ -1898,16 +1898,16 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+door stone~
+The stone door is covered in strange inscriptions and hieroglyphs that warn
+you not to proceed any further.
+~
+ExtraDesc
 sigils hieroglyphs inscriptions writing~
 You cannot understand the strange glyphs that cover the door, but most of
 them seem to depict scenes of fire and massive creatures of apparently
 tremendous strength.  You have a feeling that the glyphs are serving as a
 warning.
-~
-ExtraDesc
-door stone~
-The stone door is covered in strange inscriptions and hieroglyphs that warn
-you not to proceed any further.
 ~
 Exit
 0
@@ -2167,13 +2167,13 @@ Room_flags 13
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+u up~
+The hole looks far too slippery to climb back up.
+~
+ExtraDesc
 bones~
 The bones have whitened and cracked in the dry air, apparently the remains 
 of adventurers, thieves, and creatures that did not survive the fall.
-~
-ExtraDesc
-u up~
-The hole looks far too slippery to climb back up.
 ~
 Exit
 2
@@ -2196,13 +2196,13 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+u up~
+The hole looks far too slippery to climb back up.
+~
+ExtraDesc
 bones~
 The bones have whitened and cracked in the dry air, apparently the remains 
 of adventurers, thieves, and creatures that did not survive the fall.
-~
-ExtraDesc
-u up~
-The hole looks far too slippery to climb back up.
 ~
 Exit
 2
@@ -2324,6 +2324,12 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+black shape~
+Wind howls about your ears like the roar of a tiger.  As your eyes
+adjust to the light the shape to the south almost seems to take the
+form of a massive animal head.
+~
+ExtraDesc
 tiger head animal sesame~
 You are now certain that the wind is the cold breath of some unearthly
 giant animal, whose voice rumbles lowly on the breeze, and whose
@@ -2333,12 +2339,6 @@ You move closer for a better look, when suddenly a pair of eyes flashes.
 A cold voice echoes: 'SEEK YE THE DIAMOND... IN THE ROUGH...'
 
 ... Then all is silent.
-~
-ExtraDesc
-black shape~
-Wind howls about your ears like the roar of a tiger.  As your eyes
-adjust to the light the shape to the south almost seems to take the
-form of a massive animal head.
 ~
 Exit
 2
@@ -2465,14 +2465,6 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-man garments pharoah~
-As you look closer at the figure sculpted into the stone coffin you notice a
-small marking carved into its chest.  It looks like a scarab or small beetle
-would fit into the small space, if properly sized.
-
-Hmm.
-~
-ExtraDesc
 coffin lid~
 The coffin is sculpted into the form of a man, standing several heads above
 you, and clad in the garments of pharoahs.  It has apparently been untouched
@@ -2480,6 +2472,14 @@ by the ravages of time and the activities of looters.  Several markings on the
 side indicate spots where unsuccessful attempts were made to open the coffin.
 
 You can't see any way to open it.
+~
+ExtraDesc
+man garments pharoah~
+As you look closer at the figure sculpted into the stone coffin you notice a
+small marking carved into its chest.  It looks like a scarab or small beetle
+would fit into the small space, if properly sized.
+
+Hmm.
 ~
 Exit
 1
@@ -2510,13 +2510,13 @@ Room_flags 9
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-coffin lid~
-On this side the coffin lid is smooth featureless stone.
-~
-ExtraDesc
 inscriptions~
 You blow dust away from the inscriptions to read:
 'Beware the curse of the mummy.'
+~
+ExtraDesc
+coffin lid~
+On this side the coffin lid is smooth featureless stone.
 ~
 Exit
 1
@@ -3031,14 +3031,14 @@ Room_flags 13
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-hieroglyphics carvings~
-The markings indicate that this tomb is indeed the tomb of the greatest
-pharoahs of the ancient civilization that built this massive pyramid.
-~
-ExtraDesc
 tomb~
 The tomb looks like it has stood for many years, much like the pyramid
 which encloses it.  It is covered in small hieroglyphics.
+~
+ExtraDesc
+hieroglyphics carvings~
+The markings indicate that this tomb is indeed the tomb of the greatest
+pharoahs of the ancient civilization that built this massive pyramid.
 ~
 Exit
 0
@@ -3230,13 +3230,13 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-bricks~
-The small golden bricks are very smooth and also quite soft.
-~
-ExtraDesc
 rug rugs tapestry tapestries~
 The rugs and tapestries are very fine and worn with age, their colors
 now faded.  They depict scenes of life in an ancient desert city.
+~
+ExtraDesc
+bricks~
+The small golden bricks are very smooth and also quite soft.
 ~
 Exit
 3
@@ -3352,14 +3352,6 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-3
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8754
-0
-Exit
 2
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -3377,6 +3369,14 @@ You see only a wall of whirling, blowing, dry sand.
 0
 Exit
 1
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8754
+0
+Exit
+3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
@@ -3401,12 +3401,12 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-2
+3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8756
+8755
 0
 Exit
 1
@@ -3417,12 +3417,12 @@ You see only a wall of whirling, blowing, dry sand.
 8755
 0
 Exit
-3
+2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8755
+8756
 0
 Exit
 0
@@ -3450,20 +3450,12 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-0
+2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8755
-0
-Exit
-1
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8756
+8757
 0
 Exit
 3
@@ -3474,12 +3466,20 @@ You see only a wall of whirling, blowing, dry sand.
 8756
 0
 Exit
-2
+1
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 -1
-8757
+8756
+0
+Exit
+0
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8755
 0
 EndRoom
 
@@ -3499,22 +3499,6 @@ Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
 Exit
-2
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8758
-0
-Exit
-3
-You see only a wall of whirling, blowing, dry sand.
-~
-~
--1
-8757
-0
-Exit
 0
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -3524,6 +3508,22 @@ You see only a wall of whirling, blowing, dry sand.
 0
 Exit
 1
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8757
+0
+Exit
+2
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+-1
+8758
+0
+Exit
+3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
@@ -3545,18 +3545,18 @@ Room_flags 0
 Sector_type 10
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-hieroglyphics symbols~
-Like most of the ancient hieroglyphics of this land, the symbols are
-totally incomprehensible to you.  Perhaps the Sphinx has the answer
-to this ancient riddle.
+sand dune~
+The sand is very white, and very sandy.  There sure is a lot of it.
 ~
 ExtraDesc
 riddle~
 A vision forms before your eyes, in glowing hieroglyphic symbols.
 ~
 ExtraDesc
-sand dune~
-The sand is very white, and very sandy.  There sure is a lot of it.
+hieroglyphics symbols~
+Like most of the ancient hieroglyphics of this land, the symbols are
+totally incomprehensible to you.  Perhaps the Sphinx has the answer
+to this ancient riddle.
 ~
 Exit
 0

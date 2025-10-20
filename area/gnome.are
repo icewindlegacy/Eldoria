@@ -1958,12 +1958,12 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-hut~
-The hut looks well built, but it seems to have taken some damage.
-~
-ExtraDesc
 stream~
 The stream is pretty small, but it looks too cold to swim.
+~
+ExtraDesc
+hut~
+The hut looks well built, but it seems to have taken some damage.
 ~
 Exit
 1
@@ -2757,11 +2757,11 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
+0
 ~
 ~
 -1
-1551
+1547
 0
 Exit
 1
@@ -2771,11 +2771,11 @@ Exit
 1549
 0
 Exit
-0
+3
 ~
 ~
 -1
-1547
+1551
 0
 EndRoom
 
@@ -2789,18 +2789,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-3
-~
-~
--1
-1548
-0
-Exit
 2
 ~
 ~
 -1
 1550
+0
+Exit
+3
+~
+~
+-1
+1548
 0
 EndRoom
 
@@ -2814,18 +2814,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-0
-~
-~
--1
-1549
-0
-Exit
 2
 ~
 ~
 -1
 1555
+0
+Exit
+0
+~
+~
+-1
+1549
 0
 EndRoom
 
@@ -2914,18 +2914,18 @@ Room_flags 8201
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 Exit
-1
-~
-~
--1
-1555
-0
-Exit
 3
 ~
 ~
 -1
 1553
+0
+Exit
+1
+~
+~
+-1
+1555
 0
 Exit
 0

@@ -508,9 +508,9 @@ This piece of bone looks sturdy enough to be used as a weapon, but you
 wouldn't want to entrust your life to it.
 ~
 AffectObj
-19 -1
-AffectObj
 18 -1
+AffectObj
+19 -1
 EndObj
 
 #END

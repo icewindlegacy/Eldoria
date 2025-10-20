@@ -812,9 +812,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 2 1
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -1004,9 +1004,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 3
-AffectObj
 18 3
+AffectObj
+19 3
 EndObj
 
 #OBJ
@@ -1352,9 +1352,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-1 1
-AffectObj
 19 2
+AffectObj
+1 1
 EndObj
 
 #OBJ
@@ -1376,9 +1376,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-4 1
-AffectObj
 3 1
+AffectObj
+4 1
 EndObj
 
 #OBJ
@@ -1486,9 +1486,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-13 10
-AffectObj
 1 1
+AffectObj
+13 10
 EndObj
 
 #OBJ
@@ -1550,9 +1550,9 @@ Exp 0
 Xp_tolevel 0
 Condition P
 AffectObj
-19 2
-AffectObj
 18 2
+AffectObj
+19 2
 EndObj
 
 #OBJ
@@ -1720,12 +1720,12 @@ Room_flags 8
 Sector_type 0
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
-inscription~
-It says "STORAGE"
-~
-ExtraDesc
 sign~
 The sign says "NURSERY" in bold letters.     
+~
+ExtraDesc
+inscription~
+It says "STORAGE"
 ~
 Exit
 0
@@ -2683,17 +2683,17 @@ Room_flags 0
 Sector_type 2
 X 0 0 0 0 0 0 0 0 0 0 0
 ExtraDesc
+well~
+You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+to be ENDLESS.
+~
+ExtraDesc
 sign~
 The sign reads:
          This is a bottomless pit cleverly disguised as a well.  People have
 fallen in and never been heard from again.  Trust me, you don't want to go 
 down there.
                         The All Powerful Well Keeper
-~
-ExtraDesc
-well~
-You peer over the side of the well.  It looks VERY, VERY deep.  It appears
-to be ENDLESS.
 ~
 Exit
 0
