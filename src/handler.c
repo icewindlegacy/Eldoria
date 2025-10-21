@@ -2603,6 +2603,9 @@ int get_true_weight(OBJ_DATA *obj)
  */
 bool room_is_dark( ROOM_INDEX_DATA *pRoomIndex )
 {
+    if ( pRoomIndex == NULL )
+	return TRUE;
+
     if ( pRoomIndex->light > 0 )
 	return FALSE;
 

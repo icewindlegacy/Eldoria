@@ -1812,11 +1812,11 @@ void do_exits( CHAR_DATA *ch, char *argument )
 		{   
 		sprintf( buf + strlen(buf), "%-5s - %s", 
 		    capitalize( dir_name[door] ),
-		    room_is_dark( pexit->u1.to_room )
+		    (pexit->u1.to_room == NULL || room_is_dark( pexit->u1.to_room ))
 			?  "Too dark to tell"
 			: pexit->u1.to_room->name);
 		}
-		if (IS_IMMORTAL(ch))
+		if (IS_IMMORTAL(ch) && pexit->u1.to_room != NULL)
 		    sprintf(buf + strlen(buf), 
 			" (room %d)\n\r",pexit->u1.to_room->vnum);
 		else
