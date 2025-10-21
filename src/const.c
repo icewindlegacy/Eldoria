@@ -201,63 +201,63 @@ const 	struct	race_type	race_table	[]		=
     { "unused",		FALSE, 0, 0, 0, 0, 0, 0, 0, 0 },
 
     { 
-	"human",		TRUE, 
+	"naiari",		TRUE, 
 	0,		0, 		0,
 	0, 		0,		0,
 	A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
     },
 
     {
-	"elf",			TRUE,
+	"solari",			TRUE,
 	0,		AFF_INFRARED,	0,
 	0,		RES_CHARM,	VULN_IRON,
 	A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
     },
 
     {
-	"dwarf",		TRUE,
+	"grathari",		TRUE,
 	0,		AFF_INFRARED,	0,
 	0,		RES_POISON|RES_DISEASE, VULN_DROWNING,
 	A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
     },
 
     {
-        "halfling",		TRUE,
+        "velari",		TRUE,
         0,		AFF_INFRARED,	0,
         0,		RES_POISON|RES_DISEASE, 0,
         A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
         },
 
     {
-        "gnome",		TRUE,
+        "quenari",		TRUE,
         0,		AFF_INFRARED,	0,
         0,		RES_POISON|RES_DISEASE, 0,
         A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
         },
 
     {
-        "half-elf",		TRUE,
+        "shadara",		TRUE,
         0,		AFF_INFRARED,	0,
         0,		RES_CHARM, VULN_IRON,
         A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
         },
     
     {
-        "half-orc",		TRUE,
+        "skarn",		TRUE,
         0,		AFF_INFRARED,	0,
         0,		RES_DISEASE, VULN_LIGHT,
         A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
         },
 
         {
-	"giant",		TRUE,
+	"titanborn",		TRUE,
 	0,		0,		0,
 	0,		RES_FIRE|RES_COLD,	VULN_MENTAL|VULN_LIGHTNING,
 	A|H|M|V,	A|B|C|D|E|F|G|H|I|J|K
     },
 
     {
-        "dark-elf",                 TRUE,
+        "umbrien",                 TRUE,
         0,              AFF_INFRARED|AFF_DARK_VISION,              0,
         0,              RES_NEGATIVE|RES_COLD|RES_CHARM,  VULN_HOLY|VULN_LIGHT,
         A|H|M|V,        A|B|C|D|E|F|G|H|I|J|K
@@ -265,7 +265,7 @@ const 	struct	race_type	race_table	[]		=
 
 
     {
-        "orc",                  TRUE,
+        "cindrak",                  TRUE,
         0,              AFF_INFRARED,   0,
         0,              RES_DISEASE,    VULN_LIGHT,
         A|H|M|V,        A|B|C|D|E|F|G|H|I|J|K
@@ -467,49 +467,49 @@ const	struct	pc_race_type	pc_race_table	[]	=
     },
 */
     {
-	"human",	"Human",	0,	
+	"naiari",	"Nairi",	0,	
         { 100, 100, 100, 100, 100, 100, 100, 100 },
 		{ "" },
 		{ 13, 13, 13, 13, 13 },	{ 18, 18, 18, 18, 18 },	SIZE_MEDIUM, ALIGN_NEUTRAL
     },
 
     { 	
-		"elf",		" Elf ",	5,	
+		"solari",		"Solri",	5,	
 	    { 100, 125,  100, 120, 100, 125, 100, 120 }, 
 		{ "sneak", "hide" },
 		{ 12, 14, 13, 15, 11 },	{ 16, 20, 18, 21, 15 }, SIZE_SMALL, ALIGN_GOOD
     },
 
     {
-		"dwarf",	"Dwarf",	8,	
+		"grathari",	"Gthri",	8,	
         { 150, 100, 125, 100, 150, 100, 125, 100 },
 		{ "berserk" },
 		{ 14, 12, 14, 10, 15 },	{ 20, 16, 19, 14, 21 }, SIZE_MEDIUM, ALIGN_GOOD
     },
 
     {
-        "halfling",      "Hflng",     6,     
+        "velari",      "Vlari",     6,     
         { 100, 100, 100, 100, 100, 100, 100, 100 },
         { "" },
         { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
     },
 
     {
-        "gnome",      "Gnome",     6,     
+        "quenari",      "Qnri",     6,     
         { 100, 100, 100, 100, 100, 100, 100, 100 },
         { "" },
         { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
     },
 
     {
-        "half-elf",      "HfElf",     6,     
+        "shadara",      "Shdra",     6,     
         { 100, 100, 100, 100, 100, 100, 100, 100 },
         { "" },
         { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
     },
 
     {
-        "half-orc",      "HfOrc",     6,     
+        "skarn",      "Skarn",     6,     
         { 100, 100, 100, 100, 100, 100, 100, 100 },
         { "" },
         { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, SIZE_MEDIUM, ALIGN_GOOD
@@ -517,14 +517,14 @@ const	struct	pc_race_type	pc_race_table	[]	=
 
 
     {
-		"giant",	"Giant",	6,	
+		"titanborn",	"Ttnbr",	6,	
         { 200, 150, 150, 105, 200, 150, 150, 105 },
 		{ "bash", "fast healing" },
 		{ 16, 11, 13, 11, 14 },	{ 22, 15, 18, 15, 20 }, SIZE_LARGE, ALIGN_GOOD
     },
 
     {
-        "dark-elf",         "DkElf",         6,    
+        "umbrien",         "Umbrn",         6,    
         { 150, 100, 125, 100, 150, 100, 125, 100 },
         { "hide", "sneak" },     
         { 15, 18, 15, 18, 15 }, { 18, 20, 18, 20, 17 }, SIZE_SMALL, ALIGN_EVIL
@@ -532,7 +532,7 @@ const	struct	pc_race_type	pc_race_table	[]	=
 
 
     {
-        "orc",          "Orc",      6,     
+        "cindrak",          "Cndrk",      6,     
         { 200, 150, 150, 105, 200, 150, 150, 105 },
         { "bash" },
         { 17, 15, 17, 14, 13 }, { 19, 17, 19, 16, 15 }, SIZE_LARGE, ALIGN_EVIL
@@ -549,51 +549,51 @@ const	struct	pc_race_type	pc_race_table	[]	=
 const	struct	class_type	class_table	[MAX_CLASS]	=
 {
     {
-	"mage", "Mag",  STAT_INT,  &OBJ_VNUM_SCHOOL_DAGGER,
+	"currentsoul", "Cur",  STAT_INT,  &OBJ_VNUM_SCHOOL_DAGGER,
 	{ 3018, 9618 },  75,  20, 6,  6,  8, TRUE,
-	"mage basics", "mage default"
+	"currentsoul basics", "currentsoul default"
     },
 
     {
-	"cleric", "Cle",  STAT_WIS,  &OBJ_VNUM_SCHOOL_MACE,
+	"flamekeeper", "Flm",  STAT_WIS,  &OBJ_VNUM_SCHOOL_MACE,
 	{ 3003, 9619 },  75,  20, 2,  7, 10, TRUE,
-	"cleric basics", "cleric default"
+	"flamekeeper basics", "flamekeeper default"
     },
 
     {
-	"thief", "Thi",  STAT_DEX,  &OBJ_VNUM_SCHOOL_DAGGER,
+	"veilstepper", "Vls",  STAT_DEX,  &OBJ_VNUM_SCHOOL_DAGGER,
 	{ 3028, 9639 },  75,  20,  -4,  8, 13, FALSE,
-	"thief basics", "thief default"
+	"veilstepper basics", "veilstepper default"
     },
 
     {
-	"warrior", "War",  STAT_STR,  &OBJ_VNUM_SCHOOL_SWORD,
+	"ashborn", "Ash",  STAT_STR,  &OBJ_VNUM_SCHOOL_SWORD,
 	{ 3022, 9633 },  75,  20,  -10,  11, 15, FALSE,
-	"warrior basics", "warrior default"
+	"ashborn basics", "ashborn default"
     },
 
     {
-        "wizard", "Wiz", STAT_INT, &OBJ_VNUM_SCHOOL_DAGGER,
+        "stillmind", "Stl", STAT_INT, &OBJ_VNUM_SCHOOL_DAGGER,
         { 3018, 9618 }, 75, 20, 2, 7, 10, TRUE,
-        "wizard basics", "wizard default"
+        "stillmind basics", "stillmind default"
     },
 
     {     
-        "druid", "Drd", STAT_STR, &OBJ_VNUM_SCHOOL_MACE,
+        "rootseer", "Rts", STAT_STR, &OBJ_VNUM_SCHOOL_MACE,
         { 3003, 9619 }, 75, 18, -2, 9, 12, TRUE,
-        "druid basics", "druid default"
+        "rootseer basics", "rootseer default"
     },
 
     {
-        "assassin", "Asn", STAT_DEX, &OBJ_VNUM_SCHOOL_DAGGER,
+        "shroudblade", "Shd", STAT_DEX, &OBJ_VNUM_SCHOOL_DAGGER,
        	{ 3028, 9639 },  75,  17,  -8,  10, 15, FALSE, 
-        "assassin basics", "assassin default"
+        "shroudblade basics", "shroudblade default"
     },
 
     {
-        "barbarian", "Bar", STAT_STR, &OBJ_VNUM_SCHOOL_SWORD,
+        "forged", "Frg", STAT_STR, &OBJ_VNUM_SCHOOL_SWORD,
        	{ 3022, 9633 },  75,  15,  -12,  13, 17, FALSE,
-        "barbarian basics", "barbarian default"
+        "forged basics", "forged default"
     }
     
 };
@@ -948,92 +948,92 @@ const   struct  group_type      group_table     [MAX_GROUP]     =
     },
 
     {
-	"mage basics",		{ 0, -1, -1, -1, -1, -1, -1, -1 },
+	"currentsoul basics",		{ 0, -1, -1, -1, -1, -1, -1, -1 },
 	{ "dagger" }
     },
 
     {
-	"cleric basics",	{ -1, 0, -1, -1, -1, -1, -1, -1 },
+	"flamekeeper basics",	{ -1, 0, -1, -1, -1, -1, -1, -1 },
 	{ "mace" }
     },
    
     {
-	"thief basics",		{ -1, -1, 0, -1, -1, -1, -1, -1 },
+	"veilstepper basics",		{ -1, -1, 0, -1, -1, -1, -1, -1 },
 	{ "dagger", "steal" }
     },
 
     {
-	"warrior basics",	{ -1, -1, -1, 0, -1, -1, -1, -1 },
+	"ashborn basics",	{ -1, -1, -1, 0, -1, -1, -1, -1 },
 	{ "sword", "second attack" }
     },
 
    
     {
-	"wizard basics",	{ -1, -1, -1, -1, 0, -1, -1, -1 },
+	"stillmind basics",	{ -1, -1, -1, -1, 0, -1, -1, -1 },
 	{ "dagger" }
     },
 
     {
-	"druid basics",	        { -1, -1, -1, -1, -1, 0, -1, -1 },
+	"rootseer basics",	        { -1, -1, -1, -1, -1, 0, -1, -1 },
 	{ "mace" }
     },
    
     {
-	"assassin basics",	{ -1, -1, -1, -1, -1, -1, 0, -1 },
+	"shroudblade basics",	{ -1, -1, -1, -1, -1, -1, 0, -1 },
 	{ "dagger", "steal" }
     },
 
     {
-	"barbarian basics",	{ -1, -1, -1, -1, -1, -1, -1, 0 },
+	"forged basics",	{ -1, -1, -1, -1, -1, -1, -1, 0 },
 	{ "sword", "second attack" }
     },
 
     {
-	"mage default",		{ 40, -1, -1, -1, -1, -1, -1, -1 },
+	"currentsoul default",		{ 40, -1, -1, -1, -1, -1, -1, -1 },
 	{ "lore", "beguiling", "combat", "detection", "enhancement", "illusion",
 	  "maladictions", "protective", "transportation", "weather" }
     },
 
     {
-	"cleric default",	{ -1, 40, -1, -1, -1, -1, -1, -1 },
+	"flamekeeper default",	{ -1, 40, -1, -1, -1, -1, -1, -1 },
 	{ "flail", "attack", "creation", "curative",  "benedictions", 
 	  "detection", "healing", "maladictions", "protective", "shield block", 
 	  "transportation", "weather" }
     },
  
     {
-	"thief default",	{ -1, -1, 40, -1, -1, -1, -1, -1 },
+	"veilstepper default",	{ -1, -1, 40, -1, -1, -1, -1, -1 },
 	{ "mace", "sword", "backstab", "disarm", "dodge", "second attack",
 	  "trip", "hide", "peek", "pick lock", "sneak" }
     },
 
     {
-	"warrior default",	{ -1, -1, -1, 40, -1, -1, -1, -1 },
+	"ashborn default",	{ -1, -1, -1, 40, -1, -1, -1, -1 },
 	{ "weaponsmaster", "shield block", "bash", "disarm", "enhanced damage", 
 	  "parry", "rescue", "third attack" }
     },
 
     {
-	"wizard default",	{ -1, -1, -1, -1, 40, -1, -1, -1 },
+	"stillmind default",	{ -1, -1, -1, -1, 40, -1, -1, -1 },
 	{ "lore", "beguiling", "combat", "detection", "enhancement", "illusion",
 	  "maladictions", "protective", "transportation", "weather" }
     },
 
     {
-	"druid default",	{ -1, -1, -1, -1, -1, 40, -1, -1 },
+	"rootseer default",	{ -1, -1, -1, -1, -1, 40, -1, -1 },
 	{ "flail", "attack", "creation", "curative",  "benedictions", 
 	  "detection", "healing", "maladictions", "protective", "shield block", 
 	  "transportation", "weather" }
     },
  
     {
-	"assassin default",	{ -1, -1, -1, -1, -1, -1, 40, -1 },
+	"shroudblade default",	{ -1, -1, -1, -1, -1, -1, 40, -1 },
 	{ "mace", "sword", "backstab", "disarm", "dodge", "second attack",
 	  "trip", "hide", "peek", "pick lock", "sneak" }
     },
 
     {
-	"barbarian default",	{ -1, -1, -1, -1, -1, -1, -1, 40 },
+	"forged default",	{ -1, -1, -1, -1, -1, -1, -1, 40 },
 	{ "weaponsmaster", "shield block", "bash", "disarm", "enhanced damage", 
 	  "parry", "rescue", "third attack" }
     },

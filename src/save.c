@@ -993,7 +993,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->email			= str_dup( "none" );
     ch->name				= str_dup( name );
     ch->id				    = get_pc_id();
-    ch->race				= race_lookup("human");
+    ch->race				= race_lookup("naiari");
     ch->act				    = PLR_NOSUMMON;
     ch->comm				= COMM_COMBINE | COMM_PROMPT;
     for(iClass = 0; iClass < MAX_MCLASS; iClass++)
@@ -1236,7 +1236,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	int i;
 
 	if (ch->race == 0)
-	    ch->race = race_lookup("human");
+	    ch->race = race_lookup("naiari");
 
 	ch->size = pc_race_table[ch->race].size;
 	ch->dam_type = 17; /*punch */

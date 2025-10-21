@@ -732,7 +732,7 @@ int get_curr_stat( CHAR_DATA *ch, int stat )
 	if (is_prime_stat(ch, stat))
 	    max += 2;
 
-	if ( ch->race == race_lookup("human"))
+	if ( ch->race == race_lookup("naiari"))
 	    max += 1;
 
  	max = UMIN(max,50);
@@ -752,7 +752,7 @@ int get_max_train( CHAR_DATA *ch, int stat )
     max = pc_race_table[ch->race].max_stats[stat];
     if (is_prime_stat(ch, stat))  
     {
-	if (ch->race == race_lookup("human"))
+	if (ch->race == race_lookup("naiari"))
 	   max += 3;
 	else
 	   max += 2;

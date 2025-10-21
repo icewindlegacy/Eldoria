@@ -826,7 +826,7 @@ void load_old_mob( FILE *fp )
    	if (name[0] == '\0' || (race =  race_lookup(name)) == 0)
    	{
             /* fill in with blanks */
-            pMobIndex->race = race_lookup("human");
+            pMobIndex->race = race_lookup("naiari");
             pMobIndex->off_flags = OFF_DODGE|OFF_DISARM|OFF_TRIP|ASSIST_VNUM;
             pMobIndex->imm_flags = 0;
             pMobIndex->res_flags = 0;
