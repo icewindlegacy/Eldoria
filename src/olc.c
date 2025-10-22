@@ -2153,6 +2153,39 @@ static int compare_builders(const void *area1, const void *area2)
         return 0;
 }
 
+/*  sorting method for alist - by completion percentage */
+static int compare_complete(const void *area1, const void *area2)
+{
+    const AREA_DATA *a1 = (const AREA_DATA *)area1;
+    const AREA_DATA *a2 = (const AREA_DATA *)area2;
+    int total1, total2, described1 = 0, described2 = 0;
+    int x;
+    ROOM_INDEX_DATA *pRoom;
+    
+    /* Calculate total rooms in each area */
+    total1 = a1->max_vnum - a1->min_vnum + 1;
+    total2 = a2->max_vnum - a2->min_vnum + 1;
+    
+    /* Count rooms with descriptions in area1 */
+    for (x = a1->min_vnum; x <= a1->max_vnum; x++)
+        if ((pRoom = get_room_index(x)) != NULL && pRoom->description[0] != '\0')
+            described1++;
+    
+    /* Count rooms with descriptions in area2 */
+    for (x = a2->min_vnum; x <= a2->max_vnum; x++)
+        if ((pRoom = get_room_index(x)) != NULL && pRoom->description[0] != '\0')
+            described2++;
+    
+    /* Compare completion percentages (described/total) */
+    /* Multiply by other's total to avoid floating point */
+    if (described1 * total2 > described2 * total1)
+        return 1;
+    else if (described1 * total2 < described2 * total1)
+        return -1;
+    else
+        return 0;
+}
+
 
 void do_alist (CHAR_DATA * ch, char *argument)
 {
@@ -2200,6 +2233,8 @@ void do_alist (CHAR_DATA * ch, char *argument)
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_filename);
     else if (!str_cmp (command, "builders") || !str_cmp (command, "builder"))
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_builders);
+    else if (!str_cmp (command, "complete"))
+        qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_complete);
     else
         /* Default sort by vnum range (lvnum) */
         qksort(aSort, numAreas, sizeof(AREA_DATA), 0, numAreas - 1, compare_lvnum);
