@@ -9252,3 +9252,838 @@ WEDIT (wedit_reload)
     send_to_char("Wmap reloaded.\r\n",ch);
     return TRUE;
 }
+
+// DSL room copy functions - Original by DSL 1206
+// Adapted for Eldoria by AI Assistant
+
+REDIT (redit_copy)
+{
+	ROOM_INDEX_DATA *pRoomOrig;
+	ROOM_INDEX_DATA *pRoomCopy;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	int vnum;
+	char buf[MAX_STRING_LENGTH];
+	
+	if (argument[0] == '\0')
+	{
+		sprintf (buf, "{rREDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+		              "       Syntax: COPY <vnum> <argument>\r\n"
+		              "       {yValid Arguments:{x\r\n"
+		              "          all, name, sector, flags, heal, mana,\r\n"
+		              "          clan, owner, desc, extra. Use all to clone.\r\n");
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	bool cAll;
+
+	argument = one_argument (argument, arg1);
+	argument = one_argument (argument, arg2);
+	
+	if (!str_cmp (arg2, "all" ) || arg2[0] == '\0')
+		cAll = TRUE;
+	else
+		cAll = FALSE;
+	
+
+	if (!is_number(arg1))
+	{
+		sprintf (buf, "{rREDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+					  "       Syntax: COPY <vnum>\r\n"
+					  "               COPY <vnum> <argument>\r\n"
+					  "       %s is not a number.\r\n", arg1);
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	else
+	{
+		vnum = atoi(arg1);
+		if ((pRoomOrig = get_room_index(vnum)) == NULL)
+		{
+			sprintf (buf, "{rREDIT: {yCOPY: {xYou must specify an EXISTING vnum to copy.\r\n"
+					  "       %d is not an existing room.\r\n", vnum);
+			send_to_char (buf, ch);
+			return FALSE;
+		}
+
+	// Ok, made it through, let's start and copy the whole thing, excluding
+	// any exits (link issue ;p), we're not taking resets either
+
+    EDIT_ROOM(ch, pRoomCopy);
+
+	if (cAll || !str_prefix (arg2, "name"))
+	{
+      free_string( pRoomCopy->name );
+      pRoomCopy->name = str_dup( pRoomOrig->name );
+      sprintf (buf, "{rREDIT: {yCOPY:{x name copied:            {y%s{x\r\n", 
+    	pRoomCopy->name);
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "sector"))
+	{
+      pRoomCopy->sector_type = pRoomOrig->sector_type;
+      sprintf (buf, "{rREDIT: {yCOPY:{x sector copied:          {y%s{x\r\n", 
+	   sector_flags[pRoomCopy->sector_type].name );
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "flags"))
+	{
+      pRoomCopy->room_flags = pRoomOrig->room_flags;
+      sprintf (buf, "{rREDIT: {yCOPY:{x room flags copied:      {y%s{x\r\n", 
+	    flag_string( room_flags, pRoomCopy->room_flags ) );
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "heal"))
+	{
+
+      pRoomCopy->heal_rate = pRoomOrig->heal_rate;
+      sprintf (buf, "{rREDIT: {yCOPY:{x heal rate copied:       {y%d{x\r\n",
+        pRoomCopy->heal_rate);
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "mana"))
+	{
+      pRoomCopy->mana_rate = pRoomOrig->mana_rate;
+      sprintf (buf, "{rREDIT: {yCOPY:{x mana rate copied:       {y%d{x\r\n",
+        pRoomCopy->mana_rate);
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "clan"))
+	{
+      pRoomCopy->clan = pRoomOrig->clan;
+      sprintf( buf, "{rREDIT: {yCOPY:{x clan copied:            {y%s{x\r\n" ,
+        ((pRoomCopy->clan > 0) ? clan_table[pRoomCopy->clan].name : "None" ));
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "owner"))
+	{
+      free_string( pRoomCopy->owner );
+      pRoomCopy->owner = str_dup( pRoomOrig->owner );
+      sprintf (buf, "{rREDIT: {yCOPY:{x owner copied:           {y%s{x\r\n",
+        pRoomCopy->owner[0] == '\0' ? "None" : pRoomCopy->owner );
+      send_to_char(buf,ch);
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "extra"))
+	{
+      if (pRoomOrig->extra_descr)
+      {
+    	EXTRA_DESCR_DATA *ed;
+    	pRoomCopy->extra_descr = pRoomOrig->extra_descr;
+    	sprintf (buf, "{rREDIT: {yCOPY:{x extra descs copied:     {y");
+    	send_to_char (buf,ch);
+    	for (ed = pRoomCopy->extra_descr; ed; ed = ed->next)
+    	{	
+    		send_to_char (ed->keyword, ch);
+    		send_to_char (" ", ch);
+    	}
+    	send_to_char ("{x\r\n", ch);
+      }
+      if (!cAll)
+    	return TRUE;
+    }
+	if (cAll || !str_prefix (arg2, "description"))
+	{
+      free_string( pRoomCopy->description );
+      pRoomCopy->description = str_dup( pRoomOrig->description );
+      sprintf (buf, "{rREDIT: {yCOPY:{x description copied: \r\n%s{x",
+        pRoomCopy->description);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll)
+    {
+      sprintf(buf,  "\r\n{rREDIT: {yCOPY: Room %d duplicated.{x\r\n", vnum );
+	  send_to_char (buf, ch);
+      return TRUE;
+    }
+
+      sprintf(buf, "{rREDIT: {yCOPY:{x Syntax Error. \"{r%s{x\"\r\n"
+      		       "       {yValid Arguments:{x\r\n"
+		           "       all, name, sector, flags, heal, mana,\r\n"
+		           "       clan, owner, desc, extra. Use all to clone.\r\n", arg2);
+      send_to_char (buf, ch);
+      return FALSE;
+	}
+}
+
+OEDIT (oedit_copy)
+{
+	OBJ_INDEX_DATA *pObjOrig;
+	OBJ_INDEX_DATA *pObjCopy;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	int vnum, i;
+	char buf[MAX_STRING_LENGTH];
+	
+	if (argument[0] == '\0')
+	{
+		sprintf (buf, "{rOEDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+		              "       Syntax: COPY <vnum> <argument>\r\n"
+		              "       {yValid Arguments:{x\r\n"
+		              "          level, name, long, short, extended, type, wear,\r\n"
+		              "          material, extra, affects, values\r\n"
+		              "          condition, weight, cost. Use \'all\' to clone.\r\n");
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	bool cAll;
+
+	argument = one_argument (argument, arg1);
+	argument = one_argument (argument, arg2);
+	
+	if (!str_cmp (arg2, "all" ) || arg2[0] == '\0')
+		cAll = TRUE;
+	else
+		cAll = FALSE;
+	
+
+	if (!is_number(arg1))
+	{
+		sprintf (buf, "{rOEDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+					  "       Syntax: COPY <vnum>\r\n"
+					  "               COPY <vnum> <argument>\r\n"
+					  "       %s is not a number.\r\n", arg1);
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	else
+	{
+		vnum = atoi(arg1);
+		if ((pObjOrig = get_obj_index(vnum)) == NULL)
+		{
+			sprintf (buf, "{rOEDIT: {yCOPY: {xYou must specify an EXISTING object to copy.\r\n"
+					  "       %d is not an existing object.\r\n", vnum);
+			send_to_char (buf, ch);
+			return FALSE;
+		}
+
+
+    EDIT_OBJ (ch, pObjCopy);
+
+	if (cAll || !str_prefix (arg2, "level"))
+	{
+      pObjCopy->level = pObjOrig->level;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x level copied:            {y%d{x\r\n",
+        pObjCopy->level);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "name"))
+	{
+      free_string( pObjCopy->name );
+      pObjCopy->name = str_dup( pObjOrig->name );
+      sprintf (buf, "{rOEDIT: {yCOPY:{x name copied:             {y%s{x\r\n",
+        pObjCopy->name);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "long") || !str_prefix (arg2, "description"))
+	{
+      free_string( pObjCopy->description );
+      pObjCopy->description = str_dup( pObjOrig->description );
+      sprintf (buf, "{rOEDIT: {yCOPY:{x description copied:      {y%s{x\r\n",
+        pObjCopy->description);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "short"))
+	{
+      free_string( pObjCopy->short_descr );
+      pObjCopy->short_descr = str_dup( pObjOrig->short_descr );
+      sprintf (buf, "{rOEDIT: {yCOPY:{x Short desc copied:       {y%s{x\r\n",
+        pObjCopy->short_descr);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "extended") || !str_prefix (arg2, "ed"))
+	{
+      EXTRA_DESCR_DATA *ed;
+      EXTRA_DESCR_DATA *edCLONE;
+      
+      for (ed = pObjOrig->extra_descr; ed != NULL; ed = ed->next)
+	  {
+	    edCLONE                  =   new_extra_descr();
+	    edCLONE->keyword         =   str_dup( ed->keyword );
+	    edCLONE->description     =   str_dup( ed->description);
+	    edCLONE->next            =   pObjCopy->extra_descr;
+	    pObjCopy->extra_descr    =   edCLONE;
+	  }
+
+      sprintf (buf, "{rOEDIT: {yCOPY:{x extra desc copied:      {y");
+      send_to_char(buf,ch);
+	  for ( ed = pObjCopy->extra_descr; ed; ed = ed->next )
+	  {
+	    send_to_char( ed->keyword, ch );
+	    send_to_char( " ", ch );
+	  }
+	  send_to_char( "{x\r\n", ch );      
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "type"))
+	{
+      pObjCopy->item_type = pObjOrig->item_type;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x item type copied:        {y%s{x\r\n",
+        flag_string( type_flags, pObjCopy->item_type));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "wear"))
+	{
+      pObjCopy->wear_flags = pObjOrig->wear_flags;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x wear flags copied:       {y%s{x\r\n",
+        flag_string ( wear_flags, pObjCopy->wear_flags));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "material"))
+	{
+      free_string( pObjCopy->material );
+      pObjCopy->material = str_dup( pObjOrig->material );
+      sprintf (buf, "{rOEDIT: {yCOPY:{x material copied:         {y%s{x\r\n",
+        pObjCopy->material);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "extra"))
+	{
+      pObjCopy->extra_flags = pObjOrig->extra_flags;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x extra flags copied:      {y%s{x\r\n",
+        flag_string ( extra_flags, pObjCopy->extra_flags));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "condition"))
+	{
+      pObjCopy->condition = pObjOrig->condition;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x condition copied:        {y%d{x\r\n",
+        pObjCopy->condition);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "weight"))
+	{
+      pObjCopy->weight = pObjOrig->weight;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x weight copied:           {y%d{x (10th lbs)\r\n",
+        pObjCopy->weight);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "cost"))
+	{
+      pObjCopy->cost = pObjOrig->cost;
+      sprintf (buf, "{rOEDIT: {yCOPY:{x cost copied:             {y%d{x\r\n",
+        pObjCopy->cost);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "affects"))
+	{
+	  AFFECT_DATA *paf;
+	  int cnt;
+
+	// it's just an int, zap it over then show what we did
+      pObjCopy->affected = pObjOrig->affected;
+      send_to_char ("{rOEDIT: {yCOPY:{x affects copied: \r\n", ch);
+    for ( cnt = 0, paf = pObjCopy->affected; paf; paf = paf->next )
+    {
+	  if ( cnt == 0 )
+	  {
+	      send_to_char( "Number Modifier Affects\r\n", ch );
+	      send_to_char( "------ -------- -------\r\n", ch );
+	  }
+	  sprintf( buf, "[%4d] %-8d %s\r\n", cnt,
+	    paf->modifier,
+	    flag_string( apply_flags, paf->location ) );
+	  send_to_char( buf, ch );
+	  cnt++;
+    }
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "values"))
+	{
+	  for (i=0;i<5;i++)
+      pObjCopy->value[i] = pObjOrig->value[i];
+      send_to_char ("{rOEDIT: {yCOPY:{x values copied:{x\r\n",ch);
+      show_obj_values (ch, pObjCopy);
+      if (!cAll)
+      	return TRUE;
+	}
+
+	if (cAll)
+    {
+      sprintf(buf,  "\r\n{rOEDIT: {yCOPY: Object %d duplicated.{x\r\n", vnum );
+	  send_to_char (buf, ch);
+      return TRUE;
+    }
+
+      sprintf(buf, 
+		"{rOEDIT: {yCOPY:{x Syntax Error. \"{r%s{x\"\r\n"
+		"       {yValid Arguments:{x\r\n"
+		"          level, name, long, short, extended, type, wear,\r\n"
+		"          material, extra, affects, values\r\n"
+		"          condition, weight, cost. Use \'all\' to clone.\r\n", arg2);
+      send_to_char (buf, ch);
+      return FALSE;
+	}
+}
+
+MEDIT (medit_copy)
+{
+	MOB_INDEX_DATA *pMobOrig;
+	MOB_INDEX_DATA *pMobCopy;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	int vnum;
+	char buf[MAX_STRING_LENGTH];
+	
+	if (argument[0] == '\0')
+	{
+		sprintf (buf, "{rMEDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+		              "       Syntax: COPY <vnum> <argument>\r\n"
+		              "       {yValid Arguments:{x\r\n"
+        "          name, act, sex, group, race, level, alignment,\r\n"
+        "          hitroll, dam_type (damage), hit dice, damage dice, \r\n"
+        "          mana, aff, armor/ac, form, parts, imm, off, shop,\r\n"
+        "          size, start, default, wealth, special, short, long, desc.\r\n"
+		"          Use \'all\' to clone the mob.\r\n");
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	bool cAll;
+
+	argument = one_argument (argument, arg1);
+	argument = one_argument (argument, arg2);
+	
+	if (!str_cmp (arg2, "all" ) || arg2[0] == '\0')
+		cAll = TRUE;
+	else
+		cAll = FALSE;
+	
+
+	if (!is_number(arg1))
+	{
+		sprintf (buf, "{rMEDIT: {yCOPY: {xYou must specify a vnum to copy.\r\n"
+					  "       Syntax: COPY <vnum>\r\n"
+					  "               COPY <vnum> <argument>\r\n"
+					  "       %s is not a number.\r\n", arg1);
+		send_to_char (buf, ch);
+		return FALSE;
+	}
+	else
+	{
+		vnum = atoi(arg1);
+		if ((pMobOrig = get_mob_index(vnum)) == NULL)
+		{
+			sprintf (buf, "{rMEDIT: {yCOPY: {xYou must specify an EXISTING mob to copy.\r\n"
+					  "       %d is not an existing mob.\r\n", vnum);
+			send_to_char (buf, ch);
+			return FALSE;
+		}
+
+
+    EDIT_MOB (ch, pMobCopy);
+	if (cAll || !str_prefix (arg2, "name"))
+	{
+      free_string( pMobCopy->player_name );
+      pMobCopy->player_name = str_dup( pMobOrig->player_name );
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Name copied:             {y%s{x\r\n",
+        pMobCopy->player_name);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "act"))
+	{
+      pMobCopy->act = pMobOrig->act;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Act copied:              {y%s{x\r\n",
+        flag_string(act_flags, pMobCopy->act));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "sex"))
+	{
+      pMobCopy->sex = pMobOrig->sex;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Sex copied:              {y%s{x\r\n",
+      pMobCopy->sex == SEX_MALE    ? "male"   :
+	  pMobCopy->sex == SEX_FEMALE  ? "female" : 
+	  pMobCopy->sex == 3           ? "random" : "neutral");
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "group"))
+	{
+      pMobCopy->group = pMobOrig->group;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Group copied:            {y%d{x\r\n",
+        pMobCopy->group);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "race"))
+	{
+      pMobCopy->race = pMobOrig->race;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Race copied:             {y%s{x\r\n",
+        race_table[pMobCopy->race].name);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "level"))
+	{
+      pMobCopy->level = pMobOrig->level;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Level copied:            {y%d{x\r\n",
+        pMobCopy->level);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "alignment"))
+	{
+      pMobCopy->alignment = pMobOrig->alignment;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Alignment copied:        {y%d{x\r\n",
+        pMobCopy->alignment);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "hitroll"))
+	{
+      pMobCopy->hitroll = pMobOrig->hitroll;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Hitroll copied:          {y%d{x\r\n",
+        pMobCopy->hitroll);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "dam_type") || !str_cmp (arg2, "damage"))
+	{
+      pMobCopy->dam_type = pMobOrig->dam_type;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Damage type copied:      {y%s{x\r\n",
+        attack_table[pMobCopy->dam_type].name);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "hit") || !str_cmp (arg2, "hit dice"))
+	{
+      pMobCopy->hit[DICE_NUMBER] = pMobOrig->hit[DICE_NUMBER];
+      pMobCopy->hit[DICE_TYPE]   = pMobOrig->hit[DICE_TYPE];
+      pMobCopy->hit[DICE_BONUS]  = pMobOrig->hit[DICE_BONUS];
+
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Hit dice copied:         {y%2ldd%-3ld+%4ld{x\r\n",
+        pMobCopy->hit[DICE_NUMBER], pMobCopy->hit[DICE_TYPE], pMobCopy->hit[DICE_BONUS]);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "damdice") || !str_cmp (arg2, "damage dice"))
+	{
+      pMobCopy->damage[DICE_NUMBER] = pMobOrig->damage[DICE_NUMBER];
+      pMobCopy->damage[DICE_TYPE]   = pMobOrig->damage[DICE_TYPE];
+      pMobCopy->damage[DICE_BONUS]  = pMobOrig->damage[DICE_BONUS];
+
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Damage dice copied:      {y%2dd%-3d+%4d{x\r\n",
+        pMobCopy->damage[DICE_NUMBER], pMobCopy->damage[DICE_TYPE], pMobCopy->damage[DICE_BONUS]);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "mana") || !str_cmp (arg2, "mana dice"))
+	{
+      pMobCopy->mana[DICE_NUMBER] = pMobOrig->mana[DICE_NUMBER];
+      pMobCopy->mana[DICE_TYPE]   = pMobOrig->mana[DICE_TYPE];
+      pMobCopy->mana[DICE_BONUS]  = pMobOrig->mana[DICE_BONUS];
+
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Mana dice copied:        {y%2ldd%-3ld+%4ld{x\r\n",
+        pMobCopy->mana[DICE_NUMBER], pMobCopy->mana[DICE_TYPE], pMobCopy->mana[DICE_BONUS]);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "aff"))
+	{
+      pMobCopy->affected_by = pMobOrig->affected_by;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Aff copied:              {y%s{x\r\n",
+        flag_string(affect_flags, pMobCopy->affected_by));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "armor") || !str_cmp (arg2, "ac"))
+	{
+      pMobCopy->ac[AC_PIERCE] = pMobOrig->ac[AC_PIERCE];
+      pMobCopy->ac[AC_BASH]   = pMobOrig->ac[AC_BASH];
+      pMobCopy->ac[AC_SLASH]  = pMobOrig->ac[AC_SLASH];
+      pMobCopy->ac[AC_EXOTIC] = pMobOrig->ac[AC_EXOTIC];
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Armor copied:            pierce: {y%d{x  bash: {y%d{x  slash: {y%d{x  magic: {y%d{x\r\n",
+        pMobCopy->ac[AC_PIERCE], pMobCopy->ac[AC_BASH],
+		pMobCopy->ac[AC_SLASH], pMobCopy->ac[AC_EXOTIC]);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "form"))
+	{
+      pMobCopy->form = pMobOrig->form;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Form copied:             {y%s{x\r\n",
+        flag_string(form_flags, pMobCopy->form));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "parts"))
+	{
+      pMobCopy->parts = pMobOrig->parts;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Parts copied:            {y%s{x\r\n",
+        flag_string(part_flags, pMobCopy->parts));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "immunities") 
+	|| !str_prefix (arg2, "immune"))
+	{
+      pMobCopy->imm_flags = pMobOrig->imm_flags;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Immunities copied:       {y%s{x\r\n",
+        flag_string(imm_flags, pMobCopy->imm_flags));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "offense"))
+	{
+      pMobCopy->off_flags = pMobOrig->off_flags;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Offensive copied:        {y%s{x\r\n",
+        flag_string(off_flags, pMobCopy->off_flags));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "size"))
+	{
+      pMobCopy->size = pMobOrig->size;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Size copied:             {y%s{x\r\n",
+        flag_string(size_flags, pMobCopy->size));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "start") || !str_cmp (arg2, "position start"))
+	{
+      pMobCopy->start_pos = pMobOrig->start_pos;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Start Position copied:   {y%s{x\r\n",
+        flag_string(position_flags, pMobCopy->start_pos));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "default") || !str_cmp (arg2, "position default"))
+	{
+      pMobCopy->default_pos = pMobOrig->default_pos;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Default Position copied: {y%s{x\r\n",
+        flag_string(position_flags, pMobCopy->default_pos));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "wealth"))
+	{
+      pMobCopy->wealth = pMobOrig->wealth;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Wealth copied:           {y%ld{x\r\n",
+        pMobCopy->wealth);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "spec_fun") || !str_prefix (arg2, "special"))
+	{
+      pMobCopy->spec_fun = pMobOrig->spec_fun;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Spec copied:             {y%s{x\r\n",
+        spec_name (pMobCopy->spec_fun));
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "short"))
+	{
+      free_string( pMobCopy->short_descr );
+      pMobCopy->short_descr = str_dup( pMobOrig->short_descr );
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Short Description copied:{y%s{x\r\n",
+        pMobCopy->short_descr);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "long"))
+	{
+      free_string( pMobCopy->long_descr );
+      pMobCopy->long_descr = str_dup( pMobOrig->long_descr );
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Long Description copied: {y%s{x",
+        pMobCopy->long_descr);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_prefix (arg2, "description"))
+	{
+      free_string( pMobCopy->description );
+      pMobCopy->description = str_dup( pMobOrig->description );
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Description copied:\r\n%s{x",
+        pMobCopy->description);
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+	}
+	if (cAll || !str_cmp (arg2, "shop"))
+	{
+      if (pMobOrig->pShop) // Only do this if the original has a shop.
+      {
+      	if (!pMobCopy->pShop) // ONLY assign shop if there isn't one.
+      	{
+      		pMobCopy->pShop = new_shop();
+      		if (!shop_first)
+      			shop_first = pMobCopy->pShop;
+      		if (shop_last)
+      			shop_last->next = pMobCopy->pShop;
+      		shop_last = pMobCopy->pShop;
+	        pMobCopy->pShop->keeper	= pMobCopy->vnum;
+      		sprintf (buf, "{rMEDIT: {yCOPY:{x Shop assigned:           {y%s{x\r\n",
+              pMobCopy->pShop ? "yes":"no");
+        	send_to_char(buf,ch);
+      	}
+	// Shop open copy
+      	pMobCopy->pShop->open_hour = pMobOrig->pShop->open_hour;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Shop open copied:        {y%d{x\r\n",
+        pMobCopy->pShop->open_hour);
+        send_to_char(buf,ch);
+	// Shop close copy
+      	pMobCopy->pShop->close_hour = pMobOrig->pShop->close_hour;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Shop close copied:       {y%d{x\r\n",
+        pMobCopy->pShop->close_hour);
+        send_to_char(buf,ch);
+	// Shop profit copy
+      	pMobCopy->pShop->profit_buy = pMobOrig->pShop->profit_buy;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Shop profit buy copied:  {y%d{x\r\n",
+        pMobCopy->pShop->profit_buy);
+        send_to_char(buf,ch);
+      	pMobCopy->pShop->profit_sell = pMobOrig->pShop->profit_sell;
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Shop profit sell copied: {y%d{x\r\n",
+        pMobCopy->pShop->profit_sell);
+        send_to_char(buf,ch);
+    // Shop types
+      int iTrade;
+      for (iTrade=0;iTrade<MAX_TRADE;iTrade++)
+    	{
+    	  pMobCopy->pShop->buy_type[iTrade] = pMobOrig->pShop->buy_type[iTrade];
+    	  sprintf (buf, "{rMEDIT: {yCOPY:{x Shop type copied:        {y[%d] %s{x\r\n",
+            iTrade, flag_string (type_flags, pMobCopy->pShop->buy_type[iTrade]));
+          send_to_char (buf, ch);
+    	}
+
+      sprintf (buf, "{rMEDIT: {yCOPY:{x Shop copied.{x\r\n");
+      send_to_char(buf,ch);
+      if (!cAll)
+      	return TRUE;
+      }// End of 'has pShop' to copy
+      else
+	  {
+         sprintf (buf, "{rMEDIT: {yCOPY:{x No shop to copy.{x\r\n");
+         send_to_char(buf,ch);
+      }
+	}
+	if (!pMobOrig->pShop && pMobCopy->pShop)
+	{
+	SHOP_DATA *pShop;
+
+	pShop		= pMobCopy->pShop;
+	pMobCopy->pShop	= NULL;
+
+	if ( pShop == shop_first )
+	{
+		if ( !pShop->next )
+		{
+			shop_first = NULL;
+			shop_last = NULL;
+		}
+		else
+			shop_first = pShop->next;
+	}
+	else
+	{
+		SHOP_DATA *ipShop;
+
+		for ( ipShop = shop_first; ipShop; ipShop = ipShop->next )
+		{
+			if ( ipShop->next == pShop )
+			{
+				if ( !pShop->next )
+				{
+					shop_last = ipShop;
+					shop_last->next = NULL;
+				}
+				else
+					ipShop->next = pShop->next;
+			}
+		}
+	}
+
+	free_shop(pShop);
+
+	send_to_char("{rMEDIT: {yCOPY:{x Shop removed.{x\r\n", ch);
+    if (!cAll)
+      return TRUE;
+
+	}
+
+// Straight copy, just let them know it all was.
+	if (cAll)
+    {
+      sprintf(buf,  "\r\n{rMEDIT: {yCOPY: %s (Mob %d) duplicated.{x\r\n", pMobOrig->short_descr, vnum );
+	  send_to_char (buf, ch);
+      return TRUE;
+    }
+
+// Not a valid command/part, let them know, and yes. I'm a goof, Syntax error heh.
+      sprintf(buf, 
+		"{rMEDIT: {yCOPY:{x Syntax Error. \"{r%s{x\"\r\n"
+		"       {yValid Arguments:{x\r\n"
+        "          name, act, sex, group, race, level, alignment,\r\n"
+        "          hitroll, dam_type (damage), hit dice, damage dice, \r\n"
+        "          mana, aff, armor/ac, form, parts, imm, off, shop,\r\n"
+        "          size, start, default, wealth, special, short, long, desc.\r\n"
+		"          Use \'all\' to clone the mob.\r\n", arg2);
+      send_to_char (buf, ch);
+      return FALSE;
+	}
+}
+

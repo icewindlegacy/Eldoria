@@ -241,6 +241,7 @@ DECLARE_OLC_FUN( redit_addrprog		);
 DECLARE_OLC_FUN( redit_delrprog		);
 DECLARE_OLC_FUN( redit_delete           );
 DECLARE_OLC_FUN( redit_walkabout        );
+DECLARE_OLC_FUN( redit_copy		);
 
 /*
  * Object Editor Prototypes
@@ -281,6 +282,7 @@ DECLARE_OLC_FUN( oedit_autoweapon       );
 DECLARE_OLC_FUN( oedit_autoarmor        );
 DECLARE_OLC_FUN( oedit_delete           );
 DECLARE_OLC_FUN( oedit_xptolevel        );
+DECLARE_OLC_FUN( oedit_copy		);
 
 
 /*
@@ -328,6 +330,7 @@ DECLARE_OLC_FUN( medit_autoset          );
 DECLARE_OLC_FUN( medit_clevel           );
 DECLARE_OLC_FUN( medit_cability         );
 DECLARE_OLC_FUN( medit_delete           );
+DECLARE_OLC_FUN( medit_copy		);
 
 /* Mobprog editor */
 DECLARE_OLC_FUN( mpedit_create		);

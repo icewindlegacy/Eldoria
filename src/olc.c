@@ -379,6 +379,7 @@ const struct olc_cmd_type redit_table[] =
     {	"delrprog",	redit_delrprog	},
     {   "delete",       redit_delete    },
     {   "walkabout",    redit_walkabout },
+    {   "copy",		redit_copy	},
     {   "?",		show_help	},
     {   "version",	show_version	},
 
@@ -427,6 +428,7 @@ const struct olc_cmd_type oedit_table[] =
     {   "autoarmor",    oedit_autoarmor },
     {   "delete",       oedit_delete    },
     {   "xptolevel",    oedit_xptolevel },
+    {   "copy",		oedit_copy	},
  
     {   "?",		show_help	},
     {   "version",	show_version	},
@@ -483,6 +485,7 @@ const struct olc_cmd_type medit_table[] =
     {   "cability",     medit_cability  },
     {   "delete",       medit_delete    },
     {   "aggression",   medit_aggression},
+    {   "copy",		medit_copy	},
 
     {   "?",		show_help	},
     {   "version",	show_version	},
