@@ -634,7 +634,6 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 			pMail->name = str_dup(d->character->name);
 			send_to_char("Email set.\n\r",ch);
 			free_string(pMail->email);
-			free_string(d->character->pcdata->email );
 			d->character->pcdata->email = str_dup(argument);
 			pMail->email = str_dup(argument );
 			send_creation_menu(ch);
@@ -1376,7 +1375,7 @@ void send_creation_menu(CHAR_DATA *ch)
 	}
 	printf_to_char(ch,"{CF{r:{W Short Description   {r- {W%s\n\r", ch->pcdata->creation[CHOSE_SHORT] == TRUE ? ch->short_descr : "Not Chosen" );
 	printf_to_char(ch,"{CG{r:{W Attribute Selection {r- {W%s{x\n\r", ch->pcdata->creation[CHOSE_ATTRIBUTES] == TRUE ? "Set" : "Not Chosen" );
-    printf_to_char(ch,"{CH{r:{W E-Mail Address      {r- {W%s{x\n\r", email_lookup(ch->name) == NULL ? "Not Set" : ch->pcdata->email );
+    printf_to_char(ch,"{CH{r:{W E-Mail Address      {r- {W%s{x\n\r", !str_cmp(ch->pcdata->email, "none") ? "Not Set" : ch->pcdata->email );
          send_to_char("{CI{r:{W Done",ch);
 	send_to_char("\n\r{CPlease make a selection based off the corresponding letter.\n\rEnter selection{W->{x ",ch);
 	return;
