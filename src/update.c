@@ -242,7 +242,7 @@ void gain_exp( CHAR_DATA *ch, int gain )
         ch->mana       = ch->max_mana;
         ch->move       = ch->max_move;
         update_pos( ch);
-        send_to_char( "{G[INFO]:{x {BSynon has given you the power to continue!{x\n\r", ch );
+        send_to_char( "{G[INFO]:{x {BThe gods given you the power to continue!{x\n\r", ch );
         save_char_obj(ch);
     }
 

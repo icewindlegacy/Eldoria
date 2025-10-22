@@ -2077,7 +2077,7 @@ void spell_dispel_evil( int sn, int level, CHAR_DATA *ch, void *vo,int target)
   
     if ( IS_GOOD(victim) )
     {
-	act( "Synon protects $N.", ch, NULL, victim, TO_ROOM );
+	act( "The gods protect $N.", ch, NULL, victim, TO_ROOM );
 	return;
     }
 
@@ -5363,7 +5363,7 @@ void spell_synon_aura(int sn, int level, CHAR_DATA *ch, void *vo,int target)
     af.location  = APPLY_AC;
     affect_to_char(victim,&af);
                                   
-    send_to_char("You are protected by Synon's aura!\n\r",victim);
+    send_to_char("You are protected by the gods!\n\r",victim);
     act("$n gets a wild look in $s eyes!",victim,NULL,NULL,TO_ROOM);
 }    
 
