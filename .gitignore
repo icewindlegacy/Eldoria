@@ -28,3 +28,10 @@ Thumbs.db
 # Player data (excluded for privacy)
 player/Om
 gods/Om
+
+# Runtime dump files
+*.dmp
+
+# Player files
+player/*
+!player/.gitkeep
